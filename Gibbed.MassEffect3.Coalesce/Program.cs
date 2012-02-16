@@ -52,14 +52,14 @@ namespace Gibbed.MassEffect3.Coalesce
             var options = new OptionSet()
             {
                 {
-                    "b|xml2bin",
-                    "convert xml to bin",
+                    "b|json2bin",
+                    "convert json to bin",
                     v => mode = v != null ? Mode.ToBIN : mode
                 },
                 {
-                    "x|bin2xml",
-                    "convert bin to xml",
-                    v => mode = v != null ? Mode.ToXML : mode
+                    "j|bin2json",
+                    "convert bin to json",
+                    v => mode = v != null ? Mode.ToJSON : mode
                 },
                 {
                     "h|help",
@@ -94,14 +94,14 @@ namespace Gibbed.MassEffect3.Coalesce
                 }
                 else if (File.Exists(testPath) == true)
                 {
-                    mode = Mode.ToXML;
+                    mode = Mode.ToJSON;
                 }
             }
 
             if (extras.Count < 1 || extras.Count > 2 ||
                 showHelp == true || mode == Mode.Unknown)
             {
-                Console.WriteLine("Usage: {0} [OPTIONS]+ -x input_bin [output_dir]", GetExecutableName());
+                Console.WriteLine("Usage: {0} [OPTIONS]+ -j input_bin [output_dir]", GetExecutableName());
                 Console.WriteLine("       {0} [OPTIONS]+ -b input_dir [output_bin]", GetExecutableName());
                 Console.WriteLine();
                 Console.WriteLine("Options:");
@@ -109,7 +109,7 @@ namespace Gibbed.MassEffect3.Coalesce
                 return;
             }
 
-            if (mode == Mode.ToXML)
+            if (mode == Mode.ToJSON)
             {
                 var inputPath = extras[0];
                 var outputPath = extras.Count > 1 ? extras[1] : Path.ChangeExtension(inputPath, null);

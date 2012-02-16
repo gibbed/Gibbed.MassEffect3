@@ -20,13 +20,12 @@
  *    distribution.
  */
 
-
 namespace Gibbed.MassEffect3.Coalesce
 {
     internal enum Mode
     {
         Unknown,
-        ToXML,
+        ToJSON,
         ToBIN,
     }
 }
