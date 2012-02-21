@@ -251,6 +251,17 @@ namespace Gibbed.MassEffect3.UnpackPackage
                         }
                     }
 
+                    if (exportInfo.Class == null)
+                    {
+                        Console.WriteLine("{0}", exportInfo.FullName);
+                    }
+                    else
+                    {
+                        Console.WriteLine("({0}) {1}",
+                            exportInfo.Class.FullName,
+                            exportInfo.FullName);
+                    }
+
                     var exportPath = Path.Combine(outputPath, exportInfo.FullPath + " [export#" + i.ToString() + "].bin");
                     if (File.Exists(exportPath) == true)
                     {
