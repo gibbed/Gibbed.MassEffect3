@@ -262,7 +262,10 @@ namespace Gibbed.MassEffect3.UnpackPackage
                             exportInfo.FullName);
                     }
 
-                    var exportPath = Path.Combine(outputPath, exportInfo.FullPath + " [export#" + i.ToString() + "].bin");
+                    var fullPath = exportInfo.FullPath;
+                    fullPath = fullPath.Replace(":", "_");
+
+                    var exportPath = Path.Combine(outputPath, fullPath + " [export#" + i.ToString() + "].bin");
                     if (File.Exists(exportPath) == true)
                     {
                         throw new InvalidOperationException();
