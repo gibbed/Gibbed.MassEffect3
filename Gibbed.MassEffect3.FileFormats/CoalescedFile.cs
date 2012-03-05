@@ -77,7 +77,7 @@ namespace Gibbed.MassEffect3.FileFormats
             using (var data = new MemoryStream())
             {
                 data.Position = 4;
-                data.WriteValueS32(keys.Count);
+                data.WriteValueS32(keys.Count, endian);
 
                 data.Position = 4 + 4 + (8 * keys.Count);
                 var offsets = new List<KeyValuePair<uint, uint>>();
