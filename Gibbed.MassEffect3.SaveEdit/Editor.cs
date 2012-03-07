@@ -114,6 +114,8 @@ namespace Gibbed.MassEffect3.SaveEdit
                 return;
             }
 
+            this.SaveFile.Endian = this.saveFileDialog.FilterIndex != 2 ?
+                Endian.Little : Endian.Big;
             using (var output = this.saveFileDialog.OpenFile())
             {
                 FileFormats.SaveFile.Write(this.SaveFile, output);
