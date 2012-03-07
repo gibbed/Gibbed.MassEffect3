@@ -36,6 +36,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,18 +51,65 @@
     <Compile Include="Huffman\Pair.cs" />
     <Compile Include="Huffman\Encoder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SaveFile.cs" />
+    <Compile Include="Save\Appearance.cs" />
+    <Compile Include="Save\AutoReplyModeOptions.cs" />
+    <Compile Include="Save\DependentDLC.cs" />
+    <Compile Include="Save\DifficultyOptions.cs" />
+    <Compile Include="Save\Door.cs" />
+    <Compile Include="Save\EndGameType.cs" />
+    <Compile Include="Save\GalaxyMap.cs" />
+    <Compile Include="Save\GAWAsset.cs" />
+    <Compile Include="Save\Henchman.cs" />
+    <Compile Include="Save\HotKey.cs" />
+    <Compile Include="Save\KismetBool.cs" />
+    <Compile Include="Save\Level.cs" />
+    <Compile Include="Save\LevelTreasure.cs" />
+    <Compile Include="Save\LinearColor.cs" />
+    <Compile Include="Save\Loadout.cs" />
+    <Compile Include="Save\ME1PlotTable.cs" />
+    <Compile Include="Save\MorphHead.cs" />
+    <Compile Include="Save\NotorietyType.cs" />
+    <Compile Include="Save\ObjectiveMarker.cs" />
+    <Compile Include="Save\ObjectiveMarkerIconType.cs" />
+    <Compile Include="Save\OriginType.cs" />
+    <Compile Include="Save\Placeable.cs" />
+    <Compile Include="Save\PlayerAppearanceType.cs" />
+    <Compile Include="Save\Player.cs" />
+    <Compile Include="Save\PlayerVariable.cs" />
+    <Compile Include="Save\PlotTable.cs" />
+    <Compile Include="Save\Power.cs" />
+    <Compile Include="Save\Rotator.cs" />
+    <Compile Include="Save\SaveTimeStamp.cs" />
+    <Compile Include="Save\StreamingState.cs" />
+    <Compile Include="Save\Vector.cs" />
+    <Compile Include="Save\Vector2D.cs" />
+    <Compile Include="Save\Weapon.cs" />
+    <Compile Include="Save\WeaponMod.cs" />
     <Compile Include="SFXArchiveFile.cs" />
     <Compile Include="SFXArchive\CompressionScheme.cs" />
     <Compile Include="FileNameHash.cs" />
     <Compile Include="SFXArchive\Entry.cs" />
     <Compile Include="StreamHelpers.cs" />
     <Compile Include="StringHelpers.cs" />
+    <Compile Include="Unreal\FileReader.cs" />
+    <Compile Include="Unreal\FileWriter.cs" />
+    <Compile Include="Unreal\ISerializable.cs" />
+    <Compile Include="Unreal\ISerializer.cs" />
+    <Compile Include="Unreal\SerializeMode.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DynamicTypeDescriptor\DynamicTypeDescriptor.csproj">
+      <Project>{078F86E5-A9E5-442D-B322-0448309A75A4}</Project>
+      <Name>DynamicTypeDescriptor</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Gibbed.IO\Gibbed.IO.csproj">
       <Project>{047857BA-DAA3-4CA7-AFB8-A1B082B28C6A}</Project>
       <Name>Gibbed.IO</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

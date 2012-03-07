@@ -42,7 +42,6 @@ namespace Gibbed.MassEffect3.UnpackSFXArchive
         {
             bool showHelp = false;
             bool extractUnknowns = true;
-            bool noArt = true;
             bool overwriteFiles = false;
             bool verbose = false;
 
