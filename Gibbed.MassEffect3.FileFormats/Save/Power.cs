@@ -24,6 +24,7 @@ using System.ComponentModel;
 
 namespace Gibbed.MassEffect3.FileFormats.Save
 {
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class Power : Unreal.ISerializable, INotifyPropertyChanged
     {
         private string _PowerName;
@@ -51,7 +52,13 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             stream.Serialize(ref this._WheelDisplayIndex);
         }
 
+        public override string ToString()
+        {
+            return this.PowerName;
+        }
+
         #region Properties
+        [DisplayName("Name")]
         public string PowerName
         {
             get { return this._PowerName; }
@@ -65,6 +72,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             }
         }
 
+        [DisplayName("Current Rank")]
         public float CurrentRank
         {
             get { return this._CurrentRank; }
@@ -78,6 +86,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             }
         }
 
+        [DisplayName("Evolved Choice #1")]
         public int EvolvedChoice0
         {
             get { return this._EvolvedChoice0; }
@@ -91,6 +100,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             }
         }
 
+        [DisplayName("Evolved Choice #2")]
         public int EvolvedChoice1
         {
             get { return this._EvolvedChoice1; }
@@ -104,6 +114,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             }
         }
 
+        [DisplayName("Evolved Choice #3")]
         public int EvolvedChoice2
         {
             get { return this._EvolvedChoice2; }
@@ -117,6 +128,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             }
         }
 
+        [DisplayName("Evolved Choice #4")]
         public int EvolvedChoice3
         {
             get { return this._EvolvedChoice3; }
@@ -130,6 +142,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             }
         }
 
+        [DisplayName("Evolved Choice #5")]
         public int EvolvedChoice4
         {
             get { return this._EvolvedChoice4; }
@@ -143,6 +156,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             }
         }
 
+        [DisplayName("Evolved Choice #6")]
         public int EvolvedChoice5
         {
             get { return this._EvolvedChoice5; }
@@ -156,6 +170,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             }
         }
 
+        [DisplayName("Class Name")]
         public string PowerClassName
         {
             get { return this._PowerClassName; }
@@ -169,6 +184,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             }
         }
 
+        [DisplayName("Wheel Display Index")]
         public int WheelDisplayIndex
         {
             get { return this._WheelDisplayIndex; }

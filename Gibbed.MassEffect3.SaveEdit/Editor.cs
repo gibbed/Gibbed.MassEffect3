@@ -24,6 +24,7 @@ using System;
 using System.ComponentModel;
 using System.IO;
 using System.Windows.Forms;
+using System.Text;
 using Gibbed.IO;
 
 namespace Gibbed.MassEffect3.SaveEdit
@@ -77,7 +78,7 @@ namespace Gibbed.MassEffect3.SaveEdit
             this.iconImageList.Images.Add("Tab_Raw", Icons.Binary);
 
             this.playerRootTabPage.ImageKey = "Tab_Player_Male";
-            this.playerBasicTabPage.ImageKey = "Tab_Player_Basic";
+            this.playerCharacterTabPage.ImageKey = "Tab_Player_Basic";
             this.playerAppearanceTabPage.ImageKey = "Tab_Player_Appearance";
 
             this.rawTabPage.ImageKey = "Tab_Raw";
@@ -158,6 +159,117 @@ namespace Gibbed.MassEffect3.SaveEdit
         void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             this.rootPropertyGrid.Refresh();
+        }
+
+        private const string HeadMorphMagic = "GIBBEDMASSEFFECT3HEADMORPH";
+
+        private void OnImportHeadMorph(object sender, EventArgs e)
+        {
+            if (this.SaveFile == null)
+            {
+                MessageBox.Show(
+                    "There is no active save.",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
+
+            if (this.openHeadMorphDialog.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+
+            using (var input = this.openHeadMorphDialog.OpenFile())
+            {
+                if (input.ReadString(HeadMorphMagic.Length, Encoding.ASCII) != HeadMorphMagic)
+                {
+                    MessageBox.Show(
+                        "That file does not appear to be an exported head morph.",
+                        "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                    input.Close();
+                    return;
+                }
+
+                if (input.ReadValueU8() != 0)
+                {
+                    MessageBox.Show(
+                        "Unsupported head morph export version.",
+                        "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                    input.Close();
+                    return;
+                }
+
+                uint version = input.ReadValueU32();
+
+                if (version != this.SaveFile.Version)
+                {
+                    if (MessageBox.Show(
+                        String.Format(
+                            "The head morph you are importing has a different " +
+                            "version ({0}) than your current save file ({1}).\n\n" +
+                            "Import anyway?",
+                            version,
+                            this.SaveFile.Version),
+                        "Question",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question) == DialogResult.No)
+                    {
+                        input.Close();
+                        return;
+                    }
+                }
+
+                var reader = new FileFormats.Unreal.FileReader(
+                    input, version, Endian.Little);
+                var morphHead = new FileFormats.Save.MorphHead();
+                morphHead.Serialize(reader);
+                this.SaveFile.Player.Appearance.MorphHead = morphHead;
+                this.SaveFile.Player.Appearance.HasMorphHead = true;
+            }
+        }
+
+        private void OnExportHeadMorph(object sender, EventArgs e)
+        {
+            if (this.SaveFile == null)
+            {
+                MessageBox.Show(
+                    "There is no active save.",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
+
+            if (this.SaveFile.Player.Appearance.HasMorphHead == false ||
+                this.SaveFile.Player.Appearance.MorphHead == null)
+            {
+                MessageBox.Show(
+                    "This save does not have a non-default head morph.",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
+
+            if (this.saveHeadMorphDialog.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+
+            using (var output = this.saveHeadMorphDialog.OpenFile())
+            {
+                output.WriteString(HeadMorphMagic, Encoding.ASCII);
+                output.WriteValueU8(0); // "version" in case I break something in the future
+                output.WriteValueU32(this.SaveFile.Version);
+                var writer = new FileFormats.Unreal.FileWriter(
+                    output, this.SaveFile.Version, Endian.Little);
+                this.SaveFile.Player.Appearance.MorphHead.Serialize(writer);
+            }
         }
     }
 }

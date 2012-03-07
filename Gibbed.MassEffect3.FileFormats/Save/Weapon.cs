@@ -24,6 +24,7 @@ using System.ComponentModel;
 
 namespace Gibbed.MassEffect3.FileFormats.Save
 {
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class Weapon : Unreal.ISerializable, INotifyPropertyChanged
     {
         private string _WeaponClassName;
@@ -45,7 +46,13 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             stream.Serialize(ref this._AmmoPowerSourceTag, (s) => s.Version < 59, () => null);
         }
 
+        public override string ToString()
+        {
+            return this._WeaponClassName;
+        }
+
         #region Properties
+        [DisplayName("Class Name")]
         public string WeaponClassName
         {
             get { return this._WeaponClassName; }
@@ -59,6 +66,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             }
         }
 
+        [DisplayName("Ammo Used Count")]
         public int AmmoUsedCount
         {
             get { return this._AmmoUsedCount; }
@@ -72,6 +80,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             }
         }
 
+        [DisplayName("Ammo Total")]
         public int TotalAmmo
         {
             get { return this._TotalAmmo; }
@@ -85,6 +94,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             }
         }
 
+        [DisplayName("Is Current Weapon")]
         public bool CurrentWeapon
         {
             get { return this._CurrentWeapon; }
@@ -98,6 +108,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             }
         }
 
+        [DisplayName("Was Last Weapon")]
         public bool LastWeapon
         {
             get { return this._LastWeapon; }
@@ -111,6 +122,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             }
         }
 
+        [DisplayName("Ammo Power Name")]
         public string AmmoPowerName
         {
             get { return this._AmmoPowerName; }
@@ -124,6 +136,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             }
         }
 
+        [DisplayName("Ammo Power Source Tag")]
         public string AmmoPowerSourceTag
         {
             get { return this._AmmoPowerSourceTag; }

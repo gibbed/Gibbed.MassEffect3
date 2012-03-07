@@ -25,6 +25,7 @@ using System.ComponentModel;
 
 namespace Gibbed.MassEffect3.FileFormats.Save
 {
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class WeaponMod : Unreal.ISerializable, INotifyPropertyChanged
     {
         private string _WeaponClassName;
@@ -37,6 +38,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
         }
 
         #region Properties
+        [DisplayName("Class Name")]
         public string WeaponClassName
         {
             get { return this._WeaponClassName; }
@@ -50,6 +52,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             }
         }
 
+        [DisplayName("Mod Class Names")]
         public List<string> WeaponModClassNames
         {
             get { return this._WeaponModClassNames; }

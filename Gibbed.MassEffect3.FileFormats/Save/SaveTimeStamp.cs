@@ -24,6 +24,7 @@ using System.ComponentModel;
 
 namespace Gibbed.MassEffect3.FileFormats.Save
 {
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class SaveTimeStamp : Unreal.ISerializable, INotifyPropertyChanged
     {
         private int _SecondsSinceMidnight;
@@ -40,6 +41,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
         }
 
         #region Properties
+        [DisplayName("Seconds Since Midnight")]
         public int SecondsSinceMidnight
         {
             get { return _SecondsSinceMidnight; }
@@ -53,6 +55,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             }
         }
 
+        [DisplayName("Day")]
         public int Day
         {
             get { return this._Day; }
@@ -66,6 +69,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             }
         }
 
+        [DisplayName("Month")]
         public int Month
         {
             get { return this._Month; }
@@ -79,6 +83,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             }
         }
 
+        [DisplayName("Year")]
         public int Year
         {
             get { return this._Year; }

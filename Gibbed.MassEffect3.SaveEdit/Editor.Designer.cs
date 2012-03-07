@@ -43,7 +43,7 @@
             this.rootTabControl = new System.Windows.Forms.TabControl();
             this.playerRootTabPage = new System.Windows.Forms.TabPage();
             this.playerTabControl = new System.Windows.Forms.TabControl();
-            this.playerBasicTabPage = new System.Windows.Forms.TabPage();
+            this.playerCharacterTabPage = new System.Windows.Forms.TabPage();
             this.playerAppearanceTabPage = new System.Windows.Forms.TabPage();
             this.iconImageList = new System.Windows.Forms.ImageList(this.components);
             this.rawTabPage = new System.Windows.Forms.TabPage();
@@ -52,15 +52,22 @@
             this.childPropertyGrid = new System.Windows.Forms.PropertyGrid();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.openHeadMorphDialog = new System.Windows.Forms.OpenFileDialog();
+            this.saveHeadMorphDialog = new System.Windows.Forms.SaveFileDialog();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.importHeadMorphButton = new System.Windows.Forms.ToolStripButton();
+            this.exportHeadMorphButton = new System.Windows.Forms.ToolStripButton();
             this.rootToolStrip.SuspendLayout();
             this.rootTabControl.SuspendLayout();
             this.playerRootTabPage.SuspendLayout();
             this.playerTabControl.SuspendLayout();
+            this.playerAppearanceTabPage.SuspendLayout();
             this.rawTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // rootToolStrip
@@ -174,7 +181,7 @@
             // 
             // playerTabControl
             // 
-            this.playerTabControl.Controls.Add(this.playerBasicTabPage);
+            this.playerTabControl.Controls.Add(this.playerCharacterTabPage);
             this.playerTabControl.Controls.Add(this.playerAppearanceTabPage);
             this.playerTabControl.ImageList = this.iconImageList;
             this.playerTabControl.Location = new System.Drawing.Point(6, 6);
@@ -183,19 +190,20 @@
             this.playerTabControl.Size = new System.Drawing.Size(756, 401);
             this.playerTabControl.TabIndex = 0;
             // 
-            // playerBasicTabPage
+            // playerCharacterTabPage
             // 
-            this.playerBasicTabPage.ImageKey = "(none)";
-            this.playerBasicTabPage.Location = new System.Drawing.Point(4, 23);
-            this.playerBasicTabPage.Name = "playerBasicTabPage";
-            this.playerBasicTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.playerBasicTabPage.Size = new System.Drawing.Size(748, 374);
-            this.playerBasicTabPage.TabIndex = 0;
-            this.playerBasicTabPage.Text = "Basic";
-            this.playerBasicTabPage.UseVisualStyleBackColor = true;
+            this.playerCharacterTabPage.ImageKey = "(none)";
+            this.playerCharacterTabPage.Location = new System.Drawing.Point(4, 23);
+            this.playerCharacterTabPage.Name = "playerCharacterTabPage";
+            this.playerCharacterTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.playerCharacterTabPage.Size = new System.Drawing.Size(748, 374);
+            this.playerCharacterTabPage.TabIndex = 0;
+            this.playerCharacterTabPage.Text = "Character";
+            this.playerCharacterTabPage.UseVisualStyleBackColor = true;
             // 
             // playerAppearanceTabPage
             // 
+            this.playerAppearanceTabPage.Controls.Add(this.toolStrip1);
             this.playerAppearanceTabPage.ImageKey = "(none)";
             this.playerAppearanceTabPage.Location = new System.Drawing.Point(4, 23);
             this.playerAppearanceTabPage.Name = "playerAppearanceTabPage";
@@ -266,6 +274,43 @@
             this.saveFileDialog.Filter = "Mass Effect 3 PC Save (*.pcsav)|*.pcsav|Mass Effect 3 XBOX 360 Save (*.xbsav)|*.x" +
                 "bsav|All Files (*.*)|*.*";
             // 
+            // openHeadMorphDialog
+            // 
+            this.openHeadMorphDialog.Filter = "Mass Effect 3 Head Morphs (*.me3headmorph)|*.me3headmorph";
+            // 
+            // saveHeadMorphDialog
+            // 
+            this.saveHeadMorphDialog.Filter = "Mass Effect 3 Head Morphs (*.me3headmorph)|*.me3headmorph";
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.importHeadMorphButton,
+            this.exportHeadMorphButton});
+            this.toolStrip1.Location = new System.Drawing.Point(3, 3);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(742, 25);
+            this.toolStrip1.TabIndex = 3;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // importHeadMorphButton
+            // 
+            this.importHeadMorphButton.Image = ((System.Drawing.Image)(resources.GetObject("importHeadMorphButton.Image")));
+            this.importHeadMorphButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.importHeadMorphButton.Name = "importHeadMorphButton";
+            this.importHeadMorphButton.Size = new System.Drawing.Size(133, 22);
+            this.importHeadMorphButton.Text = "Import Head Morph";
+            this.importHeadMorphButton.Click += new System.EventHandler(this.OnImportHeadMorph);
+            // 
+            // exportHeadMorphButton
+            // 
+            this.exportHeadMorphButton.Image = ((System.Drawing.Image)(resources.GetObject("exportHeadMorphButton.Image")));
+            this.exportHeadMorphButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.exportHeadMorphButton.Name = "exportHeadMorphButton";
+            this.exportHeadMorphButton.Size = new System.Drawing.Size(130, 22);
+            this.exportHeadMorphButton.Text = "Export Head Morph";
+            this.exportHeadMorphButton.Click += new System.EventHandler(this.OnExportHeadMorph);
+            // 
             // Editor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -281,11 +326,15 @@
             this.rootTabControl.ResumeLayout(false);
             this.playerRootTabPage.ResumeLayout(false);
             this.playerTabControl.ResumeLayout(false);
+            this.playerAppearanceTabPage.ResumeLayout(false);
+            this.playerAppearanceTabPage.PerformLayout();
             this.rawTabPage.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -306,7 +355,7 @@
         private System.Windows.Forms.ToolStripSplitButton toolStripButton1;
         private System.Windows.Forms.ToolStripDropDownButton toolStripSplitButton1;
         private System.Windows.Forms.TabControl playerTabControl;
-        private System.Windows.Forms.TabPage playerBasicTabPage;
+        private System.Windows.Forms.TabPage playerCharacterTabPage;
         private System.Windows.Forms.TabPage playerAppearanceTabPage;
         private System.Windows.Forms.ToolStripMenuItem newMaleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newFemaleToolStripMenuItem;
@@ -315,6 +364,11 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.OpenFileDialog openHeadMorphDialog;
+        private System.Windows.Forms.SaveFileDialog saveHeadMorphDialog;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton importHeadMorphButton;
+        private System.Windows.Forms.ToolStripButton exportHeadMorphButton;
     }
 }
 

@@ -25,6 +25,7 @@ using System.ComponentModel;
 
 namespace Gibbed.MassEffect3.FileFormats.Save
 {
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class Henchman : Unreal.ISerializable, INotifyPropertyChanged
     {
         private string _Tag;

@@ -25,6 +25,7 @@ using System.ComponentModel;
 
 namespace Gibbed.MassEffect3.FileFormats.Save
 {
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class MorphHead : Unreal.ISerializable, INotifyPropertyChanged
     {
         private string _HairMesh;
@@ -68,6 +69,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             }
         }
 
+        [Editor("System.Windows.Forms.Design.StringCollectionEditor, System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(System.Drawing.Design.UITypeEditor))]
         public List<string> AccessoryMeshes
         {
             get { return this._AccessoryMeshes; }
@@ -220,6 +222,13 @@ namespace Gibbed.MassEffect3.FileFormats.Save
                 stream.Serialize(ref this._Offset);
             }
 
+            // for CollectionEditor
+            public string Name { get { return this._Feature; } }
+            public override string ToString()
+            {
+                return this.Name ?? "(null)";
+            }
+
             #region Properties
             public string Feature
             {
@@ -267,6 +276,12 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             {
                 stream.Serialize(ref this._Name);
                 stream.Serialize(ref this._Offset);
+            }
+
+            // for CollectionEditor
+            public override string ToString()
+            {
+                return this.Name ?? "(null)";
             }
 
             #region Properties
@@ -318,6 +333,12 @@ namespace Gibbed.MassEffect3.FileFormats.Save
                 stream.Serialize(ref this._Value);
             }
 
+            // for CollectionEditor
+            public override string ToString()
+            {
+                return this.Name ?? "(null)";
+            }
+
             #region Properties
             public string Name
             {
@@ -367,6 +388,12 @@ namespace Gibbed.MassEffect3.FileFormats.Save
                 stream.Serialize(ref this._Value);
             }
 
+            // for CollectionEditor
+            public override string ToString()
+            {
+                return this.Name ?? "(null)";
+            }
+
             #region Properties
             public string Name
             {
@@ -414,6 +441,12 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             {
                 stream.Serialize(ref this._Name);
                 stream.Serialize(ref this._Value);
+            }
+
+            // for CollectionEditor
+            public override string ToString()
+            {
+                return this.Name ?? "(null)";
             }
 
             #region Properties

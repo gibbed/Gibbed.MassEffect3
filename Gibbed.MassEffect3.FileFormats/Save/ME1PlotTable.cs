@@ -26,6 +26,7 @@ using System.ComponentModel;
 
 namespace Gibbed.MassEffect3.FileFormats.Save
 {
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class ME1PlotTable : Unreal.ISerializable, INotifyPropertyChanged
     {
         private BitArray _BoolVariables;

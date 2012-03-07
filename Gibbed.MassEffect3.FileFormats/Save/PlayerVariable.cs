@@ -24,6 +24,7 @@ using System.ComponentModel;
 
 namespace Gibbed.MassEffect3.FileFormats.Save
 {
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class PlayerVariable : Unreal.ISerializable, INotifyPropertyChanged
     {
         private string _VariableName;
@@ -36,6 +37,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
         }
 
         #region Properties
+        [DisplayName("Name")]
         public string VariableName
         {
             get { return this._VariableName; }
@@ -49,6 +51,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             }
         }
 
+        [DisplayName("Value")]
         public int VariableValue
         {
             get { return this._VariableValue; }

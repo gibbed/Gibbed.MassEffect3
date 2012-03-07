@@ -25,6 +25,7 @@ using System.ComponentModel;
 
 namespace Gibbed.MassEffect3.FileFormats.Save
 {
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class Door : Unreal.ISerializable, INotifyPropertyChanged
     {
         private Guid _DoorGUID;

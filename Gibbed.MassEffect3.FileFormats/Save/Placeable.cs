@@ -25,6 +25,7 @@ using System.ComponentModel;
 
 namespace Gibbed.MassEffect3.FileFormats.Save
 {
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class Placeable : Unreal.ISerializable, INotifyPropertyChanged
     {
         public void Serialize(Unreal.ISerializer stream)
