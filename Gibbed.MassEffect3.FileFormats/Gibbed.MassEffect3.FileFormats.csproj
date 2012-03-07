@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="CoalescedFile.cs" />
     <Compile Include="Coalesced\File.cs" />
+    <Compile Include="CRC32.cs" />
     <Compile Include="Huffman\Decoder.cs" />
     <Compile Include="Huffman\Node.cs" />
     <Compile Include="Huffman\Pair.cs" />

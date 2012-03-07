@@ -24,6 +24,7 @@ using System.ComponentModel;
 
 namespace Gibbed.MassEffect3.FileFormats.Save
 {
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class Rotator : Unreal.ISerializable, INotifyPropertyChanged
     {
         private int _Pitch;
@@ -35,6 +36,12 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             stream.Serialize(ref this._Pitch);
             stream.Serialize(ref this._Yaw);
             stream.Serialize(ref this._Roll);
+        }
+
+        public override string ToString()
+        {
+            return string.Format("{0}, {1}, {2}",
+                this._Pitch, this._Yaw, this._Roll);
         }
 
         #region Properties

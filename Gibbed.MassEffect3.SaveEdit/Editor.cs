@@ -24,6 +24,7 @@ using System;
 using System.ComponentModel;
 using System.IO;
 using System.Windows.Forms;
+using Gibbed.IO;
 
 namespace Gibbed.MassEffect3.SaveEdit
 {
@@ -87,11 +88,11 @@ namespace Gibbed.MassEffect3.SaveEdit
 
         private void LoadSaveFromStream(Stream stream)
         {
-            var saveFile = FileFormats.SaveFile.Load(stream);
+            var saveFile = FileFormats.SaveFile.Read(stream);
             this.SaveFile = saveFile;
         }
 
-        private void OnOpenFile(object sender, EventArgs e)
+        private void OnOpenFromFile(object sender, EventArgs e)
         {
             if (this.openFileDialog.ShowDialog() != DialogResult.OK)
             {
@@ -104,7 +105,22 @@ namespace Gibbed.MassEffect3.SaveEdit
             }
         }
 
-        private void rootPropertyGrid_SelectedGridItemChanged(
+        private void OnSaveToFile(object sender, EventArgs e)
+        {
+            this.saveFileDialog.FilterIndex =
+                this.SaveFile.Endian == Endian.Little ? 1 : 2;
+            if (this.saveFileDialog.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+
+            using (var output = this.saveFileDialog.OpenFile())
+            {
+                FileFormats.SaveFile.Write(this.SaveFile, output);
+            }
+        }
+
+        private void OnSelectedGridItemChanged(
             object sender, SelectedGridItemChangedEventArgs e)
         {
             if (e.OldSelection != null)
@@ -112,7 +128,7 @@ namespace Gibbed.MassEffect3.SaveEdit
                 var oldPC = e.OldSelection.Value as INotifyPropertyChanged;
                 if (oldPC != null)
                 {
-                    oldPC.PropertyChanged -= new PropertyChangedEventHandler(pc_PropertyChanged);
+                    oldPC.PropertyChanged -= new PropertyChangedEventHandler(this.OnPropertyChanged);
                 }
             }
 
@@ -126,7 +142,7 @@ namespace Gibbed.MassEffect3.SaveEdit
                     var newPC = e.NewSelection.Value as INotifyPropertyChanged;
                     if (newPC != null)
                     {
-                        newPC.PropertyChanged += new PropertyChangedEventHandler(pc_PropertyChanged);
+                        newPC.PropertyChanged += new PropertyChangedEventHandler(this.OnPropertyChanged);
                     }
 
                     return;
@@ -137,7 +153,7 @@ namespace Gibbed.MassEffect3.SaveEdit
             this.splitContainer1.Panel2Collapsed = true;
         }
 
-        void pc_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             this.rootPropertyGrid.Refresh();
         }

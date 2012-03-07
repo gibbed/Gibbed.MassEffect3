@@ -32,8 +32,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Editor));
             this.rootToolStrip = new System.Windows.Forms.ToolStrip();
             this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.newMaleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newFemaleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSplitButton2 = new System.Windows.Forms.ToolStripSplitButton();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.openFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripSplitButton();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rootTabControl = new System.Windows.Forms.TabControl();
             this.playerRootTabPage = new System.Windows.Forms.TabPage();
             this.playerTabControl = new System.Windows.Forms.TabControl();
@@ -45,6 +51,7 @@
             this.rootPropertyGrid = new System.Windows.Forms.PropertyGrid();
             this.childPropertyGrid = new System.Windows.Forms.PropertyGrid();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.rootToolStrip.SuspendLayout();
             this.rootTabControl.SuspendLayout();
             this.playerRootTabPage.SuspendLayout();
@@ -71,30 +78,74 @@
             // toolStripSplitButton1
             // 
             this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripSplitButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newMaleToolStripMenuItem,
+            this.newFemaleToolStripMenuItem});
             this.toolStripSplitButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton1.Image")));
             this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSplitButton1.Name = "toolStripSplitButton1";
             this.toolStripSplitButton1.Size = new System.Drawing.Size(29, 22);
             this.toolStripSplitButton1.Text = "toolStripSplitButton1";
             // 
+            // newMaleToolStripMenuItem
+            // 
+            this.newMaleToolStripMenuItem.Name = "newMaleToolStripMenuItem";
+            this.newMaleToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.newMaleToolStripMenuItem.Text = "New &Male";
+            // 
+            // newFemaleToolStripMenuItem
+            // 
+            this.newFemaleToolStripMenuItem.Name = "newFemaleToolStripMenuItem";
+            this.newFemaleToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.newFemaleToolStripMenuItem.Text = "New &Female";
+            // 
             // toolStripSplitButton2
             // 
-            this.toolStripSplitButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripSplitButton2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.openFileToolStripMenuItem});
             this.toolStripSplitButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton2.Image")));
             this.toolStripSplitButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSplitButton2.Name = "toolStripSplitButton2";
-            this.toolStripSplitButton2.Size = new System.Drawing.Size(32, 22);
-            this.toolStripSplitButton2.Text = "toolStripSplitButton2";
-            this.toolStripSplitButton2.ButtonClick += new System.EventHandler(this.OnOpenFile);
+            this.toolStripSplitButton2.Size = new System.Drawing.Size(68, 22);
+            this.toolStripSplitButton2.Text = "Open";
+            this.toolStripSplitButton2.ButtonClick += new System.EventHandler(this.OnOpenFromFile);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(178, 22);
+            this.toolStripMenuItem1.Text = "Open from &Career...";
+            // 
+            // openFileToolStripMenuItem
+            // 
+            this.openFileToolStripMenuItem.Name = "openFileToolStripMenuItem";
+            this.openFileToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.openFileToolStripMenuItem.Text = "Open from &File...";
             // 
             // toolStripButton1
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem2,
+            this.saveToolStripMenuItem});
             this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(32, 22);
-            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(63, 22);
+            this.toolStripButton1.Text = "Save";
+            this.toolStripButton1.ButtonClick += new System.EventHandler(this.OnSaveToFile);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(158, 22);
+            this.toolStripMenuItem2.Text = "Save to &Career...";
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.saveToolStripMenuItem.Text = "Save to &File...";
             // 
             // rootTabControl
             // 
@@ -195,7 +246,7 @@
             this.rootPropertyGrid.Name = "rootPropertyGrid";
             this.rootPropertyGrid.Size = new System.Drawing.Size(381, 407);
             this.rootPropertyGrid.TabIndex = 1;
-            this.rootPropertyGrid.SelectedGridItemChanged += new System.Windows.Forms.SelectedGridItemChangedEventHandler(this.rootPropertyGrid_SelectedGridItemChanged);
+            this.rootPropertyGrid.SelectedGridItemChanged += new System.Windows.Forms.SelectedGridItemChangedEventHandler(this.OnSelectedGridItemChanged);
             // 
             // childPropertyGrid
             // 
@@ -204,6 +255,16 @@
             this.childPropertyGrid.Name = "childPropertyGrid";
             this.childPropertyGrid.Size = new System.Drawing.Size(377, 407);
             this.childPropertyGrid.TabIndex = 0;
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.DefaultExt = "pcsav";
+            this.openFileDialog.Filter = "Mass Effect 3 Save (*.pcsav, *.xbsav)|*.pcsav;*.xbsav|All Files (*.*)|*.*";
+            // 
+            // saveFileDialog
+            // 
+            this.saveFileDialog.Filter = "Mass Effect 3 PC Save (*.pcsav)|*.pcsav|Mass Effect 3 XBOX 360 Save (*.xbsav)|*.x" +
+                "bsav|All Files (*.*)|*.*";
             // 
             // Editor
             // 
@@ -247,6 +308,13 @@
         private System.Windows.Forms.TabControl playerTabControl;
         private System.Windows.Forms.TabPage playerBasicTabPage;
         private System.Windows.Forms.TabPage playerAppearanceTabPage;
+        private System.Windows.Forms.ToolStripMenuItem newMaleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newFemaleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem openFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
     }
 }
 

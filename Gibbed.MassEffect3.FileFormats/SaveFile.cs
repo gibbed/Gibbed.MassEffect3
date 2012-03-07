@@ -32,44 +32,7 @@ namespace Gibbed.MassEffect3.FileFormats
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class SaveFile : Unreal.ISerializable, INotifyPropertyChanged
     {
-        public static SaveFile Load(Stream input)
-        {
-            var save = new SaveFile();
-            save._Version = input.ReadValueU32(Endian.Little);
-
-            if (save._Version != 29 && save._Version.Swap() != 29 &&
-                save._Version != 59 && save._Version.Swap() != 59)
-            {
-                throw new FormatException("unexpected version");
-            }
-            var endian = save._Version == 29 || save._Version == 59 ?
-                Endian.Little : Endian.Big;
-            if (endian == Endian.Big)
-            {
-                save._Version = save._Version.Swap();
-            }
-
-            var reader = new Unreal.FileReader(input, save._Version, endian);
-            save.Serialize(reader);
-
-            if (save._Version >= 27)
-            {
-                if (input.Position != input.Length - 4)
-                {
-                    throw new FormatException("bad checksum position");
-                }
-
-                save._Checksum = input.ReadValueU32();
-            }
-
-            if (input.Position != input.Length)
-            {
-                throw new FormatException("did not consume entire file");
-            }
-
-            return save;
-        }
-
+        private Endian _Endian;
         private uint _Version;
         private uint _Checksum;
         private string _DebugName;
@@ -108,7 +71,7 @@ namespace Gibbed.MassEffect3.FileFormats
             stream.Serialize(ref this._SecondsPlayed);
             stream.Serialize(ref this._Disc);
             stream.Serialize(ref this._BaseLevelName);
-            stream.Serialize(ref this._BaseLevelNameDisplayOverrideAsRead, (s) => s.Version < 36, () => null);
+            stream.Serialize(ref this._BaseLevelNameDisplayOverrideAsRead, (s) => s.Version < 36, () => "None");
             stream.SerializeEnum(ref this._Difficulty);
 
             if (stream.Version >= 43 && stream.Version <= 46)
@@ -143,6 +106,20 @@ namespace Gibbed.MassEffect3.FileFormats
         }
 
         #region Properties
+        [Browsable(false)]
+        public Endian Endian
+        {
+            get { return this._Endian; }
+            set
+            {
+                if (value != this._Endian)
+                {
+                    this._Endian = value;
+                    this.NotifyPropertyChanged("Endian");
+                }
+            }
+        }
+
         [Browsable(false)]
         public uint Version
         {
@@ -613,6 +590,90 @@ namespace Gibbed.MassEffect3.FileFormats
             if (this.PropertyChanged != null)
             {
                 this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
+        public static SaveFile Read(Stream input)
+        {
+            if (input == null)
+            {
+                throw new ArgumentNullException("input");
+            }
+
+            var save = new SaveFile();
+            save._Version = input.ReadValueU32(Endian.Little);
+
+            if (save._Version != 29 && save._Version.Swap() != 29 &&
+                save._Version != 59 && save._Version.Swap() != 59)
+            {
+                throw new FormatException("unexpected version");
+            }
+            var endian = save._Version == 29 || save._Version == 59 ?
+                Endian.Little : Endian.Big;
+            if (endian == Endian.Big)
+            {
+                save._Version = save._Version.Swap();
+            }
+
+            var reader = new Unreal.FileReader(input, save._Version, endian);
+            save.Serialize(reader);
+
+            if (save._Version >= 27)
+            {
+                if (input.Position != input.Length - 4)
+                {
+                    throw new FormatException("bad checksum position");
+                }
+
+                save._Checksum = input.ReadValueU32();
+            }
+
+            if (input.Position != input.Length)
+            {
+                throw new FormatException("did not consume entire file");
+            }
+
+            save.Endian = endian;
+            return save;
+        }
+
+        public static void Write(SaveFile save, Stream output)
+        {
+            if (save == null)
+            {
+                throw new ArgumentNullException("save");
+            }
+
+            if (output == null)
+            {
+                throw new ArgumentNullException("output");
+            }
+
+            using (var memory = new MemoryStream())
+            {
+                memory.WriteValueU32(save.Version, save._Endian);
+
+                var writer = new Unreal.FileWriter(memory, save._Version, save._Endian);
+                save.Serialize(writer);
+
+                if (save._Version >= 27)
+                {
+                    memory.Position = 0;
+                    uint checksum = 0;
+
+                    var buffer = new byte[1024];
+                    while (memory.Position < memory.Length)
+                    {
+                        int read = memory.Read(buffer, 0, 1024);
+                        checksum = CRC32.Compute(buffer, 0, read, checksum);
+                    }
+
+                    save._Checksum = checksum;
+                    memory.WriteValueU32(checksum, save._Endian);
+                }
+
+                memory.Position = 0;
+                output.WriteFromStream(memory, memory.Length);
             }
         }
     }
