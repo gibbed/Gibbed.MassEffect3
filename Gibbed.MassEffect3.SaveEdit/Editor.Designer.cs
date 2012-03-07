@@ -31,29 +31,29 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Editor));
             this.rootToolStrip = new System.Windows.Forms.ToolStrip();
+            this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStripSplitButton2 = new System.Windows.Forms.ToolStripSplitButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripSplitButton();
             this.rootTabControl = new System.Windows.Forms.TabControl();
             this.playerRootTabPage = new System.Windows.Forms.TabPage();
+            this.playerTabControl = new System.Windows.Forms.TabControl();
+            this.playerBasicTabPage = new System.Windows.Forms.TabPage();
+            this.playerAppearanceTabPage = new System.Windows.Forms.TabPage();
+            this.iconImageList = new System.Windows.Forms.ImageList(this.components);
             this.rawTabPage = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.rootPropertyGrid = new System.Windows.Forms.PropertyGrid();
             this.childPropertyGrid = new System.Windows.Forms.PropertyGrid();
-            this.tabImageList = new System.Windows.Forms.ImageList(this.components);
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.playerTabControl = new System.Windows.Forms.TabControl();
-            this.playerBasicTabPage = new System.Windows.Forms.TabPage();
-            this.playerAppearanceTabPage = new System.Windows.Forms.TabPage();
             this.rootToolStrip.SuspendLayout();
             this.rootTabControl.SuspendLayout();
             this.playerRootTabPage.SuspendLayout();
+            this.playerTabControl.SuspendLayout();
             this.rawTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            this.playerTabControl.SuspendLayout();
             this.SuspendLayout();
             // 
             // rootToolStrip
@@ -67,6 +67,15 @@
             this.rootToolStrip.Size = new System.Drawing.Size(800, 25);
             this.rootToolStrip.TabIndex = 0;
             this.rootToolStrip.Text = "toolStrip1";
+            // 
+            // toolStripSplitButton1
+            // 
+            this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripSplitButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton1.Image")));
+            this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripSplitButton1.Name = "toolStripSplitButton1";
+            this.toolStripSplitButton1.Size = new System.Drawing.Size(29, 22);
+            this.toolStripSplitButton1.Text = "toolStripSplitButton1";
             // 
             // toolStripSplitButton2
             // 
@@ -94,7 +103,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.rootTabControl.Controls.Add(this.playerRootTabPage);
             this.rootTabControl.Controls.Add(this.rawTabPage);
-            this.rootTabControl.ImageList = this.tabImageList;
+            this.rootTabControl.ImageList = this.iconImageList;
             this.rootTabControl.Location = new System.Drawing.Point(12, 28);
             this.rootTabControl.Name = "rootTabControl";
             this.rootTabControl.SelectedIndex = 0;
@@ -104,7 +113,6 @@
             // playerRootTabPage
             // 
             this.playerRootTabPage.Controls.Add(this.playerTabControl);
-            this.playerRootTabPage.ImageIndex = 2;
             this.playerRootTabPage.Location = new System.Drawing.Point(4, 23);
             this.playerRootTabPage.Name = "playerRootTabPage";
             this.playerRootTabPage.Padding = new System.Windows.Forms.Padding(3);
@@ -113,10 +121,48 @@
             this.playerRootTabPage.Text = "Player";
             this.playerRootTabPage.UseVisualStyleBackColor = true;
             // 
+            // playerTabControl
+            // 
+            this.playerTabControl.Controls.Add(this.playerBasicTabPage);
+            this.playerTabControl.Controls.Add(this.playerAppearanceTabPage);
+            this.playerTabControl.ImageList = this.iconImageList;
+            this.playerTabControl.Location = new System.Drawing.Point(6, 6);
+            this.playerTabControl.Name = "playerTabControl";
+            this.playerTabControl.SelectedIndex = 0;
+            this.playerTabControl.Size = new System.Drawing.Size(756, 401);
+            this.playerTabControl.TabIndex = 0;
+            // 
+            // playerBasicTabPage
+            // 
+            this.playerBasicTabPage.ImageKey = "(none)";
+            this.playerBasicTabPage.Location = new System.Drawing.Point(4, 23);
+            this.playerBasicTabPage.Name = "playerBasicTabPage";
+            this.playerBasicTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.playerBasicTabPage.Size = new System.Drawing.Size(748, 374);
+            this.playerBasicTabPage.TabIndex = 0;
+            this.playerBasicTabPage.Text = "Basic";
+            this.playerBasicTabPage.UseVisualStyleBackColor = true;
+            // 
+            // playerAppearanceTabPage
+            // 
+            this.playerAppearanceTabPage.ImageKey = "(none)";
+            this.playerAppearanceTabPage.Location = new System.Drawing.Point(4, 23);
+            this.playerAppearanceTabPage.Name = "playerAppearanceTabPage";
+            this.playerAppearanceTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.playerAppearanceTabPage.Size = new System.Drawing.Size(748, 374);
+            this.playerAppearanceTabPage.TabIndex = 1;
+            this.playerAppearanceTabPage.Text = "Appearance";
+            this.playerAppearanceTabPage.UseVisualStyleBackColor = true;
+            // 
+            // iconImageList
+            // 
+            this.iconImageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.iconImageList.ImageSize = new System.Drawing.Size(16, 16);
+            this.iconImageList.TransparentColor = System.Drawing.Color.Transparent;
+            // 
             // rawTabPage
             // 
             this.rawTabPage.Controls.Add(this.splitContainer1);
-            this.rawTabPage.ImageIndex = 1;
             this.rawTabPage.Location = new System.Drawing.Point(4, 23);
             this.rawTabPage.Name = "rawTabPage";
             this.rawTabPage.Padding = new System.Windows.Forms.Padding(3);
@@ -159,59 +205,6 @@
             this.childPropertyGrid.Size = new System.Drawing.Size(377, 407);
             this.childPropertyGrid.TabIndex = 0;
             // 
-            // tabImageList
-            // 
-            this.tabImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("tabImageList.ImageStream")));
-            this.tabImageList.TransparentColor = System.Drawing.Color.Transparent;
-            this.tabImageList.Images.SetKeyName(0, "robot.png");
-            this.tabImageList.Images.SetKeyName(1, "script-binary.png");
-            this.tabImageList.Images.SetKeyName(2, "user-thief.png");
-            this.tabImageList.Images.SetKeyName(3, "user-thief-female.png");
-            this.tabImageList.Images.SetKeyName(4, "x-ray.png");
-            this.tabImageList.Images.SetKeyName(5, "t-shirt-print-gray.png");
-            // 
-            // toolStripSplitButton1
-            // 
-            this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripSplitButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton1.Image")));
-            this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripSplitButton1.Name = "toolStripSplitButton1";
-            this.toolStripSplitButton1.Size = new System.Drawing.Size(29, 22);
-            this.toolStripSplitButton1.Text = "toolStripSplitButton1";
-            // 
-            // playerTabControl
-            // 
-            this.playerTabControl.Controls.Add(this.playerBasicTabPage);
-            this.playerTabControl.Controls.Add(this.playerAppearanceTabPage);
-            this.playerTabControl.ImageList = this.tabImageList;
-            this.playerTabControl.Location = new System.Drawing.Point(6, 6);
-            this.playerTabControl.Name = "playerTabControl";
-            this.playerTabControl.SelectedIndex = 0;
-            this.playerTabControl.Size = new System.Drawing.Size(756, 401);
-            this.playerTabControl.TabIndex = 0;
-            // 
-            // playerBasicTabPage
-            // 
-            this.playerBasicTabPage.ImageKey = "x-ray.png";
-            this.playerBasicTabPage.Location = new System.Drawing.Point(4, 23);
-            this.playerBasicTabPage.Name = "playerBasicTabPage";
-            this.playerBasicTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.playerBasicTabPage.Size = new System.Drawing.Size(748, 374);
-            this.playerBasicTabPage.TabIndex = 0;
-            this.playerBasicTabPage.Text = "Basic";
-            this.playerBasicTabPage.UseVisualStyleBackColor = true;
-            // 
-            // playerAppearanceTabPage
-            // 
-            this.playerAppearanceTabPage.ImageKey = "t-shirt-print-gray.png";
-            this.playerAppearanceTabPage.Location = new System.Drawing.Point(4, 23);
-            this.playerAppearanceTabPage.Name = "playerAppearanceTabPage";
-            this.playerAppearanceTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.playerAppearanceTabPage.Size = new System.Drawing.Size(748, 374);
-            this.playerAppearanceTabPage.TabIndex = 1;
-            this.playerAppearanceTabPage.Text = "Appearance";
-            this.playerAppearanceTabPage.UseVisualStyleBackColor = true;
-            // 
             // Editor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -226,12 +219,12 @@
             this.rootToolStrip.PerformLayout();
             this.rootTabControl.ResumeLayout(false);
             this.playerRootTabPage.ResumeLayout(false);
+            this.playerTabControl.ResumeLayout(false);
             this.rawTabPage.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            this.playerTabControl.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -248,7 +241,7 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.PropertyGrid rootPropertyGrid;
         private System.Windows.Forms.PropertyGrid childPropertyGrid;
-        private System.Windows.Forms.ImageList tabImageList;
+        private System.Windows.Forms.ImageList iconImageList;
         private System.Windows.Forms.ToolStripSplitButton toolStripButton1;
         private System.Windows.Forms.ToolStripDropDownButton toolStripSplitButton1;
         private System.Windows.Forms.TabControl playerTabControl;

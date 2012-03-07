@@ -117,68 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="rootToolStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="toolStripSplitButton1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHcSURBVDhPfdJPKINxGAfwF1MTwlqUm7KDyN/S0uRfoVBi
-        5LDk37AYTTNl00rKhQsn4SIuLlJSHHdx2cGBg9PyZ5tY2P//ezzP2+bgt71vfXvfw/P7vM/v+f04LvmM
-        bmwMjJjNs0JRms2VqXrmrTQa5/yxGHyHw/ARCIDd54MXrxeePR4+lxYLUM2QySRLiwyur897IxFw4UKn
-        2w02lwue3t/h0eGAB7sdzq6vgR6qS4sMGAwaHwJffn9aZP/0FFKR9fSYmC769fqFQDQKP9h+JoQ6oe1Q
-        LQN063SLQZyBJxgURAigWgbo0mq1IQR8oZAgQoOlWgbo1GiWI/E4BHAOQgidDtUygEKt1kURCOEchJAP
-        3CLVMkDLxMRKLJGAMG4jEzJ+twT1N10g3au9Y4BmlUofR4C6yITUX3XAzNcqiI5LXxmgaWzMkMCLEkPg
-        PzJlwT9ftGPaYORzFkR7ZW/ccYmVO5Ic/EF1w8NrdNMS2MV/pOG8DTqcQ0y4/WLrHyDr7TXydzUNMn2j
-        hYaTVj41L60g2pLauZ0CK7dbyHeQhyktk8s3UwCPYGgmNFjaEh1x46ECym3VkLNa5KA1ybWcBD9qxBUV
-        K/lVVdtCyVaW3GdP5jqz+sS3tAYj+QVkkUPvjWBiKwAAAABJRU5ErkJggg==
-</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Binary" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Icons\Binary.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="toolStripSplitButton2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJ4SURBVDhPjdNdSFNhHMfx56Kb3i7s0i66mTeSkDddSBBh
-        zC6iiUHtQrAGCYZJSgyUmfm+HKmoOYdmVNOsDE3ETAVrBKViCopZc669+Tbn5jybe/XX8zzkgZMEHfhy
-        /s/hnA/PgXMI+XNMa8nNKS0p/5/YvfvPiefJGlIpmLVY/3QDG+M5EOYeIO7oAFaeS9voBrv3APClilRj
-        +y32vG8QsrfA87UAH/TpGHlfL2l0rBn9VSdbDwCfq0htfOsVYutGXtz7GtN9d+D0eLAqCHDQbH4/3plM
-        qC6TD2dpNEkSxFRO6mLubkRXnvHYPNGjwrzZjJnFRVjcbiysrqJraAjsyCwuzpMg4/fJo+jaC4QdT3hs
-        Nj1V4vvSEkdWfD6ONBuNYkkZGRpxF6OlpDHs6kTQ2sZj83jHNfxYXubIJn2FfYTthL2OvLAwXwSGS0jL
-        rq0dgrmFx+YxQxbMVitHvIGABHHs7CA9P79ABAbVRB9c1sO/2Mhj83CrAhabjSPbu7sSZC0YxPnc3Lsi
-        0K8m7cLPJvjmdTw2DzVdhpUCDBFCIQmyRdfnVKoiEegtIp3+hXp4Zmt5bB5ouASb3c6RYCQiQfx0fTY7
-        +54IdBcQo2+uDu7pCh6b+3Ry2B0OjoSiUQkiUCBVqVQz4DDthOEWGfDO0k95soznpbvofXgRTqeTI9FY
-        TIIEKHhaoShlQAJNlicnbSONqX7LYF5kc6oCW9+q0VNzAS6XC05afG8PMVokHkeYYmE6J6alaSVfoyGX
-        ZOpVxPCyJPHjRNeVX+qrh+xHZLLmo8nJdcdTUmr/7phMdvvAP8EuNOSQM7psoqm8Th7T5Sla4j9K+A2s
-        V10KzrJmywAAAABJRU5ErkJggg==
-</value>
+  <data name="Female" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Icons\Female.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="toolStripButton1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAF7SURBVDhPrZOxasJQFIYVH8Cx0KGrWxYFQQdBN+kk5A1M
-        DCoRIg6CKAWnvoiCpWhAtA1ItYh1cXLr0KUgBaEVrBUET88fSLktklpo4CO5937nu1M8nv94vF7vBXMl
-        12rqMcDFzNfdvLiu1+uEZ/8LcOBiRgy0q9Uq7fZ72u52rsCBy4G2GDArlQq98/DbZuMKHLgcMMVAt1wu
-        0+t2S4vVyhU4cDnQFQP9UqlEL3z703LpChy4HOiLAcswDJrO5/S8XrsCBy4HLDEw0HWdFEU5CrgcGIiB
-        YS6Xo1AoRMFg8CA4cygWiwgMxcA4k8lQOBymyeSBRqP7b2APZ7IsUyQSoUKhgMBYDEzT6TRFo1GyrDsK
-        BAI2ptmzwR7OEIjH45TP5xGYioGZqqoUi8Wo07m136DZ7Ng4ewgkk0nKZrMIzMTf6JwXj5IkfbRaN5RI
-        JGwaja6Ns4dAKpUiTdMIvhM44w+J0ZmFz+e7PATOftDjNWY9fuaEOf0jmPF/AlxY0nZaxbqSAAAAAElF
-        TkSuQmCC
-</value>
+  <data name="Male" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Icons\Male.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <metadata name="iconImageList.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>255, 17</value>
-  </metadata>
-  <metadata name="openFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>122, 17</value>
-  </metadata>
-  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AADAgP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAA
-</value>
+  <data name="Robot" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Icons\Robot.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Shirt" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Icons\Shirt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="XRay" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Icons\XRay.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
