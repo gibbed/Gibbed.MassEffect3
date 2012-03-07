@@ -71,7 +71,8 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
 
             if (isUnicode == true)
             {
-                return this.Input.ReadString((uint)(length * 2), true, Encoding.Unicode);
+                return this.Input.ReadString((uint)(length * 2), true,
+                    this.Endian == Endian.Little ? Encoding.Unicode : Encoding.BigEndianUnicode);
             }
             else
             {
@@ -329,7 +330,7 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
 
         public void Serialize(ref BitArray list)
         {
-            var count = this.Input.ReadValueU32();
+            var count = this.Input.ReadValueU32(this.Endian);
             if (count >= 0x7FFFFF)
             {
                 throw new FormatException("too many items in list");
@@ -375,7 +376,7 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
 
         private List<TType> ReadBasicList<TType>(Func<FileReader, TType> readValue)
         {
-            var count = this.Input.ReadValueU32();
+            var count = this.Input.ReadValueU32(this.Endian);
             if (count >= 0x7FFFFF)
             {
                 throw new FormatException("too many items in list");
@@ -609,7 +610,7 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
         public void Serialize<TType>(ref List<TType> list)
             where TType : ISerializable, new()
         {
-            var count = this.Input.ReadValueU32();
+            var count = this.Input.ReadValueU32(this.Endian);
             if (count >= 0x7FFFFF)
             {
                 throw new FormatException("too many items in list");
