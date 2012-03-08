@@ -36,7 +36,6 @@ namespace Gibbed.MassEffect3.SaveEdit
             return Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
         }
 
-        private DynamicTypeDescriptor.DynamicCustomTypeDescriptor CustomTypeDescriptor;
         private FileFormats.SaveFile _SaveFile = null;
 
         private FileFormats.SaveFile SaveFile
@@ -50,7 +49,6 @@ namespace Gibbed.MassEffect3.SaveEdit
                     var dtd = DynamicTypeDescriptor.ProviderInstaller.Install(value);
                     this.rootPropertyGrid.Site = dtd.GetSite();
                     this.rootPropertyGrid.SelectedObject = value;
-
                 }
             }
         }
