@@ -1,8 +1,8 @@
 ﻿namespace Gibbed.MassEffect3.SaveEdit
 {
-    public class Version
+    public static class Version
     {
-        public int Revision = 0;
-        public string Author = null;
+        public static int Revision = 0;
+        public static string Date = null;
     }
 }

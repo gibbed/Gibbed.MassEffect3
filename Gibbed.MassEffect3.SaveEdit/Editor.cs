@@ -58,6 +58,14 @@ namespace Gibbed.MassEffect3.SaveEdit
             this.InitializeComponent();
             this.DoubleBuffered = true;
 
+            if (Version.Revision > 0)
+            {
+                this.Text += String.Format(
+                    " (Build revision {0} @ {1})",
+                    Version.Revision,
+                    Version.Date);
+            }
+
             /* This following block is for Mono-build compatability
              * (ie, compiling this code via Mono and running via .NET)
              * 
