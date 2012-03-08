@@ -141,7 +141,11 @@ namespace Gibbed.MassEffect3.Coalesce
                         {
                             var writer = new StreamWriter(output);
                             writer.Write(JsonConvert.SerializeObject(
-                                file, Newtonsoft.Json.Formatting.Indented));
+                                new FileWrapper()
+                                {
+                                    Name = file.Name,
+                                    Sections = file.Sections,
+                                }, Newtonsoft.Json.Formatting.Indented));
                             writer.Flush();
                         }
                     }
@@ -183,8 +187,12 @@ namespace Gibbed.MassEffect3.Coalesce
                     {
                         var reader = new StreamReader(input);
                         var text = reader.ReadToEnd();
-                        var file = JsonConvert.DeserializeObject<Coalesced.File>(text);
-                        coal.Files.Add(file);
+                        var file = JsonConvert.DeserializeObject<FileWrapper>(text);
+                        coal.Files.Add(new Coalesced.File()
+                            {
+                                Name = file.Name,
+                                Sections = file.Sections,
+                            });
                     }
                 }
 

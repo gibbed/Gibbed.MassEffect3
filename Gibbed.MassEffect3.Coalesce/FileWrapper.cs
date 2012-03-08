@@ -21,13 +21,17 @@
  */
 
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
-namespace Gibbed.MassEffect3.FileFormats.Coalesced
+namespace Gibbed.MassEffect3.Coalesce
 {
-    public class File
+    [JsonObject(MemberSerialization.OptIn)]
+    public class FileWrapper
     {
+        [JsonProperty(PropertyName = "name", Required = Required.Always)]
         public string Name;
 
+        [JsonProperty(PropertyName = "sections", Required = Required.AllowNull)]
         // this is beyond ridiculous
         public Dictionary<string, Dictionary<string, List<string>>> Sections =
             new Dictionary<string, Dictionary<string, List<string>>>();
