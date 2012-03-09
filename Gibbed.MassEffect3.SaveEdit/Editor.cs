@@ -23,8 +23,8 @@
 using System;
 using System.ComponentModel;
 using System.IO;
-using System.Windows.Forms;
 using System.Text;
+using System.Windows.Forms;
 using Gibbed.IO;
 
 namespace Gibbed.MassEffect3.SaveEdit
@@ -36,6 +36,7 @@ namespace Gibbed.MassEffect3.SaveEdit
             return Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
         }
 
+        private string SavePath = null;
         private FileFormats.SaveFile _SaveFile = null;
 
         private FileFormats.SaveFile SaveFile
@@ -64,6 +65,26 @@ namespace Gibbed.MassEffect3.SaveEdit
                     " (Build revision {0} @ {1})",
                     Version.Revision,
                     Version.Date);
+            }
+
+            string savePath;
+            savePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            savePath = Path.Combine(savePath, "BioWare");
+            savePath = Path.Combine(savePath, "Mass Effect 3");
+            savePath = Path.Combine(savePath, "Save");
+
+            if (Directory.Exists(savePath) == true)
+            {
+                this.SavePath = savePath;
+                this.openFileDialog.InitialDirectory = savePath;
+                this.saveFileDialog.InitialDirectory = savePath;
+            }
+            else
+            {
+                this.dontUseCareerPickerToolStripMenuItem.Checked = true;
+                this.dontUseCareerPickerToolStripMenuItem.Enabled = false;
+                this.openFromCareerMenuItem.Enabled = false;
+                this.saveToCareerMenuItem.Enabled = false;
             }
 
             /* This following block is for Mono-build compatability
@@ -99,6 +120,46 @@ namespace Gibbed.MassEffect3.SaveEdit
             this.SaveFile = saveFile;
         }
 
+        private void OnOpenFromGeneric(object sender, EventArgs e)
+        {
+            if (this.dontUseCareerPickerToolStripMenuItem.Checked == false)
+            {
+                this.OnOpenFromCareer(sender, e);
+            }
+            else
+            {
+                this.OnOpenFromFile(sender, e);
+            }
+        }
+
+        private void OnOpenFromCareer(object sender, EventArgs e)
+        {
+            using (var picker = new SavePicker())
+            {
+                picker.Owner = this;
+                picker.FileMode = SavePicker.PickerMode.Load;
+                picker.FilePath = this.SavePath;
+                
+                var result = picker.ShowDialog();
+                if (result != DialogResult.OK)
+                {
+                    return;
+                }
+
+                if (string.IsNullOrEmpty(picker.SelectedPath) == false)
+                {
+                    using (var input = File.OpenRead(picker.SelectedPath))
+                    {
+                        this.LoadSaveFromStream(input);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("This should never happen.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
         private void OnOpenFromFile(object sender, EventArgs e)
         {
             if (this.openFileDialog.ShowDialog() != DialogResult.OK)
@@ -112,8 +173,30 @@ namespace Gibbed.MassEffect3.SaveEdit
             }
         }
 
+        private void OnSaveToGeneric(object sender, EventArgs e)
+        {
+            if (this.dontUseCareerPickerToolStripMenuItem.Checked == false)
+            {
+                this.OnSaveToCareer(sender, e);
+            }
+            else
+            {
+                this.OnSaveToFile(sender, e);
+            }
+        }
+
         private void OnSaveToFile(object sender, EventArgs e)
         {
+            if (this.SaveFile == null)
+            {
+                MessageBox.Show(
+                    "There is no active save.",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
+
             this.saveFileDialog.FilterIndex =
                 this.SaveFile.Endian == Endian.Little ? 1 : 2;
             if (this.saveFileDialog.ShowDialog() != DialogResult.OK)
@@ -126,6 +209,36 @@ namespace Gibbed.MassEffect3.SaveEdit
             using (var output = this.saveFileDialog.OpenFile())
             {
                 FileFormats.SaveFile.Write(this.SaveFile, output);
+            }
+        }
+
+        private void OnSaveToCareer(object sender, EventArgs e)
+        {
+            using (var picker = new SavePicker())
+            {
+                picker.Owner = this;
+                picker.FileMode = SavePicker.PickerMode.Save;
+                picker.FilePath = this.SavePath;
+                picker.SaveFile = this.SaveFile;
+                
+                var result = picker.ShowDialog();
+                if (result != DialogResult.OK)
+                {
+                    return;
+                }
+
+                if (string.IsNullOrEmpty(picker.SelectedPath) == false)
+                {
+                    Directory.CreateDirectory(Path.GetDirectoryName(picker.SelectedPath));
+                    using (var output = File.Create(picker.SelectedPath))
+                    {
+                        FileFormats.SaveFile.Write(this.SaveFile, output);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("This should never happen.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

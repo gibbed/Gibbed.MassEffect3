@@ -60,9 +60,37 @@ namespace Gibbed.MassEffect3.SaveEdit {
             }
         }
         
+        internal static System.Drawing.Bitmap Android {
+            get {
+                object obj = ResourceManager.GetObject("Android", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Binary {
             get {
                 object obj = ResourceManager.GetObject("Binary", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Bug {
+            get {
+                object obj = ResourceManager.GetObject("Bug", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Cat {
+            get {
+                object obj = ResourceManager.GetObject("Cat", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Dog {
+            get {
+                object obj = ResourceManager.GetObject("Dog", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -74,9 +102,37 @@ namespace Gibbed.MassEffect3.SaveEdit {
             }
         }
         
+        internal static System.Drawing.Bitmap Ghost {
+            get {
+                object obj = ResourceManager.GetObject("Ghost", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Male {
             get {
                 object obj = ResourceManager.GetObject("Male", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Monkey {
+            get {
+                object obj = ResourceManager.GetObject("Monkey", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap New {
+            get {
+                object obj = ResourceManager.GetObject("New", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Penguin {
+            get {
+                object obj = ResourceManager.GetObject("Penguin", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

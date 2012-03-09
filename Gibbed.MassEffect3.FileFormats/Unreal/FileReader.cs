@@ -76,7 +76,17 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
             }
             else
             {
-                return this.Input.ReadString((uint)(length), true, Encoding.ASCII);
+                var bytes = this.Input.ReadBytes(length);
+                var sb = new StringBuilder();
+                for (int i = 0; i < bytes.Length; i++)
+                {
+                    if (bytes[i] == 0)
+                    {
+                        break;
+                    }
+                    sb.Append((char)bytes[i]);
+                }
+                return sb.ToString();
             }
         }
 

@@ -34,17 +34,22 @@
             this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.newMaleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newFemaleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSplitButton2 = new System.Windows.Forms.ToolStripSplitButton();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.openFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripSplitButton();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openFromGenericButton = new System.Windows.Forms.ToolStripSplitButton();
+            this.openFromCareerMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openFromFileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToGenericButton = new System.Windows.Forms.ToolStripSplitButton();
+            this.saveToCareerMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToFileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingsButton = new System.Windows.Forms.ToolStripDropDownButton();
+            this.dontUseCareerPickerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rootTabControl = new System.Windows.Forms.TabControl();
             this.playerRootTabPage = new System.Windows.Forms.TabPage();
             this.playerTabControl = new System.Windows.Forms.TabControl();
             this.playerCharacterTabPage = new System.Windows.Forms.TabPage();
             this.playerAppearanceTabPage = new System.Windows.Forms.TabPage();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.importHeadMorphButton = new System.Windows.Forms.ToolStripButton();
+            this.exportHeadMorphButton = new System.Windows.Forms.ToolStripButton();
             this.iconImageList = new System.Windows.Forms.ImageList(this.components);
             this.rawTabPage = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -54,28 +59,26 @@
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.openHeadMorphDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveHeadMorphDialog = new System.Windows.Forms.SaveFileDialog();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.importHeadMorphButton = new System.Windows.Forms.ToolStripButton();
-            this.exportHeadMorphButton = new System.Windows.Forms.ToolStripButton();
             this.rootToolStrip.SuspendLayout();
             this.rootTabControl.SuspendLayout();
             this.playerRootTabPage.SuspendLayout();
             this.playerTabControl.SuspendLayout();
             this.playerAppearanceTabPage.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.rawTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // rootToolStrip
             // 
             this.rootToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripSplitButton1,
-            this.toolStripSplitButton2,
-            this.toolStripButton1});
+            this.openFromGenericButton,
+            this.saveToGenericButton,
+            this.settingsButton});
             this.rootToolStrip.Location = new System.Drawing.Point(0, 0);
             this.rootToolStrip.Name = "rootToolStrip";
             this.rootToolStrip.Size = new System.Drawing.Size(800, 25);
@@ -106,53 +109,75 @@
             this.newFemaleToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.newFemaleToolStripMenuItem.Text = "New &Female";
             // 
-            // toolStripSplitButton2
+            // openFromGenericButton
             // 
-            this.toolStripSplitButton2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.openFileToolStripMenuItem});
-            this.toolStripSplitButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton2.Image")));
-            this.toolStripSplitButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripSplitButton2.Name = "toolStripSplitButton2";
-            this.toolStripSplitButton2.Size = new System.Drawing.Size(68, 22);
-            this.toolStripSplitButton2.Text = "Open";
-            this.toolStripSplitButton2.ButtonClick += new System.EventHandler(this.OnOpenFromFile);
+            this.openFromGenericButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openFromCareerMenuItem,
+            this.openFromFileMenuItem});
+            this.openFromGenericButton.Image = ((System.Drawing.Image)(resources.GetObject("openFromGenericButton.Image")));
+            this.openFromGenericButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.openFromGenericButton.Name = "openFromGenericButton";
+            this.openFromGenericButton.Size = new System.Drawing.Size(68, 22);
+            this.openFromGenericButton.Text = "Open";
+            this.openFromGenericButton.ButtonClick += new System.EventHandler(this.OnOpenFromGeneric);
             // 
-            // toolStripMenuItem1
+            // openFromCareerMenuItem
             // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(178, 22);
-            this.toolStripMenuItem1.Text = "Open from &Career...";
+            this.openFromCareerMenuItem.Name = "openFromCareerMenuItem";
+            this.openFromCareerMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.openFromCareerMenuItem.Text = "Open from &Career...";
+            this.openFromCareerMenuItem.Click += new System.EventHandler(this.OnOpenFromCareer);
             // 
-            // openFileToolStripMenuItem
+            // openFromFileMenuItem
             // 
-            this.openFileToolStripMenuItem.Name = "openFileToolStripMenuItem";
-            this.openFileToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
-            this.openFileToolStripMenuItem.Text = "Open from &File...";
+            this.openFromFileMenuItem.Name = "openFromFileMenuItem";
+            this.openFromFileMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.openFromFileMenuItem.Text = "Open from &File...";
+            this.openFromFileMenuItem.Click += new System.EventHandler(this.OnOpenFromFile);
             // 
-            // toolStripButton1
+            // saveToGenericButton
             // 
-            this.toolStripButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem2,
-            this.saveToolStripMenuItem});
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(63, 22);
-            this.toolStripButton1.Text = "Save";
-            this.toolStripButton1.ButtonClick += new System.EventHandler(this.OnSaveToFile);
+            this.saveToGenericButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saveToCareerMenuItem,
+            this.saveToFileMenuItem});
+            this.saveToGenericButton.Image = ((System.Drawing.Image)(resources.GetObject("saveToGenericButton.Image")));
+            this.saveToGenericButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.saveToGenericButton.Name = "saveToGenericButton";
+            this.saveToGenericButton.Size = new System.Drawing.Size(63, 22);
+            this.saveToGenericButton.Text = "Save";
+            this.saveToGenericButton.ButtonClick += new System.EventHandler(this.OnSaveToGeneric);
             // 
-            // toolStripMenuItem2
+            // saveToCareerMenuItem
             // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(158, 22);
-            this.toolStripMenuItem2.Text = "Save to &Career...";
+            this.saveToCareerMenuItem.Name = "saveToCareerMenuItem";
+            this.saveToCareerMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.saveToCareerMenuItem.Text = "Save to &Career...";
+            this.saveToCareerMenuItem.Click += new System.EventHandler(this.OnSaveToCareer);
             // 
-            // saveToolStripMenuItem
+            // saveToFileMenuItem
             // 
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
-            this.saveToolStripMenuItem.Text = "Save to &File...";
+            this.saveToFileMenuItem.Name = "saveToFileMenuItem";
+            this.saveToFileMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.saveToFileMenuItem.Text = "Save to &File...";
+            this.saveToFileMenuItem.Click += new System.EventHandler(this.OnSaveToFile);
+            // 
+            // settingsButton
+            // 
+            this.settingsButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.settingsButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dontUseCareerPickerToolStripMenuItem});
+            this.settingsButton.Image = ((System.Drawing.Image)(resources.GetObject("settingsButton.Image")));
+            this.settingsButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.settingsButton.Name = "settingsButton";
+            this.settingsButton.Size = new System.Drawing.Size(29, 22);
+            this.settingsButton.Text = "Settings";
+            // 
+            // dontUseCareerPickerToolStripMenuItem
+            // 
+            this.dontUseCareerPickerToolStripMenuItem.CheckOnClick = true;
+            this.dontUseCareerPickerToolStripMenuItem.Name = "dontUseCareerPickerToolStripMenuItem";
+            this.dontUseCareerPickerToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.dontUseCareerPickerToolStripMenuItem.Text = "Don\'t use career picker";
             // 
             // rootTabControl
             // 
@@ -212,6 +237,35 @@
             this.playerAppearanceTabPage.TabIndex = 1;
             this.playerAppearanceTabPage.Text = "Appearance";
             this.playerAppearanceTabPage.UseVisualStyleBackColor = true;
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.importHeadMorphButton,
+            this.exportHeadMorphButton});
+            this.toolStrip1.Location = new System.Drawing.Point(3, 3);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(742, 25);
+            this.toolStrip1.TabIndex = 3;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // importHeadMorphButton
+            // 
+            this.importHeadMorphButton.Image = ((System.Drawing.Image)(resources.GetObject("importHeadMorphButton.Image")));
+            this.importHeadMorphButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.importHeadMorphButton.Name = "importHeadMorphButton";
+            this.importHeadMorphButton.Size = new System.Drawing.Size(133, 22);
+            this.importHeadMorphButton.Text = "Import Head Morph";
+            this.importHeadMorphButton.Click += new System.EventHandler(this.OnImportHeadMorph);
+            // 
+            // exportHeadMorphButton
+            // 
+            this.exportHeadMorphButton.Image = ((System.Drawing.Image)(resources.GetObject("exportHeadMorphButton.Image")));
+            this.exportHeadMorphButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.exportHeadMorphButton.Name = "exportHeadMorphButton";
+            this.exportHeadMorphButton.Size = new System.Drawing.Size(130, 22);
+            this.exportHeadMorphButton.Text = "Export Head Morph";
+            this.exportHeadMorphButton.Click += new System.EventHandler(this.OnExportHeadMorph);
             // 
             // iconImageList
             // 
@@ -282,35 +336,6 @@
             // 
             this.saveHeadMorphDialog.Filter = "Mass Effect 3 Head Morphs (*.me3headmorph)|*.me3headmorph";
             // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.importHeadMorphButton,
-            this.exportHeadMorphButton});
-            this.toolStrip1.Location = new System.Drawing.Point(3, 3);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(742, 25);
-            this.toolStrip1.TabIndex = 3;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // importHeadMorphButton
-            // 
-            this.importHeadMorphButton.Image = ((System.Drawing.Image)(resources.GetObject("importHeadMorphButton.Image")));
-            this.importHeadMorphButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.importHeadMorphButton.Name = "importHeadMorphButton";
-            this.importHeadMorphButton.Size = new System.Drawing.Size(133, 22);
-            this.importHeadMorphButton.Text = "Import Head Morph";
-            this.importHeadMorphButton.Click += new System.EventHandler(this.OnImportHeadMorph);
-            // 
-            // exportHeadMorphButton
-            // 
-            this.exportHeadMorphButton.Image = ((System.Drawing.Image)(resources.GetObject("exportHeadMorphButton.Image")));
-            this.exportHeadMorphButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.exportHeadMorphButton.Name = "exportHeadMorphButton";
-            this.exportHeadMorphButton.Size = new System.Drawing.Size(130, 22);
-            this.exportHeadMorphButton.Text = "Export Head Morph";
-            this.exportHeadMorphButton.Click += new System.EventHandler(this.OnExportHeadMorph);
-            // 
             // Editor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -328,13 +353,13 @@
             this.playerTabControl.ResumeLayout(false);
             this.playerAppearanceTabPage.ResumeLayout(false);
             this.playerAppearanceTabPage.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.rawTabPage.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -346,29 +371,31 @@
         private System.Windows.Forms.TabControl rootTabControl;
         private System.Windows.Forms.TabPage playerRootTabPage;
         private System.Windows.Forms.TabPage rawTabPage;
-        private System.Windows.Forms.ToolStripSplitButton toolStripSplitButton2;
+        private System.Windows.Forms.ToolStripSplitButton openFromGenericButton;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.PropertyGrid rootPropertyGrid;
         private System.Windows.Forms.PropertyGrid childPropertyGrid;
         private System.Windows.Forms.ImageList iconImageList;
-        private System.Windows.Forms.ToolStripSplitButton toolStripButton1;
+        private System.Windows.Forms.ToolStripSplitButton saveToGenericButton;
         private System.Windows.Forms.ToolStripDropDownButton toolStripSplitButton1;
         private System.Windows.Forms.TabControl playerTabControl;
         private System.Windows.Forms.TabPage playerCharacterTabPage;
         private System.Windows.Forms.TabPage playerAppearanceTabPage;
         private System.Windows.Forms.ToolStripMenuItem newMaleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newFemaleToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem openFileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openFromCareerMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openFromFileMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveToCareerMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveToFileMenuItem;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.OpenFileDialog openHeadMorphDialog;
         private System.Windows.Forms.SaveFileDialog saveHeadMorphDialog;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton importHeadMorphButton;
         private System.Windows.Forms.ToolStripButton exportHeadMorphButton;
+        private System.Windows.Forms.ToolStripDropDownButton settingsButton;
+        private System.Windows.Forms.ToolStripMenuItem dontUseCareerPickerToolStripMenuItem;
     }
 }
 

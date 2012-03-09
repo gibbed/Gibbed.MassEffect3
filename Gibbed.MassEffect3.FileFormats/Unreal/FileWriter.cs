@@ -24,6 +24,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using Gibbed.IO;
 
@@ -162,16 +163,7 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
             bool isUnicode = false;
 
             // detect unicode
-            for (int i = 0; i < value.Length; i++)
-            {
-                if (value[i] > 255)
-                {
-                    isUnicode = true;
-                    break;
-                }
-            }
-
-            if (isUnicode == true)
+            if (value.Any(c => c > 0xFF) == true)
             {
                 this.Output.WriteValueS32(-(value.Length + 1), this.Endian);
                 this.Output.WriteString(value, this.Endian == Endian.Little ?
@@ -180,8 +172,14 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
             }
             else
             {
-                this.Output.WriteValueS32(value.Length + 1, this.Endian);
-                this.Output.WriteString(value, Encoding.ASCII);
+                var bytes = new byte[value.Length];
+                for (int i = 0; i < value.Length; i++)
+                {
+                    bytes[i] = (byte)value[i];
+                }
+
+                this.Output.WriteValueS32(bytes.Length + 1, this.Endian);
+                this.Output.WriteBytes(bytes);
                 this.Output.WriteValueU8(0);
             }
         }
