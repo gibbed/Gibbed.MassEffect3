@@ -214,6 +214,16 @@ namespace Gibbed.MassEffect3.SaveEdit
 
         private void OnSaveToCareer(object sender, EventArgs e)
         {
+            if (this.SaveFile == null)
+            {
+                MessageBox.Show(
+                    "There is no active save.",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
+
             using (var picker = new SavePicker())
             {
                 picker.Owner = this;
