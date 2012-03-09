@@ -27,40 +27,73 @@ namespace Gibbed.MassEffect3.FileFormats.Save
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class Appearance : Unreal.ISerializable, INotifyPropertyChanged
     {
+        [OriginalName("CombatAppearance")]
         private PlayerAppearanceType _CombatAppearance;
-        private int _CasualID;
-        private int _FullBodyID;
-        private int _TorsoID;
-        private int _ShoulderID;
-        private int _ArmID;
-        private int _LegID;
-        private int _SpecID;
-        private int _Tint1ID;
-        private int _Tint2ID;
-        private int _Tint3ID;
-        private int _PatternID;
-        private int _PatternColorID;
-        private int _HelmetID;
+        
+        [OriginalName("CasualID")]
+        private int _CasualId;
+
+        [OriginalName("FullBodyID")]
+        private int _FullBodyId;
+
+        [OriginalName("TorsoID")]
+        private int _TorsoId;
+
+        [OriginalName("ShoulderID")]
+        private int _ShoulderId;
+
+        [OriginalName("ArmID")]
+        private int _ArmId;
+
+        [OriginalName("LegID")]
+        private int _LegId;
+
+        [OriginalName("SpecID")]
+        private int _SpecId;
+
+        [OriginalName("Tint1ID")]
+        private int _Tint1Id;
+
+        [OriginalName("Tint2ID")]
+        private int _Tint2Id;
+
+        [OriginalName("Tint3ID")]
+        private int _Tint3Id;
+
+        [OriginalName("PatternID")]
+        private int _PatternId;
+
+        [OriginalName("PatternColorID")]
+        private int _PatternColorId;
+
+        [OriginalName("HelmetID")]
+        private int _HelmetId;
+
+        [OriginalName("HasMorphHead")]
         private bool _HasMorphHead;
+
+        [OriginalName("MorphHead")]
         private MorphHead _MorphHead;
-        private int _EmissiveID;
+
+        [OriginalName("EmissiveID")]
+        private int _EmissiveId;
 
         public void Serialize(Unreal.ISerializer stream)
         {
             stream.SerializeEnum(ref this._CombatAppearance);
-            stream.Serialize(ref this._CasualID);
-            stream.Serialize(ref this._FullBodyID);
-            stream.Serialize(ref this._TorsoID);
-            stream.Serialize(ref this._ShoulderID);
-            stream.Serialize(ref this._ArmID);
-            stream.Serialize(ref this._LegID);
-            stream.Serialize(ref this._SpecID);
-            stream.Serialize(ref this._Tint1ID);
-            stream.Serialize(ref this._Tint2ID);
-            stream.Serialize(ref this._Tint3ID);
-            stream.Serialize(ref this._PatternID);
-            stream.Serialize(ref this._PatternColorID);
-            stream.Serialize(ref this._HelmetID);
+            stream.Serialize(ref this._CasualId);
+            stream.Serialize(ref this._FullBodyId);
+            stream.Serialize(ref this._TorsoId);
+            stream.Serialize(ref this._ShoulderId);
+            stream.Serialize(ref this._ArmId);
+            stream.Serialize(ref this._LegId);
+            stream.Serialize(ref this._SpecId);
+            stream.Serialize(ref this._Tint1Id);
+            stream.Serialize(ref this._Tint2Id);
+            stream.Serialize(ref this._Tint3Id);
+            stream.Serialize(ref this._PatternId);
+            stream.Serialize(ref this._PatternColorId);
+            stream.Serialize(ref this._HelmetId);
             stream.Serialize(ref this._HasMorphHead);
 
             if (this._HasMorphHead == true)
@@ -68,7 +101,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
                 stream.Serialize(ref this._MorphHead);
             }
 
-            stream.Serialize(ref this._EmissiveID, (s) => s.Version < 55, () => 0);
+            stream.Serialize(ref this._EmissiveId, s => s.Version < 55, () => 0);
         }
 
         #region Properties
@@ -89,195 +122,195 @@ namespace Gibbed.MassEffect3.FileFormats.Save
 
         [Category("Body")]
         [DisplayName("Casual ID")]
-        public int CasualID
+        public int CasualId
         {
-            get { return this._CasualID; }
+            get { return this._CasualId; }
             set
             {
-                if (value != this._CasualID)
+                if (value != this._CasualId)
                 {
-                    this._CasualID = value;
-                    this.NotifyPropertyChanged("CasualID");
+                    this._CasualId = value;
+                    this.NotifyPropertyChanged("CasualId");
                 }
             }
         }
 
         [Category("Body")]
         [DisplayName("Full Body ID")]
-        public int FullBodyID
+        public int FullBodyId
         {
-            get { return this._FullBodyID; }
+            get { return this._FullBodyId; }
             set
             {
-                if (value != this._FullBodyID)
+                if (value != this._FullBodyId)
                 {
-                    this._FullBodyID = value;
-                    this.NotifyPropertyChanged("FullBodyID");
+                    this._FullBodyId = value;
+                    this.NotifyPropertyChanged("FullBodyId");
                 }
             }
         }
 
         [Category("Body")]
         [DisplayName("Torso ID")]
-        public int TorsoID
+        public int TorsoId
         {
-            get { return this._TorsoID; }
+            get { return this._TorsoId; }
             set
             {
-                if (value != this._TorsoID)
+                if (value != this._TorsoId)
                 {
-                    this._TorsoID = value;
-                    this.NotifyPropertyChanged("TorsoID");
+                    this._TorsoId = value;
+                    this.NotifyPropertyChanged("TorsoId");
                 }
             }
         }
 
         [Category("Body")]
         [DisplayName("Shoulder ID")]
-        public int ShoulderID
+        public int ShoulderId
         {
-            get { return this._ShoulderID; }
+            get { return this._ShoulderId; }
             set
             {
-                if (value != this._ShoulderID)
+                if (value != this._ShoulderId)
                 {
-                    this._ShoulderID = value;
-                    this.NotifyPropertyChanged("ShoulderID");
+                    this._ShoulderId = value;
+                    this.NotifyPropertyChanged("ShoulderId");
                 }
             }
         }
 
         [Category("Body")]
         [DisplayName("Arm ID")]
-        public int ArmID
+        public int ArmId
         {
-            get { return this._ArmID; }
+            get { return this._ArmId; }
             set
             {
-                if (value != this._ArmID)
+                if (value != this._ArmId)
                 {
-                    this._ArmID = value;
-                    this.NotifyPropertyChanged("ArmID");
+                    this._ArmId = value;
+                    this.NotifyPropertyChanged("ArmId");
                 }
             }
         }
 
         [Category("Body")]
         [DisplayName("Leg ID")]
-        public int LegID
+        public int LegId
         {
-            get { return this._LegID; }
+            get { return this._LegId; }
             set
             {
-                if (value != this._LegID)
+                if (value != this._LegId)
                 {
-                    this._LegID = value;
-                    this.NotifyPropertyChanged("LegID");
+                    this._LegId = value;
+                    this.NotifyPropertyChanged("LegId");
                 }
             }
         }
 
         [Category("Body")]
         [DisplayName("Specular ID")]
-        public int SpecID
+        public int SpecId
         {
-            get { return this._SpecID; }
+            get { return this._SpecId; }
             set
             {
-                if (value != this._SpecID)
+                if (value != this._SpecId)
                 {
-                    this._SpecID = value;
-                    this.NotifyPropertyChanged("SpecID");
+                    this._SpecId = value;
+                    this.NotifyPropertyChanged("SpecId");
                 }
             }
         }
 
         [Category("Body")]
         [DisplayName("Tint #1 ID")]
-        public int Tint1ID
+        public int Tint1Id
         {
-            get { return this._Tint1ID; }
+            get { return this._Tint1Id; }
             set
             {
-                if (value != this._Tint1ID)
+                if (value != this._Tint1Id)
                 {
-                    this._Tint1ID = value;
-                    this.NotifyPropertyChanged("Tint1ID");
+                    this._Tint1Id = value;
+                    this.NotifyPropertyChanged("Tint1Id");
                 }
             }
         }
 
         [Category("Body")]
         [DisplayName("Tint #2 ID")]
-        public int Tint2ID
+        public int Tint2Id
         {
-            get { return this._Tint2ID; }
+            get { return this._Tint2Id; }
             set
             {
-                if (value != this._Tint2ID)
+                if (value != this._Tint2Id)
                 {
-                    this._Tint2ID = value;
-                    this.NotifyPropertyChanged("Tint2ID");
+                    this._Tint2Id = value;
+                    this.NotifyPropertyChanged("Tint2Id");
                 }
             }
         }
 
         [Category("Body")]
         [DisplayName("Tint #3 ID")]
-        public int Tint3ID
+        public int Tint3Id
         {
-            get { return this._Tint3ID; }
+            get { return this._Tint3Id; }
             set
             {
-                if (value != this._Tint3ID)
+                if (value != this._Tint3Id)
                 {
-                    this._Tint3ID = value;
-                    this.NotifyPropertyChanged("Tint3ID");
+                    this._Tint3Id = value;
+                    this.NotifyPropertyChanged("Tint3Id");
                 }
             }
         }
 
         [Category("Body")]
         [DisplayName("Pattern ID")]
-        public int PatternID
+        public int PatternId
         {
-            get { return this._PatternID; }
+            get { return this._PatternId; }
             set
             {
-                if (value != this._PatternID)
+                if (value != this._PatternId)
                 {
-                    this._PatternID = value;
-                    this.NotifyPropertyChanged("PatternID");
+                    this._PatternId = value;
+                    this.NotifyPropertyChanged("PatternId");
                 }
             }
         }
 
         [Category("Body")]
         [DisplayName("Pattern Color ID")]
-        public int PatternColorID
+        public int PatternColorId
         {
-            get { return this._PatternColorID; }
+            get { return this._PatternColorId; }
             set
             {
-                if (value != this._PatternColorID)
+                if (value != this._PatternColorId)
                 {
-                    this._PatternColorID = value;
-                    this.NotifyPropertyChanged("PatternColorID");
+                    this._PatternColorId = value;
+                    this.NotifyPropertyChanged("PatternColorId");
                 }
             }
         }
 
         [Category("Body")]
         [DisplayName("Helmet ID")]
-        public int HelmetID
+        public int HelmetId
         {
-            get { return this._HelmetID; }
+            get { return this._HelmetId; }
             set
             {
-                if (value != this._HelmetID)
+                if (value != this._HelmetId)
                 {
-                    this._HelmetID = value;
-                    this.NotifyPropertyChanged("HelmetID");
+                    this._HelmetId = value;
+                    this.NotifyPropertyChanged("HelmetId");
                 }
             }
         }
@@ -314,15 +347,15 @@ namespace Gibbed.MassEffect3.FileFormats.Save
 
         [Category("Body")]
         [DisplayName("Emissive ID")]
-        public int EmissiveID
+        public int EmissiveId
         {
-            get { return this._EmissiveID; }
+            get { return this._EmissiveId; }
             set
             {
-                if (value != this._EmissiveID)
+                if (value != this._EmissiveId)
                 {
-                    this._EmissiveID = value;
-                    this.NotifyPropertyChanged("EmissiveID");
+                    this._EmissiveId = value;
+                    this.NotifyPropertyChanged("EmissiveId");
                 }
             }
         }

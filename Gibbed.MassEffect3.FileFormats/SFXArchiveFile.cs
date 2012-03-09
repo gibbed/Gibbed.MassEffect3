@@ -89,7 +89,6 @@ namespace Gibbed.MassEffect3.FileFormats
 
             var blockSizeTableSize = dataOffset - fileTableOffset;
             var blockSizeTableCount = blockSizeTableSize / 2;
-            var blockSizeTable = new ushort[blockSizeTableCount];
             this.BlockSizes.Clear();
             for (uint i = 0; i < blockSizeTableCount; i++)
             {
@@ -99,7 +98,9 @@ namespace Gibbed.MassEffect3.FileFormats
             input.Seek(fileTableOffset, SeekOrigin.Begin);
             for (uint i = 0; i < fileTableCount; i++)
             {
+// ReSharper disable UseObjectOrCollectionInitializer
                 var entry = new SFXArchive.Entry();
+// ReSharper restore UseObjectOrCollectionInitializer
                 entry.NameHash = input.ReadFileNameHash();
                 entry.BlockSizeIndex = input.ReadValueS32(endian);
                 entry.UncompressedSize = input.ReadValueU32(endian);

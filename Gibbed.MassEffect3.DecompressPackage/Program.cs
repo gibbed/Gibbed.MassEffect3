@@ -184,7 +184,7 @@ namespace Gibbed.MassEffect3.DecompressPackage
                         }
 
                         var blockSegmentSize = input.ReadValueU32(endian);
-                        var blockCompressedSize = input.ReadValueU32(endian);
+                        /*var blockCompressedSize =*/ input.ReadValueU32(endian);
                         var blockUncompressedSize = input.ReadValueU32(endian);
                         if (blockUncompressedSize != blockInfo.UncompressedSize)
                         {

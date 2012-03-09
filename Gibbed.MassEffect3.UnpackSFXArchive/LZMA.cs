@@ -27,35 +27,35 @@ namespace Gibbed.MassEffect3.UnpackSFXArchive
 {
     public static class LZMA
     {
-        private static bool Is64Bit = DetectIs64Bit();
+        private static readonly bool Is64Bit = DetectIs64Bit();
         private static bool DetectIs64Bit()
         {
             return Marshal.SizeOf(IntPtr.Zero) == 8;
         }
 
-        public enum ErrorCode : int
+        public enum ErrorCode
         {
-            OK = 0,
-            DATA = 1,
-            MEM = 2,
-            CRC = 3,
-            UNSUPPORTED = 4,
-            PARAM = 5,
-            INPUT_EOF = 6,
-            OUTPUT_EOF = 7,
-            READ = 8,
-            WRITE = 9,
-            PROGRESS = 10,
-            FAIL = 11,
-            THREAD = 12,
+            Ok = 0,
+            Data = 1,
+            Mem = 2,
+            Crc = 3,
+            Unsupported = 4,
+            Param = 5,
+            InputEof = 6,
+            OutputEof = 7,
+            Read = 8,
+            Write = 9,
+            Progress = 10,
+            Fail = 11,
+            Thread = 12,
         }
 
-        private sealed class Native32
+        private static class Native32
         {
             [DllImport("lzma_32.dll",
                 EntryPoint = "#67",
                 CallingConvention = CallingConvention.StdCall)]
-            internal static extern int Compress(
+            internal static extern int CompressInternal(
                 byte[] dest,
                 ref uint destLen,
                 byte[] src,
@@ -73,7 +73,7 @@ namespace Gibbed.MassEffect3.UnpackSFXArchive
             [DllImport("lzma_32.dll",
                 EntryPoint = "#68",
                 CallingConvention = CallingConvention.StdCall)]
-            internal static extern int Decompress(
+            internal static extern int DecompressInternal(
                 byte[] dest,
                 ref uint destLen,
                 byte[] src,
@@ -82,12 +82,12 @@ namespace Gibbed.MassEffect3.UnpackSFXArchive
                 uint propsSize);
         }
 
-        private sealed class Native64
+        private static class Native64
         {
             [DllImport("lzma_64.dll",
                 EntryPoint = "#67",
                 CallingConvention = CallingConvention.StdCall)]
-            internal static extern int Compress(
+            internal static extern int CompressInternal(
                 byte[] dest,
                 ref uint destLen,
                 byte[] src,
@@ -105,7 +105,7 @@ namespace Gibbed.MassEffect3.UnpackSFXArchive
             [DllImport("lzma_64.dll",
                 EntryPoint = "#68",
                 CallingConvention = CallingConvention.StdCall)]
-            internal static extern int Decompress(
+            internal static extern int DecompressInternal(
                 byte[] dest,
                 ref uint destLen,
                 byte[] src,
@@ -131,7 +131,7 @@ namespace Gibbed.MassEffect3.UnpackSFXArchive
         {
             if (Is64Bit == true)
             {
-                return (ErrorCode)Native64.Compress(
+                return (ErrorCode)Native64.CompressInternal(
                     dest,
                     ref destLen,
                     src,
@@ -146,23 +146,21 @@ namespace Gibbed.MassEffect3.UnpackSFXArchive
                     fb,
                     numThreads);
             }
-            else
-            {
-                return (ErrorCode)Native32.Compress(
-                    dest,
-                    ref destLen,
-                    src,
-                    srcLen,
-                    outProps,
-                    ref outPropsSize,
-                    level,
-                    dictSize,
-                    lc,
-                    lp,
-                    pb,
-                    fb,
-                    numThreads);
-            }
+
+            return (ErrorCode)Native32.CompressInternal(
+                dest,
+                ref destLen,
+                src,
+                srcLen,
+                outProps,
+                ref outPropsSize,
+                level,
+                dictSize,
+                lc,
+                lp,
+                pb,
+                fb,
+                numThreads);
         }
 
         public static ErrorCode Decompress(
@@ -175,14 +173,12 @@ namespace Gibbed.MassEffect3.UnpackSFXArchive
         {
             if (Is64Bit == true)
             {
-                return (ErrorCode)Native64.Decompress(
+                return (ErrorCode)Native64.DecompressInternal(
                     dest, ref destLen, src, ref srcLen, props, propsSize);
             }
-            else
-            {
-                return (ErrorCode)Native32.Decompress(
-                    dest, ref destLen, src, ref srcLen, props, propsSize);
-            }
+
+            return (ErrorCode)Native32.DecompressInternal(
+                dest, ref destLen, src, ref srcLen, props, propsSize);
         }
     }
 }

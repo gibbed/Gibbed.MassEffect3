@@ -29,51 +29,127 @@ namespace Gibbed.MassEffect3.FileFormats.Save
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class Player : Unreal.ISerializable, INotifyPropertyChanged
     {
+        [OriginalName("IsFemale")]
         private bool _IsFemale;
-        private string _PlayerClassName;
-        private bool _CombatPawn;
-        private bool _InjuredPawn;
+
+        [OriginalName("PlayerClassName")]
+        private string _ClassName;
+
+        [OriginalName("CombatPawn")]
+        private bool _IsCombatPawn;
+        
+        [OriginalName("InjuredPawn")]
+        private bool _IsInjuredPawn;
+
+        [OriginalName("UseCasualAppearance")]
         private bool _UseCasualAppearance;
+
+        [OriginalName("Level")]
         private int _Level;
+
+        [OriginalName("CurrentXP")]
         private float _CurrentXP;
+
+        [OriginalName("FirstName")]
         private string _FirstName;
+
+        [OriginalName("LastName")]
         private int _LastName;
+
+        [OriginalName("Origin")]
         private OriginType _Origin;
+
+        [OriginalName("Notoriety")]
         private NotorietyType _Notoriety;
+
+        [OriginalName("TalentPoints")]
         private int _TalentPoints;
+
+        [OriginalName("MappedPower1")]
         private string _MappedPower1;
+
+        [OriginalName("MappedPower2")]
         private string _MappedPower2;
+
+        [OriginalName("MappedPower3")]
         private string _MappedPower3;
-        private Save.Appearance _Appearance;
+
+        [OriginalName("Appearance")]
+        private Appearance _Appearance;
+
+        [OriginalName("Powers")]
         private List<Power> _Powers;
+
+        [OriginalName("GAWAssets")]
         private List<GAWAsset> _GAWAssets;
+
+        [OriginalName("Weapons")]
         private List<Weapon> _Weapons;
+
+        [OriginalName("WeaponMods")]
         private List<WeaponMod> _WeaponMods;
+
+        [OriginalName("LoadoutWeapons")]
         private Loadout _LoadoutWeapons;
+
+        [OriginalName("PrimaryWeapon")]
         private string _PrimaryWeapon;
+
+        [OriginalName("SecondaryWeapon")]
         private string _SecondaryWeapon;
+
+        [OriginalName("LoadoutWeaponGroups")]
         private List<int> _LoadoutWeaponGroups;
+
+        [OriginalName("HotKeys")]
         private List<HotKey> _HotKeys;
+
+        [OriginalName("CurrentHealth")]
         private float _CurrentHealth;
+
+        [OriginalName("Credits")]
         private int _Credits;
+
+        [OriginalName("Medigel")]
         private int _Medigel;
+
+        [OriginalName("Eezo")]
         private int _Eezo;
+
+        [OriginalName("Iridium")]
         private int _Iridium;
+
+        [OriginalName("Palladium")]
         private int _Palladium;
+
+        [OriginalName("Platinum")]
         private int _Platinum;
+
+        [OriginalName("Probes")]
         private int _Probes;
+
+        [OriginalName("CurrentFuel")]
         private float _CurrentFuel;
+
+        [OriginalName("Grenades")]
         private int _Grenades;
+
+        [OriginalName("FaceCode")]
         private string _FaceCode;
+
+        [OriginalName("ClassFriendlyName")]
         private int _ClassFriendlyName;
-        private Guid _CharacterGUID;
+
+        [OriginalName("CharacterGUID")]
+        private Guid _Guid;
+
         public void Serialize(Unreal.ISerializer stream)
         {
             stream.Serialize(ref this._IsFemale);
-            stream.Serialize(ref this._PlayerClassName);
-            stream.Serialize(ref this._CombatPawn, (s) => s.Version < 37, () => true);
-            stream.Serialize(ref this._InjuredPawn, (s) => s.Version < 48, () => false);
-            stream.Serialize(ref this._UseCasualAppearance, (s) => s.Version < 48, () => false);
+            stream.Serialize(ref this._ClassName);
+            stream.Serialize(ref this._IsCombatPawn, s => s.Version < 37, () => true);
+            stream.Serialize(ref this._IsInjuredPawn, s => s.Version < 48, () => false);
+            stream.Serialize(ref this._UseCasualAppearance, s => s.Version < 48, () => false);
             stream.Serialize(ref this._Level);
             stream.Serialize(ref this._CurrentXP);
             stream.Serialize(ref this._FirstName);
@@ -86,15 +162,15 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             stream.Serialize(ref this._MappedPower3);
             stream.Serialize(ref this._Appearance);
             stream.Serialize(ref this._Powers);
-            stream.Serialize(ref this._GAWAssets, (s) => s.Version < 38, () => new List<GAWAsset>());
+            stream.Serialize(ref this._GAWAssets, s => s.Version < 38, () => new List<GAWAsset>());
             stream.Serialize(ref this._Weapons);
-            stream.Serialize(ref this._WeaponMods, (s) => s.Version < 32, () => new List<WeaponMod>());
-            stream.Serialize(ref this._LoadoutWeapons, (s) => s.Version < 18, () => new Loadout());
-            stream.Serialize(ref this._PrimaryWeapon, (s) => s.Version < 41, () => null);
-            stream.Serialize(ref this._SecondaryWeapon, (s) => s.Version < 41, () => null);
-            stream.Serialize(ref this._LoadoutWeaponGroups, (s) => s.Version < 33, () => new List<int>());
-            stream.Serialize(ref this._HotKeys, (s) => s.Version < 19, () => new List<HotKey>());
-            stream.Serialize(ref this._CurrentHealth, (s) => s.Version < 44, () => 0.0f);
+            stream.Serialize(ref this._WeaponMods, s => s.Version < 32, () => new List<WeaponMod>());
+            stream.Serialize(ref this._LoadoutWeapons, s => s.Version < 18, () => new Loadout());
+            stream.Serialize(ref this._PrimaryWeapon, s => s.Version < 41, () => null);
+            stream.Serialize(ref this._SecondaryWeapon, s => s.Version < 41, () => null);
+            stream.Serialize(ref this._LoadoutWeaponGroups, s => s.Version < 33, () => new List<int>());
+            stream.Serialize(ref this._HotKeys, s => s.Version < 19, () => new List<HotKey>());
+            stream.Serialize(ref this._CurrentHealth, s => s.Version < 44, () => 0.0f);
             stream.Serialize(ref this._Credits);
             stream.Serialize(ref this._Medigel);
             stream.Serialize(ref this._Eezo);
@@ -103,7 +179,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             stream.Serialize(ref this._Platinum);
             stream.Serialize(ref this._Probes);
             stream.Serialize(ref this._CurrentFuel);
-            stream.Serialize(ref this._Grenades, (s) => s.Version < 54, () => 0);
+            stream.Serialize(ref this._Grenades, s => s.Version < 54, () => 0);
 
             if (stream.Version >= 25)
             {
@@ -114,10 +190,11 @@ namespace Gibbed.MassEffect3.FileFormats.Save
                 throw new NotSupportedException();
             }
 
-            stream.Serialize(ref this._ClassFriendlyName, (s) => s.Version < 26, () => 0);
-            stream.Serialize(ref this._CharacterGUID, (s) => s.Version < 42, () => Guid.Empty);
+            stream.Serialize(ref this._ClassFriendlyName, s => s.Version < 26, () => 0);
+            stream.Serialize(ref this._Guid, s => s.Version < 42, () => Guid.Empty);
         }
 
+        #region Properties
         public bool IsFemale
         {
             get { return this._IsFemale; }
@@ -131,41 +208,41 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             }
         }
 
-        public string PlayerClassName
+        public string ClassName
         {
-            get { return this._PlayerClassName; }
+            get { return this._ClassName; }
             set
             {
-                if (value != this._PlayerClassName)
+                if (value != this._ClassName)
                 {
-                    this._PlayerClassName = value;
-                    this.NotifyPropertyChanged("PlayerClassName");
+                    this._ClassName = value;
+                    this.NotifyPropertyChanged("ClassName");
                 }
             }
         }
 
-        public bool CombatPawn
+        public bool IsCombatPawn
         {
-            get { return this._CombatPawn; }
+            get { return this._IsCombatPawn; }
             set
             {
-                if (value != this._CombatPawn)
+                if (value != this._IsCombatPawn)
                 {
-                    this._CombatPawn = value;
-                    this.NotifyPropertyChanged("CombatPawn");
+                    this._IsCombatPawn = value;
+                    this.NotifyPropertyChanged("IsCombatPawn");
                 }
             }
         }
 
-        public bool InjuredPawn
+        public bool IsInjuredPawn
         {
-            get { return this._InjuredPawn; }
+            get { return this._IsInjuredPawn; }
             set
             {
-                if (value != this._InjuredPawn)
+                if (value != this._IsInjuredPawn)
                 {
-                    this._InjuredPawn = value;
-                    this.NotifyPropertyChanged("InjuredPawn");
+                    this._IsInjuredPawn = value;
+                    this.NotifyPropertyChanged("IsInjuredPawn");
                 }
             }
         }
@@ -201,7 +278,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             get { return this._CurrentXP; }
             set
             {
-                if (value != this._CurrentXP)
+                if (Equals(value, this._CurrentXP) == false)
                 {
                     this._CurrentXP = value;
                     this.NotifyPropertyChanged("CurrentXP");
@@ -313,7 +390,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             }
         }
 
-        public Save.Appearance Appearance
+        public Appearance Appearance
         {
             get { return this._Appearance; }
             set
@@ -448,7 +525,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             get { return this._CurrentHealth; }
             set
             {
-                if (value != this._CurrentHealth)
+                if (Equals(value, this._CurrentHealth) == false)
                 {
                     this._CurrentHealth = value;
                     this.NotifyPropertyChanged("CurrentHealth");
@@ -552,7 +629,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             get { return this._CurrentFuel; }
             set
             {
-                if (value != this._CurrentFuel)
+                if (Equals(value, this._CurrentFuel) == false)
                 {
                     this._CurrentFuel = value;
                     this.NotifyPropertyChanged("CurrentFuel");
@@ -565,7 +642,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             get { return this._Grenades; }
             set
             {
-                if (value != this._Grenades)
+                if (Equals(value, this._Grenades) == false)
                 {
                     this._Grenades = value;
                     this.NotifyPropertyChanged("Grenades");
@@ -599,18 +676,19 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             }
         }
 
-        public Guid CharacterGUID
+        public Guid Guid
         {
-            get { return this._CharacterGUID; }
+            get { return this._Guid; }
             set
             {
-                if (value != this._CharacterGUID)
+                if (value != this._Guid)
                 {
-                    this._CharacterGUID = value;
-                    this.NotifyPropertyChanged("CharacterGUID");
+                    this._Guid = value;
+                    this.NotifyPropertyChanged("Guid");
                 }
             }
         }
+        #endregion
 
         public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyPropertyChanged(string propertyName)

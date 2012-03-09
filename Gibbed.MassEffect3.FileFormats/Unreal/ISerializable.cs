@@ -20,11 +20,9 @@
  *    distribution.
  */
 
-using System.ComponentModel;
-
 namespace Gibbed.MassEffect3.FileFormats.Unreal
 {
-    public interface ISerializable : INotifyPropertyChanged
+    public interface ISerializable
     {
         void Serialize(ISerializer stream);
     }

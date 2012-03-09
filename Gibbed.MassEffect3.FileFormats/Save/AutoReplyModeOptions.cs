@@ -29,13 +29,16 @@ namespace Gibbed.MassEffect3.FileFormats.Save
     [Editor(typeof(StandardValueEditor), typeof(UITypeEditor))]
     public enum AutoReplyModeOptions : byte
     {
+        [OriginalName("All_Decisions")]
         [StandardValue(null, DisplayName = "All Descisions")]
-        All_Decisions = 0,
+        AllDecisions = 0,
         
+        [OriginalName("Major_Decisions")]
         [StandardValue(null, DisplayName = "Major Decisions")]
-        Major_Decisions = 1,
+        MajorDecisions = 1,
         
+        [OriginalName("No_Decisions")]
         [StandardValue(null, DisplayName = "No Decisions")]
-        No_Decisions = 2,
+        NoDecisions = 2,
     }
 }

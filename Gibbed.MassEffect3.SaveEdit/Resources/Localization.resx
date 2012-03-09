@@ -117,47 +117,56 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Android" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\Icons\Android.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Warning" xml:space="preserve">
+    <value>Warning</value>
   </data>
-  <data name="Binary" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\Icons\Binary.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="SavePicker_DeleteCareerConfirmation" xml:space="preserve">
+    <value>Are you sure you want to delete this career?</value>
   </data>
-  <data name="Bug" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\Icons\Bug.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="SavePIcker_NewCareerLabel" xml:space="preserve">
+    <value>(new career)</value>
   </data>
-  <data name="Cat" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\Icons\Cat.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="SavePicker_NewSaveLabel" xml:space="preserve">
+    <value>(new save)</value>
   </data>
-  <data name="Dog" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\Icons\Dog.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="SavePicker_SaveOverwriteConfirmation" xml:space="preserve">
+    <value>Are you sure you want to overwrite this save file?</value>
   </data>
-  <data name="Female" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\Icons\Female.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Question" xml:space="preserve">
+    <value>Question</value>
   </data>
-  <data name="Ghost" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\Icons\Ghost.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="SavePicker_DeleteCareerIOException" xml:space="preserve">
+    <value>There was an error removing the directory:
+</value>
   </data>
-  <data name="Male" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\Icons\Male.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
   </data>
-  <data name="Monkey" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\Icons\Monkey.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="SavePicker_DeleteSaveConfirmation" xml:space="preserve">
+    <value>Are you sure you want to delete this save?</value>
   </data>
-  <data name="New" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\Icons\New.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="SavePicker_DeleteSaveIOException" xml:space="preserve">
+    <value>There was an error removing the file:
+</value>
   </data>
-  <data name="Penguin" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\Icons\Penguin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Editor_ThisShouldNeverHappen">
+    <value xml:space="preserve">This should never happen.</value>
   </data>
-  <data name="Robot" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\Icons\Robot.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Editor_NoActiveSave">
+    <value xml:space="preserve">There is no active save.</value>
   </data>
-  <data name="Shirt" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\Icons\Shirt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Editor_NoHeadMorph">
+    <value xml:space="preserve">This save does not have a non-default head morph.</value>
   </data>
-  <data name="XRay" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\Icons\XRay.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Editor_HeadMorphVersionUnsupported">
+    <value xml:space="preserve">Unsupported head morph export version.</value>
+  </data>
+  <data name="Editor_HeadMorphInvalid">
+    <value xml:space="preserve">That file does not appear to be an exported head morph.</value>
+  </data>
+  <data name="Editor_HeadMorphVersionMaybeIncompatible">
+    <value xml:space="preserve">The head morph you are importing has a different version ({0}) than your current save file ({1}).
+
+Import anyway?</value>
   </data>
 </root>

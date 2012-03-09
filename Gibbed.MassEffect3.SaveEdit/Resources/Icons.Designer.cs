@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Gibbed.MassEffect3.SaveEdit {
+namespace Gibbed.MassEffect3.SaveEdit.Resources {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Gibbed.MassEffect3.SaveEdit {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Gibbed.MassEffect3.SaveEdit.Icons", typeof(Icons).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Gibbed.MassEffect3.SaveEdit.Resources.Icons", typeof(Icons).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

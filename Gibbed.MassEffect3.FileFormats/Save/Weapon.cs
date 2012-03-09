@@ -42,8 +42,8 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             stream.Serialize(ref this._TotalAmmo);
             stream.Serialize(ref this._CurrentWeapon);
             stream.Serialize(ref this._LastWeapon);
-            stream.Serialize(ref this._AmmoPowerName, (s) => s.Version < 17, () => null);
-            stream.Serialize(ref this._AmmoPowerSourceTag, (s) => s.Version < 59, () => null);
+            stream.Serialize(ref this._AmmoPowerName, s => s.Version < 17, () => null);
+            stream.Serialize(ref this._AmmoPowerSourceTag, s => s.Version < 59, () => null);
         }
 
         public override string ToString()

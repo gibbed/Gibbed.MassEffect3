@@ -27,15 +27,20 @@ namespace Gibbed.MassEffect3.FileFormats.Save
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class HotKey : Unreal.ISerializable, INotifyPropertyChanged
     {
+        [OriginalName("PawnName")]
         private string _PawnName;
-        private int _PowerID;
+
+        [OriginalName("PowerID")]
+        private int _PowerId;
+
+        [OriginalName("PowerName")]
         private string _PowerName;
 
         public void Serialize(Unreal.ISerializer stream)
         {
             stream.Serialize(ref this._PawnName);
-            stream.Serialize(ref this._PowerName, (s) => s.Version < 30, () => null);
-            stream.Serialize(ref this._PowerID, (s) => s.Version >= 30, () => 0);
+            stream.Serialize(ref this._PowerName, s => s.Version < 30, () => null);
+            stream.Serialize(ref this._PowerId, s => s.Version >= 30, () => 0);
         }
 
         #region Properties
@@ -53,15 +58,15 @@ namespace Gibbed.MassEffect3.FileFormats.Save
         }
 
         [Browsable(false)]
-        public int PowerID
+        public int PowerId
         {
-            get { return this._PowerID; }
+            get { return this._PowerId; }
             set
             {
-                if (value != this._PowerID)
+                if (value != this._PowerId)
                 {
-                    this._PowerID = value;
-                    this.NotifyPropertyChanged("PowerID");
+                    this._PowerId = value;
+                    this.NotifyPropertyChanged("PowerId");
                 }
             }
         }

@@ -20,6 +20,7 @@
  *    distribution.
  */
 
+using System;
 using System.ComponentModel;
 
 namespace Gibbed.MassEffect3.FileFormats.Save
@@ -38,6 +39,17 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             stream.Serialize(ref this._Day);
             stream.Serialize(ref this._Month);
             stream.Serialize(ref this._Year);
+        }
+
+        public override string ToString()
+        {
+            return string.Format("{0}/{1}/{2} {3}:{4:D2}",
+                this.Day,
+                this.Month,
+                this.Year,
+                (int)Math.Round((this.SecondsSinceMidnight / 60.0) / 60.0),
+                (int)Math.Round(this.SecondsSinceMidnight / 60.0) % 60);
+
         }
 
         #region Properties

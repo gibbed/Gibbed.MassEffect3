@@ -28,34 +28,39 @@ namespace Gibbed.MassEffect3.FileFormats.Save
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class DependentDLC : Unreal.ISerializable, INotifyPropertyChanged
     {
-        private int _ModuleID;
+        [OriginalName("ModuleID")]
+        private int _ModuleId;
+
+        [OriginalName("Name")]
         private string _Name;
+
+        [OriginalName("CanonicalName")]
         private string _CanonicalName;
 
         public void Serialize(Unreal.ISerializer stream)
         {
-            stream.Serialize(ref this._ModuleID);
+            stream.Serialize(ref this._ModuleId);
             stream.Serialize(ref this._Name);
-            stream.Serialize(ref this._CanonicalName, (s) => s.Version < 50, () => null);
+            stream.Serialize(ref this._CanonicalName, s => s.Version < 50, () => null);
         }
 
         public override string ToString()
         {
             return String.Format("{1} ({0})",
-                this._ModuleID,
+                this._ModuleId,
                 this._Name);
         }
 
         #region Properties
-        public int ModuleID
+        public int ModuleId
         {
-            get { return this._ModuleID; }
+            get { return this._ModuleId; }
             set
             {
-                if (value != this._ModuleID)
+                if (value != this._ModuleId)
                 {
-                    this._ModuleID = value;
-                    this.NotifyPropertyChanged("ModuleID");
+                    this._ModuleId = value;
+                    this.NotifyPropertyChanged("ModuleId");
                 }
             }
         }

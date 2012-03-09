@@ -34,7 +34,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
         public void Serialize(Unreal.ISerializer stream)
         {
             stream.Serialize(ref this._Planets);
-            stream.Serialize(ref this._Systems, (s) => s.Version < 51, () => new List<System>());
+            stream.Serialize(ref this._Systems, s => s.Version < 51, () => new List<System>());
         }
 
         #region Properties
@@ -77,29 +77,36 @@ namespace Gibbed.MassEffect3.FileFormats.Save
         #region Children
         public class Planet : Unreal.ISerializable, INotifyPropertyChanged
         {
-            private int _PlanetID;
+            [OriginalName("PlanetID")]
+            private int _PlanetId;
+
+            [OriginalName("Visited")]
             private bool _Visited;
+
+            [OriginalName("Probes")]
             private List<Vector2D> _Probes;
+
+            [OriginalName("ShowAsScanned")]
             private bool _ShowAsScanned;
 
             public void Serialize(Unreal.ISerializer stream)
             {
-                stream.Serialize(ref this._PlanetID);
+                stream.Serialize(ref this._PlanetId);
                 stream.Serialize(ref this._Visited);
                 stream.Serialize(ref this._Probes);
-                stream.Serialize(ref this._ShowAsScanned, (s) => s.Version < 51, () => false);
+                stream.Serialize(ref this._ShowAsScanned, s => s.Version < 51, () => false);
             }
 
             #region Properties
-            public int PlanetID
+            public int PlanetId
             {
-                get { return this._PlanetID; }
+                get { return this._PlanetId; }
                 set
                 {
-                    if (value != this._PlanetID)
+                    if (value != this._PlanetId)
                     {
-                        this._PlanetID = value;
-                        this.NotifyPropertyChanged("PlanetID");
+                        this._PlanetId = value;
+                        this.NotifyPropertyChanged("PlanetId");
                     }
                 }
             }
@@ -156,27 +163,32 @@ namespace Gibbed.MassEffect3.FileFormats.Save
 
         public class System : Unreal.ISerializable, INotifyPropertyChanged
         {
-            private int _SystemID;
+            [OriginalName("SystemID")]
+            private int _SystemId;
+
+            [OriginalName("ReaperAlertLevel")]
             private float _ReaperAlertLevel;
+
+            [OriginalName("ReapersDetected")]
             private bool _ReapersDetected;
 
             public void Serialize(Unreal.ISerializer stream)
             {
-                stream.Serialize(ref this._SystemID);
+                stream.Serialize(ref this._SystemId);
                 stream.Serialize(ref this._ReaperAlertLevel);
-                stream.Serialize(ref this._ReapersDetected, (s) => s.Version < 58, () => false);
+                stream.Serialize(ref this._ReapersDetected, s => s.Version < 58, () => false);
             }
 
             #region Properties
-            public int SystemID
+            public int SystemId
             {
-                get { return this._SystemID; }
+                get { return this._SystemId; }
                 set
                 {
-                    if (value != this._SystemID)
+                    if (value != this._SystemId)
                     {
-                        this._SystemID = value;
-                        this.NotifyPropertyChanged("SystemID");
+                        this._SystemId = value;
+                        this.NotifyPropertyChanged("SystemId");
                     }
                 }
             }
@@ -186,7 +198,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
                 get { return this._ReaperAlertLevel; }
                 set
                 {
-                    if (value != this._ReaperAlertLevel)
+                    if (Equals(value, this._ReaperAlertLevel) == false)
                     {
                         this._ReaperAlertLevel = value;
                         this.NotifyPropertyChanged("ReaperAlertLevel");

@@ -56,9 +56,9 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
         void SerializeEnum<TEnum>(ref TEnum value, Func<ISerializer, bool> condition, Func<TEnum> defaultValue);
 
         void Serialize<TType>(ref TType value)
-            where TType : ISerializable, new();
+            where TType : class, ISerializable, new();
         void Serialize<TType>(ref TType value, Func<ISerializer, bool> condition, Func<TType> defaultValue)
-            where TType : ISerializable, new();
+            where TType : class, ISerializable, new();
 
         void Serialize(ref BitArray list);
         void Serialize(ref BitArray list, Func<ISerializer, bool> condition, Func<BitArray> defaultList);
@@ -82,8 +82,8 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
         void SerializeEnum<TEnum>(ref List<TEnum> list, Func<ISerializer, bool> condition, Func<List<TEnum>> defaultList);
 
         void Serialize<TType>(ref List<TType> list)
-            where TType : ISerializable, new();
+            where TType : class, ISerializable, new();
         void Serialize<TType>(ref List<TType> list, Func<ISerializer, bool> condition, Func<List<TType>> defaultList)
-            where TType : ISerializable, new();
+            where TType : class, ISerializable, new();
     }
 }

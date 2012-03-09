@@ -74,7 +74,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
                     this._FloatVariables = new List<FloatVariablePair>();
                     for (int i = 0; i < oldFloatVariables.Count; i++)
                     {
-                        if (oldFloatVariables[i] == 0.0f)
+                        if (Equals(oldFloatVariables[i], 0.0f) == true)
                         {
                             continue;
                         }
@@ -316,7 +316,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
                 get { return this._Value; }
                 set
                 {
-                    if (value != this._Value)
+                    if (Equals(value, this._Value) == false)
                     {
                         this._Value = value;
                         this.NotifyPropertyChanged("Value");
@@ -346,7 +346,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             {
                 stream.Serialize(ref this._QuestCounter);
                 stream.Serialize(ref this._QuestUpdated);
-                stream.Serialize(ref this._ActiveGoal, (s) => s.Version < 57, () => 0);
+                stream.Serialize(ref this._ActiveGoal, s => s.Version < 57, () => 0);
                 stream.Serialize(ref this._History);
             }
 

@@ -27,7 +27,10 @@ namespace Gibbed.MassEffect3.FileFormats.Save
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class GAWAsset : Unreal.ISerializable, INotifyPropertyChanged
     {
+        [OriginalName("Id")]
         private int _Id;
+
+        [OriginalName("Strength")]
         private int _Strength;
 
         public void Serialize(Unreal.ISerializer stream)

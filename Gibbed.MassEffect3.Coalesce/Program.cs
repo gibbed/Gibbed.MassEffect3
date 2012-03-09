@@ -22,6 +22,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using Gibbed.MassEffect3.FileFormats;
 using NDesk.Options;
@@ -32,11 +33,6 @@ namespace Gibbed.MassEffect3.Coalesce
 {
     internal class Program
     {
-        private static string GetExecutablePath()
-        {
-            return Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-        }
-
         private static string GetExecutableName()
         {
             return Path.GetFileName(System.Reflection.Assembly.GetExecutingAssembly().Location);
@@ -54,12 +50,12 @@ namespace Gibbed.MassEffect3.Coalesce
                 {
                     "b|json2bin",
                     "convert json to bin",
-                    v => mode = v != null ? Mode.ToBIN : mode
+                    v => mode = v != null ? Mode.ToBin : mode
                 },
                 {
                     "j|bin2json",
                     "convert bin to json",
-                    v => mode = v != null ? Mode.ToJSON : mode
+                    v => mode = v != null ? Mode.ToJson : mode
                 },
                 {
                     "h|help",
@@ -90,11 +86,11 @@ namespace Gibbed.MassEffect3.Coalesce
 
                 if (Directory.Exists(testPath) == true)
                 {
-                    mode = Mode.ToBIN;
+                    mode = Mode.ToBin;
                 }
                 else if (File.Exists(testPath) == true)
                 {
-                    mode = Mode.ToJSON;
+                    mode = Mode.ToJson;
                 }
             }
 
@@ -109,7 +105,7 @@ namespace Gibbed.MassEffect3.Coalesce
                 return;
             }
 
-            if (mode == Mode.ToJSON)
+            if (mode == Mode.ToJson)
             {
                 var inputPath = extras[0];
                 var outputPath = extras.Count > 1 ? extras[1] : Path.ChangeExtension(inputPath, null);
@@ -119,18 +115,20 @@ namespace Gibbed.MassEffect3.Coalesce
                     var coal = new CoalescedFile();
                     coal.Deserialize(input);
 
-                    var padding = coal.Files.Count.ToString().Length;
+                    var padding = coal.Files.Count.ToString(CultureInfo.InvariantCulture).Length;
 
-                    var setup = new Setup();
-                    setup.Endian = coal.Endian;
-                    setup.Version = coal.Version;
+                    var setup = new Setup
+                    {
+                        Endian = coal.Endian,
+                        Version = coal.Version,
+                    };
 
                     var counter = 0;
                     foreach (var file in coal.Files)//.OrderBy(f => f.Name))
                     {
                         var iniPath = string.Format("{1}_{0}",
                             Path.GetFileNameWithoutExtension(file.Name),
-                            counter.ToString().PadLeft(padding, '0'));
+                            counter.ToString(CultureInfo.InvariantCulture).PadLeft(padding, '0'));
                         iniPath = Path.Combine(outputPath, Path.ChangeExtension(iniPath, ".json"));
                         counter++;
 
@@ -145,7 +143,7 @@ namespace Gibbed.MassEffect3.Coalesce
                                 {
                                     Name = file.Name,
                                     Sections = file.Sections,
-                                }, Newtonsoft.Json.Formatting.Indented));
+                                }, Formatting.Indented));
                             writer.Flush();
                         }
                     }
@@ -155,7 +153,7 @@ namespace Gibbed.MassEffect3.Coalesce
                     {
                         var writer = new StreamWriter(output);
                         writer.Write(JsonConvert.SerializeObject(
-                            setup, Newtonsoft.Json.Formatting.Indented));
+                            setup, Formatting.Indented));
                         writer.Flush();
                     }
                 }
@@ -174,10 +172,12 @@ namespace Gibbed.MassEffect3.Coalesce
                     setup = JsonConvert.DeserializeObject<Setup>(text);
                 }
 
-                var coal = new CoalescedFile();
-                coal.Endian = setup.Endian;
-                coal.Version = setup.Version;
-                
+                var coal = new CoalescedFile
+                {
+                    Endian = setup.Endian,
+                    Version = setup.Version,
+                };
+
                 foreach (var iniName in setup.Files)
                 {
                     string iniPath = Path.IsPathRooted(iniName) == false ?

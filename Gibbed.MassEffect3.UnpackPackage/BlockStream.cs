@@ -31,10 +31,10 @@ namespace Gibbed.MassEffect3.UnpackPackage
 {
     public class BlockStream : Stream
     {
-        private Stream BaseStream;
-        private List<Block> Blocks;
-        private Block CurrentBlock;
-        private long CurrentOffset;
+        private readonly Stream _BaseStream;
+        private readonly List<Block> _Blocks;
+        private Block _CurrentBlock;
+        private long _CurrentOffset;
 
         public BlockStream(Stream baseStream)
         {
@@ -43,9 +43,9 @@ namespace Gibbed.MassEffect3.UnpackPackage
                 throw new ArgumentNullException("baseStream");
             }
 
-            this.BaseStream = baseStream;
-            this.Blocks = new List<Block>();
-            this.CurrentOffset = 0;
+            this._BaseStream = baseStream;
+            this._Blocks = new List<Block>();
+            this._CurrentOffset = 0;
         }
 
         public void AddBlock(
@@ -54,7 +54,7 @@ namespace Gibbed.MassEffect3.UnpackPackage
             uint compressedOffset,
             uint compressedSize)
         {
-            this.Blocks.Add(
+            this._Blocks.Add(
                 new Block(
                     uncompressedOffset,
                     uncompressedSize,
@@ -64,41 +64,41 @@ namespace Gibbed.MassEffect3.UnpackPackage
 
         private bool LoadBlock(long offset)
         {
-            if (this.CurrentBlock == null ||
-                this.CurrentBlock.IsValidOffset(offset) == false)
+            if (this._CurrentBlock == null ||
+                this._CurrentBlock.IsValidOffset(offset) == false)
             {
-                Block block = this.Blocks.SingleOrDefault(
+                Block block = this._Blocks.SingleOrDefault(
                     candidate => candidate.IsValidOffset(offset));
 
                 if (block == null)
                 {
-                    this.CurrentBlock = null;
+                    this._CurrentBlock = null;
                     return false;
                 }
 
-                this.CurrentBlock = block;
+                this._CurrentBlock = block;
             }
 
-            return this.CurrentBlock.Load(this.BaseStream);
+            return this._CurrentBlock.Load(this._BaseStream);
         }
 
         public void SaveUncompressed(Stream output)
         {
-            byte[] data = new byte[1024];
+            var data = new byte[1024];
 
-            uint totalSize = this.Blocks.Max(
+            uint totalSize = this._Blocks.Max(
                 candidate =>
                     candidate.UncompressedOffset +
                     candidate.UncompressedSize);
 
             output.SetLength(totalSize);
 
-            foreach (Block block in this.Blocks)
+            foreach (Block block in this._Blocks)
             {
                 output.Seek(block.UncompressedOffset, SeekOrigin.Begin);
                 this.Seek(block.UncompressedOffset, SeekOrigin.Begin);
 
-                int total = (int)block.UncompressedSize;
+                var total = (int)block.UncompressedSize;
                 while (total > 0)
                 {
                     int read = this.Read(data, 0, Math.Min(total, data.Length));
@@ -113,12 +113,12 @@ namespace Gibbed.MassEffect3.UnpackPackage
         #region Stream
         public override bool CanRead
         {
-            get { return this.BaseStream.CanRead; }
+            get { return this._BaseStream.CanRead; }
         }
 
         public override bool CanSeek
         {
-            get { return this.BaseStream.CanSeek; }
+            get { return this._BaseStream.CanSeek; }
         }
 
         public override bool CanWrite
@@ -128,7 +128,7 @@ namespace Gibbed.MassEffect3.UnpackPackage
 
         public override void Flush()
         {
-            this.BaseStream.Flush();
+            this._BaseStream.Flush();
         }
 
         public override long Length
@@ -140,7 +140,7 @@ namespace Gibbed.MassEffect3.UnpackPackage
         {
             get
             {
-                return this.CurrentOffset;
+                return this._CurrentOffset;
             }
 
             set
@@ -155,20 +155,20 @@ namespace Gibbed.MassEffect3.UnpackPackage
 
             while (totalRead < count)
             {
-                if (this.LoadBlock(this.CurrentOffset) == false)
+                if (this.LoadBlock(this._CurrentOffset) == false)
                 {
                     throw new InvalidOperationException();
                 }
 
-                int read = this.CurrentBlock.Read(
-                    this.BaseStream,
-                    this.CurrentOffset,
+                int read = this._CurrentBlock.Read(
+                    this._BaseStream,
+                    this._CurrentOffset,
                     buffer,
                     offset,
                     count);
 
                 totalRead += read;
-                this.CurrentOffset += read;
+                this._CurrentOffset += read;
                 offset += read;
                 count -= read;
             }
@@ -187,10 +187,10 @@ namespace Gibbed.MassEffect3.UnpackPackage
             {
                 if (offset == 0)
                 {
-                    return this.CurrentOffset;
+                    return this._CurrentOffset;
                 }
 
-                offset = this.CurrentOffset + offset;
+                offset = this._CurrentOffset + offset;
             }
 
             if (this.LoadBlock(offset) == false)
@@ -198,8 +198,8 @@ namespace Gibbed.MassEffect3.UnpackPackage
                 throw new InvalidOperationException();
             }
 
-            this.CurrentOffset = offset;
-            return this.CurrentOffset;
+            this._CurrentOffset = offset;
+            return this._CurrentOffset;
         }
 
         public override void SetLength(long value)
@@ -224,14 +224,14 @@ namespace Gibbed.MassEffect3.UnpackPackage
 
             public uint UncompressedOffset { get; private set; }
             public uint UncompressedSize { get; private set; }
-            public uint CompressedOffset { get; private set; }
-            public uint CompressedSize { get; private set; }
-            private uint SegmentSize;
+            private uint CompressedOffset { get; set; }
+            private uint CompressedSize { get; set; }
+            private uint _SegmentSize;
 
-            private bool Loaded;
-            private List<Segment> Segments;
-            private int CurrentSegmentIndex;
-            private byte[] CurrentSegmentData;
+            private bool _IsLoaded;
+            private readonly List<Segment> _Segments;
+            private int _CurrentSegmentIndex;
+            private byte[] _CurrentSegmentData;
 
             public Block(
                 uint uncompressedOffset,
@@ -244,9 +244,9 @@ namespace Gibbed.MassEffect3.UnpackPackage
                 this.CompressedOffset = compressedOffset;
                 this.CompressedSize = compressedSize;
 
-                this.Loaded = false;
-                this.Segments = new List<Segment>();
-                this.CurrentSegmentIndex = -1;
+                this._IsLoaded = false;
+                this._Segments = new List<Segment>();
+                this._CurrentSegmentIndex = -1;
             }
 
             public bool IsValidOffset(long offset)
@@ -258,7 +258,7 @@ namespace Gibbed.MassEffect3.UnpackPackage
 
             public bool Load(Stream input)
             {
-                if (this.Loaded == true)
+                if (this._IsLoaded == true)
                 {
                     return true;
                 }
@@ -270,9 +270,9 @@ namespace Gibbed.MassEffect3.UnpackPackage
                     throw new FormatException("bad block magic");
                 }
 
-                this.SegmentSize = input.ReadValueU32();
+                this._SegmentSize = input.ReadValueU32();
 
-                uint compressedSize = input.ReadValueU32();
+                /*uint compressedSize = */ input.ReadValueU32();
                 uint uncompressedSize = input.ReadValueU32();
 
                 if (uncompressedSize != this.UncompressedSize)
@@ -280,39 +280,41 @@ namespace Gibbed.MassEffect3.UnpackPackage
                     throw new InvalidOperationException();
                 }
 
-                uint count = ((uncompressedSize + this.SegmentSize) - 1) / this.SegmentSize;
+                uint count = ((uncompressedSize + this._SegmentSize) - 1) / this._SegmentSize;
                 uint segmentOffset = (4 * 4) + (count * 8);
 
                 for (uint i = 0; i < count; i++)
                 {
-                    Segment segment = new Segment();
+// ReSharper disable UseObjectOrCollectionInitializer
+                    var segment = new Segment();
+// ReSharper restore UseObjectOrCollectionInitializer
                     segment.CompressedSize = input.ReadValueU32();
                     segment.UncompressedSize = input.ReadValueU32();
                     segment.Offset = segmentOffset;
-                    this.Segments.Add(segment);
+                    this._Segments.Add(segment);
                     segmentOffset += segment.CompressedSize;
                 }
 
-                this.Loaded = true;
+                this._IsLoaded = true;
                 return true;
             }
 
             public int Read(Stream input, long baseOffset, byte[] buffer, int offset, int count)
             {
-                int relativeOffset = (int)(baseOffset - this.UncompressedOffset);
-                int segmentIndex = relativeOffset / (int)this.SegmentSize;
+                var relativeOffset = (int)(baseOffset - this.UncompressedOffset);
+                int segmentIndex = relativeOffset / (int)this._SegmentSize;
 
                 int totalRead = 0;
 
                 while (relativeOffset < this.UncompressedSize)
                 {
-                    if (segmentIndex != this.CurrentSegmentIndex)
+                    if (segmentIndex != this._CurrentSegmentIndex)
                     {
-                        this.CurrentSegmentIndex = segmentIndex;
-                        Segment segment = this.Segments[segmentIndex];
+                        this._CurrentSegmentIndex = segmentIndex;
+                        Segment segment = this._Segments[segmentIndex];
 
-                        byte[] compressedData = new byte[segment.CompressedSize];
-                        this.CurrentSegmentData = new byte[segment.UncompressedSize];
+                        var compressedData = new byte[segment.CompressedSize];
+                        this._CurrentSegmentData = new byte[segment.UncompressedSize];
 
                         input.Seek(this.CompressedOffset + segment.Offset, SeekOrigin.Begin);
                         input.Read(compressedData, 0, compressedData.Length);
@@ -320,21 +322,21 @@ namespace Gibbed.MassEffect3.UnpackPackage
                         using (var temp = new MemoryStream(compressedData))
                         {
                             var zlib = new InflaterInputStream(temp);
-                            if (zlib.Read(this.CurrentSegmentData, 0, this.CurrentSegmentData.Length) !=
-                                this.CurrentSegmentData.Length)
+                            if (zlib.Read(this._CurrentSegmentData, 0, this._CurrentSegmentData.Length) !=
+                                this._CurrentSegmentData.Length)
                             {
                                 throw new InvalidOperationException("decompression error");
                             }
                         }
                     }
 
-                    int segmentOffset = relativeOffset % (int)this.SegmentSize;
+                    int segmentOffset = relativeOffset % (int)this._SegmentSize;
                     int left = Math.Min(
                         count - totalRead,
-                        this.CurrentSegmentData.Length - segmentOffset);
+                        this._CurrentSegmentData.Length - segmentOffset);
 
                     Array.ConstrainedCopy(
-                        this.CurrentSegmentData,
+                        this._CurrentSegmentData,
                         segmentOffset,
                         buffer,
                         offset,

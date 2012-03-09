@@ -23,6 +23,7 @@
 using System;
 using System.Globalization;
 using System.IO;
+using Gibbed.MassEffect3.SaveEdit.Resources;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -34,8 +35,8 @@ namespace Gibbed.MassEffect3.SaveEdit
         public string FilePath;
         public string SelectedPath;
 
-        public FileFormats.SaveFile SaveFile = null;
-        private int HighestSaveNumber = 0;
+        public FileFormats.SaveFile SaveFile;
+        private int _HighestSaveNumber;
 
         private PickerMode _FileMode = PickerMode.Invalid;
         public PickerMode FileMode
@@ -86,18 +87,23 @@ namespace Gibbed.MassEffect3.SaveEdit
             this.careerListView.Items.Clear();
             this.careerListView.Items.Add(new ListViewItem()
                 {
-                    Text = "(new career)",
+                    Text = Localization.SavePIcker_NewCareerLabel,
+// ReSharper disable LocalizableElement
                     ImageKey = "New",
+// ReSharper restore LocalizableElement
                 });
 
             this.saveListView.Items.Clear();
             this.saveListView.Items.Add(new ListViewItem()
             {
-                Text = "(new save)",
+                Text = Localization.SavePicker_NewSaveLabel,
+                // ReSharper disable LocalizableElement
                 ImageKey = "New",
+                // ReSharper restore LocalizableElement
             });
         }
 
+        // ReSharper disable UnusedMember.Local
         private enum PlayerClass
         {
             Invalid,
@@ -108,6 +114,7 @@ namespace Gibbed.MassEffect3.SaveEdit
             Infiltrator,
             Vanguard,
         }
+        // ReSharper restore UnusedMember.Local
 
         private static bool ParseCareerName(
             string input,
@@ -205,7 +212,7 @@ namespace Gibbed.MassEffect3.SaveEdit
             {
                 foreach (var careerPath in Directory
                     .GetDirectories(this.FilePath)
-                    .OrderByDescending(d => Directory.GetLastWriteTime(d)))
+                    .OrderByDescending(Directory.GetLastWriteTime))
                 {
                     var careerFiles = Directory.GetFiles(careerPath, "*.pcsav");
                     if (careerFiles.Length == 0)
@@ -218,7 +225,7 @@ namespace Gibbed.MassEffect3.SaveEdit
                     {
                         try
                         {
-                            using (var input = File.OpenRead(careerFiles[0]))
+                            using (var input = File.OpenRead(careerFile))
                             {
                                 saveFile = FileFormats.SaveFile.Read(input);
                             }
@@ -254,7 +261,9 @@ namespace Gibbed.MassEffect3.SaveEdit
                         this.careerListView.Items.Add(new ListViewItem()
                             {
                                 Text = displayName,
+// ReSharper disable LocalizableElement
                                 ImageKey = "Class_" + classType.ToString(),
+// ReSharper restore LocalizableElement
                                 Tag = careerPath,
                             });
                     }
@@ -276,18 +285,26 @@ namespace Gibbed.MassEffect3.SaveEdit
                 {
                     this.careerListView.Items.Insert(1, new ListViewItem()
                         {
+// ReSharper disable LocalizableElement
                             Name = "New Career",
-                            Text = "(new career)",
+// ReSharper restore LocalizableElement
+                            Text = Localization.SavePIcker_NewCareerLabel,
+// ReSharper disable LocalizableElement
                             ImageKey = "New",
+// ReSharper restore LocalizableElement
                         });
                 }
                 else
                 {
                     this.careerListView.Items.Add(new ListViewItem()
                         {
+// ReSharper disable LocalizableElement
                             Name = "New Career",
-                            Text = "(new career)",
+// ReSharper restore LocalizableElement
+                            Text = Localization.SavePIcker_NewCareerLabel,
+// ReSharper disable LocalizableElement
                             ImageKey = "New",
+// ReSharper restore LocalizableElement
                         });
                 }
             }
@@ -313,29 +330,34 @@ namespace Gibbed.MassEffect3.SaveEdit
             {
                 this.saveListView.Items.Add(new ListViewItem()
                 {
+// ReSharper disable LocalizableElement
                     Name = "New Save",
-                    Text = "(new save)",
+// ReSharper restore LocalizableElement
+                    Text = Localization.SavePicker_NewSaveLabel,
+// ReSharper disable LocalizableElement
                     ImageKey = "New",
+// ReSharper restore LocalizableElement
                 });
             }
             
-            this.HighestSaveNumber = 0;
+            this._HighestSaveNumber = 0;
             if (savePath != null)
             {
                 if (Directory.Exists(this.FilePath) == true)
                 {
                     foreach (var inputPath in Directory
                         .GetFiles(savePath, "*.pcsav")
-                        .OrderByDescending(f => Directory.GetLastWriteTime(f)))
+                        .OrderByDescending(Directory.GetLastWriteTime))
                     {
                         var baseName = Path.GetFileNameWithoutExtension(inputPath);
-                        if (baseName.StartsWith("Save_") == true &&
+                        if (baseName != null &&
+                            baseName.StartsWith("Save_") == true &&
                             baseName.Length == 9)
                         {
                             int saveNumber;
                             if (int.TryParse(baseName.Substring(5).TrimStart('0'), out saveNumber) == true)
                             {
-                                this.HighestSaveNumber = Math.Max(saveNumber, this.HighestSaveNumber);
+                                this._HighestSaveNumber = Math.Max(saveNumber, this._HighestSaveNumber);
                             }
                         }
 
@@ -403,7 +425,9 @@ namespace Gibbed.MassEffect3.SaveEdit
 
             if (e.IsSelected == true)
             {
+// ReSharper disable LocalizableElement
                 if (e.Item.Name == "New Save" ||
+// ReSharper restore LocalizableElement
                     e.Item.Tag is string)
                 {
                     this.loadFileButton.Enabled = true;
@@ -465,7 +489,9 @@ namespace Gibbed.MassEffect3.SaveEdit
             var path = this.FilePath;
             
             int saveNumber;
+// ReSharper disable LocalizableElement
             if (this.careerListView.SelectedItems[0].Name == "New Career")
+// ReSharper restore LocalizableElement
             {
                 var name = string.Format("{0}_{1}{2}_{3}_{4}_{5}",
                     FilterPath(this.SaveFile.Player.FirstName),
@@ -473,7 +499,7 @@ namespace Gibbed.MassEffect3.SaveEdit
                     (int)this.SaveFile.Player.Notoriety,
                     TranslateClass(this.SaveFile.Player.ClassFriendlyName),
                     DateTime.Now.ToString("ddMMyy", CultureInfo.InvariantCulture),
-                    BitConverter.ToString(this.SaveFile.Player.CharacterGUID.ToByteArray()).Replace("-", "").Substring(0, 7));
+                    BitConverter.ToString(this.SaveFile.Player.Guid.ToByteArray()).Replace("-", "").Substring(0, 7));
                 path = Path.Combine(path, name);
                 saveNumber = 0;
             }
@@ -484,11 +510,11 @@ namespace Gibbed.MassEffect3.SaveEdit
             else
             {
                 path = (string)this.careerListView.SelectedItems[0].Tag;
-                saveNumber = this.HighestSaveNumber + 1;
+                saveNumber = this._HighestSaveNumber + 1;
             }
 
             path = Path.Combine(path, string.Format("Save_{0}.pcsav",
-                saveNumber.ToString().PadLeft(4, '0')));
+                saveNumber.ToString(CultureInfo.InvariantCulture).PadLeft(4, '0')));
             return path;
         }
 
@@ -505,8 +531,8 @@ namespace Gibbed.MassEffect3.SaveEdit
                 exists == true)
             {
                 if (MessageBox.Show(
-                        "Are you sure you want to overwrite this save file?",
-                        "Question",
+                        Localization.SavePicker_SaveOverwriteConfirmation,
+                        Localization.Question,
                         MessageBoxButtons.YesNo,
                         MessageBoxIcon.Question) == DialogResult.No)
                 {
@@ -515,14 +541,14 @@ namespace Gibbed.MassEffect3.SaveEdit
             }
 
             this.SelectedPath = path;
-            this.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.DialogResult = DialogResult.OK;
             this.Close();
         }
 
         private void OnCancel(object sender, EventArgs e)
         {
             this.SelectedPath = null;
-            this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
 
@@ -535,9 +561,9 @@ namespace Gibbed.MassEffect3.SaveEdit
             }
 
             if (MessageBox.Show(
-                "Are you sure you want to delete this career?",
-                "Warning",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.No)
+                Localization.SavePicker_DeleteCareerConfirmation,
+                Localization.Warning,
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
             {
                 return;
             }
@@ -561,9 +587,9 @@ namespace Gibbed.MassEffect3.SaveEdit
                 catch (IOException ex)
                 {
                     MessageBox.Show(
-                        "There was an error removing the directory:\n" +
+                        Resources.Localization.SavePicker_DeleteCareerIOException +
                         ex.Message,
-                        "Error",
+                        Resources.Localization.Error,
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
                 }
@@ -582,9 +608,9 @@ namespace Gibbed.MassEffect3.SaveEdit
             }
 
             if (MessageBox.Show(
-                "Are you sure you want to delete this save?",
-                "Warning",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.No)
+                Localization.SavePicker_DeleteSaveConfirmation,
+                Localization.Warning,
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
             {
                 return;
             }
@@ -602,9 +628,9 @@ namespace Gibbed.MassEffect3.SaveEdit
             catch (IOException ex)
             {
                 MessageBox.Show(
-                    "There was an error removing the file:\n" +
+                    Localization.SavePicker_DeleteSaveIOException +
                     ex.Message,
-                    "Error",
+                    Localization.Error,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }

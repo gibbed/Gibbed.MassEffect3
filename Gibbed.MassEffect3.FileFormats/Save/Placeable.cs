@@ -28,8 +28,13 @@ namespace Gibbed.MassEffect3.FileFormats.Save
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class Placeable : Unreal.ISerializable, INotifyPropertyChanged
     {
-        private Guid _PlaceableGUID;
+        [OriginalName("PlaceableGUID")]
+        private Guid _Guid;
+
+        [OriginalName("IsDestroyed")]
         private byte _IsDestroyed;
+
+        [OriginalName("IsDeactivated")]
         private byte _IsDeactivated;
 
         public void Serialize(Unreal.ISerializer stream)
@@ -38,10 +43,17 @@ namespace Gibbed.MassEffect3.FileFormats.Save
         }
 
         #region Properties
-        public Guid PlaceableGUID
+        public Guid Guid
         {
-            get { return this._PlaceableGUID; }
-            set { this._PlaceableGUID = value; }
+            get { return this._Guid; }
+            set
+            {
+                if (value != this._Guid)
+                {
+                    this._Guid = value;
+                    this.NotifyPropertyChanged("Guid");
+                }
+            }
         }
 
         public bool IsDestroyed

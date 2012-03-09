@@ -40,12 +40,11 @@ namespace Gibbed.MassEffect3.FileFormats
         {
             var endian = this.Endian;
 
-            uint headerSize = 32;
+            const uint headerSize = 32;
             output.WriteValueU32(0x42424947, endian);
             output.WriteValueU32(this.Version, endian);
 
-            var keys = new List<string>();
-            keys.Add("");
+            var keys = new List<string>() {""};
 
             int maxValueLength = 0;
             var blob = new StringBuilder();
@@ -70,7 +69,7 @@ namespace Gibbed.MassEffect3.FileFormats
             var huffmanEncoder = new Huffman.Encoder();
             huffmanEncoder.Build(blob.ToString());
 
-            keys = keys.Distinct().OrderBy(k => k.HashCRC32()).ToList();
+            keys = keys.Distinct().OrderBy(k => k.HashCrc32()).ToList();
             int maxKeyLength = keys.Max(k => k.Length);
 
             uint stringTableSize;
@@ -86,7 +85,7 @@ namespace Gibbed.MassEffect3.FileFormats
                     var offset = (uint)data.Position;
                     data.WriteValueU16((ushort)key.Length, endian);
                     data.WriteString(key, Encoding.UTF8);
-                    offsets.Add(new KeyValuePair<uint, uint>(key.HashCRC32(), offset));
+                    offsets.Add(new KeyValuePair<uint, uint>(key.HashCrc32(), offset));
                 }
 
                 data.Position = 8;
@@ -255,7 +254,7 @@ namespace Gibbed.MassEffect3.FileFormats
             }
             this.Version = version;
 
-            var maxKeyLength = input.ReadValueS32(endian);
+            /*var maxKeyLength =*/ input.ReadValueS32(endian);
             var maxValueLength = input.ReadValueS32(endian);
 
             var stringTableSize = input.ReadValueU32(endian);
@@ -291,7 +290,7 @@ namespace Gibbed.MassEffect3.FileFormats
                     var length = data.ReadValueU16(endian);
                     var text = data.ReadString(length, Encoding.UTF8);
 
-                    if (text.HashCRC32() != hash)
+                    if (text.HashCrc32() != hash)
                     {
                         throw new InvalidOperationException();
                     }
@@ -317,8 +316,7 @@ namespace Gibbed.MassEffect3.FileFormats
             {
                 var totalBits = input.ReadValueS32(endian);
                 var data = input.ReadBytes(dataSize);
-                var bitArray = new BitArray(data);
-                bitArray.Length = totalBits;
+                var bitArray = new BitArray(data) { Length = totalBits };
 
                 var files = new List<KeyValuePair<string, uint>>();
                 var fileCount = index.ReadValueU16(endian);
@@ -332,8 +330,7 @@ namespace Gibbed.MassEffect3.FileFormats
 
                 foreach (var fileInfo in files.OrderBy(f => f.Key))
                 {
-                    var file = new Coalesced.File();
-                    file.Name = fileInfo.Key;
+                    var file = new Coalesced.File() { Name = fileInfo.Key };
 
                     index.Seek(fileInfo.Value, SeekOrigin.Begin);
                     var sectionCount = index.ReadValueU16(endian);

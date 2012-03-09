@@ -42,12 +42,12 @@ namespace Gibbed.MassEffect3.FileFormats.Save
         {
             stream.Serialize(ref this._PowerName);
             stream.Serialize(ref this._CurrentRank);
-            stream.Serialize(ref this._EvolvedChoice0, (s) => s.Version < 30, () => 0);
-            stream.Serialize(ref this._EvolvedChoice1, (s) => s.Version < 30, () => 0);
-            stream.Serialize(ref this._EvolvedChoice2, (s) => s.Version < 31, () => 0);
-            stream.Serialize(ref this._EvolvedChoice3, (s) => s.Version < 31, () => 0);
-            stream.Serialize(ref this._EvolvedChoice4, (s) => s.Version < 31, () => 0);
-            stream.Serialize(ref this._EvolvedChoice5, (s) => s.Version < 31, () => 0);
+            stream.Serialize(ref this._EvolvedChoice0, s => s.Version < 30, () => 0);
+            stream.Serialize(ref this._EvolvedChoice1, s => s.Version < 30, () => 0);
+            stream.Serialize(ref this._EvolvedChoice2, s => s.Version < 31, () => 0);
+            stream.Serialize(ref this._EvolvedChoice3, s => s.Version < 31, () => 0);
+            stream.Serialize(ref this._EvolvedChoice4, s => s.Version < 31, () => 0);
+            stream.Serialize(ref this._EvolvedChoice5, s => s.Version < 31, () => 0);
             stream.Serialize(ref this._PowerClassName);
             stream.Serialize(ref this._WheelDisplayIndex);
         }
@@ -78,7 +78,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             get { return this._CurrentRank; }
             set
             {
-                if (value != this._CurrentRank)
+                if (Equals(value, this._CurrentRank) == false)
                 {
                     this._CurrentRank = value;
                     this.NotifyPropertyChanged("CurrentRank");

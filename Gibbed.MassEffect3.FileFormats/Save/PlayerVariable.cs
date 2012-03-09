@@ -36,6 +36,13 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             stream.Serialize(ref this._VariableValue);
         }
 
+        // for CollectionEditor
+        public string Name { get { return this._VariableName; } }
+        public override string ToString()
+        {
+            return this.Name ?? "(null)";
+        }
+
         #region Properties
         [DisplayName("Name")]
         public string VariableName

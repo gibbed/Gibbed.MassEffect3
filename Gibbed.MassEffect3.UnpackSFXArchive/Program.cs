@@ -22,6 +22,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using Gibbed.IO;
@@ -100,9 +101,9 @@ namespace Gibbed.MassEffect3.UnpackSFXArchive
             {
                 Console.WriteLine("Warning: no active project loaded.");
             }
-            var hashes = manager.LoadLists<FileNameHash>(
+            var hashes = manager.LoadLists(
                 "*.filelist",
-                s => FileNameHash.Compute(s),
+                FileNameHash.Compute,
                 s => s.Replace("\\", "/"));
 
             using (var input = File.OpenRead(inputPath))
@@ -112,11 +113,11 @@ namespace Gibbed.MassEffect3.UnpackSFXArchive
 
                 long current = 0;
                 long total = sfx.Entries.Count;
-                var padding = total.ToString().Length;
+                var padding = total.ToString(CultureInfo.InvariantCulture).Length;
 
                 if (sfx.CompressionScheme != SFXArchive.CompressionScheme.None &&
-                    sfx.CompressionScheme != SFXArchive.CompressionScheme.LZMA &&
-                    sfx.CompressionScheme != SFXArchive.CompressionScheme.LZX)
+                    sfx.CompressionScheme != SFXArchive.CompressionScheme.Lzma &&
+                    sfx.CompressionScheme != SFXArchive.CompressionScheme.Lzx)
                 {
                     Console.WriteLine("Unsupported compression scheme!");
                     return;
@@ -131,8 +132,8 @@ namespace Gibbed.MassEffect3.UnpackSFXArchive
                 var fileNameListNameHash = new FileNameHash(
                     new byte[] { 0xB5, 0x50, 0x19, 0xCB, 0xF9, 0xD3, 0xDA, 0x65, 0xD5, 0x5B, 0x32, 0x1C, 0x00, 0x19, 0x69, 0x7C, });
                 var fileNameListEntry = sfx.Entries
-                    .Where(e => e.NameHash == fileNameListNameHash)
-                    .FirstOrDefault();
+                    .FirstOrDefault(e =>
+                        e.NameHash == fileNameListNameHash);
                 if (fileNameListEntry != null)
                 {
                     using (var temp = new MemoryStream())
@@ -195,7 +196,7 @@ namespace Gibbed.MassEffect3.UnpackSFXArchive
                     if (verbose == true)
                     {
                         Console.WriteLine("[{0}/{1}] {2}",
-                            current.ToString().PadLeft(padding), total, entryName);
+                            current.ToString(CultureInfo.InvariantCulture).PadLeft(padding), total, entryName);
                     }
 
                     input.Seek(entry.Offset, SeekOrigin.Begin);
@@ -243,7 +244,7 @@ namespace Gibbed.MassEffect3.UnpackSFXArchive
                         output.WriteFromStream(input, compressedBlockSize);
                         left -= compressedBlockSize;
                     }
-                    else if (sfx.CompressionScheme == SFXArchive.CompressionScheme.LZMA)
+                    else if (sfx.CompressionScheme == SFXArchive.CompressionScheme.Lzma)
                     {
                         if (compressedBlockSize == sfx.MaximumBlockSize ||
                             compressedBlockSize == left)
@@ -281,7 +282,7 @@ namespace Gibbed.MassEffect3.UnpackSFXArchive
                                 properties,
                                 (uint)properties.Length);
 
-                            if (error != LZMA.ErrorCode.OK ||
+                            if (error != LZMA.ErrorCode.Ok ||
                                 uncompressedBlockSize != actualUncompressedBlockSize ||
                                 compressedBlockSize != actualCompressedBlockSize)
                             {

@@ -121,6 +121,18 @@
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="newMaleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>139, 22</value>
+  </data>
+  <data name="newMaleToolStripMenuItem.Text" xml:space="preserve">
+    <value>New &amp;Male</value>
+  </data>
+  <data name="newFemaleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>139, 22</value>
+  </data>
+  <data name="newFemaleToolStripMenuItem.Text" xml:space="preserve">
+    <value>New &amp;Female</value>
+  </data>
   <data name="toolStripSplitButton1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -134,6 +146,27 @@
         hYaTVj41L60g2pLauZ0CK7dbyHeQhyktk8s3UwCPYGgmNFjaEh1x46ECym3VkLNa5KA1ybWcBD9qxBUV
         K/lVVdtCyVaW3GdP5jqz+sS3tAYj+QVkkUPvjWBiKwAAAABJRU5ErkJggg==
 </value>
+  </data>
+  <data name="toolStripSplitButton1.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="toolStripSplitButton1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>29, 22</value>
+  </data>
+  <data name="toolStripSplitButton1.Text" xml:space="preserve">
+    <value>toolStripSplitButton1</value>
+  </data>
+  <data name="openFromCareerMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>178, 22</value>
+  </data>
+  <data name="openFromCareerMenuItem.Text" xml:space="preserve">
+    <value>Open from &amp;Career...</value>
+  </data>
+  <data name="openFromFileMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>178, 22</value>
+  </data>
+  <data name="openFromFileMenuItem.Text" xml:space="preserve">
+    <value>Open from &amp;File...</value>
   </data>
   <data name="openFromGenericButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -152,6 +185,27 @@
         qvVdCMceSq0AAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="openFromGenericButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="openFromGenericButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 22</value>
+  </data>
+  <data name="openFromGenericButton.Text" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="saveToCareerMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>158, 22</value>
+  </data>
+  <data name="saveToCareerMenuItem.Text" xml:space="preserve">
+    <value>Save to &amp;Career...</value>
+  </data>
+  <data name="saveToFileMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>158, 22</value>
+  </data>
+  <data name="saveToFileMenuItem.Text" xml:space="preserve">
+    <value>Save to &amp;File...</value>
+  </data>
   <data name="saveToGenericButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -165,25 +219,108 @@
         TkSuQmCC
 </value>
   </data>
+  <data name="saveToGenericButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="saveToGenericButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 22</value>
+  </data>
+  <data name="saveToGenericButton.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="dontUseCareerPickerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>194, 22</value>
+  </data>
+  <data name="dontUseCareerPickerToolStripMenuItem.Text" xml:space="preserve">
+    <value>Don't use career picker</value>
+  </data>
   <data name="settingsButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKCSURBVDhPY2AgAoSEhAgBsUdoaGgCCAO1SMG12dnZ+QYF
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJ9SURBVDhPY2AgAoSEhAgBsUdoaGgCCAO1SMG12dnZ+QYF
         BaUBsS82s0CaExIS0nfv3r338ePHH4WFhdNRDABy0t6+ffs/OTm5DJsB3t7eXps2bdp369bN/xYWZr0w
-        zUBxaT8/P7BLfFVUVMpOnDhxMSIiAsMQT0/P1HPnzn7KzMzcDFRrDNLg5OQkDRTP8fX1TYZbCjJk//79
-        F4Emoxji7Oycd/r0qf8gbGJiAnKBcVZW1qRHjx59sre3z0RxtZKSUtn27dsv2tjYwAxhBLILjx07+n/X
-        rh1gQ0AuAXln5cqVR3V1dUMwvA0yZN26dRf19fXL9PT0gmxtbUt37971H2TImTOn/p88eeLL7NmzTwA1
-        1wDVimGNRAUFhbK5+fnXD3FyXr5ckP9fWVm5kZubux2EeXh4arm4uGKBbHGcKUBdXT10Ayvrs/8dHf/X
-        srA8rRAXzyMiuUCUAJ0VCHR254H4hP8drKzPX/j4fLvByLjxOgNDCUFD5OTkgh0cHCYdO3b6v5mZRU+o
-        kFDhVgaGM1/S0v5fYGTccp6BAWtaARssISERAozfWadPX/lvZWUzRVpaGhzCGxgYWtcDDfleUPD/OCPj
-        9qMMDBUYLhEUFAxzcnJdeOnS3f+2tvZzRUREwpAVrQIashxoyK+qqv97GBn37GFgqIbL8/HxhTs6uiy5
-        cePZfzs7x8UgPja/LgQasghoyN+mpv8rGBgOAw1sAKvj5OTsuHPnNdBmp2Xs7OxpQCFRIOYHYi4gZgdi
-        DiDmBWKhUgaGiXOBhoBiZxYDw2mwAUxMTOGsrKydLCwsWUCuERBrArEcEAsDMR8QCwCxJBCrALFeIQPD
-        lBlAQxKgsQIAZ4LoRhr+5E0AAAAASUVORK5CYII=
+        zUBxaT8/P7BLfFVUVMpOnDhxMSIiAsMQT0/P1LNnz37KzMzcDFRrDNLg5OQkDRTP8fX1TYZbCjJk//79
+        F4Emoxji7Oycd/r0qf8gbGJiAnKBcVZW1qSHDx9+sre3z0RxtZKSUtn27dsv2tjYwAxhBLILjx07+n/X
+        rh1gQ0AuAXln5cqVR3V1dUMwvA0yZN26dRf19fXL9PT0gmxtbUt37971H2TImTOnQPSX2bNnnwBqrgGq
+        FcMaiQoKCmVz8vOvH+LguHy5IP+/srJyIzc3dzsI8/Dw1HJxccUC2eI4U4C6unroBlbWZ/87Ov6vZmF5
+        WiEunkdEcoEoATorEOjszgPxCf9bWVmfv/D0/HaDkXHjdQaGEoKGyMnJBTs4OEw6duz0fzMzi55QIaHC
+        rQwMZ76kpf2/wMi45TwDA9a0AjZYQkIiBBi/s06fvvLfyspmirS0NDiENzAwtK4HGvK9oOD/cUbG7UcZ
+        GCowXCIoKBjm5OS68NKlu/9tbe3nioiIhCErWgU0ZDnQkF9VVf/3MDLu2cPAUA2X5+PjC3d0dFly48az
+        /3Z2jotBfGx+XQg0ZBHQkL9NTf+Bhh0G4gawOk5Ozo47d14DbXZaxs7OngYUEgVifiDmAmJ2IOYAYl4g
+        FiplYJg4F2gIKHZmMTCcBhvAxMQUzsrK2snCwpIF5BoBsSYQywGxMBDzAbEAEEsCsQoQ6xUyMEyZATQk
+        ARorACnr6Cm6LQlVAAAAAElFTkSuQmCC
 </value>
   </data>
-  <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>122, 56</value>
+  <data name="settingsButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="settingsButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>29, 22</value>
+  </data>
+  <data name="settingsButton.Text" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="rootToolStrip.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="rootToolStrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>800, 25</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="rootToolStrip.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="rootToolStrip.Text" xml:space="preserve">
+    <value>toolStrip1</value>
+  </data>
+  <data name="&gt;&gt;rootToolStrip.Name" xml:space="preserve">
+    <value>rootToolStrip</value>
+  </data>
+  <data name="&gt;&gt;rootToolStrip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rootToolStrip.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;rootToolStrip.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="rootTabControl.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="playerCharacterTabPage.ImageKey" xml:space="preserve">
+    <value>(none)</value>
+  </data>
+  <data name="playerCharacterTabPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 23</value>
+  </data>
+  <data name="playerCharacterTabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="playerCharacterTabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>748, 374</value>
+  </data>
+  <data name="playerCharacterTabPage.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="playerCharacterTabPage.Text" xml:space="preserve">
+    <value>Character</value>
+  </data>
+  <data name="&gt;&gt;playerCharacterTabPage.Name" xml:space="preserve">
+    <value>playerCharacterTabPage</value>
+  </data>
+  <data name="&gt;&gt;playerCharacterTabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;playerCharacterTabPage.Parent" xml:space="preserve">
+    <value>playerTabControl</value>
+  </data>
+  <data name="&gt;&gt;playerCharacterTabPage.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="playerAppearanceToolStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>122, 41</value>
   </metadata>
   <data name="importHeadMorphButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -198,6 +335,15 @@
         +sAADeZV3M19VDSHcQejnLwxi347TsOdZVpGv2NO/ER1lWMP7C8v96+mUnxKJneE6irHHigoLq7b7XC0
         5kNBUdGfj5Rb2pVjT469O0R1lfOP8xvXqLtyB6wyQgAAAABJRU5ErkJggg==
 </value>
+  </data>
+  <data name="importHeadMorphButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="importHeadMorphButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>133, 22</value>
+  </data>
+  <data name="importHeadMorphButton.Text" xml:space="preserve">
+    <value>Import Head Morph</value>
   </data>
   <data name="exportHeadMorphButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -214,21 +360,303 @@
         1CpIjLoAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="exportHeadMorphButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="exportHeadMorphButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>130, 22</value>
+  </data>
+  <data name="exportHeadMorphButton.Text" xml:space="preserve">
+    <value>Export Head Morph</value>
+  </data>
+  <data name="playerAppearanceToolStrip.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="playerAppearanceToolStrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>742, 25</value>
+  </data>
+  <data name="playerAppearanceToolStrip.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="playerAppearanceToolStrip.Text" xml:space="preserve">
+    <value>toolStrip1</value>
+  </data>
+  <data name="&gt;&gt;playerAppearanceToolStrip.Name" xml:space="preserve">
+    <value>playerAppearanceToolStrip</value>
+  </data>
+  <data name="&gt;&gt;playerAppearanceToolStrip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;playerAppearanceToolStrip.Parent" xml:space="preserve">
+    <value>playerAppearanceTabPage</value>
+  </data>
+  <data name="&gt;&gt;playerAppearanceToolStrip.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="playerAppearanceTabPage.ImageKey" xml:space="preserve">
+    <value>(none)</value>
+  </data>
+  <data name="playerAppearanceTabPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 23</value>
+  </data>
+  <data name="playerAppearanceTabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="playerAppearanceTabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>748, 374</value>
+  </data>
+  <data name="playerAppearanceTabPage.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="playerAppearanceTabPage.Text" xml:space="preserve">
+    <value>Appearance</value>
+  </data>
+  <data name="&gt;&gt;playerAppearanceTabPage.Name" xml:space="preserve">
+    <value>playerAppearanceTabPage</value>
+  </data>
+  <data name="&gt;&gt;playerAppearanceTabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;playerAppearanceTabPage.Parent" xml:space="preserve">
+    <value>playerTabControl</value>
+  </data>
+  <data name="&gt;&gt;playerAppearanceTabPage.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <metadata name="iconImageList.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>255, 17</value>
   </metadata>
+  <data name="iconImageList.ImageSize" type="System.Drawing.Size, System.Drawing">
+    <value>16, 16</value>
+  </data>
+  <data name="playerTabControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 6</value>
+  </data>
+  <data name="playerTabControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>756, 401</value>
+  </data>
+  <data name="playerTabControl.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;playerTabControl.Name" xml:space="preserve">
+    <value>playerTabControl</value>
+  </data>
+  <data name="&gt;&gt;playerTabControl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;playerTabControl.Parent" xml:space="preserve">
+    <value>playerRootTabPage</value>
+  </data>
+  <data name="&gt;&gt;playerTabControl.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="playerRootTabPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 23</value>
+  </data>
+  <data name="playerRootTabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="playerRootTabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>768, 413</value>
+  </data>
+  <data name="playerRootTabPage.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="playerRootTabPage.Text" xml:space="preserve">
+    <value>Player</value>
+  </data>
+  <data name="&gt;&gt;playerRootTabPage.Name" xml:space="preserve">
+    <value>playerRootTabPage</value>
+  </data>
+  <data name="&gt;&gt;playerRootTabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;playerRootTabPage.Parent" xml:space="preserve">
+    <value>rootTabControl</value>
+  </data>
+  <data name="&gt;&gt;playerRootTabPage.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="rawSplitContainer.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="rawSplitContainer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="rootPropertyGrid.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="rootPropertyGrid.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="rootPropertyGrid.Size" type="System.Drawing.Size, System.Drawing">
+    <value>381, 407</value>
+  </data>
+  <data name="rootPropertyGrid.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;rootPropertyGrid.Name" xml:space="preserve">
+    <value>rootPropertyGrid</value>
+  </data>
+  <data name="&gt;&gt;rootPropertyGrid.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PropertyGrid, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rootPropertyGrid.Parent" xml:space="preserve">
+    <value>rawSplitContainer.Panel1</value>
+  </data>
+  <data name="&gt;&gt;rootPropertyGrid.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;rawSplitContainer.Panel1.Name" xml:space="preserve">
+    <value>rawSplitContainer.Panel1</value>
+  </data>
+  <data name="&gt;&gt;rawSplitContainer.Panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rawSplitContainer.Panel1.Parent" xml:space="preserve">
+    <value>rawSplitContainer</value>
+  </data>
+  <data name="&gt;&gt;rawSplitContainer.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="childPropertyGrid.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="childPropertyGrid.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="childPropertyGrid.Size" type="System.Drawing.Size, System.Drawing">
+    <value>377, 407</value>
+  </data>
+  <data name="childPropertyGrid.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;childPropertyGrid.Name" xml:space="preserve">
+    <value>childPropertyGrid</value>
+  </data>
+  <data name="&gt;&gt;childPropertyGrid.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PropertyGrid, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;childPropertyGrid.Parent" xml:space="preserve">
+    <value>rawSplitContainer.Panel2</value>
+  </data>
+  <data name="&gt;&gt;childPropertyGrid.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;rawSplitContainer.Panel2.Name" xml:space="preserve">
+    <value>rawSplitContainer.Panel2</value>
+  </data>
+  <data name="&gt;&gt;rawSplitContainer.Panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rawSplitContainer.Panel2.Parent" xml:space="preserve">
+    <value>rawSplitContainer</value>
+  </data>
+  <data name="&gt;&gt;rawSplitContainer.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="rawSplitContainer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>762, 407</value>
+  </data>
+  <data name="rawSplitContainer.SplitterDistance" type="System.Int32, mscorlib">
+    <value>381</value>
+  </data>
+  <data name="rawSplitContainer.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;rawSplitContainer.Name" xml:space="preserve">
+    <value>rawSplitContainer</value>
+  </data>
+  <data name="&gt;&gt;rawSplitContainer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rawSplitContainer.Parent" xml:space="preserve">
+    <value>rawTabPage</value>
+  </data>
+  <data name="&gt;&gt;rawSplitContainer.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="rawTabPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 23</value>
+  </data>
+  <data name="rawTabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="rawTabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>768, 413</value>
+  </data>
+  <data name="rawTabPage.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="rawTabPage.Text" xml:space="preserve">
+    <value>Raw</value>
+  </data>
+  <data name="&gt;&gt;rawTabPage.Name" xml:space="preserve">
+    <value>rawTabPage</value>
+  </data>
+  <data name="&gt;&gt;rawTabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rawTabPage.Parent" xml:space="preserve">
+    <value>rootTabControl</value>
+  </data>
+  <data name="&gt;&gt;rawTabPage.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="rootTabControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 28</value>
+  </data>
+  <data name="rootTabControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>776, 440</value>
+  </data>
+  <data name="rootTabControl.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;rootTabControl.Name" xml:space="preserve">
+    <value>rootTabControl</value>
+  </data>
+  <data name="&gt;&gt;rootTabControl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rootTabControl.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;rootTabControl.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <metadata name="openFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>122, 17</value>
   </metadata>
+  <data name="openFileDialog.Filter" xml:space="preserve">
+    <value>Mass Effect 3 Save (*.pcsav, *.xbsav)|*.pcsav;*.xbsav|All Files (*.*)|*.*</value>
+  </data>
   <metadata name="saveFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>382, 17</value>
   </metadata>
+  <data name="saveFileDialog.Filter" xml:space="preserve">
+    <value>Mass Effect 3 PC Save (*.pcsav)|*.pcsav|Mass Effect 3 XBOX 360 Save (*.xbsav)|*.xbsav|All Files (*.*)|*.*</value>
+  </data>
   <metadata name="openHeadMorphDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>511, 17</value>
   </metadata>
+  <data name="openHeadMorphDialog.Filter" xml:space="preserve">
+    <value>Mass Effect 3 Head Morphs (*.me3headmorph)|*.me3headmorph</value>
+  </data>
   <metadata name="saveHeadMorphDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>692, 17</value>
   </metadata>
+  <data name="saveHeadMorphDialog.Filter" xml:space="preserve">
+    <value>Mass Effect 3 Head Morphs (*.me3headmorph)|*.me3headmorph</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>800, 480</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -238,5 +666,122 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAA
 </value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Gibbed's Mass Effect 3 Save Editor</value>
+  </data>
+  <data name="&gt;&gt;toolStripSplitButton1.Name" xml:space="preserve">
+    <value>toolStripSplitButton1</value>
+  </data>
+  <data name="&gt;&gt;toolStripSplitButton1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripDropDownButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;newMaleToolStripMenuItem.Name" xml:space="preserve">
+    <value>newMaleToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;newMaleToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;newFemaleToolStripMenuItem.Name" xml:space="preserve">
+    <value>newFemaleToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;newFemaleToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;openFromGenericButton.Name" xml:space="preserve">
+    <value>openFromGenericButton</value>
+  </data>
+  <data name="&gt;&gt;openFromGenericButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSplitButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;openFromCareerMenuItem.Name" xml:space="preserve">
+    <value>openFromCareerMenuItem</value>
+  </data>
+  <data name="&gt;&gt;openFromCareerMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;openFromFileMenuItem.Name" xml:space="preserve">
+    <value>openFromFileMenuItem</value>
+  </data>
+  <data name="&gt;&gt;openFromFileMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;saveToGenericButton.Name" xml:space="preserve">
+    <value>saveToGenericButton</value>
+  </data>
+  <data name="&gt;&gt;saveToGenericButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSplitButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;saveToCareerMenuItem.Name" xml:space="preserve">
+    <value>saveToCareerMenuItem</value>
+  </data>
+  <data name="&gt;&gt;saveToCareerMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;saveToFileMenuItem.Name" xml:space="preserve">
+    <value>saveToFileMenuItem</value>
+  </data>
+  <data name="&gt;&gt;saveToFileMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;settingsButton.Name" xml:space="preserve">
+    <value>settingsButton</value>
+  </data>
+  <data name="&gt;&gt;settingsButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripDropDownButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dontUseCareerPickerToolStripMenuItem.Name" xml:space="preserve">
+    <value>dontUseCareerPickerToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;dontUseCareerPickerToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;importHeadMorphButton.Name" xml:space="preserve">
+    <value>importHeadMorphButton</value>
+  </data>
+  <data name="&gt;&gt;importHeadMorphButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;exportHeadMorphButton.Name" xml:space="preserve">
+    <value>exportHeadMorphButton</value>
+  </data>
+  <data name="&gt;&gt;exportHeadMorphButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;iconImageList.Name" xml:space="preserve">
+    <value>iconImageList</value>
+  </data>
+  <data name="&gt;&gt;iconImageList.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ImageList, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;openFileDialog.Name" xml:space="preserve">
+    <value>openFileDialog</value>
+  </data>
+  <data name="&gt;&gt;openFileDialog.Type" xml:space="preserve">
+    <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;saveFileDialog.Name" xml:space="preserve">
+    <value>saveFileDialog</value>
+  </data>
+  <data name="&gt;&gt;saveFileDialog.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SaveFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;openHeadMorphDialog.Name" xml:space="preserve">
+    <value>openHeadMorphDialog</value>
+  </data>
+  <data name="&gt;&gt;openHeadMorphDialog.Type" xml:space="preserve">
+    <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;saveHeadMorphDialog.Name" xml:space="preserve">
+    <value>saveHeadMorphDialog</value>
+  </data>
+  <data name="&gt;&gt;saveHeadMorphDialog.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SaveFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>Editor</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

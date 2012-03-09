@@ -27,10 +27,10 @@ namespace Gibbed.MassEffect3.FileFormats
 {
     public struct FileNameHash
     {
-        public uint A;
-        public uint B;
-        public uint C;
-        public uint D;
+        public readonly uint A;
+        public readonly uint B;
+        public readonly uint C;
+        public readonly uint D;
 
         private static char Sanitize(char c)
         {

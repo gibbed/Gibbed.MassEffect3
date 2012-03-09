@@ -28,9 +28,16 @@ namespace Gibbed.MassEffect3.FileFormats.Save
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class LevelTreasure : Unreal.ISerializable, INotifyPropertyChanged
     {
+        [OriginalName("LevelName")]
         private string _LevelName;
+
+        [OriginalName("Credits")]
         private int _Credits;
+
+        [OriginalName("XP")]
         private int _XP;
+
+        [OriginalName("Items")]
         private List<string> _Items;
 
         public void Serialize(Unreal.ISerializer stream)

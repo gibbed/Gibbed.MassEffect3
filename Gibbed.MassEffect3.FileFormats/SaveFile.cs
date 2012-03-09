@@ -71,7 +71,7 @@ namespace Gibbed.MassEffect3.FileFormats
             stream.Serialize(ref this._SecondsPlayed);
             stream.Serialize(ref this._Disc);
             stream.Serialize(ref this._BaseLevelName);
-            stream.Serialize(ref this._BaseLevelNameDisplayOverrideAsRead, (s) => s.Version < 36, () => "None");
+            stream.Serialize(ref this._BaseLevelNameDisplayOverrideAsRead, s => s.Version < 36, () => "None");
             stream.SerializeEnum(ref this._Difficulty);
 
             if (stream.Version >= 43 && stream.Version <= 46)
@@ -89,20 +89,20 @@ namespace Gibbed.MassEffect3.FileFormats
             stream.Serialize(ref this._StreamingRecords);
             stream.Serialize(ref this._KismetRecords);
             stream.Serialize(ref this._Doors);
-            stream.Serialize(ref this._Placeables, (s) => s.Version < 46, () => new List<Save.Placeable>());
+            stream.Serialize(ref this._Placeables, s => s.Version < 46, () => new List<Save.Placeable>());
             stream.Serialize(ref this._Pawns);
             stream.Serialize(ref this._Player);
             stream.Serialize(ref this._Henchmen);
             stream.Serialize(ref this._Plot);
             stream.Serialize(ref this._ME1Plot);
-            stream.Serialize(ref this._PlayerVariables, (s) => s.Version < 34, () => new List<Save.PlayerVariable>());
+            stream.Serialize(ref this._PlayerVariables, s => s.Version < 34, () => new List<Save.PlayerVariable>());
             stream.Serialize(ref this._GalaxyMap);
             stream.Serialize(ref this._DependentDLC);
-            stream.Serialize(ref this._Treasures, (s) => s.Version < 35, () => new List<Save.LevelTreasure>());
-            stream.Serialize(ref this._UseModules, (s) => s.Version < 39, () => new List<Guid>());
-            stream.SerializeEnum(ref this._ConversationMode, (s) => s.Version < 49, () => Save.AutoReplyModeOptions.All_Decisions);
-            stream.Serialize(ref this._ObjectiveMarkers, (s) => s.Version < 52, () => new List<Save.ObjectiveMarker>());
-            stream.Serialize(ref this._SavedObjectiveText, (s) => s.Version < 52, () => 0);
+            stream.Serialize(ref this._Treasures, s => s.Version < 35, () => new List<Save.LevelTreasure>());
+            stream.Serialize(ref this._UseModules, s => s.Version < 39, () => new List<Guid>());
+            stream.SerializeEnum(ref this._ConversationMode, s => s.Version < 49, () => Save.AutoReplyModeOptions.AllDecisions);
+            stream.Serialize(ref this._ObjectiveMarkers, s => s.Version < 52, () => new List<Save.ObjectiveMarker>());
+            stream.Serialize(ref this._SavedObjectiveText, s => s.Version < 52, () => 0);
         }
 
         #region Properties
@@ -170,7 +170,7 @@ namespace Gibbed.MassEffect3.FileFormats
             get { return this._SecondsPlayed; }
             set
             {
-                if (value != this._SecondsPlayed)
+                if (Equals(value, this._SecondsPlayed) == false)
                 {
                     this._SecondsPlayed = value;
                     this.NotifyPropertyChanged("SecondsPlayed");
@@ -600,8 +600,10 @@ namespace Gibbed.MassEffect3.FileFormats
                 throw new ArgumentNullException("input");
             }
 
-            var save = new SaveFile();
-            save._Version = input.ReadValueU32(Endian.Little);
+            var save = new SaveFile()
+            {
+                _Version = input.ReadValueU32(Endian.Little)
+            };
 
             if (save._Version != 29 && save._Version.Swap() != 29 &&
                 save._Version != 59 && save._Version.Swap() != 59)
@@ -665,7 +667,7 @@ namespace Gibbed.MassEffect3.FileFormats
                     while (memory.Position < memory.Length)
                     {
                         int read = memory.Read(buffer, 0, 1024);
-                        checksum = CRC32.Compute(buffer, 0, read, checksum);
+                        checksum = Crc32.Compute(buffer, 0, read, checksum);
                     }
 
                     save._Checksum = checksum;

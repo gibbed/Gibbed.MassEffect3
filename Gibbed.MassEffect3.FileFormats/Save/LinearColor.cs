@@ -52,7 +52,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             get { return this._R; }
             set
             {
-                if (value != this._R)
+                if (Equals(value, this._R) == false)
                 {
                     this._R = value;
                     this.NotifyPropertyChanged("R");
@@ -65,7 +65,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             get { return this._G; }
             set
             {
-                if (value != this._G)
+                if (Equals(value, this._G) == false)
                 {
                     this._G = value;
                     this.NotifyPropertyChanged("G");
@@ -78,7 +78,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             get { return this._B; }
             set
             {
-                if (value != this._B)
+                if (Equals(value, this._B) == false)
                 {
                     this._B = value;
                     this.NotifyPropertyChanged("B");
@@ -91,7 +91,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             get { return this._A; }
             set
             {
-                if (value != this._A)
+                if (Equals(value, this._A) == false)
                 {
                     this._A = value;
                     this.NotifyPropertyChanged("A");

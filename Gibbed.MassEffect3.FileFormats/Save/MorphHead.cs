@@ -28,16 +28,37 @@ namespace Gibbed.MassEffect3.FileFormats.Save
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class MorphHead : Unreal.ISerializable, INotifyPropertyChanged
     {
+        [OriginalName("HairMesh")]
         private string _HairMesh;
+
+        [OriginalName("AccessoryMeshes")]
         private List<string> _AccessoryMeshes;
+
+        [OriginalName("MorphFeatures")]
         private List<MorphFeature> _MorphFeatures;
+
+        [OriginalName("OffsetBones")]
         private List<OffsetBone> _OffsetBones;
-        private List<Vector> _LOD0Vertices;
-        private List<Vector> _LOD1Vertices;
-        private List<Vector> _LOD2Vertices;
-        private List<Vector> _LOD3Vertices;
+
+        [OriginalName("LOD0Vertices")]
+        private List<Vector> _Lod0Vertices;
+
+        [OriginalName("LOD1Vertices")]
+        private List<Vector> _Lod1Vertices;
+
+        [OriginalName("LOD2Vertices")]
+        private List<Vector> _Lod2Vertices;
+
+        [OriginalName("LOD3Vertices")]
+        private List<Vector> _Lod3Vertices;
+
+        [OriginalName("ScalarParameters")]
         private List<ScalarParameter> _ScalarParameters;
+
+        [OriginalName("VectorParameters")]
         private List<VectorParameter> _VectorParameters;
+
+        [OriginalName("TextureParameters")]
         private List<TextureParameter> _TextureParameters;
 
         public void Serialize(Unreal.ISerializer stream)
@@ -46,10 +67,10 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             stream.Serialize(ref this._AccessoryMeshes);
             stream.Serialize(ref this._MorphFeatures);
             stream.Serialize(ref this._OffsetBones);
-            stream.Serialize(ref this._LOD0Vertices);
-            stream.Serialize(ref this._LOD1Vertices);
-            stream.Serialize(ref this._LOD2Vertices);
-            stream.Serialize(ref this._LOD3Vertices);
+            stream.Serialize(ref this._Lod0Vertices);
+            stream.Serialize(ref this._Lod1Vertices);
+            stream.Serialize(ref this._Lod2Vertices);
+            stream.Serialize(ref this._Lod3Vertices);
             stream.Serialize(ref this._ScalarParameters);
             stream.Serialize(ref this._VectorParameters);
             stream.Serialize(ref this._TextureParameters);
@@ -109,54 +130,54 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             }
         }
 
-        public List<Vector> LOD0Vertices
+        public List<Vector> Lod0Vertices
         {
-            get { return this._LOD0Vertices; }
+            get { return this._Lod0Vertices; }
             set
             {
-                if (value != this._LOD0Vertices)
+                if (value != this._Lod0Vertices)
                 {
-                    this._LOD0Vertices = value;
-                    this.NotifyPropertyChanged("LOD0Vertices");
+                    this._Lod0Vertices = value;
+                    this.NotifyPropertyChanged("Lod0Vertices");
                 }
             }
         }
 
-        public List<Vector> LOD1Vertices
+        public List<Vector> Lod1Vertices
         {
-            get { return this._LOD1Vertices; }
+            get { return this._Lod1Vertices; }
             set
             {
-                if (value != this._LOD1Vertices)
+                if (value != this._Lod1Vertices)
                 {
-                    this._LOD1Vertices = value;
-                    this.NotifyPropertyChanged("LOD1Vertices");
+                    this._Lod1Vertices = value;
+                    this.NotifyPropertyChanged("Lod1Vertices");
                 }
             }
         }
 
-        public List<Vector> LOD2Vertices
+        public List<Vector> Lod2Vertices
         {
-            get { return this._LOD2Vertices; }
+            get { return this._Lod2Vertices; }
             set
             {
-                if (value != this._LOD2Vertices)
+                if (value != this._Lod2Vertices)
                 {
-                    this._LOD2Vertices = value;
-                    this.NotifyPropertyChanged("LOD2Vertices");
+                    this._Lod2Vertices = value;
+                    this.NotifyPropertyChanged("Lod2Vertices");
                 }
             }
         }
 
-        public List<Vector> LOD3Vertices
+        public List<Vector> Lod3Vertices
         {
-            get { return this._LOD3Vertices; }
+            get { return this._Lod3Vertices; }
             set
             {
-                if (value != this._LOD3Vertices)
+                if (value != this._Lod3Vertices)
                 {
-                    this._LOD3Vertices = value;
-                    this.NotifyPropertyChanged("LOD3Vertices");
+                    this._Lod3Vertices = value;
+                    this.NotifyPropertyChanged("Lod3Vertices");
                 }
             }
         }
@@ -248,7 +269,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
                 get { return this._Offset; }
                 set
                 {
-                    if (value != this._Offset)
+                    if (Equals(value, this._Offset) == false)
                     {
                         this._Offset = value;
                         this.NotifyPropertyChanged("Offset");
@@ -358,7 +379,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
                 get { return this._Value; }
                 set
                 {
-                    if (value != this._Value)
+                    if (Equals(value, this._Value) == false)
                     {
                         this._Value = value;
                         this.NotifyPropertyChanged("Value");

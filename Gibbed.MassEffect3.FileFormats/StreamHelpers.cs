@@ -25,16 +25,15 @@ using Gibbed.IO;
 
 namespace Gibbed.MassEffect3.FileFormats
 {
-    public static partial class StreamHelpers
+    public static class StreamHelpers
     {
         public static FileNameHash ReadFileNameHash(this Stream stream)
         {
-            var hash = new FileNameHash();
-            hash.A = stream.ReadValueU32(Endian.Big);
-            hash.B = stream.ReadValueU32(Endian.Big);
-            hash.C = stream.ReadValueU32(Endian.Big);
-            hash.D = stream.ReadValueU32(Endian.Big);
-            return hash;
+            var a = stream.ReadValueU32(Endian.Big);
+            var b = stream.ReadValueU32(Endian.Big);
+            var c = stream.ReadValueU32(Endian.Big);
+            var d = stream.ReadValueU32(Endian.Big);
+            return new FileNameHash(a, b, c, d);
         }
 
         public static void WriteFileNameHash(this Stream stream, FileNameHash hash)

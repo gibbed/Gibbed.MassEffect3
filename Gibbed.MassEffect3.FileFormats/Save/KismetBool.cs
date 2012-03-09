@@ -28,25 +28,28 @@ namespace Gibbed.MassEffect3.FileFormats.Save
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class KismetBool : Unreal.ISerializable, INotifyPropertyChanged
     {
-        private Guid _BoolGUID;
+        [OriginalName("BoolGUID")]
+        private Guid _Guid;
+
+        [OriginalName("Value")]
         private bool _Value;
 
         public void Serialize(Unreal.ISerializer stream)
         {
-            stream.Serialize(ref this._BoolGUID);
+            stream.Serialize(ref this._Guid);
             stream.Serialize(ref this._Value);
         }
 
         #region Properties
-        public Guid BoolGUID
+        public Guid Guid
         {
-            get { return this._BoolGUID; }
+            get { return this._Guid; }
             set
             {
-                if (value != this._BoolGUID)
+                if (value != this._Guid)
                 {
-                    this._BoolGUID = value;
-                    this.NotifyPropertyChanged("BoolGUID");
+                    this._Guid = value;
+                    this.NotifyPropertyChanged("Guid");
                 }
             }
         }

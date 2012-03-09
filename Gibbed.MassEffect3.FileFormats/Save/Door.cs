@@ -28,27 +28,32 @@ namespace Gibbed.MassEffect3.FileFormats.Save
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class Door : Unreal.ISerializable, INotifyPropertyChanged
     {
-        private Guid _DoorGUID;
+        [OriginalName("DoorGUID")]
+        private Guid _Guid;
+
+        [OriginalName("CurrentState")]
         private byte _CurrentState;
+
+        [OriginalName("OldState")]
         private byte _OldState;
 
         public void Serialize(Unreal.ISerializer stream)
         {
-            stream.Serialize(ref this._DoorGUID);
+            stream.Serialize(ref this._Guid);
             stream.Serialize(ref this._CurrentState);
             stream.Serialize(ref this._OldState);
         }
 
         #region Properties
-        public Guid DoorGUID
+        public Guid Guid
         {
-            get { return this._DoorGUID; }
+            get { return this._Guid; }
             set
             {
-                if (value != this._DoorGUID)
+                if (value != this._Guid)
                 {
-                    this._DoorGUID = value;
-                    this.NotifyPropertyChanged("DoorGUID");
+                    this._Guid = value;
+                    this.NotifyPropertyChanged("Guid");
                 }
             }
         }

@@ -27,9 +27,10 @@ namespace Gibbed.MassEffect3.SaveEdit
     public class DoubleBufferedListView : ListView
     {
         public DoubleBufferedListView()
-            : base()
         {
+// ReSharper disable DoNotCallOverridableMethodsInConstructor
             this.DoubleBuffered = true;
+// ReSharper restore DoNotCallOverridableMethodsInConstructor
         }
     }
 }

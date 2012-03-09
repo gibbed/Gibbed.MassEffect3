@@ -26,18 +26,14 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using Gibbed.IO;
+using Gibbed.MassEffect3.SaveEdit.Resources;
 
 namespace Gibbed.MassEffect3.SaveEdit
 {
     public partial class Editor : Form
     {
-        private static string GetExecutablePath()
-        {
-            return Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-        }
-
-        private string SavePath = null;
-        private FileFormats.SaveFile _SaveFile = null;
+        private readonly string _SavePath;
+        private FileFormats.SaveFile _SaveFile;
 
         private FileFormats.SaveFile SaveFile
         {
@@ -56,7 +52,10 @@ namespace Gibbed.MassEffect3.SaveEdit
 
         public Editor()
         {
+            this._SavePath = null;
             this.InitializeComponent();
+
+            // ReSharper disable DoNotCallOverridableMethodsInConstructor
             this.DoubleBuffered = true;
 
             if (Version.Revision > 0)
@@ -66,16 +65,16 @@ namespace Gibbed.MassEffect3.SaveEdit
                     Version.Revision,
                     Version.Date);
             }
+            // ReSharper restore DoNotCallOverridableMethodsInConstructor
 
-            string savePath;
-            savePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            string savePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             savePath = Path.Combine(savePath, "BioWare");
             savePath = Path.Combine(savePath, "Mass Effect 3");
             savePath = Path.Combine(savePath, "Save");
 
             if (Directory.Exists(savePath) == true)
             {
-                this.SavePath = savePath;
+                this._SavePath = savePath;
                 this.openFileDialog.InitialDirectory = savePath;
                 this.saveFileDialog.InitialDirectory = savePath;
             }
@@ -96,6 +95,8 @@ namespace Gibbed.MassEffect3.SaveEdit
              * So, instead of using the ImageListStreamer directly, we'll
              * load images from resources.
              */
+
+            // ReSharper disable LocalizableElement
             this.iconImageList.Images.Clear();
             this.iconImageList.Images.Add("Unknown", new System.Drawing.Bitmap(16, 16));
             this.iconImageList.Images.Add("Tab_Player_Male", Icons.Male);
@@ -109,9 +110,10 @@ namespace Gibbed.MassEffect3.SaveEdit
             this.playerAppearanceTabPage.ImageKey = "Tab_Player_Appearance";
 
             this.rawTabPage.ImageKey = "Tab_Raw";
+            // ReSharper restore LocalizableElement
 
             this.rootTabControl.SelectedTab = rawTabPage;
-            this.splitContainer1.Panel2Collapsed = true;
+            this.rawSplitContainer.Panel2Collapsed = true;
         }
 
         private void LoadSaveFromStream(Stream stream)
@@ -138,7 +140,7 @@ namespace Gibbed.MassEffect3.SaveEdit
             {
                 picker.Owner = this;
                 picker.FileMode = SavePicker.PickerMode.Load;
-                picker.FilePath = this.SavePath;
+                picker.FilePath = this._SavePath;
                 
                 var result = picker.ShowDialog();
                 if (result != DialogResult.OK)
@@ -155,7 +157,10 @@ namespace Gibbed.MassEffect3.SaveEdit
                 }
                 else
                 {
-                    MessageBox.Show("This should never happen.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(
+                        Localization.Editor_ThisShouldNeverHappen,
+                        Localization.Error,
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -190,8 +195,8 @@ namespace Gibbed.MassEffect3.SaveEdit
             if (this.SaveFile == null)
             {
                 MessageBox.Show(
-                    "There is no active save.",
-                    "Error",
+                    Localization.Editor_NoActiveSave,
+                    Localization.Error,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 return;
@@ -217,8 +222,8 @@ namespace Gibbed.MassEffect3.SaveEdit
             if (this.SaveFile == null)
             {
                 MessageBox.Show(
-                    "There is no active save.",
-                    "Error",
+                    Localization.Editor_NoActiveSave,
+                    Localization.Error,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 return;
@@ -228,7 +233,7 @@ namespace Gibbed.MassEffect3.SaveEdit
             {
                 picker.Owner = this;
                 picker.FileMode = SavePicker.PickerMode.Save;
-                picker.FilePath = this.SavePath;
+                picker.FilePath = this._SavePath;
                 picker.SaveFile = this.SaveFile;
                 
                 var result = picker.ShowDialog();
@@ -247,7 +252,10 @@ namespace Gibbed.MassEffect3.SaveEdit
                 }
                 else
                 {
-                    MessageBox.Show("This should never happen.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(
+                        Localization.Editor_ThisShouldNeverHappen,
+                        Localization.Error,
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -260,7 +268,7 @@ namespace Gibbed.MassEffect3.SaveEdit
                 var oldPC = e.OldSelection.Value as INotifyPropertyChanged;
                 if (oldPC != null)
                 {
-                    oldPC.PropertyChanged -= new PropertyChangedEventHandler(this.OnPropertyChanged);
+                    oldPC.PropertyChanged -= this.OnPropertyChanged;
                 }
             }
 
@@ -269,12 +277,12 @@ namespace Gibbed.MassEffect3.SaveEdit
                 if ((e.NewSelection.Value is FileFormats.Unreal.ISerializable) == true)
                 {
                     this.childPropertyGrid.SelectedObject = e.NewSelection.Value;
-                    this.splitContainer1.Panel2Collapsed = false;
+                    this.rawSplitContainer.Panel2Collapsed = false;
 
                     var newPC = e.NewSelection.Value as INotifyPropertyChanged;
                     if (newPC != null)
                     {
-                        newPC.PropertyChanged += new PropertyChangedEventHandler(this.OnPropertyChanged);
+                        newPC.PropertyChanged += this.OnPropertyChanged;
                     }
 
                     return;
@@ -282,7 +290,7 @@ namespace Gibbed.MassEffect3.SaveEdit
             }
 
             this.childPropertyGrid.SelectedObject = null;
-            this.splitContainer1.Panel2Collapsed = true;
+            this.rawSplitContainer.Panel2Collapsed = true;
         }
 
         void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -297,8 +305,8 @@ namespace Gibbed.MassEffect3.SaveEdit
             if (this.SaveFile == null)
             {
                 MessageBox.Show(
-                    "There is no active save.",
-                    "Error",
+                    Localization.Editor_NoActiveSave,
+                    Localization.Error,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 return;
@@ -314,8 +322,8 @@ namespace Gibbed.MassEffect3.SaveEdit
                 if (input.ReadString(HeadMorphMagic.Length, Encoding.ASCII) != HeadMorphMagic)
                 {
                     MessageBox.Show(
-                        "That file does not appear to be an exported head morph.",
-                        "Error",
+                        Localization.Editor_HeadMorphInvalid,
+                        Localization.Error,
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
                     input.Close();
@@ -325,8 +333,8 @@ namespace Gibbed.MassEffect3.SaveEdit
                 if (input.ReadValueU8() != 0)
                 {
                     MessageBox.Show(
-                        "Unsupported head morph export version.",
-                        "Error",
+                        Localization.Editor_HeadMorphVersionUnsupported,
+                        Localization.Error,
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
                     input.Close();
@@ -338,13 +346,11 @@ namespace Gibbed.MassEffect3.SaveEdit
                 if (version != this.SaveFile.Version)
                 {
                     if (MessageBox.Show(
-                        String.Format(
-                            "The head morph you are importing has a different " +
-                            "version ({0}) than your current save file ({1}).\n\n" +
-                            "Import anyway?",
+                        string.Format(
+                            Localization.Editor_HeadMorphVersionMaybeIncompatible,
                             version,
                             this.SaveFile.Version),
-                        "Question",
+                        Localization.Question,
                         MessageBoxButtons.YesNo,
                         MessageBoxIcon.Question) == DialogResult.No)
                     {
@@ -367,8 +373,8 @@ namespace Gibbed.MassEffect3.SaveEdit
             if (this.SaveFile == null)
             {
                 MessageBox.Show(
-                    "There is no active save.",
-                    "Error",
+                    Localization.Editor_NoActiveSave,
+                    Localization.Error,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 return;
@@ -378,8 +384,8 @@ namespace Gibbed.MassEffect3.SaveEdit
                 this.SaveFile.Player.Appearance.MorphHead == null)
             {
                 MessageBox.Show(
-                    "This save does not have a non-default head morph.",
-                    "Error",
+                    Localization.Editor_NoHeadMorph,
+                    Localization.Error,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 return;

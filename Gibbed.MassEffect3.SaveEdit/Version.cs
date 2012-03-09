@@ -2,7 +2,7 @@
 {
     public static class Version
     {
-        public static int Revision = 0;
-        public static string Date = null;
+        public static int Revision;
+        public static string Date;
     }
 }

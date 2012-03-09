@@ -27,7 +27,7 @@ using DynamicTypeDescriptor;
 namespace Gibbed.MassEffect3.FileFormats.Save
 {
     [Editor(typeof(StandardValueEditor), typeof(UITypeEditor))]
-    public enum EndGameType : int
+    public enum EndGameType
     {
         [StandardValue(null, DisplayName = "Not Finished")]
         NotFinished = 0,

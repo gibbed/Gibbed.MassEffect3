@@ -22,6 +22,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Text;
 using Gibbed.IO;
@@ -111,7 +112,7 @@ namespace Gibbed.MassEffect3.UnpackPackage
                     folderNameLength >= 0 ? folderNameLength : (-folderNameLength * 2);
                 input.Seek(folderNameByteLength, SeekOrigin.Current);
 
-                var packageFlagsOffset = input.Position;
+                /*var packageFlagsOffset = input.Position;*/
                 var packageFlags = input.ReadValueU32(endian);
 
                 if ((packageFlags & 8) != 0)
@@ -244,7 +245,8 @@ namespace Gibbed.MassEffect3.UnpackPackage
                         {
                             continue;
                         }
-                        else if (exportInfo.Class.FullName.ToLowerInvariant() !=
+
+                        if (exportInfo.Class.FullName.ToLowerInvariant() !=
                             classFilter)
                         {
                             continue;
@@ -265,7 +267,7 @@ namespace Gibbed.MassEffect3.UnpackPackage
                     var fullPath = exportInfo.FullPath;
                     fullPath = fullPath.Replace(":", "_");
 
-                    var exportPath = Path.Combine(outputPath, fullPath + " [export#" + i.ToString() + "].bin");
+                    var exportPath = Path.Combine(outputPath, fullPath + " [export#" + i.ToString(CultureInfo.InvariantCulture) + "].bin");
                     if (File.Exists(exportPath) == true)
                     {
                         throw new InvalidOperationException();
@@ -293,14 +295,13 @@ namespace Gibbed.MassEffect3.UnpackPackage
             {
                 return importInfos[-index - 1];
             }
-            else if (index > 0 && index <= exportInfos.Length)
+
+            if (index > 0 && index <= exportInfos.Length)
             {
                 return exportInfos[index - 1];
             }
-            else
-            {
-                throw new InvalidOperationException();
-            }
+
+            throw new InvalidOperationException();
         }
     }
 }

@@ -44,11 +44,11 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             stream.Serialize(ref this._Powers);
             stream.Serialize(ref this._CharacterLevel);
             stream.Serialize(ref this._TalentPoints);
-            stream.Serialize(ref this._LoadoutWeapons, (s) => s.Version < 23, () => new Loadout());
-            stream.Serialize(ref this._MappedPower, (s) => s.Version < 29, () => null);
-            stream.Serialize(ref this._WeaponMods, (s) => s.Version < 45, () => new List<WeaponMod>());
-            stream.Serialize(ref this._Grenades, (s) => s.Version < 59, () => 0);
-            stream.Serialize(ref this._Weapons, (s) => s.Version < 59, () => new List<Weapon>());
+            stream.Serialize(ref this._LoadoutWeapons, s => s.Version < 23, () => new Loadout());
+            stream.Serialize(ref this._MappedPower, s => s.Version < 29, () => null);
+            stream.Serialize(ref this._WeaponMods, s => s.Version < 45, () => new List<WeaponMod>());
+            stream.Serialize(ref this._Grenades, s => s.Version < 59, () => 0);
+            stream.Serialize(ref this._Weapons, s => s.Version < 59, () => new List<Weapon>());
         }
 
         #region Properties

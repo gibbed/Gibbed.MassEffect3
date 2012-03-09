@@ -25,7 +25,7 @@ namespace Gibbed.MassEffect3.Coalesce
     internal enum Mode
     {
         Unknown,
-        ToJSON,
-        ToBIN,
+        ToJson,
+        ToBin,
     }
 }
