@@ -25,6 +25,7 @@ using System.Globalization;
 using System.IO;
 using Gibbed.MassEffect3.SaveEdit.Resources;
 using System.Linq;
+using System.Resources;
 using System.Text;
 using System.Windows.Forms;
 
@@ -34,6 +35,8 @@ namespace Gibbed.MassEffect3.SaveEdit
     {
         public string FilePath { get; set; }
         public string SelectedPath { get; set; }
+
+        public IResourceWriter bob;
 
         public FileFormats.SaveFile SaveFile { get; set; }
         private int _HighestSaveNumber;
