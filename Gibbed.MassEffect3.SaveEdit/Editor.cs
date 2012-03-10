@@ -85,7 +85,7 @@ namespace Gibbed.MassEffect3.SaveEdit
                 this.openFromCareerMenuItem.Enabled = false;
                 this.saveToCareerMenuItem.Enabled = false;
             }
-
+            
             // ReSharper disable LocalizableElement
             this.iconImageList.Images.Add("Unknown", new System.Drawing.Bitmap(16, 16));
             // ReSharper restore LocalizableElement
