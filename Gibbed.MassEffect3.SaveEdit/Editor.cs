@@ -86,30 +86,8 @@ namespace Gibbed.MassEffect3.SaveEdit
                 this.saveToCareerMenuItem.Enabled = false;
             }
 
-            /* This following block is for Mono-build compatability
-             * (ie, compiling this code via Mono and running via .NET)
-             * 
-             * Mono developers are asstwats:
-             *   https://bugzilla.novell.com/show_bug.cgi?id=641826
-             * 
-             * So, instead of using the ImageListStreamer directly, we'll
-             * load images from resources.
-             */
-
             // ReSharper disable LocalizableElement
-            this.iconImageList.Images.Clear();
             this.iconImageList.Images.Add("Unknown", new System.Drawing.Bitmap(16, 16));
-            this.iconImageList.Images.Add("Tab_Player_Male", Icons.Male);
-            this.iconImageList.Images.Add("Tab_Player_Female", Icons.Female);
-            this.iconImageList.Images.Add("Tab_Player_Basic", Icons.XRay);
-            this.iconImageList.Images.Add("Tab_Player_Appearance", Icons.Shirt);
-            this.iconImageList.Images.Add("Tab_Raw", Icons.Binary);
-
-            this.playerRootTabPage.ImageKey = "Tab_Player_Male";
-            this.playerCharacterTabPage.ImageKey = "Tab_Player_Basic";
-            this.playerAppearanceTabPage.ImageKey = "Tab_Player_Appearance";
-
-            this.rawTabPage.ImageKey = "Tab_Raw";
             // ReSharper restore LocalizableElement
 
             this.rootTabControl.SelectedTab = rawTabPage;

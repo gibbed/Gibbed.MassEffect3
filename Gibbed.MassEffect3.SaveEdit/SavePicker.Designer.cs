@@ -90,9 +90,16 @@
             // 
             // iconImageList
             // 
-            this.iconImageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            resources.ApplyResources(this.iconImageList, "iconImageList");
+            this.iconImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("iconImageList.ImageStream")));
             this.iconImageList.TransparentColor = System.Drawing.Color.Transparent;
+            this.iconImageList.Images.SetKeyName(0, "New");
+            this.iconImageList.Images.SetKeyName(1, "Class_Unknown");
+            this.iconImageList.Images.SetKeyName(2, "Class_Adept");
+            this.iconImageList.Images.SetKeyName(3, "Class_Sentinel");
+            this.iconImageList.Images.SetKeyName(4, "Class_Infiltrator");
+            this.iconImageList.Images.SetKeyName(5, "Class_Soldier");
+            this.iconImageList.Images.SetKeyName(6, "Class_Vanguard");
+            this.iconImageList.Images.SetKeyName(7, "Class_Engineer");
             // 
             // careerToolStrip
             // 

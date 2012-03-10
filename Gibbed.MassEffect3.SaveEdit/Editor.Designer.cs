@@ -217,9 +217,13 @@
             // 
             // iconImageList
             // 
-            this.iconImageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            resources.ApplyResources(this.iconImageList, "iconImageList");
+            this.iconImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("iconImageList.ImageStream")));
             this.iconImageList.TransparentColor = System.Drawing.Color.Transparent;
+            this.iconImageList.Images.SetKeyName(0, "Tab_Player_Male");
+            this.iconImageList.Images.SetKeyName(1, "Tab_Player_Female");
+            this.iconImageList.Images.SetKeyName(2, "Tab_Player_Basic");
+            this.iconImageList.Images.SetKeyName(3, "Tab_Player_Appearance");
+            this.iconImageList.Images.SetKeyName(4, "Tab_Raw");
             // 
             // rawTabPage
             // 

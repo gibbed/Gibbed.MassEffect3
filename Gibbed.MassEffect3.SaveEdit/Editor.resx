@@ -121,17 +121,30 @@
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="newMaleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>139, 22</value>
+  <data name="rootToolStrip.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
   </data>
-  <data name="newMaleToolStripMenuItem.Text" xml:space="preserve">
-    <value>New &amp;Male</value>
+  <data name="rootToolStrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>800, 25</value>
   </data>
-  <data name="newFemaleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>139, 22</value>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="rootToolStrip.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
-  <data name="newFemaleToolStripMenuItem.Text" xml:space="preserve">
-    <value>New &amp;Female</value>
+  <data name="rootToolStrip.Text" xml:space="preserve">
+    <value>toolStrip1</value>
+  </data>
+  <data name="&gt;&gt;rootToolStrip.Name" xml:space="preserve">
+    <value>rootToolStrip</value>
+  </data>
+  <data name="&gt;&gt;rootToolStrip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rootToolStrip.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;rootToolStrip.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="toolStripSplitButton1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -156,17 +169,17 @@
   <data name="toolStripSplitButton1.Text" xml:space="preserve">
     <value>toolStripSplitButton1</value>
   </data>
-  <data name="openFromCareerMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>178, 22</value>
+  <data name="newMaleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>139, 22</value>
   </data>
-  <data name="openFromCareerMenuItem.Text" xml:space="preserve">
-    <value>Open from &amp;Career...</value>
+  <data name="newMaleToolStripMenuItem.Text" xml:space="preserve">
+    <value>New &amp;Male</value>
   </data>
-  <data name="openFromFileMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>178, 22</value>
+  <data name="newFemaleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>139, 22</value>
   </data>
-  <data name="openFromFileMenuItem.Text" xml:space="preserve">
-    <value>Open from &amp;File...</value>
+  <data name="newFemaleToolStripMenuItem.Text" xml:space="preserve">
+    <value>New &amp;Female</value>
   </data>
   <data name="openFromGenericButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -194,17 +207,17 @@
   <data name="openFromGenericButton.Text" xml:space="preserve">
     <value>Open</value>
   </data>
-  <data name="saveToCareerMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>158, 22</value>
+  <data name="openFromCareerMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>178, 22</value>
   </data>
-  <data name="saveToCareerMenuItem.Text" xml:space="preserve">
-    <value>Save to &amp;Career...</value>
+  <data name="openFromCareerMenuItem.Text" xml:space="preserve">
+    <value>Open from &amp;Career...</value>
   </data>
-  <data name="saveToFileMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>158, 22</value>
+  <data name="openFromFileMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>178, 22</value>
   </data>
-  <data name="saveToFileMenuItem.Text" xml:space="preserve">
-    <value>Save to &amp;File...</value>
+  <data name="openFromFileMenuItem.Text" xml:space="preserve">
+    <value>Open from &amp;File...</value>
   </data>
   <data name="saveToGenericButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -228,27 +241,33 @@
   <data name="saveToGenericButton.Text" xml:space="preserve">
     <value>Save</value>
   </data>
-  <data name="dontUseCareerPickerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>194, 22</value>
+  <data name="saveToCareerMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>158, 22</value>
   </data>
-  <data name="dontUseCareerPickerToolStripMenuItem.Text" xml:space="preserve">
-    <value>Don't use career picker</value>
+  <data name="saveToCareerMenuItem.Text" xml:space="preserve">
+    <value>Save to &amp;Career...</value>
+  </data>
+  <data name="saveToFileMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>158, 22</value>
+  </data>
+  <data name="saveToFileMenuItem.Text" xml:space="preserve">
+    <value>Save to &amp;File...</value>
   </data>
   <data name="settingsButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJ9SURBVDhPY2AgAoSEhAgBsUdoaGgCCAO1SMG12dnZ+QYF
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKASURBVDhPY2AgAoSEhAgBsUdoaGgCCAO1SMG12dnZ+QYF
         BaUBsS82s0CaExIS0nfv3r338ePHH4WFhdNRDABy0t6+ffs/OTm5DJsB3t7eXps2bdp369bN/xYWZr0w
         zUBxaT8/P7BLfFVUVMpOnDhxMSIiAsMQT0/P1LNnz37KzMzcDFRrDNLg5OQkDRTP8fX1TYZbCjJk//79
         F4Emoxji7Oycd/r0qf8gbGJiAnKBcVZW1qSHDx9+sre3z0RxtZKSUtn27dsv2tjYwAxhBLILjx07+n/X
-        rh1gQ0AuAXln5cqVR3V1dUMwvA0yZN26dRf19fXL9PT0gmxtbUt37971H2TImTOnQPSX2bNnnwBqrgGq
-        FcMaiQoKCmVz8vOvH+LguHy5IP+/srJyIzc3dzsI8/Dw1HJxccUC2eI4U4C6unroBlbWZ/87Ov6vZmF5
-        WiEunkdEcoEoATorEOjszgPxCf9bWVmfv/D0/HaDkXHjdQaGEoKGyMnJBTs4OEw6duz0fzMzi55QIaHC
-        rQwMZ76kpf2/wMi45TwDA9a0AjZYQkIiBBi/s06fvvLfyspmirS0NDiENzAwtK4HGvK9oOD/cUbG7UcZ
-        GCowXCIoKBjm5OS68NKlu/9tbe3nioiIhCErWgU0ZDnQkF9VVf/3MDLu2cPAUA2X5+PjC3d0dFly48az
-        /3Z2jotBfGx+XQg0ZBHQkL9NTf+Bhh0G4gawOk5Ozo47d14DbXZaxs7OngYUEgVifiDmAmJ2IOYAYl4g
-        FiplYJg4F2gIKHZmMTCcBhvAxMQUzsrK2snCwpIF5BoBsSYQywGxMBDzAbEAEEsCsQoQ6xUyMEyZATQk
-        ARorACnr6Cm6LQlVAAAAAElFTkSuQmCC
+        rh1gQ0AuAXln5cqVR3V1dUMwvA0yZN26dRf19fXL9PT0gmxtbUt37971H2TImTOn/h89evTL7NmzTwA1
+        1wDVimGNRAUFhbI5+fnXD3FwXL5ckP9fWVm5kZubux2EeXh4arm4uGKBbHGcKUBdXT10Ayvrs/8dHf9X
+        s7A8rRAXzyMiuUCUAJ0VCHR254H4hP8trKzPX3h4fLvByLjxOgNDCUFD5OTkgh0cHCYdO3b6v5mZRU+o
+        kFDhVgaGM1/S0v5fYGTccp6BAWtaARssISERAozfWadPX/lvZWUzRVpaGhzCGxgYWtcDDfleUPD/OCPj
+        9qMMDBUYLhEUFAxzcnJdeOnS3f+2tvZzRUREwpAVrQIashxoyK+qqv97GBn37GFgqIbL8/HxhTs6uiy5
+        cePZfzs7x8UgPja/LgQasghoyN+mpv9Aww4DcQNYHScnZ8edO6+BNjstY2dnTwMKiQIxPxBzATE7EHMA
+        MS8QC5UyMEycCzQEFDuzGBhOgw1gYmIKZ2Vl7WRhYckCco2AWBOI5YBYGIj5gFgAiCWBWAWI9QoZGKbM
+        ABqSAI0VACBH6CQHsXIKAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="settingsButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
@@ -260,37 +279,18 @@
   <data name="settingsButton.Text" xml:space="preserve">
     <value>Settings</value>
   </data>
-  <data name="rootToolStrip.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+  <data name="dontUseCareerPickerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>194, 22</value>
   </data>
-  <data name="rootToolStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>800, 25</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="rootToolStrip.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="rootToolStrip.Text" xml:space="preserve">
-    <value>toolStrip1</value>
-  </data>
-  <data name="&gt;&gt;rootToolStrip.Name" xml:space="preserve">
-    <value>rootToolStrip</value>
-  </data>
-  <data name="&gt;&gt;rootToolStrip.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rootToolStrip.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;rootToolStrip.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="dontUseCareerPickerToolStripMenuItem.Text" xml:space="preserve">
+    <value>Don't use career picker</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="rootTabControl.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
   <data name="playerCharacterTabPage.ImageKey" xml:space="preserve">
-    <value>(none)</value>
+    <value>Tab_Player_Basic</value>
   </data>
   <data name="playerCharacterTabPage.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 23</value>
@@ -322,53 +322,6 @@
   <metadata name="playerAppearanceToolStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>122, 41</value>
   </metadata>
-  <data name="importHeadMorphButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHcSURBVDhPzZJPSJNhHMffWxeho9EpQi9edgsNglh4EB10
-        aBJ6KNbBUbwUI8k/bJWQe3ntkIVpipjoQanAttDD0lWCoKVp1GxFtSwtFQubz9O7rflpz+UNOrlTfeFz
-        +36+8Ht4NO2/SbXf7zoWCNTlg3LsA442NXnJM8qxB6rq609nt7cZn5lhcCzCqVsJDpuSQ0FJ1TXJ8U6B
-        p1dw86GgJ7qF6irHHqjw+c6ksln6RkbIZKE79ATj/grGA0nbqORKSBAMC8ZfCh7HtlBd5WgllZW1JS5X
-        o6JzaAjFxy9fWU9mGYwsEJnfIDQnuTctGZsXPHolePZWIDIZjui6ru1zOgN/n25l0ix/22RpPcXzD5LJ
-        RcFUXDL1WjL7TrL4WbKZTuP0es9phWVlnsLS0hZFsKsLxZtEgqfxGCdaL1NrtqH39BMYDmGGo/RPviAa
-        W2PDsjjo8fjsNzhQU3N+VUoutbdjpX9x1ujAfXGYamMCb/ccjXffY0TW6Jj+Qe+Cheoqxx5wuN0XVoTg
-        +sAADeZV3M19VDSHcQejnLwxi347TsOdZVpGv2NO/ER1lWMP7C8v96+mUnxKJneE6irHHigoLq7b7XC0
-        5kNBUdGfj5Rb2pVjT469O0R1lfOP8xvXqLtyB6wyQgAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="importHeadMorphButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="importHeadMorphButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>133, 22</value>
-  </data>
-  <data name="importHeadMorphButton.Text" xml:space="preserve">
-    <value>Import Head Morph</value>
-  </data>
-  <data name="exportHeadMorphButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH+SURBVDhPzZJPSJNxGMffWxehOqWeIhykB+dBcyvDWBhN
-        3PDgXnSHskH4shq14VAnGyXYu/kGKv7ZENShZYtqLReW/Vl1MYTVKYQRdUgcTIpQ+/30dW3f3vc9vB26
-        uFM+8IHn8Hw/PDy/H8P892K9XlOLz9dRCHJGXbzZ4+FQYMkZVdDkdttz+Tz0/RR1PIVBoDgzQHFa6puG
-        KFqDBLZJgvFXBOFn7xFZXITR6byqCowu1xUxl8O1uW14HlEEFij6n1L4JQS5nyfg4wSvPxFMx2LKrtVt
-        be5qlq1RJGcdDgfJZnFxdBD8kwSiSYpYchtvVygeL3/H3cRn3Hm+hMloHMFIBGuZjCKpMJl6ys3mWsbA
-        cdc3dndRYTdB330Bt+dfYCm1iXcrv5D8QpFKi1jf+A0xm//nUkcNBh9z0mZz/djZwSFzPUrY8zh+uRX6
-        TjvYQADOiTBuzkbgn70HYSoMPhTCt3RaER3R6fpKdLpTzAmrtTNDKcqtg9C2B6G3z+BcVxSsPwFu4iN6
-        Hn6F/+U6xpY3cWN4WAkf1GpvHa6srFNuoLVYutKEoOpSCLXcNOqd92HsjcPCv0H7yAc4wil0P1hD38JP
-        eINz8AgCNI2NveorHGto8GZEEatbW3tCnpUzqqBIo+mQVyqEorKyvx9JMh2QKJYo3SPyrJzZJ/UHBRas
-        1CpIjLoAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="exportHeadMorphButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="exportHeadMorphButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 22</value>
-  </data>
-  <data name="exportHeadMorphButton.Text" xml:space="preserve">
-    <value>Export Head Morph</value>
-  </data>
   <data name="playerAppearanceToolStrip.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
   </data>
@@ -394,7 +347,7 @@
     <value>0</value>
   </data>
   <data name="playerAppearanceTabPage.ImageKey" xml:space="preserve">
-    <value>(none)</value>
+    <value>Tab_Player_Appearance</value>
   </data>
   <data name="playerAppearanceTabPage.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 23</value>
@@ -426,8 +379,72 @@
   <metadata name="iconImageList.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>255, 17</value>
   </metadata>
-  <data name="iconImageList.ImageSize" type="System.Drawing.Size, System.Drawing">
-    <value>16, 16</value>
+  <data name="iconImageList.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
+        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
+        ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAADq
+        DQAAAk1TRnQBSQFMAgEBBQEAAQgBAAEIAQABEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        AwABQAMAASADAAEBAQABCAYAAQgYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
+        AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
+        AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
+        AWYDAAGZAwABzAIAATMDAAIzAgABMwFmAgABMwGZAgABMwHMAgABMwH/AgABZgMAAWYBMwIAAmYCAAFm
+        AZkCAAFmAcwCAAFmAf8CAAGZAwABmQEzAgABmQFmAgACmQIAAZkBzAIAAZkB/wIAAcwDAAHMATMCAAHM
+        AWYCAAHMAZkCAALMAgABzAH/AgAB/wFmAgAB/wGZAgAB/wHMAQABMwH/AgAB/wEAATMBAAEzAQABZgEA
+        ATMBAAGZAQABMwEAAcwBAAEzAQAB/wEAAf8BMwIAAzMBAAIzAWYBAAIzAZkBAAIzAcwBAAIzAf8BAAEz
+        AWYCAAEzAWYBMwEAATMCZgEAATMBZgGZAQABMwFmAcwBAAEzAWYB/wEAATMBmQIAATMBmQEzAQABMwGZ
+        AWYBAAEzApkBAAEzAZkBzAEAATMBmQH/AQABMwHMAgABMwHMATMBAAEzAcwBZgEAATMBzAGZAQABMwLM
+        AQABMwHMAf8BAAEzAf8BMwEAATMB/wFmAQABMwH/AZkBAAEzAf8BzAEAATMC/wEAAWYDAAFmAQABMwEA
+        AWYBAAFmAQABZgEAAZkBAAFmAQABzAEAAWYBAAH/AQABZgEzAgABZgIzAQABZgEzAWYBAAFmATMBmQEA
+        AWYBMwHMAQABZgEzAf8BAAJmAgACZgEzAQADZgEAAmYBmQEAAmYBzAEAAWYBmQIAAWYBmQEzAQABZgGZ
+        AWYBAAFmApkBAAFmAZkBzAEAAWYBmQH/AQABZgHMAgABZgHMATMBAAFmAcwBmQEAAWYCzAEAAWYBzAH/
+        AQABZgH/AgABZgH/ATMBAAFmAf8BmQEAAWYB/wHMAQABzAEAAf8BAAH/AQABzAEAApkCAAGZATMBmQEA
+        AZkBAAGZAQABmQEAAcwBAAGZAwABmQIzAQABmQEAAWYBAAGZATMBzAEAAZkBAAH/AQABmQFmAgABmQFm
+        ATMBAAGZATMBZgEAAZkBZgGZAQABmQFmAcwBAAGZATMB/wEAApkBMwEAApkBZgEAA5kBAAKZAcwBAAKZ
+        Af8BAAGZAcwCAAGZAcwBMwEAAWYBzAFmAQABmQHMAZkBAAGZAswBAAGZAcwB/wEAAZkB/wIAAZkB/wEz
+        AQABmQHMAWYBAAGZAf8BmQEAAZkB/wHMAQABmQL/AQABzAMAAZkBAAEzAQABzAEAAWYBAAHMAQABmQEA
+        AcwBAAHMAQABmQEzAgABzAIzAQABzAEzAWYBAAHMATMBmQEAAcwBMwHMAQABzAEzAf8BAAHMAWYCAAHM
+        AWYBMwEAAZkCZgEAAcwBZgGZAQABzAFmAcwBAAGZAWYB/wEAAcwBmQIAAcwBmQEzAQABzAGZAWYBAAHM
+        ApkBAAHMAZkBzAEAAcwBmQH/AQACzAIAAswBMwEAAswBZgEAAswBmQEAA8wBAALMAf8BAAHMAf8CAAHM
+        Af8BMwEAAZkB/wFmAQABzAH/AZkBAAHMAf8BzAEAAcwC/wEAAcwBAAEzAQAB/wEAAWYBAAH/AQABmQEA
+        AcwBMwIAAf8CMwEAAf8BMwFmAQAB/wEzAZkBAAH/ATMBzAEAAf8BMwH/AQAB/wFmAgAB/wFmATMBAAHM
+        AmYBAAH/AWYBmQEAAf8BZgHMAQABzAFmAf8BAAH/AZkCAAH/AZkBMwEAAf8BmQFmAQAB/wKZAQAB/wGZ
+        AcwBAAH/AZkB/wEAAf8BzAIAAf8BzAEzAQAB/wHMAWYBAAH/AcwBmQEAAf8CzAEAAf8BzAH/AQAC/wEz
+        AQABzAH/AWYBAAL/AZkBAAL/AcwBAAJmAf8BAAFmAf8BZgEAAWYC/wEAAf8CZgEAAf8BZgH/AQAC/wFm
+        AQABIQEAAaUBAANfAQADdwEAA4YBAAOWAQADywEAA7IBAAPXAQAD3QEAA+MBAAPqAQAD8QEAA/gBAAHw
+        AfsB/wEAAaQCoAEAA4ADAAH/AgAB/wMAAv8BAAH/AwAB/wEAAf8BAAL/AgAD/wEAAfQL7wHwAfQC/zAA
+        AfQBBwHzCf8BBwHxAv8xAAH0Ae8B7gG8A/MD9AH1Af8BBzQAAe4B9AHzAe4BbQHyAQcBbQEHAfUB/wHu
+        NAAB7gH1AfQB8gFtAfQBbQH0AW0B9AH1Ae40AAG8AfUB9AHxAW0B9AFtAfQBbQH0AfUBvDQAAbwB9QH0
+        AQcB6wH0AQcB6wEHAfQB9QG8NAABvAH0CPMB9AG8NAABvAH0AfMBBwH4AQcBvAH4Ae4B8wH0Abw0AAHw
+        AfQB8wH4AfMB+AHzAfgB8AHzAfQB8DQAAfAB9AHxAewB8QHsAfEB7AG8AfEB9AHwNAAB8AH0AfEBBwHs
+        AQcBvAHsAbwB8QH0AfA0AAHwAfQI8wH0AfA0AAHwAfUI9AH1AbwB9DMAAfQB8An/AfQB8AH/MwAB9Avy
+        Af8wAAH/DvQC/w70Af8B9AFtDA8BbQH0Av8B9AHxAfcB7AXrAfcB8gH0Av8B8wGSAQABDgEQARUBEwIS
+        ARMBFQEQAQ4BAAGSAvMBkgEAAQ4BEAEVARMCEgETARUBEAEOAQABkgHzAf8CEQHrAu8BBwK8AQcC7wHr
+        AhED/wEHAfgBkgH3A+8B9wHtAesB9wT/AUMCFAETARIE6gESARMCFAFDAv8BQwIUARMBEgTqARIBEwIU
+        AUMB/wEAAhUB+AHvAQcBCAK8AQgBBwHvAfgCFQMAAe0BHAHvAfcD7wGSAe0B+AHsBAAB6gIVARQBEwES
+        AuoBEgETARQCFQHqAgAB6gIVARQBEwESAuoBEgETARQCFQHqAgACFAHsAgcBvALwAbwCBwHtAhQDAAHs
+        Au8BkgPvAu0C7AQAAfABEgEUAxMCEQMTARQBEgHwAgAB8AESARQDEwIRAxMBFAESAfACAAETARQBkgEH
+        AQgBvALwArwBBwGSAhQDAAH3AZIB9wHtAe8C9wLtAewB7QUAAfMBkgISARMCmgETAhIBkgHzBAAB8wGS
+        AhIBEwKaARMCEgGSAfMDAAESARMB9wHtAewBBwLwAQcC7QH3AhMDAAEHAe0B9wHsAe8B9wGSAewB7QHs
+        Ae0HAAHxAesBSwJ0AUsB6wHxCAAB8QHrAUsCdAFLAesB8QUAAW0BEgHvAu0B9wLxAfAC7QHvAhMDAAHx
+        Ae0BkgG8A/IBvAHtAewB7QgAAf8BcwJMAXMB/wkAAfQB8AFLAkwBSwHwAfQFAALrAe4B7QHvAfcD8QHv
+        Ae0BBwISAwAB9ALtAfMB7wH4Ae8B8wHtAewB7QgAAfMBdAKZAXQB8wkAA24CmQNuBQAB6wHsAfAB7QHv
+        AbwCGQEHAZIB7AG8AesBEgMAAf8C7QX0Au0BkggAAZMBmQKaAZkBkwkAAm4BmQKaAZkCbgUAAewB9wHx
+        AQcB7wH3AfABBwHtAZIB7wHwAe0B6gEAAQcBkgHtAfgB7QH/AewB/wHsAf8C7QH4Ae0BkgEHBAAB7gEV
+        ARQCcwEUARUB7ggAAewBEQEUAnMBFAERAewFAAHtAe4B8gHvAQcB7gLyAQcB7wH3AfEBBwHrAQAB9wLt
+        AfgBkgHzA/8B8wHvAe0B+ALtAfcEAAHtAQoBSwIUAUsBCgHtCAAB7wEKAUsCFAFLAQoB7wUAAZIB7gHz
+        AfABBwHvAfEBvAH3Ae8B8AHyAQcB6wEAAfcB7wGSAe0I7wHtAZIB7wH3BAAB8wEKBBQBCgHzCAAB8AEK
+        BBQBCgHwBQAB9wG8AfIC8AG8AvMBvAHwAbwB8QEHAfgBAAHvAQcM7wEHAe8FAAFtAZMCmgGTAW0JAAH0
+        AXMCTAGaAUsBcwH0BQAB9wG8AfAB8wHwAe8B8gHwAe8BvAHyAQcB7wHsAQAB8wLvAQcD7wH3AQcD7wEH
+        Au8B8wUAAesBEgHrAW0BEgHrCgABvAFvAVICSwG8BgAC9wHvAQcB8QP0AfMB8QHvAZIB9AHtAgAB/wHx
+        Au8GBwLvAfEB/wYAAfAE7AHwCgAB/wG8AnQBvAH/BgAB7gz3AQcEAAH/AfEBBwHzAQAB8wIHAfEB/wMA
+        AUIBTQE+BwABPgMAASgDAAFAAwABIAMAAQEBAAEBBgABARYAA/8RAAGAAQMGAAHAAQMGAAHAAQMGAAHA
+        AQMGAAHAAQMGAAHAAQMGAAHAAQMGAAHAAQMGAAHAAQMGAAHAAQMGAAHAAQMGAAHAAQEGAAHABwAB4BsA
+        AYABAQHAAQcBgAEBAYABAQGAAQEBwAEHAYABAQGAAQEBgAEBAcABBwHAAQMBwAEDAYABAQHAAQcB8AEP
+        AfABDwGAAQEBwAEHAfgBHwHwAQ8BgAEBAcABBwH4AR8B8AEPAYABAQHAAQcB+AEfAfABDwGAAQECAAHw
+        AQ8B8AEPAYABAQIAAfABDwHwAQ8BgAEBAgAB8AEPAfABDwGAAQECAAH4AR8B8AEPAYABAQIAAfgBHwH4
+        AR8BgAEBAYABAQH4AR8B+AEfAYABAQHhAQcL
+</value>
   </data>
   <data name="playerTabControl.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 6</value>
@@ -449,6 +466,9 @@
   </data>
   <data name="&gt;&gt;playerTabControl.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="playerRootTabPage.ImageKey" xml:space="preserve">
+    <value>Tab_Player_Male</value>
   </data>
   <data name="playerRootTabPage.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 23</value>
@@ -576,6 +596,9 @@
   <data name="&gt;&gt;rawSplitContainer.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="rawTabPage.ImageKey" xml:space="preserve">
+    <value>Tab_Raw</value>
+  </data>
   <data name="rawTabPage.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 23</value>
   </data>
@@ -623,6 +646,53 @@
   </data>
   <data name="&gt;&gt;rootTabControl.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="importHeadMorphButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHcSURBVDhPzZJPSJNhHMffWxeho9EpQi9edgsNglh4EB10
+        aBJ6KNbBUbwUI8k/bJWQe3ntkIVpipjoQanAttDD0lWCoKVp1GxFtSwtFQubz9O7rflpz+UNOrlTfeFz
+        +36+8Ht4NO2/SbXf7zoWCNTlg3LsA442NXnJM8qxB6rq609nt7cZn5lhcCzCqVsJDpuSQ0FJ1TXJ8U6B
+        p1dw86GgJ7qF6irHHqjw+c6ksln6RkbIZKE79ATj/grGA0nbqORKSBAMC8ZfCh7HtlBd5WgllZW1JS5X
+        o6JzaAjFxy9fWU9mGYwsEJnfIDQnuTctGZsXPHolePZWIDIZjui6ru1zOgN/n25l0ix/22RpPcXzD5LJ
+        RcFUXDL1WjL7TrL4WbKZTuP0es9phWVlnsLS0hZFsKsLxZtEgqfxGCdaL1NrtqH39BMYDmGGo/RPviAa
+        W2PDsjjo8fjsNzhQU3N+VUoutbdjpX9x1ujAfXGYamMCb/ccjXffY0TW6Jj+Qe+Cheoqxx5wuN0XVoTg
+        +sAADeZV3M19VDSHcQejnLwxi347TsOdZVpGv2NO/ER1lWMP7C8v96+mUnxKJneE6irHHigoLq7b7XC0
+        5kNBUdGfj5Rb2pVjT469O0R1lfOP8xvXqLtyB6wyQgAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="importHeadMorphButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="importHeadMorphButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>133, 22</value>
+  </data>
+  <data name="importHeadMorphButton.Text" xml:space="preserve">
+    <value>Import Head Morph</value>
+  </data>
+  <data name="exportHeadMorphButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH+SURBVDhPzZJPSJNxGMffWxehOqWeIhykB+dBcyvDWBhN
+        3PDgXnSHskH4shq14VAnGyXYu/kGKv7ZENShZYtqLReW/Vl1MYTVKYQRdUgcTIpQ+/30dW3f3vc9vB26
+        uFM+8IHn8Hw/PDy/H8P892K9XlOLz9dRCHJGXbzZ4+FQYMkZVdDkdttz+Tz0/RR1PIVBoDgzQHFa6puG
+        KFqDBLZJgvFXBOFn7xFZXITR6byqCowu1xUxl8O1uW14HlEEFij6n1L4JQS5nyfg4wSvPxFMx2LKrtVt
+        be5qlq1RJGcdDgfJZnFxdBD8kwSiSYpYchtvVygeL3/H3cRn3Hm+hMloHMFIBGuZjCKpMJl6ys3mWsbA
+        cdc3dndRYTdB330Bt+dfYCm1iXcrv5D8QpFKi1jf+A0xm//nUkcNBh9z0mZz/djZwSFzPUrY8zh+uRX6
+        TjvYQADOiTBuzkbgn70HYSoMPhTCt3RaER3R6fpKdLpTzAmrtTNDKcqtg9C2B6G3z+BcVxSsPwFu4iN6
+        Hn6F/+U6xpY3cWN4WAkf1GpvHa6srFNuoLVYutKEoOpSCLXcNOqd92HsjcPCv0H7yAc4wil0P1hD38JP
+        eINz8AgCNI2NveorHGto8GZEEatbW3tCnpUzqqBIo+mQVyqEorKyvx9JMh2QKJYo3SPyrJzZJ/UHBRas
+        1CpIjLoAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="exportHeadMorphButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="exportHeadMorphButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>130, 22</value>
+  </data>
+  <data name="exportHeadMorphButton.Text" xml:space="preserve">
+    <value>Export Head Morph</value>
   </data>
   <metadata name="openFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>122, 17</value>

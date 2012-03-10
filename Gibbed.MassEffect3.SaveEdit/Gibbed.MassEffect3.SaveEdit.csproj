@@ -62,11 +62,6 @@
     <Compile Include="Editor.Designer.cs">
       <DependentUpon>Editor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Resources\Icons.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Icons.resx</DependentUpon>
-    </Compile>
     <Compile Include="Resources\Localization.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -83,11 +78,6 @@
     <Compile Include="Version.cs" />
     <EmbeddedResource Include="Editor.resx">
       <DependentUpon>Editor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Icons.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Icons.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Localization.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -131,22 +121,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Icons\New.png" />
-    <None Include="Resources\Icons\Android.png" />
-    <None Include="Resources\Icons\Bug.png" />
-    <None Include="Resources\Icons\Cat.png" />
-    <None Include="Resources\Icons\Dog.png" />
-    <None Include="Resources\Icons\Ghost.png" />
-    <None Include="Resources\Icons\Monkey.png" />
-    <None Include="Resources\Icons\Penguin.png" />
     <Content Include="Resources\Pink.ico" />
-    <None Include="Resources\Icons\XRay.png" />
-    <None Include="Resources\Icons\Female.png" />
-    <None Include="Resources\Icons\Male.png" />
-    <None Include="Resources\Icons\Shirt.png" />
-    <None Include="Resources\Icons\Binary.png" />
-    <None Include="Resources\Icons\Robot.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="Mono.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -68,24 +68,7 @@ namespace Gibbed.MassEffect3.SaveEdit
             this.InitializeComponent();
             this.FileMode = PickerMode.Load;
 
-            /* This following block is for Mono-build compatability
-             * (ie, compiling this code via Mono and running via .NET)
-             * 
-             * Mono developers are asstwats:
-             *   https://bugzilla.novell.com/show_bug.cgi?id=641826
-             * 
-             * So, instead of using the ImageListStreamer directly, we'll
-             * load images from resources.
-             */
-            this.iconImageList.Images.Clear();
             this.iconImageList.Images.Add("Unknown", new System.Drawing.Bitmap(16, 16));
-            this.iconImageList.Images.Add("New", Icons.New);
-            this.iconImageList.Images.Add("Class_Adept", Icons.Cat);
-            this.iconImageList.Images.Add("Class_Soldier", Icons.Monkey);
-            this.iconImageList.Images.Add("Class_Engineer", Icons.Robot);
-            this.iconImageList.Images.Add("Class_Sentinel", Icons.Dog);
-            this.iconImageList.Images.Add("Class_Infiltrator", Icons.Ghost);
-            this.iconImageList.Images.Add("Class_Vanguard", Icons.Penguin);
 
             this.careerListView.Items.Clear();
             this.careerListView.Items.Add(new ListViewItem()
@@ -275,7 +258,7 @@ namespace Gibbed.MassEffect3.SaveEdit
                         this.careerListView.Items.Add(new ListViewItem()
                             {
                                 Text = Path.GetFileName(careerPath),
-                                ImageKey = "",
+                                ImageKey = "Class_Unknown",
                                 Tag = careerPath,
                             });
                     }
