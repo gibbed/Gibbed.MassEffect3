@@ -75,8 +75,6 @@
             this.careerListView.FullRowSelect = true;
             this.careerListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.careerListView.HideSelection = false;
-            this.careerListView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            ((System.Windows.Forms.ListViewItem)(resources.GetObject("careerListView.Items")))});
             this.careerListView.LargeImageList = this.iconImageList;
             this.careerListView.Name = "careerListView";
             this.careerListView.SmallImageList = this.iconImageList;
@@ -124,8 +122,6 @@
             this.saveListView.FullRowSelect = true;
             this.saveListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.saveListView.HideSelection = false;
-            this.saveListView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            ((System.Windows.Forms.ListViewItem)(resources.GetObject("saveListView.Items")))});
             this.saveListView.LargeImageList = this.iconImageList;
             this.saveListView.Name = "saveListView";
             this.saveListView.SmallImageList = this.iconImageList;

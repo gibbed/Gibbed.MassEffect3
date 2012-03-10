@@ -32,10 +32,10 @@ namespace Gibbed.MassEffect3.SaveEdit
 {
     public partial class SavePicker : Form
     {
-        public string FilePath;
-        public string SelectedPath;
+        public string FilePath { get; set; }
+        public string SelectedPath { get; set; };
 
-        public FileFormats.SaveFile SaveFile;
+        public FileFormats.SaveFile SaveFile { get; set; };
         private int _HighestSaveNumber;
 
         private PickerMode _FileMode = PickerMode.Invalid;
