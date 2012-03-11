@@ -370,13 +370,20 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
 
         public void Serialize(ref BitArray list)
         {
+            if (list == null)
+            {
+                throw new ArgumentNullException("serializable list should not be null", "list");
+            }
+
             var count = this._Input.ReadValueU32(this.Endian);
             if (count >= 0x7FFFFF)
             {
                 throw new FormatException("too many items in list");
             }
 
-            list = new BitArray((int)(count * 32));
+            list.Length = (int)(count * 32);
+            list.SetAll(false);
+
             for (uint i = 0; i < count; i++)
             {
                 uint offset = i * 32;
