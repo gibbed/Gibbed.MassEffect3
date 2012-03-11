@@ -92,6 +92,7 @@
     <EmbeddedResource Include="SavePicker.resx">
       <DependentUpon>SavePicker.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
