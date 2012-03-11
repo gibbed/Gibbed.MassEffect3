@@ -80,7 +80,20 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
 
         public void Serialize(ref byte value, Func<ISerializer, bool> condition, Func<byte> defaultValue)
         {
-            throw new NotImplementedException();
+            if (condition == null)
+            {
+                throw new ArgumentNullException("condition");
+            }
+
+            if (defaultValue == null)
+            {
+                throw new ArgumentNullException("defaultValue");
+            }
+
+            if (condition(this) == false)
+            {
+                this.Serialize(ref value);
+            }
         }
 
         public void Serialize(ref int value)
