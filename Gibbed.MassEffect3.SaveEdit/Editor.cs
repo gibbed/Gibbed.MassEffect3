@@ -43,8 +43,8 @@ namespace Gibbed.MassEffect3.SaveEdit
                 if (value != this._SaveFile)
                 {
                     this._SaveFile = value;
-                    var dtd = DynamicTypeDescriptor.ProviderInstaller.Install(value);
-                    this.rootPropertyGrid.Site = dtd.GetSite();
+                    /*var dtd = DynamicTypeDescriptor.ProviderInstaller.Install(value);
+                    this.rootPropertyGrid.Site = dtd.GetSite();*/
                     this.rootPropertyGrid.SelectedObject = value;
                 }
             }
