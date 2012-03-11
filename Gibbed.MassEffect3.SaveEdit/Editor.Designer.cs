@@ -51,7 +51,28 @@
             this.importHeadMorphButton = new System.Windows.Forms.ToolStripButton();
             this.exportHeadMorphButton = new System.Windows.Forms.ToolStripButton();
             this.iconImageList = new System.Windows.Forms.ImageList(this.components);
-            this.rawTabPage = new System.Windows.Forms.TabPage();
+            this.plotRootTabPage = new System.Windows.Forms.TabPage();
+            this.plotTabControl = new System.Windows.Forms.TabControl();
+            this.plotManulTabPage = new System.Windows.Forms.TabPage();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.plotManualClearLogButton = new System.Windows.Forms.ToolStripButton();
+            this.plotManualLogTextBox = new System.Windows.Forms.TextBox();
+            this.plotManualFloatGroupBox = new System.Windows.Forms.GroupBox();
+            this.plotManualFloatIdTextBox = new System.Windows.Forms.TextBox();
+            this.plotManualFloatGetButton = new System.Windows.Forms.Button();
+            this.plotManualFloatSetButton = new System.Windows.Forms.Button();
+            this.plotManualFloatValueTextBox = new System.Windows.Forms.TextBox();
+            this.plotManualIntGroupBox = new System.Windows.Forms.GroupBox();
+            this.plotManualIntIdTextBox = new System.Windows.Forms.TextBox();
+            this.plotManualIntGetButton = new System.Windows.Forms.Button();
+            this.plotManualIntSetButton = new System.Windows.Forms.Button();
+            this.plotManualIntValueTextBox = new System.Windows.Forms.TextBox();
+            this.plotManualBoolGroupBox = new System.Windows.Forms.GroupBox();
+            this.plotManualBoolIdTextBox = new System.Windows.Forms.TextBox();
+            this.plotManualBoolSetButton = new System.Windows.Forms.Button();
+            this.plotManualBoolGetButton = new System.Windows.Forms.Button();
+            this.plotManualBoolValueCheckBox = new System.Windows.Forms.CheckBox();
+            this.rawRootTabPage = new System.Windows.Forms.TabPage();
             this.rawSplitContainer = new System.Windows.Forms.SplitContainer();
             this.rootPropertyGrid = new System.Windows.Forms.PropertyGrid();
             this.childPropertyGrid = new System.Windows.Forms.PropertyGrid();
@@ -65,7 +86,14 @@
             this.playerTabControl.SuspendLayout();
             this.playerAppearanceTabPage.SuspendLayout();
             this.playerAppearanceToolStrip.SuspendLayout();
-            this.rawTabPage.SuspendLayout();
+            this.plotRootTabPage.SuspendLayout();
+            this.plotTabControl.SuspendLayout();
+            this.plotManulTabPage.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
+            this.plotManualFloatGroupBox.SuspendLayout();
+            this.plotManualIntGroupBox.SuspendLayout();
+            this.plotManualBoolGroupBox.SuspendLayout();
+            this.rawRootTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rawSplitContainer)).BeginInit();
             this.rawSplitContainer.Panel1.SuspendLayout();
             this.rawSplitContainer.Panel2.SuspendLayout();
@@ -161,7 +189,8 @@
             // 
             resources.ApplyResources(this.rootTabControl, "rootTabControl");
             this.rootTabControl.Controls.Add(this.playerRootTabPage);
-            this.rootTabControl.Controls.Add(this.rawTabPage);
+            this.rootTabControl.Controls.Add(this.plotRootTabPage);
+            this.rootTabControl.Controls.Add(this.rawRootTabPage);
             this.rootTabControl.ImageList = this.iconImageList;
             this.rootTabControl.Name = "rootTabControl";
             this.rootTabControl.SelectedIndex = 0;
@@ -175,10 +204,10 @@
             // 
             // playerTabControl
             // 
+            resources.ApplyResources(this.playerTabControl, "playerTabControl");
             this.playerTabControl.Controls.Add(this.playerCharacterTabPage);
             this.playerTabControl.Controls.Add(this.playerAppearanceTabPage);
             this.playerTabControl.ImageList = this.iconImageList;
-            resources.ApplyResources(this.playerTabControl, "playerTabControl");
             this.playerTabControl.Name = "playerTabControl";
             this.playerTabControl.SelectedIndex = 0;
             // 
@@ -219,18 +248,169 @@
             // 
             this.iconImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("iconImageList.ImageStream")));
             this.iconImageList.TransparentColor = System.Drawing.Color.Transparent;
-            this.iconImageList.Images.SetKeyName(0, "Tab_Player_Male");
-            this.iconImageList.Images.SetKeyName(1, "Tab_Player_Female");
+            this.iconImageList.Images.SetKeyName(0, "Tab_Player_Root_Male");
+            this.iconImageList.Images.SetKeyName(1, "Tab_Player_Root_Female");
             this.iconImageList.Images.SetKeyName(2, "Tab_Player_Basic");
             this.iconImageList.Images.SetKeyName(3, "Tab_Player_Appearance");
-            this.iconImageList.Images.SetKeyName(4, "Tab_Raw");
+            this.iconImageList.Images.SetKeyName(4, "Tab_Raw_Root");
+            this.iconImageList.Images.SetKeyName(5, "Tab_Plot_Root");
+            this.iconImageList.Images.SetKeyName(6, "Tab_Plot_Manual");
             // 
-            // rawTabPage
+            // plotRootTabPage
             // 
-            this.rawTabPage.Controls.Add(this.rawSplitContainer);
-            resources.ApplyResources(this.rawTabPage, "rawTabPage");
-            this.rawTabPage.Name = "rawTabPage";
-            this.rawTabPage.UseVisualStyleBackColor = true;
+            this.plotRootTabPage.Controls.Add(this.plotTabControl);
+            resources.ApplyResources(this.plotRootTabPage, "plotRootTabPage");
+            this.plotRootTabPage.Name = "plotRootTabPage";
+            this.plotRootTabPage.UseVisualStyleBackColor = true;
+            // 
+            // plotTabControl
+            // 
+            resources.ApplyResources(this.plotTabControl, "plotTabControl");
+            this.plotTabControl.Controls.Add(this.plotManulTabPage);
+            this.plotTabControl.ImageList = this.iconImageList;
+            this.plotTabControl.Name = "plotTabControl";
+            this.plotTabControl.SelectedIndex = 0;
+            // 
+            // plotManulTabPage
+            // 
+            this.plotManulTabPage.Controls.Add(this.toolStrip1);
+            this.plotManulTabPage.Controls.Add(this.plotManualLogTextBox);
+            this.plotManulTabPage.Controls.Add(this.plotManualFloatGroupBox);
+            this.plotManulTabPage.Controls.Add(this.plotManualIntGroupBox);
+            this.plotManulTabPage.Controls.Add(this.plotManualBoolGroupBox);
+            resources.ApplyResources(this.plotManulTabPage, "plotManulTabPage");
+            this.plotManulTabPage.Name = "plotManulTabPage";
+            this.plotManulTabPage.UseVisualStyleBackColor = true;
+            // 
+            // toolStrip1
+            // 
+            resources.ApplyResources(this.toolStrip1, "toolStrip1");
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.plotManualClearLogButton});
+            this.toolStrip1.Name = "toolStrip1";
+            // 
+            // plotManualClearLogButton
+            // 
+            this.plotManualClearLogButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            resources.ApplyResources(this.plotManualClearLogButton, "plotManualClearLogButton");
+            this.plotManualClearLogButton.Name = "plotManualClearLogButton";
+            // 
+            // plotManualLogTextBox
+            // 
+            resources.ApplyResources(this.plotManualLogTextBox, "plotManualLogTextBox");
+            this.plotManualLogTextBox.BackColor = System.Drawing.SystemColors.Window;
+            this.plotManualLogTextBox.Name = "plotManualLogTextBox";
+            this.plotManualLogTextBox.ReadOnly = true;
+            // 
+            // plotManualFloatGroupBox
+            // 
+            this.plotManualFloatGroupBox.Controls.Add(this.plotManualFloatIdTextBox);
+            this.plotManualFloatGroupBox.Controls.Add(this.plotManualFloatGetButton);
+            this.plotManualFloatGroupBox.Controls.Add(this.plotManualFloatSetButton);
+            this.plotManualFloatGroupBox.Controls.Add(this.plotManualFloatValueTextBox);
+            resources.ApplyResources(this.plotManualFloatGroupBox, "plotManualFloatGroupBox");
+            this.plotManualFloatGroupBox.Name = "plotManualFloatGroupBox";
+            this.plotManualFloatGroupBox.TabStop = false;
+            // 
+            // plotManualFloatIdTextBox
+            // 
+            resources.ApplyResources(this.plotManualFloatIdTextBox, "plotManualFloatIdTextBox");
+            this.plotManualFloatIdTextBox.Name = "plotManualFloatIdTextBox";
+            // 
+            // plotManualFloatGetButton
+            // 
+            resources.ApplyResources(this.plotManualFloatGetButton, "plotManualFloatGetButton");
+            this.plotManualFloatGetButton.Name = "plotManualFloatGetButton";
+            this.plotManualFloatGetButton.UseVisualStyleBackColor = true;
+            this.plotManualFloatGetButton.Click += new System.EventHandler(this.OnPlotManualGetFloat);
+            // 
+            // plotManualFloatSetButton
+            // 
+            resources.ApplyResources(this.plotManualFloatSetButton, "plotManualFloatSetButton");
+            this.plotManualFloatSetButton.Name = "plotManualFloatSetButton";
+            this.plotManualFloatSetButton.UseVisualStyleBackColor = true;
+            this.plotManualFloatSetButton.Click += new System.EventHandler(this.OnPlotManualSetFloat);
+            // 
+            // plotManualFloatValueTextBox
+            // 
+            resources.ApplyResources(this.plotManualFloatValueTextBox, "plotManualFloatValueTextBox");
+            this.plotManualFloatValueTextBox.Name = "plotManualFloatValueTextBox";
+            // 
+            // plotManualIntGroupBox
+            // 
+            this.plotManualIntGroupBox.Controls.Add(this.plotManualIntIdTextBox);
+            this.plotManualIntGroupBox.Controls.Add(this.plotManualIntGetButton);
+            this.plotManualIntGroupBox.Controls.Add(this.plotManualIntSetButton);
+            this.plotManualIntGroupBox.Controls.Add(this.plotManualIntValueTextBox);
+            resources.ApplyResources(this.plotManualIntGroupBox, "plotManualIntGroupBox");
+            this.plotManualIntGroupBox.Name = "plotManualIntGroupBox";
+            this.plotManualIntGroupBox.TabStop = false;
+            // 
+            // plotManualIntIdTextBox
+            // 
+            resources.ApplyResources(this.plotManualIntIdTextBox, "plotManualIntIdTextBox");
+            this.plotManualIntIdTextBox.Name = "plotManualIntIdTextBox";
+            // 
+            // plotManualIntGetButton
+            // 
+            resources.ApplyResources(this.plotManualIntGetButton, "plotManualIntGetButton");
+            this.plotManualIntGetButton.Name = "plotManualIntGetButton";
+            this.plotManualIntGetButton.UseVisualStyleBackColor = true;
+            this.plotManualIntGetButton.Click += new System.EventHandler(this.OnPlotManualGetInt);
+            // 
+            // plotManualIntSetButton
+            // 
+            resources.ApplyResources(this.plotManualIntSetButton, "plotManualIntSetButton");
+            this.plotManualIntSetButton.Name = "plotManualIntSetButton";
+            this.plotManualIntSetButton.UseVisualStyleBackColor = true;
+            this.plotManualIntSetButton.Click += new System.EventHandler(this.OnPlotManualSetInt);
+            // 
+            // plotManualIntValueTextBox
+            // 
+            resources.ApplyResources(this.plotManualIntValueTextBox, "plotManualIntValueTextBox");
+            this.plotManualIntValueTextBox.Name = "plotManualIntValueTextBox";
+            // 
+            // plotManualBoolGroupBox
+            // 
+            this.plotManualBoolGroupBox.Controls.Add(this.plotManualBoolIdTextBox);
+            this.plotManualBoolGroupBox.Controls.Add(this.plotManualBoolSetButton);
+            this.plotManualBoolGroupBox.Controls.Add(this.plotManualBoolGetButton);
+            this.plotManualBoolGroupBox.Controls.Add(this.plotManualBoolValueCheckBox);
+            resources.ApplyResources(this.plotManualBoolGroupBox, "plotManualBoolGroupBox");
+            this.plotManualBoolGroupBox.Name = "plotManualBoolGroupBox";
+            this.plotManualBoolGroupBox.TabStop = false;
+            // 
+            // plotManualBoolIdTextBox
+            // 
+            resources.ApplyResources(this.plotManualBoolIdTextBox, "plotManualBoolIdTextBox");
+            this.plotManualBoolIdTextBox.Name = "plotManualBoolIdTextBox";
+            // 
+            // plotManualBoolSetButton
+            // 
+            resources.ApplyResources(this.plotManualBoolSetButton, "plotManualBoolSetButton");
+            this.plotManualBoolSetButton.Name = "plotManualBoolSetButton";
+            this.plotManualBoolSetButton.UseVisualStyleBackColor = true;
+            this.plotManualBoolSetButton.Click += new System.EventHandler(this.OnPlotManualSetBool);
+            // 
+            // plotManualBoolGetButton
+            // 
+            resources.ApplyResources(this.plotManualBoolGetButton, "plotManualBoolGetButton");
+            this.plotManualBoolGetButton.Name = "plotManualBoolGetButton";
+            this.plotManualBoolGetButton.UseVisualStyleBackColor = true;
+            this.plotManualBoolGetButton.Click += new System.EventHandler(this.OnPlotManualGetBool);
+            // 
+            // plotManualBoolValueCheckBox
+            // 
+            resources.ApplyResources(this.plotManualBoolValueCheckBox, "plotManualBoolValueCheckBox");
+            this.plotManualBoolValueCheckBox.Name = "plotManualBoolValueCheckBox";
+            this.plotManualBoolValueCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // rawRootTabPage
+            // 
+            this.rawRootTabPage.Controls.Add(this.rawSplitContainer);
+            resources.ApplyResources(this.rawRootTabPage, "rawRootTabPage");
+            this.rawRootTabPage.Name = "rawRootTabPage";
+            this.rawRootTabPage.UseVisualStyleBackColor = true;
             // 
             // rawSplitContainer
             // 
@@ -289,7 +469,19 @@
             this.playerAppearanceTabPage.PerformLayout();
             this.playerAppearanceToolStrip.ResumeLayout(false);
             this.playerAppearanceToolStrip.PerformLayout();
-            this.rawTabPage.ResumeLayout(false);
+            this.plotRootTabPage.ResumeLayout(false);
+            this.plotTabControl.ResumeLayout(false);
+            this.plotManulTabPage.ResumeLayout(false);
+            this.plotManulTabPage.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
+            this.plotManualFloatGroupBox.ResumeLayout(false);
+            this.plotManualFloatGroupBox.PerformLayout();
+            this.plotManualIntGroupBox.ResumeLayout(false);
+            this.plotManualIntGroupBox.PerformLayout();
+            this.plotManualBoolGroupBox.ResumeLayout(false);
+            this.plotManualBoolGroupBox.PerformLayout();
+            this.rawRootTabPage.ResumeLayout(false);
             this.rawSplitContainer.Panel1.ResumeLayout(false);
             this.rawSplitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.rawSplitContainer)).EndInit();
@@ -304,7 +496,7 @@
         private System.Windows.Forms.ToolStrip rootToolStrip;
         private System.Windows.Forms.TabControl rootTabControl;
         private System.Windows.Forms.TabPage playerRootTabPage;
-        private System.Windows.Forms.TabPage rawTabPage;
+        private System.Windows.Forms.TabPage rawRootTabPage;
         private System.Windows.Forms.ToolStripSplitButton openFromGenericButton;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.SplitContainer rawSplitContainer;
@@ -330,6 +522,27 @@
         private System.Windows.Forms.ToolStripButton exportHeadMorphButton;
         private System.Windows.Forms.ToolStripDropDownButton settingsButton;
         private System.Windows.Forms.ToolStripMenuItem dontUseCareerPickerToolStripMenuItem;
+        private System.Windows.Forms.TabPage plotRootTabPage;
+        private System.Windows.Forms.TabControl plotTabControl;
+        private System.Windows.Forms.TabPage plotManulTabPage;
+        private System.Windows.Forms.TextBox plotManualLogTextBox;
+        private System.Windows.Forms.GroupBox plotManualFloatGroupBox;
+        private System.Windows.Forms.Button plotManualFloatGetButton;
+        private System.Windows.Forms.Button plotManualFloatSetButton;
+        private System.Windows.Forms.TextBox plotManualFloatValueTextBox;
+        private System.Windows.Forms.GroupBox plotManualIntGroupBox;
+        private System.Windows.Forms.Button plotManualIntGetButton;
+        private System.Windows.Forms.Button plotManualIntSetButton;
+        private System.Windows.Forms.TextBox plotManualIntValueTextBox;
+        private System.Windows.Forms.GroupBox plotManualBoolGroupBox;
+        private System.Windows.Forms.Button plotManualBoolSetButton;
+        private System.Windows.Forms.Button plotManualBoolGetButton;
+        private System.Windows.Forms.CheckBox plotManualBoolValueCheckBox;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton plotManualClearLogButton;
+        private System.Windows.Forms.TextBox plotManualFloatIdTextBox;
+        private System.Windows.Forms.TextBox plotManualIntIdTextBox;
+        private System.Windows.Forms.TextBox plotManualBoolIdTextBox;
     }
 }
 

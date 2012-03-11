@@ -262,12 +262,12 @@
         F4Emoxji7Oycd/r0qf8gbGJiAnKBcVZW1qSHDx9+sre3z0RxtZKSUtn27dsv2tjYwAxhBLILjx07+n/X
         rh1gQ0AuAXln5cqVR3V1dUMwvA0yZN26dRf19fXL9PT0gmxtbUt37971H2TImTOn/h89evTL7NmzTwA1
         1wDVimGNRAUFhbI5+fnXD3FwXL5ckP9fWVm5kZubux2EeXh4arm4uGKBbHGcKUBdXT10Ayvrs/8dHf9X
-        s7A8rRAXzyMiuUCUAJ0VCHR254H4hP8trKzPX3h4fLvByLjxOgNDCUFD5OTkgh0cHCYdO3b6v5mZRU+o
+        s7A8rRAXzyMiuUCUAJ0VCHR254H4hP8trKzPX7i5fbvByLjxOgNDCUFD5OTkgh0cHCYdO3b6v5mZRU+o
         kFDhVgaGM1/S0v5fYGTccp6BAWtaARssISERAozfWadPX/lvZWUzRVpaGhzCGxgYWtcDDfleUPD/OCPj
         9qMMDBUYLhEUFAxzcnJdeOnS3f+2tvZzRUREwpAVrQIashxoyK+qqv97GBn37GFgqIbL8/HxhTs6uiy5
         cePZfzs7x8UgPja/LgQasghoyN+mpv9Aww4DcQNYHScnZ8edO6+BNjstY2dnTwMKiQIxPxBzATE7EHMA
         MS8QC5UyMEycCzQEFDuzGBhOgw1gYmIKZ2Vl7WRhYckCco2AWBOI5YBYGIj5gFgAiCWBWAWI9QoZGKbM
-        ABqSAI0VACBH6CQHsXIKAAAAAElFTkSuQmCC
+        ABqSAI0VABm16CCYPySjAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="settingsButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
@@ -288,172 +288,6 @@
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="rootTabControl.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="playerCharacterTabPage.ImageKey" xml:space="preserve">
-    <value>Tab_Player_Basic</value>
-  </data>
-  <data name="playerCharacterTabPage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 23</value>
-  </data>
-  <data name="playerCharacterTabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="playerCharacterTabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>748, 374</value>
-  </data>
-  <data name="playerCharacterTabPage.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="playerCharacterTabPage.Text" xml:space="preserve">
-    <value>Character</value>
-  </data>
-  <data name="&gt;&gt;playerCharacterTabPage.Name" xml:space="preserve">
-    <value>playerCharacterTabPage</value>
-  </data>
-  <data name="&gt;&gt;playerCharacterTabPage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;playerCharacterTabPage.Parent" xml:space="preserve">
-    <value>playerTabControl</value>
-  </data>
-  <data name="&gt;&gt;playerCharacterTabPage.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <metadata name="playerAppearanceToolStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>122, 41</value>
-  </metadata>
-  <data name="playerAppearanceToolStrip.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="playerAppearanceToolStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>742, 25</value>
-  </data>
-  <data name="playerAppearanceToolStrip.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="playerAppearanceToolStrip.Text" xml:space="preserve">
-    <value>toolStrip1</value>
-  </data>
-  <data name="&gt;&gt;playerAppearanceToolStrip.Name" xml:space="preserve">
-    <value>playerAppearanceToolStrip</value>
-  </data>
-  <data name="&gt;&gt;playerAppearanceToolStrip.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;playerAppearanceToolStrip.Parent" xml:space="preserve">
-    <value>playerAppearanceTabPage</value>
-  </data>
-  <data name="&gt;&gt;playerAppearanceToolStrip.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="playerAppearanceTabPage.ImageKey" xml:space="preserve">
-    <value>Tab_Player_Appearance</value>
-  </data>
-  <data name="playerAppearanceTabPage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 23</value>
-  </data>
-  <data name="playerAppearanceTabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="playerAppearanceTabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>748, 374</value>
-  </data>
-  <data name="playerAppearanceTabPage.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="playerAppearanceTabPage.Text" xml:space="preserve">
-    <value>Appearance</value>
-  </data>
-  <data name="&gt;&gt;playerAppearanceTabPage.Name" xml:space="preserve">
-    <value>playerAppearanceTabPage</value>
-  </data>
-  <data name="&gt;&gt;playerAppearanceTabPage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;playerAppearanceTabPage.Parent" xml:space="preserve">
-    <value>playerTabControl</value>
-  </data>
-  <data name="&gt;&gt;playerAppearanceTabPage.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <metadata name="iconImageList.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>255, 17</value>
-  </metadata>
-  <data name="iconImageList.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
-        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
-        ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAADq
-        DQAAAk1TRnQBSQFMAgEBBQEAAQgBAAEIAQABEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
-        AwABQAMAASADAAEBAQABCAYAAQgYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
-        AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
-        AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
-        AWYDAAGZAwABzAIAATMDAAIzAgABMwFmAgABMwGZAgABMwHMAgABMwH/AgABZgMAAWYBMwIAAmYCAAFm
-        AZkCAAFmAcwCAAFmAf8CAAGZAwABmQEzAgABmQFmAgACmQIAAZkBzAIAAZkB/wIAAcwDAAHMATMCAAHM
-        AWYCAAHMAZkCAALMAgABzAH/AgAB/wFmAgAB/wGZAgAB/wHMAQABMwH/AgAB/wEAATMBAAEzAQABZgEA
-        ATMBAAGZAQABMwEAAcwBAAEzAQAB/wEAAf8BMwIAAzMBAAIzAWYBAAIzAZkBAAIzAcwBAAIzAf8BAAEz
-        AWYCAAEzAWYBMwEAATMCZgEAATMBZgGZAQABMwFmAcwBAAEzAWYB/wEAATMBmQIAATMBmQEzAQABMwGZ
-        AWYBAAEzApkBAAEzAZkBzAEAATMBmQH/AQABMwHMAgABMwHMATMBAAEzAcwBZgEAATMBzAGZAQABMwLM
-        AQABMwHMAf8BAAEzAf8BMwEAATMB/wFmAQABMwH/AZkBAAEzAf8BzAEAATMC/wEAAWYDAAFmAQABMwEA
-        AWYBAAFmAQABZgEAAZkBAAFmAQABzAEAAWYBAAH/AQABZgEzAgABZgIzAQABZgEzAWYBAAFmATMBmQEA
-        AWYBMwHMAQABZgEzAf8BAAJmAgACZgEzAQADZgEAAmYBmQEAAmYBzAEAAWYBmQIAAWYBmQEzAQABZgGZ
-        AWYBAAFmApkBAAFmAZkBzAEAAWYBmQH/AQABZgHMAgABZgHMATMBAAFmAcwBmQEAAWYCzAEAAWYBzAH/
-        AQABZgH/AgABZgH/ATMBAAFmAf8BmQEAAWYB/wHMAQABzAEAAf8BAAH/AQABzAEAApkCAAGZATMBmQEA
-        AZkBAAGZAQABmQEAAcwBAAGZAwABmQIzAQABmQEAAWYBAAGZATMBzAEAAZkBAAH/AQABmQFmAgABmQFm
-        ATMBAAGZATMBZgEAAZkBZgGZAQABmQFmAcwBAAGZATMB/wEAApkBMwEAApkBZgEAA5kBAAKZAcwBAAKZ
-        Af8BAAGZAcwCAAGZAcwBMwEAAWYBzAFmAQABmQHMAZkBAAGZAswBAAGZAcwB/wEAAZkB/wIAAZkB/wEz
-        AQABmQHMAWYBAAGZAf8BmQEAAZkB/wHMAQABmQL/AQABzAMAAZkBAAEzAQABzAEAAWYBAAHMAQABmQEA
-        AcwBAAHMAQABmQEzAgABzAIzAQABzAEzAWYBAAHMATMBmQEAAcwBMwHMAQABzAEzAf8BAAHMAWYCAAHM
-        AWYBMwEAAZkCZgEAAcwBZgGZAQABzAFmAcwBAAGZAWYB/wEAAcwBmQIAAcwBmQEzAQABzAGZAWYBAAHM
-        ApkBAAHMAZkBzAEAAcwBmQH/AQACzAIAAswBMwEAAswBZgEAAswBmQEAA8wBAALMAf8BAAHMAf8CAAHM
-        Af8BMwEAAZkB/wFmAQABzAH/AZkBAAHMAf8BzAEAAcwC/wEAAcwBAAEzAQAB/wEAAWYBAAH/AQABmQEA
-        AcwBMwIAAf8CMwEAAf8BMwFmAQAB/wEzAZkBAAH/ATMBzAEAAf8BMwH/AQAB/wFmAgAB/wFmATMBAAHM
-        AmYBAAH/AWYBmQEAAf8BZgHMAQABzAFmAf8BAAH/AZkCAAH/AZkBMwEAAf8BmQFmAQAB/wKZAQAB/wGZ
-        AcwBAAH/AZkB/wEAAf8BzAIAAf8BzAEzAQAB/wHMAWYBAAH/AcwBmQEAAf8CzAEAAf8BzAH/AQAC/wEz
-        AQABzAH/AWYBAAL/AZkBAAL/AcwBAAJmAf8BAAFmAf8BZgEAAWYC/wEAAf8CZgEAAf8BZgH/AQAC/wFm
-        AQABIQEAAaUBAANfAQADdwEAA4YBAAOWAQADywEAA7IBAAPXAQAD3QEAA+MBAAPqAQAD8QEAA/gBAAHw
-        AfsB/wEAAaQCoAEAA4ADAAH/AgAB/wMAAv8BAAH/AwAB/wEAAf8BAAL/AgAD/wEAAfQL7wHwAfQC/zAA
-        AfQBBwHzCf8BBwHxAv8xAAH0Ae8B7gG8A/MD9AH1Af8BBzQAAe4B9AHzAe4BbQHyAQcBbQEHAfUB/wHu
-        NAAB7gH1AfQB8gFtAfQBbQH0AW0B9AH1Ae40AAG8AfUB9AHxAW0B9AFtAfQBbQH0AfUBvDQAAbwB9QH0
-        AQcB6wH0AQcB6wEHAfQB9QG8NAABvAH0CPMB9AG8NAABvAH0AfMBBwH4AQcBvAH4Ae4B8wH0Abw0AAHw
-        AfQB8wH4AfMB+AHzAfgB8AHzAfQB8DQAAfAB9AHxAewB8QHsAfEB7AG8AfEB9AHwNAAB8AH0AfEBBwHs
-        AQcBvAHsAbwB8QH0AfA0AAHwAfQI8wH0AfA0AAHwAfUI9AH1AbwB9DMAAfQB8An/AfQB8AH/MwAB9Avy
-        Af8wAAH/DvQC/w70Af8B9AFtDA8BbQH0Av8B9AHxAfcB7AXrAfcB8gH0Av8B8wGSAQABDgEQARUBEwIS
-        ARMBFQEQAQ4BAAGSAvMBkgEAAQ4BEAEVARMCEgETARUBEAEOAQABkgHzAf8CEQHrAu8BBwK8AQcC7wHr
-        AhED/wEHAfgBkgH3A+8B9wHtAesB9wT/AUMCFAETARIE6gESARMCFAFDAv8BQwIUARMBEgTqARIBEwIU
-        AUMB/wEAAhUB+AHvAQcBCAK8AQgBBwHvAfgCFQMAAe0BHAHvAfcD7wGSAe0B+AHsBAAB6gIVARQBEwES
-        AuoBEgETARQCFQHqAgAB6gIVARQBEwESAuoBEgETARQCFQHqAgACFAHsAgcBvALwAbwCBwHtAhQDAAHs
-        Au8BkgPvAu0C7AQAAfABEgEUAxMCEQMTARQBEgHwAgAB8AESARQDEwIRAxMBFAESAfACAAETARQBkgEH
-        AQgBvALwArwBBwGSAhQDAAH3AZIB9wHtAe8C9wLtAewB7QUAAfMBkgISARMCmgETAhIBkgHzBAAB8wGS
-        AhIBEwKaARMCEgGSAfMDAAESARMB9wHtAewBBwLwAQcC7QH3AhMDAAEHAe0B9wHsAe8B9wGSAewB7QHs
-        Ae0HAAHxAesBSwJ0AUsB6wHxCAAB8QHrAUsCdAFLAesB8QUAAW0BEgHvAu0B9wLxAfAC7QHvAhMDAAHx
-        Ae0BkgG8A/IBvAHtAewB7QgAAf8BcwJMAXMB/wkAAfQB8AFLAkwBSwHwAfQFAALrAe4B7QHvAfcD8QHv
-        Ae0BBwISAwAB9ALtAfMB7wH4Ae8B8wHtAewB7QgAAfMBdAKZAXQB8wkAA24CmQNuBQAB6wHsAfAB7QHv
-        AbwCGQEHAZIB7AG8AesBEgMAAf8C7QX0Au0BkggAAZMBmQKaAZkBkwkAAm4BmQKaAZkCbgUAAewB9wHx
-        AQcB7wH3AfABBwHtAZIB7wHwAe0B6gEAAQcBkgHtAfgB7QH/AewB/wHsAf8C7QH4Ae0BkgEHBAAB7gEV
-        ARQCcwEUARUB7ggAAewBEQEUAnMBFAERAewFAAHtAe4B8gHvAQcB7gLyAQcB7wH3AfEBBwHrAQAB9wLt
-        AfgBkgHzA/8B8wHvAe0B+ALtAfcEAAHtAQoBSwIUAUsBCgHtCAAB7wEKAUsCFAFLAQoB7wUAAZIB7gHz
-        AfABBwHvAfEBvAH3Ae8B8AHyAQcB6wEAAfcB7wGSAe0I7wHtAZIB7wH3BAAB8wEKBBQBCgHzCAAB8AEK
-        BBQBCgHwBQAB9wG8AfIC8AG8AvMBvAHwAbwB8QEHAfgBAAHvAQcM7wEHAe8FAAFtAZMCmgGTAW0JAAH0
-        AXMCTAGaAUsBcwH0BQAB9wG8AfAB8wHwAe8B8gHwAe8BvAHyAQcB7wHsAQAB8wLvAQcD7wH3AQcD7wEH
-        Au8B8wUAAesBEgHrAW0BEgHrCgABvAFvAVICSwG8BgAC9wHvAQcB8QP0AfMB8QHvAZIB9AHtAgAB/wHx
-        Au8GBwLvAfEB/wYAAfAE7AHwCgAB/wG8AnQBvAH/BgAB7gz3AQcEAAH/AfEBBwHzAQAB8wIHAfEB/wMA
-        AUIBTQE+BwABPgMAASgDAAFAAwABIAMAAQEBAAEBBgABARYAA/8RAAGAAQMGAAHAAQMGAAHAAQMGAAHA
-        AQMGAAHAAQMGAAHAAQMGAAHAAQMGAAHAAQMGAAHAAQMGAAHAAQMGAAHAAQMGAAHAAQEGAAHABwAB4BsA
-        AYABAQHAAQcBgAEBAYABAQGAAQEBwAEHAYABAQGAAQEBgAEBAcABBwHAAQMBwAEDAYABAQHAAQcB8AEP
-        AfABDwGAAQEBwAEHAfgBHwHwAQ8BgAEBAcABBwH4AR8B8AEPAYABAQHAAQcB+AEfAfABDwGAAQECAAHw
-        AQ8B8AEPAYABAQIAAfABDwHwAQ8BgAEBAgAB8AEPAfABDwGAAQECAAH4AR8B8AEPAYABAQIAAfgBHwH4
-        AR8BgAEBAYABAQH4AR8B+AEfAYABAQHhAQcL
-</value>
-  </data>
-  <data name="playerTabControl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 6</value>
-  </data>
-  <data name="playerTabControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>756, 401</value>
-  </data>
-  <data name="playerTabControl.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
   </data>
   <data name="&gt;&gt;playerTabControl.Name" xml:space="preserve">
     <value>playerTabControl</value>
@@ -496,6 +330,935 @@
   </data>
   <data name="&gt;&gt;playerRootTabPage.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="plotTabControl.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>321, 41</value>
+  </metadata>
+  <data name="toolStrip1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="toolStrip1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 346</value>
+  </data>
+  <data name="toolStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>742, 25</value>
+  </data>
+  <data name="toolStrip1.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="toolStrip1.Text" xml:space="preserve">
+    <value>toolStrip1</value>
+  </data>
+  <data name="&gt;&gt;toolStrip1.Name" xml:space="preserve">
+    <value>toolStrip1</value>
+  </data>
+  <data name="&gt;&gt;toolStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStrip1.Parent" xml:space="preserve">
+    <value>plotManulTabPage</value>
+  </data>
+  <data name="&gt;&gt;toolStrip1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="plotManualLogTextBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="plotManualLogTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>230, 6</value>
+  </data>
+  <data name="plotManualLogTextBox.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="plotManualLogTextBox.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
+    <value>Both</value>
+  </data>
+  <data name="plotManualLogTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>512, 337</value>
+  </data>
+  <data name="plotManualLogTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;plotManualLogTextBox.Name" xml:space="preserve">
+    <value>plotManualLogTextBox</value>
+  </data>
+  <data name="&gt;&gt;plotManualLogTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;plotManualLogTextBox.Parent" xml:space="preserve">
+    <value>plotManulTabPage</value>
+  </data>
+  <data name="&gt;&gt;plotManualLogTextBox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="plotManualFloatIdTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 19</value>
+  </data>
+  <data name="plotManualFloatIdTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
+  </data>
+  <data name="plotManualFloatIdTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;plotManualFloatIdTextBox.Name" xml:space="preserve">
+    <value>plotManualFloatIdTextBox</value>
+  </data>
+  <data name="&gt;&gt;plotManualFloatIdTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;plotManualFloatIdTextBox.Parent" xml:space="preserve">
+    <value>plotManualFloatGroupBox</value>
+  </data>
+  <data name="&gt;&gt;plotManualFloatIdTextBox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="plotManualFloatGetButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>56, 45</value>
+  </data>
+  <data name="plotManualFloatGetButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="plotManualFloatGetButton.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="plotManualFloatGetButton.Text" xml:space="preserve">
+    <value>Get</value>
+  </data>
+  <data name="&gt;&gt;plotManualFloatGetButton.Name" xml:space="preserve">
+    <value>plotManualFloatGetButton</value>
+  </data>
+  <data name="&gt;&gt;plotManualFloatGetButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;plotManualFloatGetButton.Parent" xml:space="preserve">
+    <value>plotManualFloatGroupBox</value>
+  </data>
+  <data name="&gt;&gt;plotManualFloatGetButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="plotManualFloatSetButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>137, 45</value>
+  </data>
+  <data name="plotManualFloatSetButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="plotManualFloatSetButton.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="plotManualFloatSetButton.Text" xml:space="preserve">
+    <value>Set</value>
+  </data>
+  <data name="&gt;&gt;plotManualFloatSetButton.Name" xml:space="preserve">
+    <value>plotManualFloatSetButton</value>
+  </data>
+  <data name="&gt;&gt;plotManualFloatSetButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;plotManualFloatSetButton.Parent" xml:space="preserve">
+    <value>plotManualFloatGroupBox</value>
+  </data>
+  <data name="&gt;&gt;plotManualFloatSetButton.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="plotManualFloatValueTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>112, 19</value>
+  </data>
+  <data name="plotManualFloatValueTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
+  </data>
+  <data name="plotManualFloatValueTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;plotManualFloatValueTextBox.Name" xml:space="preserve">
+    <value>plotManualFloatValueTextBox</value>
+  </data>
+  <data name="&gt;&gt;plotManualFloatValueTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;plotManualFloatValueTextBox.Parent" xml:space="preserve">
+    <value>plotManualFloatGroupBox</value>
+  </data>
+  <data name="&gt;&gt;plotManualFloatValueTextBox.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="plotManualFloatGroupBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 192</value>
+  </data>
+  <data name="plotManualFloatGroupBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>218, 87</value>
+  </data>
+  <data name="plotManualFloatGroupBox.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="plotManualFloatGroupBox.Text" xml:space="preserve">
+    <value>Float</value>
+  </data>
+  <data name="&gt;&gt;plotManualFloatGroupBox.Name" xml:space="preserve">
+    <value>plotManualFloatGroupBox</value>
+  </data>
+  <data name="&gt;&gt;plotManualFloatGroupBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;plotManualFloatGroupBox.Parent" xml:space="preserve">
+    <value>plotManulTabPage</value>
+  </data>
+  <data name="&gt;&gt;plotManualFloatGroupBox.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;plotManualIntIdTextBox.Name" xml:space="preserve">
+    <value>plotManualIntIdTextBox</value>
+  </data>
+  <data name="&gt;&gt;plotManualIntIdTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;plotManualIntIdTextBox.Parent" xml:space="preserve">
+    <value>plotManualIntGroupBox</value>
+  </data>
+  <data name="&gt;&gt;plotManualIntIdTextBox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;plotManualIntGetButton.Name" xml:space="preserve">
+    <value>plotManualIntGetButton</value>
+  </data>
+  <data name="&gt;&gt;plotManualIntGetButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;plotManualIntGetButton.Parent" xml:space="preserve">
+    <value>plotManualIntGroupBox</value>
+  </data>
+  <data name="&gt;&gt;plotManualIntGetButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;plotManualIntSetButton.Name" xml:space="preserve">
+    <value>plotManualIntSetButton</value>
+  </data>
+  <data name="&gt;&gt;plotManualIntSetButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;plotManualIntSetButton.Parent" xml:space="preserve">
+    <value>plotManualIntGroupBox</value>
+  </data>
+  <data name="&gt;&gt;plotManualIntSetButton.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;plotManualIntValueTextBox.Name" xml:space="preserve">
+    <value>plotManualIntValueTextBox</value>
+  </data>
+  <data name="&gt;&gt;plotManualIntValueTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;plotManualIntValueTextBox.Parent" xml:space="preserve">
+    <value>plotManualIntGroupBox</value>
+  </data>
+  <data name="&gt;&gt;plotManualIntValueTextBox.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="plotManualIntGroupBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 99</value>
+  </data>
+  <data name="plotManualIntGroupBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>218, 87</value>
+  </data>
+  <data name="plotManualIntGroupBox.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="plotManualIntGroupBox.Text" xml:space="preserve">
+    <value>Int</value>
+  </data>
+  <data name="&gt;&gt;plotManualIntGroupBox.Name" xml:space="preserve">
+    <value>plotManualIntGroupBox</value>
+  </data>
+  <data name="&gt;&gt;plotManualIntGroupBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;plotManualIntGroupBox.Parent" xml:space="preserve">
+    <value>plotManulTabPage</value>
+  </data>
+  <data name="&gt;&gt;plotManualIntGroupBox.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;plotManualBoolIdTextBox.Name" xml:space="preserve">
+    <value>plotManualBoolIdTextBox</value>
+  </data>
+  <data name="&gt;&gt;plotManualBoolIdTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;plotManualBoolIdTextBox.Parent" xml:space="preserve">
+    <value>plotManualBoolGroupBox</value>
+  </data>
+  <data name="&gt;&gt;plotManualBoolIdTextBox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;plotManualBoolSetButton.Name" xml:space="preserve">
+    <value>plotManualBoolSetButton</value>
+  </data>
+  <data name="&gt;&gt;plotManualBoolSetButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;plotManualBoolSetButton.Parent" xml:space="preserve">
+    <value>plotManualBoolGroupBox</value>
+  </data>
+  <data name="&gt;&gt;plotManualBoolSetButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;plotManualBoolGetButton.Name" xml:space="preserve">
+    <value>plotManualBoolGetButton</value>
+  </data>
+  <data name="&gt;&gt;plotManualBoolGetButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;plotManualBoolGetButton.Parent" xml:space="preserve">
+    <value>plotManualBoolGroupBox</value>
+  </data>
+  <data name="&gt;&gt;plotManualBoolGetButton.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;plotManualBoolValueCheckBox.Name" xml:space="preserve">
+    <value>plotManualBoolValueCheckBox</value>
+  </data>
+  <data name="&gt;&gt;plotManualBoolValueCheckBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;plotManualBoolValueCheckBox.Parent" xml:space="preserve">
+    <value>plotManualBoolGroupBox</value>
+  </data>
+  <data name="&gt;&gt;plotManualBoolValueCheckBox.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="plotManualBoolGroupBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 6</value>
+  </data>
+  <data name="plotManualBoolGroupBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>218, 87</value>
+  </data>
+  <data name="plotManualBoolGroupBox.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="plotManualBoolGroupBox.Text" xml:space="preserve">
+    <value>Bool</value>
+  </data>
+  <data name="&gt;&gt;plotManualBoolGroupBox.Name" xml:space="preserve">
+    <value>plotManualBoolGroupBox</value>
+  </data>
+  <data name="&gt;&gt;plotManualBoolGroupBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;plotManualBoolGroupBox.Parent" xml:space="preserve">
+    <value>plotManulTabPage</value>
+  </data>
+  <data name="&gt;&gt;plotManualBoolGroupBox.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="plotManulTabPage.ImageKey" xml:space="preserve">
+    <value>Tab_Plot_Manual</value>
+  </data>
+  <data name="plotManulTabPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 23</value>
+  </data>
+  <data name="plotManulTabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="plotManulTabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>748, 374</value>
+  </data>
+  <data name="plotManulTabPage.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="plotManulTabPage.Text" xml:space="preserve">
+    <value>Manual</value>
+  </data>
+  <data name="&gt;&gt;plotManulTabPage.Name" xml:space="preserve">
+    <value>plotManulTabPage</value>
+  </data>
+  <data name="&gt;&gt;plotManulTabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;plotManulTabPage.Parent" xml:space="preserve">
+    <value>plotTabControl</value>
+  </data>
+  <data name="&gt;&gt;plotManulTabPage.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="iconImageList.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>255, 17</value>
+  </metadata>
+  <data name="iconImageList.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
+        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
+        ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAACc
+        EAAAAk1TRnQBSQFMAgEBBwEAASABAAEgAQABEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        AwABQAMAASADAAEBAQABCAYAAQgYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
+        AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
+        AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
+        AWYDAAGZAwABzAIAATMDAAIzAgABMwFmAgABMwGZAgABMwHMAgABMwH/AgABZgMAAWYBMwIAAmYCAAFm
+        AZkCAAFmAcwCAAFmAf8CAAGZAwABmQEzAgABmQFmAgACmQIAAZkBzAIAAZkB/wIAAcwDAAHMATMCAAHM
+        AWYCAAHMAZkCAALMAgABzAH/AgAB/wFmAgAB/wGZAgAB/wHMAQABMwH/AgAB/wEAATMBAAEzAQABZgEA
+        ATMBAAGZAQABMwEAAcwBAAEzAQAB/wEAAf8BMwIAAzMBAAIzAWYBAAIzAZkBAAIzAcwBAAIzAf8BAAEz
+        AWYCAAEzAWYBMwEAATMCZgEAATMBZgGZAQABMwFmAcwBAAEzAWYB/wEAATMBmQIAATMBmQEzAQABMwGZ
+        AWYBAAEzApkBAAEzAZkBzAEAATMBmQH/AQABMwHMAgABMwHMATMBAAEzAcwBZgEAATMBzAGZAQABMwLM
+        AQABMwHMAf8BAAEzAf8BMwEAATMB/wFmAQABMwH/AZkBAAEzAf8BzAEAATMC/wEAAWYDAAFmAQABMwEA
+        AWYBAAFmAQABZgEAAZkBAAFmAQABzAEAAWYBAAH/AQABZgEzAgABZgIzAQABZgEzAWYBAAFmATMBmQEA
+        AWYBMwHMAQABZgEzAf8BAAJmAgACZgEzAQADZgEAAmYBmQEAAmYBzAEAAWYBmQIAAWYBmQEzAQABZgGZ
+        AWYBAAFmApkBAAFmAZkBzAEAAWYBmQH/AQABZgHMAgABZgHMATMBAAFmAcwBmQEAAWYCzAEAAWYBzAH/
+        AQABZgH/AgABZgH/ATMBAAFmAf8BmQEAAWYB/wHMAQABzAEAAf8BAAH/AQABzAEAApkCAAGZATMBmQEA
+        AZkBAAGZAQABmQEAAcwBAAGZAwABmQIzAQABmQEAAWYBAAGZATMBzAEAAZkBAAH/AQABmQFmAgABmQFm
+        ATMBAAGZATMBZgEAAZkBZgGZAQABmQFmAcwBAAGZATMB/wEAApkBMwEAApkBZgEAA5kBAAKZAcwBAAKZ
+        Af8BAAGZAcwCAAGZAcwBMwEAAWYBzAFmAQABmQHMAZkBAAGZAswBAAGZAcwB/wEAAZkB/wIAAZkB/wEz
+        AQABmQHMAWYBAAGZAf8BmQEAAZkB/wHMAQABmQL/AQABzAMAAZkBAAEzAQABzAEAAWYBAAHMAQABmQEA
+        AcwBAAHMAQABmQEzAgABzAIzAQABzAEzAWYBAAHMATMBmQEAAcwBMwHMAQABzAEzAf8BAAHMAWYCAAHM
+        AWYBMwEAAZkCZgEAAcwBZgGZAQABzAFmAcwBAAGZAWYB/wEAAcwBmQIAAcwBmQEzAQABzAGZAWYBAAHM
+        ApkBAAHMAZkBzAEAAcwBmQH/AQACzAIAAswBMwEAAswBZgEAAswBmQEAA8wBAALMAf8BAAHMAf8CAAHM
+        Af8BMwEAAZkB/wFmAQABzAH/AZkBAAHMAf8BzAEAAcwC/wEAAcwBAAEzAQAB/wEAAWYBAAH/AQABmQEA
+        AcwBMwIAAf8CMwEAAf8BMwFmAQAB/wEzAZkBAAH/ATMBzAEAAf8BMwH/AQAB/wFmAgAB/wFmATMBAAHM
+        AmYBAAH/AWYBmQEAAf8BZgHMAQABzAFmAf8BAAH/AZkCAAH/AZkBMwEAAf8BmQFmAQAB/wKZAQAB/wGZ
+        AcwBAAH/AZkB/wEAAf8BzAIAAf8BzAEzAQAB/wHMAWYBAAH/AcwBmQEAAf8CzAEAAf8BzAH/AQAC/wEz
+        AQABzAH/AWYBAAL/AZkBAAL/AcwBAAJmAf8BAAFmAf8BZgEAAWYC/wEAAf8CZgEAAf8BZgH/AQAC/wFm
+        AQABIQEAAaUBAANfAQADdwEAA4YBAAOWAQADywEAA7IBAAPXAQAD3QEAA+MBAAPqAQAD8QEAA/gBAAHw
+        AfsB/wEAAaQCoAEAA4ADAAH/AgAB/wMAAv8BAAH/AwAB/wEAAf8BAAL/AgAD/wEAAfQL7wHwAfQC/wIA
+        Av8D8wIHA/MB9AH/IgAB9AEHAfMJ/wEHAfEC/wIABP8B8wJuAfME/wIABP8C9APyAvQE/xIAAfQB7wK8
+        A/MD9AL/AQcHAAH/AZMCRgGTAf8FAAP/AfQB8QH0A/8B9AHxAfQD/xMAAbwB9AHzAbwBbQHyAQcBbQEH
+        Av8BvAYAAf8BvAFpAkEBaQG8Af8GAAH0AfAB/wUAAf8B8AH0FQABvAH/AfQB8gFtAfQBbQH0AW0B9AH/
+        AbwFAAH/ARoBaQJHAUEBRwFpARoB/wUAAQcB9AcAAfQBBxUAAbwB/wH0AfEBbQH0AW0B9AFtAfQB/wG8
+        BAAB/wEaAWkCRgHzAWkBQAFGAWkBGgH/AgABmQF0AewDdARSAnQB7AF0AZkTAAG8Af8B9AEHAesB9AEH
+        AesBBwH0Af8BvAQAARoBbwFpAkABaQH/AW8CRgFvARoCAAF0AlkB5QFZAuUHWQF0EwABvAH0CPMB9AG8
+        AwAB/wJvAUYCQAFGAZMBAAFGAUABRgFvAf8BAAGZAXQCMgExAVkDMQFZATECMgF0AZkTAAG8AfQB8wEH
+        AewBBwG8AewBvAHzAfQBvAMAARoBbwEXAWkCRgGOAQABkwFGAUABRgFpARoCAAF0AVkBMgExAVkDUwFZ
+        ATEBMgFZAXQUAAHwAfQB8wHsAfMB7AHzAewB8AHzAfQB8AMAAY4BFgNpAY4BAAGTAUYDQAFpAY4CAAF0
+        A1kBoARZATICWQF0FAAB8AH0AfEB7AHxAewB8QHsAbwB8QH0AfACAAH/AW8BFgJpAY4BAAG9AW8EaQHj
+        AW8B/wEAAZkBegHDAaAIWQGZFAAB8AH0AfEBBwHsAQcBvAHsAbwB8QH0AfACAAH/AW8BlAJqARoBAAG2
+        AW8B4wNqARYBbwH/AQAB8wF6AsMBegZZAXkB8xQAAfAB9AjzAfQB8AIAAf8BjgGUARYB4wFvARoB/wFv
+        ARYC4wEWAZQBjgH/AgABGgF6AuUDWQLlAXoBGhUAAfAB/wj0Af8BvAH0AgABGgFvAZQBtwGUAW8BAAEa
+        AW8BlAG3AZQBbwEaAwAB/wEaA3oC5QJ6ARoB/xUAAfQB8An/AfQB8AH/AQAB/wEaARYBbwEWARoC/wEa
+        ARYBbwEWARoB/wUAAfQBmgN6AZoB9BgAAfQL8gH/MAAB/w70Av8O9AH/AfQBbQwPAW0B9AL/AfQB8QH3
+        AewF6wH3AfIB9AL/AfMBkgEAAQ4BEAEVARMCEgETARUBEAEOAQABkgLzAZIBAAEOARABFQETAhIBEwEV
+        ARABDgEAAZIB8wH/AhEB6wLvAQcCvAEHAu8B6wIRA/8BBwHsAZIB9wPvAfcB7QHrAfcE/wFDAhQBEwES
+        BOoBEgETAhQBQwL/AUMCFAETARIE6gESARMCFAFDAf8BAAIVAewB7wEHAQgCvAEIAQcB7wHsAhUDAAHt
+        ARwB7wH3A+8BkgHtAuwEAAHqAhUBFAETARIC6gESARMBFAIVAeoCAAHqAhUBFAETARIC6gESARMBFAIV
+        AeoCAAIUAewCBwG8AvABvAIHAe0CFAMAAewC7wGSA+8C7QLsBAAB8AESARQDEwIRAxMBFAESAfACAAHw
+        ARIBFAMTAhEDEwEUARIB8AIAARMBFAGSAQcBCAG8AvACvAEHAZICFAMAAfcBkgH3Ae0B7wL3Au0B7AHt
+        BQAB8wGSAhIBEwKaARMCEgGSAfMEAAHzAZICEgETApoBEwISAZIB8wMAARIBEwH3Ae0B7AEHAvABBwLt
+        AfcCEwMAAQcB7QH3AewB7wH3AZIB7AHtAewB7QcAAfEB6wFLAnQBSwHrAfEIAAHxAesBSwJ0AUsB6wHx
+        BQABbQESAe8C7QH3AvEB8ALtAe8CEwMAAfEB7QGSAbwD8gG8Ae0B7AHtCAAB/wFzAkwBcwH/CQAB9AHw
+        AUsCTAFLAfAB9AUAAusBvAHtAe8B9wPxAe8B7QEHAhIDAAH0Au0B8wHvAewB7wHzAe0B7AHtCAAB8wF0
+        ApkBdAHzCQADbgKZA24FAAHrAewB8AHtAe8BvAIZAQcBkgHsAbwB6wESAwAB/wLtBfQC7QGSCAABkwGZ
+        ApoBmQGTCQACbgGZApoBmQJuBQAB7AH3AfEBBwHvAfcB8AEHAe0BkgHvAfAB7QHqAQABBwGSAe0B7AHt
+        Af8B7AH/AewB/wLtAewB7QGSAQcEAAG8ARUBFAJzARQBFQG8CAAB7AERARQCcwEUAREB7AUAAe0BvAHy
+        Ae8BBwG8AvIBBwHvAfcB8QEHAesBAAH3Au0B7AGSAfMD/wHzAe8B7QHsAu0B9wQAAe0BCgFLAhQBSwEK
+        Ae0IAAHvAQoBSwIUAUsBCgHvBQABkgG8AfMB8AEHAe8B8QG8AfcB7wHwAfIBBwHrAQAB9wHvAZIB7Qjv
+        Ae0BkgHvAfcEAAHzAQoEFAEKAfMIAAHwAQoEFAEKAfAFAAH3AbwB8gLwAbwC8wG8AfABvAHxAQcB7AEA
+        Ae8BBwzvAQcB7wUAAW0BkwKaAZMBbQkAAfQBcwJMAZoBSwFzAfQFAAH3AbwB8AHzAfAB7wHyAfAB7wG8
+        AfIBBwHvAewBAAHzAu8BBwPvAfcBBwPvAQcC7wHzBQAB6wESAesBbQESAesKAAG8AW8BUgJLAbwGAAL3
+        Ae8BBwHxA/QB8wHxAe8BkgH0Ae0CAAH/AfEC7wYHAu8B8QH/BgAB8ATsAfAKAAH/AbwCdAG8Af8GAAG8
+        DPcBBwQAAf8B8QEHAfMBAAHzAgcB8QH/AwABQgFNAT4HAAE+AwABKAMAAUADAAEgAwABAQEAAQEGAAEB
+        FgAD/wMAAcABAwL/BAABwAEDAQABAQIAAYABAwH4AR8BAAEBAgABwAEDAfABDwLHAgABwAEDAeABBwHP
+        AecCAAHAAQMBwAEDAQABAQIAAcABAwHAAQMBAAEBAgABwAEDAYABQQEAAQECAAHAAQMBgAGBAYABAwIA
+        AcABAwGBAQEBgAEDAgABwAEDAQIBAAGAAQMCAAHAAQMBAgEAAYABAwIAAcABAwIAAcABBwIAAcABAQGB
+        AQEBwAEHAgABwAEAAYABAQHwAR8CAAHgAQAE/xYAAYABAQHAAQcBgAEBAYABAQGAAQEBwAEHAYABAQGA
+        AQEBgAEBAcABBwHAAQMBwAEDAYABAQHAAQcB8AEPAfABDwGAAQEBwAEHAfgBHwHwAQ8BgAEBAcABBwH4
+        AR8B8AEPAYABAQHAAQcB+AEfAfABDwGAAQECAAHwAQ8B8AEPAYABAQIAAfABDwHwAQ8BgAEBAgAB8AEP
+        AfABDwGAAQECAAH4AR8B8AEPAYABAQIAAfgBHwH4AR8BgAEBAYABAQH4AR8B+AEfAYABAQHhAQcL
+</value>
+  </data>
+  <data name="plotTabControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 6</value>
+  </data>
+  <data name="plotTabControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>756, 401</value>
+  </data>
+  <data name="plotTabControl.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;plotTabControl.Name" xml:space="preserve">
+    <value>plotTabControl</value>
+  </data>
+  <data name="&gt;&gt;plotTabControl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;plotTabControl.Parent" xml:space="preserve">
+    <value>plotRootTabPage</value>
+  </data>
+  <data name="&gt;&gt;plotTabControl.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="plotRootTabPage.ImageKey" xml:space="preserve">
+    <value>Tab_Plot_Root</value>
+  </data>
+  <data name="plotRootTabPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 23</value>
+  </data>
+  <data name="plotRootTabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="plotRootTabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>768, 413</value>
+  </data>
+  <data name="plotRootTabPage.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="plotRootTabPage.Text" xml:space="preserve">
+    <value>Plot</value>
+  </data>
+  <data name="&gt;&gt;plotRootTabPage.Name" xml:space="preserve">
+    <value>plotRootTabPage</value>
+  </data>
+  <data name="&gt;&gt;plotRootTabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;plotRootTabPage.Parent" xml:space="preserve">
+    <value>rootTabControl</value>
+  </data>
+  <data name="&gt;&gt;plotRootTabPage.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;rawSplitContainer.Name" xml:space="preserve">
+    <value>rawSplitContainer</value>
+  </data>
+  <data name="&gt;&gt;rawSplitContainer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rawSplitContainer.Parent" xml:space="preserve">
+    <value>rawRootTabPage</value>
+  </data>
+  <data name="&gt;&gt;rawSplitContainer.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="rawRootTabPage.ImageKey" xml:space="preserve">
+    <value>Tab_Raw</value>
+  </data>
+  <data name="rawRootTabPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 23</value>
+  </data>
+  <data name="rawRootTabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="rawRootTabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>768, 413</value>
+  </data>
+  <data name="rawRootTabPage.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="rawRootTabPage.Text" xml:space="preserve">
+    <value>Raw</value>
+  </data>
+  <data name="&gt;&gt;rawRootTabPage.Name" xml:space="preserve">
+    <value>rawRootTabPage</value>
+  </data>
+  <data name="&gt;&gt;rawRootTabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rawRootTabPage.Parent" xml:space="preserve">
+    <value>rootTabControl</value>
+  </data>
+  <data name="&gt;&gt;rawRootTabPage.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="rootTabControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 28</value>
+  </data>
+  <data name="rootTabControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>776, 440</value>
+  </data>
+  <data name="rootTabControl.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;rootTabControl.Name" xml:space="preserve">
+    <value>rootTabControl</value>
+  </data>
+  <data name="&gt;&gt;rootTabControl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rootTabControl.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;rootTabControl.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="playerTabControl.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="playerCharacterTabPage.ImageKey" xml:space="preserve">
+    <value>Tab_Player_Basic</value>
+  </data>
+  <data name="playerCharacterTabPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 23</value>
+  </data>
+  <data name="playerCharacterTabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="playerCharacterTabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>748, 374</value>
+  </data>
+  <data name="playerCharacterTabPage.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="playerCharacterTabPage.Text" xml:space="preserve">
+    <value>Character</value>
+  </data>
+  <data name="&gt;&gt;playerCharacterTabPage.Name" xml:space="preserve">
+    <value>playerCharacterTabPage</value>
+  </data>
+  <data name="&gt;&gt;playerCharacterTabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;playerCharacterTabPage.Parent" xml:space="preserve">
+    <value>playerTabControl</value>
+  </data>
+  <data name="&gt;&gt;playerCharacterTabPage.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="playerAppearanceToolStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>122, 41</value>
+  </metadata>
+  <data name="&gt;&gt;playerAppearanceToolStrip.Name" xml:space="preserve">
+    <value>playerAppearanceToolStrip</value>
+  </data>
+  <data name="&gt;&gt;playerAppearanceToolStrip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;playerAppearanceToolStrip.Parent" xml:space="preserve">
+    <value>playerAppearanceTabPage</value>
+  </data>
+  <data name="&gt;&gt;playerAppearanceToolStrip.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="playerAppearanceTabPage.ImageKey" xml:space="preserve">
+    <value>Tab_Player_Appearance</value>
+  </data>
+  <data name="playerAppearanceTabPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 23</value>
+  </data>
+  <data name="playerAppearanceTabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="playerAppearanceTabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>748, 374</value>
+  </data>
+  <data name="playerAppearanceTabPage.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="playerAppearanceTabPage.Text" xml:space="preserve">
+    <value>Appearance</value>
+  </data>
+  <data name="&gt;&gt;playerAppearanceTabPage.Name" xml:space="preserve">
+    <value>playerAppearanceTabPage</value>
+  </data>
+  <data name="&gt;&gt;playerAppearanceTabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;playerAppearanceTabPage.Parent" xml:space="preserve">
+    <value>playerTabControl</value>
+  </data>
+  <data name="&gt;&gt;playerAppearanceTabPage.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="playerTabControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 6</value>
+  </data>
+  <data name="playerTabControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>756, 401</value>
+  </data>
+  <data name="playerTabControl.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;playerTabControl.Name" xml:space="preserve">
+    <value>playerTabControl</value>
+  </data>
+  <data name="&gt;&gt;playerTabControl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;playerTabControl.Parent" xml:space="preserve">
+    <value>playerRootTabPage</value>
+  </data>
+  <data name="&gt;&gt;playerTabControl.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="playerAppearanceToolStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>122, 41</value>
+  </metadata>
+  <data name="playerAppearanceToolStrip.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="playerAppearanceToolStrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>742, 25</value>
+  </data>
+  <data name="playerAppearanceToolStrip.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="playerAppearanceToolStrip.Text" xml:space="preserve">
+    <value>toolStrip1</value>
+  </data>
+  <data name="&gt;&gt;playerAppearanceToolStrip.Name" xml:space="preserve">
+    <value>playerAppearanceToolStrip</value>
+  </data>
+  <data name="&gt;&gt;playerAppearanceToolStrip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;playerAppearanceToolStrip.Parent" xml:space="preserve">
+    <value>playerAppearanceTabPage</value>
+  </data>
+  <data name="&gt;&gt;playerAppearanceToolStrip.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="importHeadMorphButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHcSURBVDhPzZJPSJNhHMffWxeho9EpQi9edgsNglh4EB10
+        aBJ6KNbBUbwUI8k/bJWQe3ntkIVpipjoQanAttDD0lWCoKVp1GxFtSwtFQubz9O7rflpz+UNOrlTfeFz
+        +36+8Ht4NO2/SbXf7zoWCNTlg3LsA442NXnJM8qxB6rq609nt7cZn5lhcCzCqVsJDpuSQ0FJ1TXJ8U6B
+        p1dw86GgJ7qF6irHHqjw+c6ksln6RkbIZKE79ATj/grGA0nbqORKSBAMC8ZfCh7HtlBd5WgllZW1JS5X
+        o6JzaAjFxy9fWU9mGYwsEJnfIDQnuTctGZsXPHolePZWIDIZjui6ru1zOgN/n25l0ix/22RpPcXzD5LJ
+        RcFUXDL1WjL7TrL4WbKZTuP0es9phWVlnsLS0hZFsKsLxZtEgqfxGCdaL1NrtqH39BMYDmGGo/RPviAa
+        W2PDsjjo8fjsNzhQU3N+VUoutbdjpX9x1ujAfXGYamMCb/ccjXffY0TW6Jj+Qe+Cheoqxx5wuN0XVoTg
+        +sAADeZV3M19VDSHcQejnLwxi347TsOdZVpGv2NO/ER1lWMP7C8v96+mUnxKJneE6irHHigoLq7b7XC0
+        5kNBUdGfj5Rb2pVjT469O0R1lfOP8xvXqLtyB6wyQgAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="importHeadMorphButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="importHeadMorphButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>133, 22</value>
+  </data>
+  <data name="importHeadMorphButton.Text" xml:space="preserve">
+    <value>Import Head Morph</value>
+  </data>
+  <data name="exportHeadMorphButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH+SURBVDhPzZJPSJNxGMffWxehOqWeIhykB+dBcyvDWBhN
+        3PDgXnSHskH4shq14VAnGyXYu/kGKv7ZENShZYtqLReW/Vl1MYTVKYQRdUgcTIpQ+/30dW3f3vc9vB26
+        uFM+8IHn8Hw/PDy/H8P892K9XlOLz9dRCHJGXbzZ4+FQYMkZVdDkdttz+Tz0/RR1PIVBoDgzQHFa6puG
+        KFqDBLZJgvFXBOFn7xFZXITR6byqCowu1xUxl8O1uW14HlEEFij6n1L4JQS5nyfg4wSvPxFMx2LKrtVt
+        be5qlq1RJGcdDgfJZnFxdBD8kwSiSYpYchtvVygeL3/H3cRn3Hm+hMloHMFIBGuZjCKpMJl6ys3mWsbA
+        cdc3dndRYTdB330Bt+dfYCm1iXcrv5D8QpFKi1jf+A0xm//nUkcNBh9z0mZz/djZwSFzPUrY8zh+uRX6
+        TjvYQADOiTBuzkbgn70HYSoMPhTCt3RaER3R6fpKdLpTzAmrtTNDKcqtg9C2B6G3z+BcVxSsPwFu4iN6
+        Hn6F/+U6xpY3cWN4WAkf1GpvHa6srFNuoLVYutKEoOpSCLXcNOqd92HsjcPCv0H7yAc4wil0P1hD38JP
+        eINz8AgCNI2NveorHGto8GZEEatbW3tCnpUzqqBIo+mQVyqEorKyvx9JMh2QKJYo3SPyrJzZJ/UHBRas
+        1CpIjLoAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="exportHeadMorphButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="exportHeadMorphButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>130, 22</value>
+  </data>
+  <data name="exportHeadMorphButton.Text" xml:space="preserve">
+    <value>Export Head Morph</value>
+  </data>
+  <data name="plotManualClearLogButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIeSURBVDhPjZDbixJRHIBnRiQSSroY2UN42/BtHi0y6ELS
+        f+A/IAcEH/RBfEhb1mKFoGWRZK1Y7LK1bNRi7m5sT5qImIhoSBgJIoLlruVdjC6/fkdWY5hlceDjwMzv
+        +86ZwzBTPJvMjGGTm7mJuN8wuvNTKP9HqBBB8c/2B/j7Lg1hTndrndFemCoSwUEq/N5KQuP5W2isbo8i
+        r1nt3CtGc/HACN0F5dlfGwnYeboBuytbgsgaq5tfZdSX9o34fD4eIT/D76EeCkP9SUQQKfmC8OPBS1hh
+        tXdFASp7vV4yHA6h3+/Dt+V1QeTznQB8mV+C78E1CLGae4KA2+3mPR4PGQwG0Ol0Jowjn+b8ULx9H3YC
+        L1BWLz6WaK9MAi6Xi3c6naTX60Gz2RTx0bMAhdlF+Op/Bsus2v9Qork6kR0OB2+320m324VGoyEim81C
+        LpeD6kIIHrGqQFCiuTaRbTYbb7VaSbvdhnq9LiKdTkMmk4FSqQQGg4EsSdTXBf9tsVhIq9WCWq0mIplM
+        QiqVgmKxCHq9nqhUKl5062azeRSoVqsC4vE4JBIJKBQKoFQqiUKhEMu0ZjKZeKPROIpUKpUR0WgUYrEY
+        5PN5kMvlRCaT7S+Pj0OPhpByuQz0wsZIpVKCMwfLOHAMOYe73EAIlTiOoyLlMnIWUSInkKPIYUSKcOMD
+        0Bf045m9wdO4nkJOIscROXIEkSGH9mQJriwN/ANcP4FJKqXh2AAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="plotManualClearLogButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="plotManualClearLogButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 22</value>
+  </data>
+  <data name="plotManualClearLogButton.Text" xml:space="preserve">
+    <value>Clear Log</value>
+  </data>
+  <data name="plotManualIntIdTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 19</value>
+  </data>
+  <data name="plotManualIntIdTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
+  </data>
+  <data name="plotManualIntIdTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;plotManualIntIdTextBox.Name" xml:space="preserve">
+    <value>plotManualIntIdTextBox</value>
+  </data>
+  <data name="&gt;&gt;plotManualIntIdTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;plotManualIntIdTextBox.Parent" xml:space="preserve">
+    <value>plotManualIntGroupBox</value>
+  </data>
+  <data name="&gt;&gt;plotManualIntIdTextBox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="plotManualIntGetButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>56, 45</value>
+  </data>
+  <data name="plotManualIntGetButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="plotManualIntGetButton.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="plotManualIntGetButton.Text" xml:space="preserve">
+    <value>Get</value>
+  </data>
+  <data name="&gt;&gt;plotManualIntGetButton.Name" xml:space="preserve">
+    <value>plotManualIntGetButton</value>
+  </data>
+  <data name="&gt;&gt;plotManualIntGetButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;plotManualIntGetButton.Parent" xml:space="preserve">
+    <value>plotManualIntGroupBox</value>
+  </data>
+  <data name="&gt;&gt;plotManualIntGetButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="plotManualIntSetButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>137, 45</value>
+  </data>
+  <data name="plotManualIntSetButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="plotManualIntSetButton.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="plotManualIntSetButton.Text" xml:space="preserve">
+    <value>Set</value>
+  </data>
+  <data name="&gt;&gt;plotManualIntSetButton.Name" xml:space="preserve">
+    <value>plotManualIntSetButton</value>
+  </data>
+  <data name="&gt;&gt;plotManualIntSetButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;plotManualIntSetButton.Parent" xml:space="preserve">
+    <value>plotManualIntGroupBox</value>
+  </data>
+  <data name="&gt;&gt;plotManualIntSetButton.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="plotManualIntValueTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>112, 19</value>
+  </data>
+  <data name="plotManualIntValueTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
+  </data>
+  <data name="plotManualIntValueTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;plotManualIntValueTextBox.Name" xml:space="preserve">
+    <value>plotManualIntValueTextBox</value>
+  </data>
+  <data name="&gt;&gt;plotManualIntValueTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;plotManualIntValueTextBox.Parent" xml:space="preserve">
+    <value>plotManualIntGroupBox</value>
+  </data>
+  <data name="&gt;&gt;plotManualIntValueTextBox.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="plotManualBoolIdTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 18</value>
+  </data>
+  <data name="plotManualBoolIdTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
+  </data>
+  <data name="plotManualBoolIdTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;plotManualBoolIdTextBox.Name" xml:space="preserve">
+    <value>plotManualBoolIdTextBox</value>
+  </data>
+  <data name="&gt;&gt;plotManualBoolIdTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;plotManualBoolIdTextBox.Parent" xml:space="preserve">
+    <value>plotManualBoolGroupBox</value>
+  </data>
+  <data name="&gt;&gt;plotManualBoolIdTextBox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="plotManualBoolSetButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>137, 45</value>
+  </data>
+  <data name="plotManualBoolSetButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="plotManualBoolSetButton.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="plotManualBoolSetButton.Text" xml:space="preserve">
+    <value>Set</value>
+  </data>
+  <data name="&gt;&gt;plotManualBoolSetButton.Name" xml:space="preserve">
+    <value>plotManualBoolSetButton</value>
+  </data>
+  <data name="&gt;&gt;plotManualBoolSetButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;plotManualBoolSetButton.Parent" xml:space="preserve">
+    <value>plotManualBoolGroupBox</value>
+  </data>
+  <data name="&gt;&gt;plotManualBoolSetButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="plotManualBoolGetButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>56, 45</value>
+  </data>
+  <data name="plotManualBoolGetButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="plotManualBoolGetButton.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="plotManualBoolGetButton.Text" xml:space="preserve">
+    <value>Get</value>
+  </data>
+  <data name="&gt;&gt;plotManualBoolGetButton.Name" xml:space="preserve">
+    <value>plotManualBoolGetButton</value>
+  </data>
+  <data name="&gt;&gt;plotManualBoolGetButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;plotManualBoolGetButton.Parent" xml:space="preserve">
+    <value>plotManualBoolGroupBox</value>
+  </data>
+  <data name="&gt;&gt;plotManualBoolGetButton.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="plotManualBoolValueCheckBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="plotManualBoolValueCheckBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>112, 20</value>
+  </data>
+  <data name="plotManualBoolValueCheckBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 17</value>
+  </data>
+  <data name="plotManualBoolValueCheckBox.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="plotManualBoolValueCheckBox.Text" xml:space="preserve">
+    <value>Is Set</value>
+  </data>
+  <data name="&gt;&gt;plotManualBoolValueCheckBox.Name" xml:space="preserve">
+    <value>plotManualBoolValueCheckBox</value>
+  </data>
+  <data name="&gt;&gt;plotManualBoolValueCheckBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;plotManualBoolValueCheckBox.Parent" xml:space="preserve">
+    <value>plotManualBoolGroupBox</value>
+  </data>
+  <data name="&gt;&gt;plotManualBoolValueCheckBox.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="rawSplitContainer.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -591,108 +1354,10 @@
     <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;rawSplitContainer.Parent" xml:space="preserve">
-    <value>rawTabPage</value>
+    <value>rawRootTabPage</value>
   </data>
   <data name="&gt;&gt;rawSplitContainer.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="rawTabPage.ImageKey" xml:space="preserve">
-    <value>Tab_Raw</value>
-  </data>
-  <data name="rawTabPage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 23</value>
-  </data>
-  <data name="rawTabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="rawTabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>768, 413</value>
-  </data>
-  <data name="rawTabPage.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="rawTabPage.Text" xml:space="preserve">
-    <value>Raw</value>
-  </data>
-  <data name="&gt;&gt;rawTabPage.Name" xml:space="preserve">
-    <value>rawTabPage</value>
-  </data>
-  <data name="&gt;&gt;rawTabPage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rawTabPage.Parent" xml:space="preserve">
-    <value>rootTabControl</value>
-  </data>
-  <data name="&gt;&gt;rawTabPage.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="rootTabControl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 28</value>
-  </data>
-  <data name="rootTabControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>776, 440</value>
-  </data>
-  <data name="rootTabControl.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;rootTabControl.Name" xml:space="preserve">
-    <value>rootTabControl</value>
-  </data>
-  <data name="&gt;&gt;rootTabControl.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rootTabControl.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;rootTabControl.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="importHeadMorphButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHcSURBVDhPzZJPSJNhHMffWxeho9EpQi9edgsNglh4EB10
-        aBJ6KNbBUbwUI8k/bJWQe3ntkIVpipjoQanAttDD0lWCoKVp1GxFtSwtFQubz9O7rflpz+UNOrlTfeFz
-        +36+8Ht4NO2/SbXf7zoWCNTlg3LsA442NXnJM8qxB6rq609nt7cZn5lhcCzCqVsJDpuSQ0FJ1TXJ8U6B
-        p1dw86GgJ7qF6irHHqjw+c6ksln6RkbIZKE79ATj/grGA0nbqORKSBAMC8ZfCh7HtlBd5WgllZW1JS5X
-        o6JzaAjFxy9fWU9mGYwsEJnfIDQnuTctGZsXPHolePZWIDIZjui6ru1zOgN/n25l0ix/22RpPcXzD5LJ
-        RcFUXDL1WjL7TrL4WbKZTuP0es9phWVlnsLS0hZFsKsLxZtEgqfxGCdaL1NrtqH39BMYDmGGo/RPviAa
-        W2PDsjjo8fjsNzhQU3N+VUoutbdjpX9x1ujAfXGYamMCb/ccjXffY0TW6Jj+Qe+Cheoqxx5wuN0XVoTg
-        +sAADeZV3M19VDSHcQejnLwxi347TsOdZVpGv2NO/ER1lWMP7C8v96+mUnxKJneE6irHHigoLq7b7XC0
-        5kNBUdGfj5Rb2pVjT469O0R1lfOP8xvXqLtyB6wyQgAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="importHeadMorphButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="importHeadMorphButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>133, 22</value>
-  </data>
-  <data name="importHeadMorphButton.Text" xml:space="preserve">
-    <value>Import Head Morph</value>
-  </data>
-  <data name="exportHeadMorphButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH+SURBVDhPzZJPSJNxGMffWxehOqWeIhykB+dBcyvDWBhN
-        3PDgXnSHskH4shq14VAnGyXYu/kGKv7ZENShZYtqLReW/Vl1MYTVKYQRdUgcTIpQ+/30dW3f3vc9vB26
-        uFM+8IHn8Hw/PDy/H8P892K9XlOLz9dRCHJGXbzZ4+FQYMkZVdDkdttz+Tz0/RR1PIVBoDgzQHFa6puG
-        KFqDBLZJgvFXBOFn7xFZXITR6byqCowu1xUxl8O1uW14HlEEFij6n1L4JQS5nyfg4wSvPxFMx2LKrtVt
-        be5qlq1RJGcdDgfJZnFxdBD8kwSiSYpYchtvVygeL3/H3cRn3Hm+hMloHMFIBGuZjCKpMJl6ys3mWsbA
-        cdc3dndRYTdB330Bt+dfYCm1iXcrv5D8QpFKi1jf+A0xm//nUkcNBh9z0mZz/djZwSFzPUrY8zh+uRX6
-        TjvYQADOiTBuzkbgn70HYSoMPhTCt3RaER3R6fpKdLpTzAmrtTNDKcqtg9C2B6G3z+BcVxSsPwFu4iN6
-        Hn6F/+U6xpY3cWN4WAkf1GpvHa6srFNuoLVYutKEoOpSCLXcNOqd92HsjcPCv0H7yAc4wil0P1hD38JP
-        eINz8AgCNI2NveorHGto8GZEEatbW3tCnpUzqqBIo+mQVyqEorKyvx9JMh2QKJYo3SPyrJzZJ/UHBRas
-        1CpIjLoAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="exportHeadMorphButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="exportHeadMorphButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 22</value>
-  </data>
-  <data name="exportHeadMorphButton.Text" xml:space="preserve">
-    <value>Export Head Morph</value>
   </data>
   <metadata name="openFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>122, 17</value>
@@ -823,6 +1488,12 @@
   </data>
   <data name="&gt;&gt;iconImageList.Type" xml:space="preserve">
     <value>System.Windows.Forms.ImageList, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;plotManualClearLogButton.Name" xml:space="preserve">
+    <value>plotManualClearLogButton</value>
+  </data>
+  <data name="&gt;&gt;plotManualClearLogButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;openFileDialog.Name" xml:space="preserve">
     <value>openFileDialog</value>

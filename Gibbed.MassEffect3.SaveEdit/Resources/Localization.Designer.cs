@@ -61,6 +61,24 @@ namespace Gibbed.MassEffect3.SaveEdit.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Failed to parse id..
+        /// </summary>
+        internal static string Editor_FailedToParseId {
+            get {
+                return ResourceManager.GetString("Editor_FailedToParseId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to parse value..
+        /// </summary>
+        internal static string Editor_FailedToParseValue {
+            get {
+                return ResourceManager.GetString("Editor_FailedToParseValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to That file does not appear to be an exported head morph..
         /// </summary>
         internal static string Editor_HeadMorphInvalid {
@@ -104,6 +122,60 @@ namespace Gibbed.MassEffect3.SaveEdit.Resources {
         internal static string Editor_NoHeadMorph {
             get {
                 return ResourceManager.GetString("Editor_NoHeadMorph", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to bool {0} is set to {1}.
+        /// </summary>
+        internal static string Editor_PlotManualLogBoolGet {
+            get {
+                return ResourceManager.GetString("Editor_PlotManualLogBoolGet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to bool {0} set to {1} (was {2}).
+        /// </summary>
+        internal static string Editor_PlotManualLogBoolSet {
+            get {
+                return ResourceManager.GetString("Editor_PlotManualLogBoolSet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to float {0} is set to {1}.
+        /// </summary>
+        internal static string Editor_PlotManualLogFloatGet {
+            get {
+                return ResourceManager.GetString("Editor_PlotManualLogFloatGet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to float {0} set to {1} (was {2}).
+        /// </summary>
+        internal static string Editor_PlotManualLogFloatSet {
+            get {
+                return ResourceManager.GetString("Editor_PlotManualLogFloatSet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to int {0} is set to {1}.
+        /// </summary>
+        internal static string Editor_PlotManualLogIntGet {
+            get {
+                return ResourceManager.GetString("Editor_PlotManualLogIntGet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to int {0} set to {1} (was {2}).
+        /// </summary>
+        internal static string Editor_PlotManualLogIntSet {
+            get {
+                return ResourceManager.GetString("Editor_PlotManualLogIntSet", resourceCulture);
             }
         }
         

@@ -22,8 +22,10 @@
 
 using System;
 using System.ComponentModel;
+using System.Globalization;
 using System.IO;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 using Gibbed.IO;
 using Gibbed.MassEffect3.SaveEdit.Resources;
@@ -85,12 +87,12 @@ namespace Gibbed.MassEffect3.SaveEdit
                 this.openFromCareerMenuItem.Enabled = false;
                 this.saveToCareerMenuItem.Enabled = false;
             }
-            
+
             // ReSharper disable LocalizableElement
             this.iconImageList.Images.Add("Unknown", new System.Drawing.Bitmap(16, 16));
             // ReSharper restore LocalizableElement
 
-            this.rootTabControl.SelectedTab = rawTabPage;
+            this.rootTabControl.SelectedTab = rawRootTabPage;
             this.rawSplitContainer.Panel2Collapsed = true;
         }
 
@@ -119,7 +121,7 @@ namespace Gibbed.MassEffect3.SaveEdit
                 picker.Owner = this;
                 picker.FileMode = SavePicker.PickerMode.Load;
                 picker.FilePath = this._SavePath;
-                
+
                 var result = picker.ShowDialog();
                 if (result != DialogResult.OK)
                 {
@@ -138,7 +140,8 @@ namespace Gibbed.MassEffect3.SaveEdit
                     MessageBox.Show(
                         Localization.Editor_ThisShouldNeverHappen,
                         Localization.Error,
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
                 }
             }
         }
@@ -187,8 +190,9 @@ namespace Gibbed.MassEffect3.SaveEdit
                 return;
             }
 
-            this.SaveFile.Endian = this.saveFileDialog.FilterIndex != 2 ?
-                Endian.Little : Endian.Big;
+            this.SaveFile.Endian = this.saveFileDialog.FilterIndex != 2
+                                       ? Endian.Little
+                                       : Endian.Big;
             using (var output = this.saveFileDialog.OpenFile())
             {
                 FileFormats.SaveFile.Write(this.SaveFile, output);
@@ -213,7 +217,7 @@ namespace Gibbed.MassEffect3.SaveEdit
                 picker.FileMode = SavePicker.PickerMode.Save;
                 picker.FilePath = this._SavePath;
                 picker.SaveFile = this.SaveFile;
-                
+
                 var result = picker.ShowDialog();
                 if (result != DialogResult.OK)
                 {
@@ -233,7 +237,8 @@ namespace Gibbed.MassEffect3.SaveEdit
                     MessageBox.Show(
                         Localization.Editor_ThisShouldNeverHappen,
                         Localization.Error,
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
                 }
             }
         }
@@ -271,7 +276,7 @@ namespace Gibbed.MassEffect3.SaveEdit
             this.rawSplitContainer.Panel2Collapsed = true;
         }
 
-        void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
+        private void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             this.rootPropertyGrid.Refresh();
         }
@@ -383,6 +388,251 @@ namespace Gibbed.MassEffect3.SaveEdit
                     output, this.SaveFile.Version, Endian.Little);
                 this.SaveFile.Player.Appearance.MorphHead.Serialize(writer);
             }
+        }
+
+        private void AppendToPlotManualLog(string format, params object[] args)
+        {
+            if (string.IsNullOrEmpty(this.plotManualLogTextBox.Text) == false)
+            {
+                this.plotManualLogTextBox.AppendText(Environment.NewLine);
+            }
+            this.plotManualLogTextBox.AppendText(
+                string.Format(
+                    Thread.CurrentThread.CurrentCulture,
+                    format,
+                    args));
+        }
+
+        private void OnPlotManualGetBool(object sender, EventArgs e)
+        {
+            if (this.SaveFile == null)
+            {
+                MessageBox.Show(
+                    Localization.Editor_NoActiveSave,
+                    Localization.Error,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
+
+            int id;
+            if (int.TryParse(
+                this.plotManualBoolIdTextBox.Text,
+                NumberStyles.None,
+                Thread.CurrentThread.CurrentCulture,
+                out id) == false)
+            {
+                MessageBox.Show(Localization.Editor_FailedToParseId,
+                                Localization.Error,
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                return;
+            }
+
+            var value = this.SaveFile.Plot.GetBoolVariable(id);
+            this.AppendToPlotManualLog(Localization.Editor_PlotManualLogBoolGet,
+                                       id,
+                                       value);
+            this.plotManualBoolValueCheckBox.Checked = value;
+        }
+
+        private void OnPlotManualSetBool(object sender, EventArgs e)
+        {
+            if (this.SaveFile == null)
+            {
+                MessageBox.Show(
+                    Localization.Editor_NoActiveSave,
+                    Localization.Error,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
+
+            int id;
+            if (int.TryParse(
+                this.plotManualBoolIdTextBox.Text,
+                NumberStyles.None,
+                Thread.CurrentThread.CurrentCulture,
+                out id) == false)
+            {
+                MessageBox.Show(Localization.Editor_FailedToParseId,
+                                Localization.Error,
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                return;
+            }
+
+            var newValue = this.plotManualBoolValueCheckBox.Checked;
+            var oldValue = this.SaveFile.Plot.GetBoolVariable(id);
+            this.SaveFile.Plot.SetBoolVariable(id, newValue);
+            this.AppendToPlotManualLog(Localization.Editor_PlotManualLogBoolSet,
+                                       id,
+                                       newValue,
+                                       oldValue);
+        }
+
+        private void OnPlotManualGetInt(object sender, EventArgs e)
+        {
+            if (this.SaveFile == null)
+            {
+                MessageBox.Show(
+                    Localization.Editor_NoActiveSave,
+                    Localization.Error,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
+
+            int id;
+            if (int.TryParse(
+                this.plotManualIntValueTextBox.Text,
+                NumberStyles.None,
+                Thread.CurrentThread.CurrentCulture,
+                out id) == false)
+            {
+                MessageBox.Show(Localization.Editor_FailedToParseId,
+                                Localization.Error,
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                return;
+            }
+
+            var value = this.SaveFile.Plot.GetIntVariable(id);
+            this.AppendToPlotManualLog(Localization.Editor_PlotManualLogIntGet,
+                                       id,
+                                       value);
+            this.plotManualIntValueTextBox.Text =
+                value.ToString(Thread.CurrentThread.CurrentCulture);
+        }
+
+        private void OnPlotManualSetInt(object sender, EventArgs e)
+        {
+            if (this.SaveFile == null)
+            {
+                MessageBox.Show(
+                    Localization.Editor_NoActiveSave,
+                    Localization.Error,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
+
+            int id;
+            if (int.TryParse(
+                this.plotManualIntValueTextBox.Text,
+                NumberStyles.None,
+                Thread.CurrentThread.CurrentCulture,
+                out id) == false)
+            {
+                MessageBox.Show(Localization.Editor_FailedToParseId,
+                                Localization.Error,
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                return;
+            }
+
+            int newValue;
+            if (int.TryParse(
+                this.plotManualIntValueTextBox.Text,
+                NumberStyles.None,
+                Thread.CurrentThread.CurrentCulture,
+                out newValue) == false)
+            {
+                MessageBox.Show(Localization.Editor_FailedToParseValue,
+                                Localization.Error,
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                return;
+            }
+
+            var oldValue = this.SaveFile.Plot.GetIntVariable(id);
+            this.SaveFile.Plot.SetIntVariable(id, newValue);
+            this.AppendToPlotManualLog(Localization.Editor_PlotManualLogIntSet,
+                                       id,
+                                       newValue,
+                                       oldValue);
+        }
+
+        private void OnPlotManualGetFloat(object sender, EventArgs e)
+        {
+            if (this.SaveFile == null)
+            {
+                MessageBox.Show(
+                    Localization.Editor_NoActiveSave,
+                    Localization.Error,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
+
+            int id;
+            if (int.TryParse(
+                this.plotManualFloatIdTextBox.Text,
+                NumberStyles.None,
+                Thread.CurrentThread.CurrentCulture,
+                out id) == false)
+            {
+                MessageBox.Show(Localization.Editor_FailedToParseId,
+                                Localization.Error,
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                return;
+            }
+
+            var value = this.SaveFile.Plot.GetFloatVariable(id);
+            this.AppendToPlotManualLog(Localization.Editor_PlotManualLogFloatGet,
+                                       id,
+                                       value);
+            this.plotManualFloatValueTextBox.Text =
+                value.ToString(Thread.CurrentThread.CurrentCulture);
+        }
+
+        private void OnPlotManualSetFloat(object sender, EventArgs e)
+        {
+            if (this.SaveFile == null)
+            {
+                MessageBox.Show(
+                    Localization.Editor_NoActiveSave,
+                    Localization.Error,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
+
+            int id;
+            if (int.TryParse(
+                this.plotManualFloatIdTextBox.Text,
+                NumberStyles.None,
+                Thread.CurrentThread.CurrentCulture,
+                out id) == false)
+            {
+                MessageBox.Show(Localization.Editor_FailedToParseId,
+                                Localization.Error,
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                return;
+            }
+
+            float newValue;
+            if (float.TryParse(
+                this.plotManualIntValueTextBox.Text,
+                NumberStyles.None,
+                Thread.CurrentThread.CurrentCulture,
+                out newValue) == false)
+            {
+                MessageBox.Show(Localization.Editor_FailedToParseValue,
+                                Localization.Error,
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                return;
+            }
+
+            var oldValue = this.SaveFile.Plot.GetFloatVariable(id);
+            this.SaveFile.Plot.SetFloatVariable(id, newValue);
+            this.AppendToPlotManualLog(Localization.Editor_PlotManualLogFloatSet,
+                                       id,
+                                       newValue,
+                                       oldValue);
         }
     }
 }

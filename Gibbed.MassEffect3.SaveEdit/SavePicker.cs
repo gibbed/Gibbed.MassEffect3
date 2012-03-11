@@ -42,6 +42,7 @@ namespace Gibbed.MassEffect3.SaveEdit
         private int _HighestSaveNumber;
 
         private PickerMode _FileMode = PickerMode.Invalid;
+
         public PickerMode FileMode
         {
             get { return this._FileMode; }
@@ -72,12 +73,12 @@ namespace Gibbed.MassEffect3.SaveEdit
 
             this.careerListView.Items.Clear();
             this.careerListView.Items.Add(new ListViewItem()
-                {
-                    Text = Localization.SavePIcker_NewCareerLabel,
-// ReSharper disable LocalizableElement
-                    ImageKey = "New",
-// ReSharper restore LocalizableElement
-                });
+            {
+                Text = Localization.SavePIcker_NewCareerLabel,
+                // ReSharper disable LocalizableElement
+                ImageKey = "New",
+                // ReSharper restore LocalizableElement
+            });
 
             this.saveListView.Items.Clear();
             this.saveListView.Items.Add(new ListViewItem()
@@ -132,20 +133,66 @@ namespace Gibbed.MassEffect3.SaveEdit
 
             switch (parts[1][0])
             {
-                case '0': originType = FileFormats.Save.OriginType.None; break;
-                case '1': originType = FileFormats.Save.OriginType.Spacer; break;
-                case '2': originType = FileFormats.Save.OriginType.Colony; break;
-                case '3': originType = FileFormats.Save.OriginType.Earthborn; break;
-                default: return false;
+                case '0':
+                {
+                    originType = FileFormats.Save.OriginType.None;
+                    break;
+                }
+
+                case '1':
+                {
+                    originType = FileFormats.Save.OriginType.Spacer;
+                    break;
+                }
+
+                case '2':
+                {
+                    originType = FileFormats.Save.OriginType.Colony;
+                    break;
+                }
+
+                case '3':
+                {
+                    originType = FileFormats.Save.OriginType.Earthborn;
+                    break;
+                }
+
+                default:
+                {
+                    return false;
+                }
             }
 
             switch (parts[1][1])
             {
-                case '0': reputationType = FileFormats.Save.NotorietyType.None; break;
-                case '1': reputationType = FileFormats.Save.NotorietyType.Survivor; break;
-                case '2': reputationType = FileFormats.Save.NotorietyType.Warhero; break;
-                case '3': reputationType = FileFormats.Save.NotorietyType.Ruthless; break;
-                default: return false;
+                case '0':
+                {
+                    reputationType = FileFormats.Save.NotorietyType.None;
+                    break;
+                }
+
+                case '1':
+                {
+                    reputationType = FileFormats.Save.NotorietyType.Survivor;
+                    break;
+                }
+
+                case '2':
+                {
+                    reputationType = FileFormats.Save.NotorietyType.Warhero;
+                    break;
+                }
+
+                case '3':
+                {
+                    reputationType = FileFormats.Save.NotorietyType.Ruthless;
+                    break;
+                }
+
+                default:
+                {
+                    return false;
+                }
             }
 
             if (parts[2] == null ||
@@ -215,7 +262,7 @@ namespace Gibbed.MassEffect3.SaveEdit
                             {
                                 saveFile = FileFormats.SaveFile.Read(input);
                             }
-                            
+
                             break;
                         }
                         catch (Exception)
@@ -233,34 +280,36 @@ namespace Gibbed.MassEffect3.SaveEdit
 
                     if (ParseCareerName(
                         Path.GetFileName(careerPath),
-                        out name, out originType, out reputationType,
+                        out name,
+                        out originType,
+                        out reputationType,
                         out classType,
                         out date) == true)
                     {
                         string displayName = "";
                         displayName += (saveFile == null ? name : saveFile.Player.FirstName) + "\n";
                         displayName += string.Format("{0}, {1}",
-                            classType,
-                            date.ToString("d"));
+                                                     classType,
+                                                     date.ToString("d"));
                         //displayName += date.ToString();
 
                         this.careerListView.Items.Add(new ListViewItem()
-                            {
-                                Text = displayName,
-// ReSharper disable LocalizableElement
-                                ImageKey = "Class_" + classType.ToString(),
-// ReSharper restore LocalizableElement
-                                Tag = careerPath,
-                            });
+                        {
+                            Text = displayName,
+                            // ReSharper disable LocalizableElement
+                            ImageKey = "Class_" + classType.ToString(),
+                            // ReSharper restore LocalizableElement
+                            Tag = careerPath,
+                        });
                     }
                     else
                     {
                         this.careerListView.Items.Add(new ListViewItem()
-                            {
-                                Text = Path.GetFileName(careerPath),
-                                ImageKey = "Class_Unknown",
-                                Tag = careerPath,
-                            });
+                        {
+                            Text = Path.GetFileName(careerPath),
+                            ImageKey = "Class_Unknown",
+                            Tag = careerPath,
+                        });
                     }
                 }
             }
@@ -269,29 +318,31 @@ namespace Gibbed.MassEffect3.SaveEdit
             {
                 if (this.careerListView.Items.Count > 0)
                 {
-                    this.careerListView.Items.Insert(1, new ListViewItem()
-                        {
-// ReSharper disable LocalizableElement
-                            Name = "New Career",
-// ReSharper restore LocalizableElement
-                            Text = Localization.SavePIcker_NewCareerLabel,
-// ReSharper disable LocalizableElement
-                            ImageKey = "New",
-// ReSharper restore LocalizableElement
-                        });
+                    var item = new ListViewItem()
+                    {
+                        // ReSharper disable LocalizableElement
+                        Name = "New Career",
+                        // ReSharper restore LocalizableElement
+                        Text = Localization.SavePIcker_NewCareerLabel,
+                        // ReSharper disable LocalizableElement
+                        ImageKey = "New",
+                        // ReSharper restore LocalizableElement
+                    };
+                    this.careerListView.Items.Insert(1, item);
                 }
                 else
                 {
-                    this.careerListView.Items.Add(new ListViewItem()
-                        {
-// ReSharper disable LocalizableElement
-                            Name = "New Career",
-// ReSharper restore LocalizableElement
-                            Text = Localization.SavePIcker_NewCareerLabel,
-// ReSharper disable LocalizableElement
-                            ImageKey = "New",
-// ReSharper restore LocalizableElement
-                        });
+                    var item = new ListViewItem()
+                    {
+                        // ReSharper disable LocalizableElement
+                        Name = "New Career",
+                        // ReSharper restore LocalizableElement
+                        Text = Localization.SavePIcker_NewCareerLabel,
+                        // ReSharper disable LocalizableElement
+                        ImageKey = "New",
+                        // ReSharper restore LocalizableElement
+                    };
+                    this.careerListView.Items.Add(item);
                 }
             }
 
@@ -314,18 +365,19 @@ namespace Gibbed.MassEffect3.SaveEdit
             this.saveListView.Items.Clear();
             if (this.FileMode == PickerMode.Save)
             {
-                this.saveListView.Items.Add(new ListViewItem()
+                var item = new ListViewItem()
                 {
-// ReSharper disable LocalizableElement
+                    // ReSharper disable LocalizableElement
                     Name = "New Save",
-// ReSharper restore LocalizableElement
+                    // ReSharper restore LocalizableElement
                     Text = Localization.SavePicker_NewSaveLabel,
-// ReSharper disable LocalizableElement
+                    // ReSharper disable LocalizableElement
                     ImageKey = "New",
-// ReSharper restore LocalizableElement
-                });
+                    // ReSharper restore LocalizableElement
+                };
+                this.saveListView.Items.Add(item);
             }
-            
+
             this._HighestSaveNumber = 0;
             if (savePath != null)
             {
@@ -360,12 +412,13 @@ namespace Gibbed.MassEffect3.SaveEdit
                             saveFile = null;
                         }
 
-                        this.saveListView.Items.Add(new ListViewItem()
+                        var item = new ListViewItem()
                         {
                             Text = Path.GetFileName(inputPath),
                             ImageKey = "",
                             Tag = inputPath,
-                        });
+                        };
+                        this.saveListView.Items.Add(item);
                     }
                 }
             }
@@ -411,9 +464,9 @@ namespace Gibbed.MassEffect3.SaveEdit
 
             if (e.IsSelected == true)
             {
-// ReSharper disable LocalizableElement
+                // ReSharper disable LocalizableElement
                 if (e.Item.Name == "New Save" ||
-// ReSharper restore LocalizableElement
+                    // ReSharper restore LocalizableElement
                     e.Item.Tag is string)
                 {
                     this.loadFileButton.Enabled = true;
@@ -441,13 +494,40 @@ namespace Gibbed.MassEffect3.SaveEdit
         {
             switch (index)
             {
-                case 93954: return "Adept";
-                case 93952: return "Soldier";
-                case 93953: return "Engineer";
-                case 93957: return "Sentinel";
-                case 93955: return "Infiltrator";
-                case 93956: return "Vanguard";
-                default: return "Unknown";
+                case 93954:
+                {
+                    return "Adept";
+                }
+
+                case 93952:
+                {
+                    return "Soldier";
+                }
+
+                case 93953:
+                {
+                    return "Engineer";
+                }
+
+                case 93957:
+                {
+                    return "Sentinel";
+                }
+
+                case 93955:
+                {
+                    return "Infiltrator";
+                }
+
+                case 93956:
+                {
+                    return "Vanguard";
+                }
+
+                default:
+                {
+                    return "Unknown";
+                }
             }
         }
 
@@ -473,19 +553,19 @@ namespace Gibbed.MassEffect3.SaveEdit
             }
 
             var path = this.FilePath;
-            
+
             int saveNumber;
-// ReSharper disable LocalizableElement
-            if (this.careerListView.SelectedItems[0].Name == "New Career")
-// ReSharper restore LocalizableElement
+            // ReSharper disable LocalizableElement
+            if (this.careerListView.SelectedItems[0].Name == "New Career") // ReSharper restore LocalizableElement
             {
                 var name = string.Format("{0}_{1}{2}_{3}_{4}_{5}",
-                    FilterPath(this.SaveFile.Player.FirstName),
-                    (int)this.SaveFile.Player.Origin,
-                    (int)this.SaveFile.Player.Notoriety,
-                    TranslateClass(this.SaveFile.Player.ClassFriendlyName),
-                    DateTime.Now.ToString("ddMMyy", CultureInfo.InvariantCulture),
-                    BitConverter.ToString(this.SaveFile.Player.Guid.ToByteArray()).Replace("-", "").Substring(0, 7));
+                                         FilterPath(this.SaveFile.Player.FirstName),
+                                         (int)this.SaveFile.Player.Origin,
+                                         (int)this.SaveFile.Player.Notoriety,
+                                         TranslateClass(this.SaveFile.Player.ClassFriendlyName),
+                                         DateTime.Now.ToString("ddMMyy", CultureInfo.InvariantCulture),
+                                         BitConverter.ToString(this.SaveFile.Player.Guid.ToByteArray()).Replace("-", "")
+                                             .Substring(0, 7));
                 path = Path.Combine(path, name);
                 saveNumber = 0;
             }
@@ -499,8 +579,9 @@ namespace Gibbed.MassEffect3.SaveEdit
                 saveNumber = this._HighestSaveNumber + 1;
             }
 
-            path = Path.Combine(path, string.Format("Save_{0}.pcsav",
-                saveNumber.ToString(CultureInfo.InvariantCulture).PadLeft(4, '0')));
+            path = Path.Combine(path,
+                                string.Format("Save_{0}.pcsav",
+                                              saveNumber.ToString(CultureInfo.InvariantCulture).PadLeft(4, '0')));
             return path;
         }
 
@@ -517,10 +598,10 @@ namespace Gibbed.MassEffect3.SaveEdit
                 exists == true)
             {
                 if (MessageBox.Show(
-                        Localization.SavePicker_SaveOverwriteConfirmation,
-                        Localization.Question,
-                        MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Question) == DialogResult.No)
+                    Localization.SavePicker_SaveOverwriteConfirmation,
+                    Localization.Question,
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question) == DialogResult.No)
                 {
                     return;
                 }
@@ -549,7 +630,8 @@ namespace Gibbed.MassEffect3.SaveEdit
             if (MessageBox.Show(
                 Localization.SavePicker_DeleteCareerConfirmation,
                 Localization.Warning,
-                MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning) == DialogResult.No)
             {
                 return;
             }
@@ -573,9 +655,9 @@ namespace Gibbed.MassEffect3.SaveEdit
                 catch (IOException ex)
                 {
                     MessageBox.Show(
-                        Resources.Localization.SavePicker_DeleteCareerIOException +
+                        Localization.SavePicker_DeleteCareerIOException +
                         ex.Message,
-                        Resources.Localization.Error,
+                        Localization.Error,
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
                 }
@@ -596,7 +678,8 @@ namespace Gibbed.MassEffect3.SaveEdit
             if (MessageBox.Show(
                 Localization.SavePicker_DeleteSaveConfirmation,
                 Localization.Warning,
-                MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning) == DialogResult.No)
             {
                 return;
             }

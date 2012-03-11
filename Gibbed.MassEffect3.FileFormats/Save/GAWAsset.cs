@@ -42,6 +42,12 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             stream.Serialize(ref this._Strength);
         }
 
+        public string Name { get { return this._Id.ToString(); } }
+        public override string ToString()
+        {
+            return this.Name ?? "(null)";
+        }
+
         #region Properties
         public int Id
         {

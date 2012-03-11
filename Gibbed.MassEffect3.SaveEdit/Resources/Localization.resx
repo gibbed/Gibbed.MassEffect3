@@ -149,24 +149,48 @@
     <value>There was an error removing the file:
 </value>
   </data>
-  <data name="Editor_ThisShouldNeverHappen">
-    <value xml:space="preserve">This should never happen.</value>
+  <data name="Editor_ThisShouldNeverHappen" xml:space="preserve">
+    <value>This should never happen.</value>
   </data>
-  <data name="Editor_NoActiveSave">
-    <value xml:space="preserve">There is no active save.</value>
+  <data name="Editor_NoActiveSave" xml:space="preserve">
+    <value>There is no active save.</value>
   </data>
-  <data name="Editor_NoHeadMorph">
-    <value xml:space="preserve">This save does not have a non-default head morph.</value>
+  <data name="Editor_NoHeadMorph" xml:space="preserve">
+    <value>This save does not have a non-default head morph.</value>
   </data>
-  <data name="Editor_HeadMorphVersionUnsupported">
-    <value xml:space="preserve">Unsupported head morph export version.</value>
+  <data name="Editor_HeadMorphVersionUnsupported" xml:space="preserve">
+    <value>Unsupported head morph export version.</value>
   </data>
-  <data name="Editor_HeadMorphInvalid">
-    <value xml:space="preserve">That file does not appear to be an exported head morph.</value>
+  <data name="Editor_HeadMorphInvalid" xml:space="preserve">
+    <value>That file does not appear to be an exported head morph.</value>
   </data>
-  <data name="Editor_HeadMorphVersionMaybeIncompatible">
-    <value xml:space="preserve">The head morph you are importing has a different version ({0}) than your current save file ({1}).
+  <data name="Editor_HeadMorphVersionMaybeIncompatible" xml:space="preserve">
+    <value>The head morph you are importing has a different version ({0}) than your current save file ({1}).
 
 Import anyway?</value>
+  </data>
+  <data name="Editor_FailedToParseId" xml:space="preserve">
+    <value>Failed to parse id.</value>
+  </data>
+  <data name="Editor_FailedToParseValue" xml:space="preserve">
+    <value>Failed to parse value.</value>
+  </data>
+  <data name="Editor_PlotManualLogFloatSet" xml:space="preserve">
+    <value>float {0} set to {1} (was {2})</value>
+  </data>
+  <data name="Editor_PlotManualLogFloatGet" xml:space="preserve">
+    <value>float {0} is set to {1}</value>
+  </data>
+  <data name="Editor_PlotManualLogIntSet" xml:space="preserve">
+    <value>int {0} set to {1} (was {2})</value>
+  </data>
+  <data name="Editor_PlotManualLogIntGet" xml:space="preserve">
+    <value>int {0} is set to {1}</value>
+  </data>
+  <data name="Editor_PlotManualLogBoolSet" xml:space="preserve">
+    <value>bool {0} set to {1} (was {2})</value>
+  </data>
+  <data name="Editor_PlotManualLogBoolGet" xml:space="preserve">
+    <value>bool {0} is set to {1}</value>
   </data>
 </root>
