@@ -628,5 +628,10 @@ namespace Gibbed.MassEffect3.SaveEdit
         {
             this.FindCareers();
         }
+
+        private void OnSaveActivate(object sender, EventArgs e)
+        {
+            this.OnChooseSave(sender, e);
+        }
     }
 }
