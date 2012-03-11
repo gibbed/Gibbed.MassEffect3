@@ -257,6 +257,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             }
 
             // for CollectionEditor
+            [Browsable(false)]
             public string Name
             {
                 get { return this._Feature; }

@@ -42,6 +42,8 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             stream.Serialize(ref this._Strength);
         }
 
+        // for CollectionEditor
+        [Browsable(false)]
         public string Name
         {
             get { return this._Id.ToString(); }
