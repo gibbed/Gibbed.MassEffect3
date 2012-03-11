@@ -33,11 +33,11 @@ namespace Gibbed.MassEffect3.FileFormats.Save
         [StandardValue(null, DisplayName = "All Descisions")]
         [OriginalName("ARMO_All_Decisions")]
         AllDecisions = 0,
-        
+
         [StandardValue(null, DisplayName = "Major Decisions")]
         [OriginalName("ARMO_Major_Decisions")]
         MajorDecisions = 1,
-        
+
         [StandardValue(null, DisplayName = "No Decisions")]
         [OriginalName("ARMO_No_Decisions")]
         NoDecisions = 2,

@@ -39,29 +39,30 @@ namespace Gibbed.MassEffect3.FileFormats.Save
 
         #region Fields
         [OriginalName("BoolVariables")]
-        private BitArray _BoolVariables;
+        private BitArray _BoolVariables = new BitArray(0);
+
         private BoolVariablesWrapper _BoolVariablesWrapper;
 
         [OriginalName("IntVariables")]
-        private List<IntVariablePair> _IntVariables;
+        private List<IntVariablePair> _IntVariables = new List<IntVariablePair>();
 
         [OriginalName("FloatVariables")]
-        private List<FloatVariablePair> _FloatVariables;
+        private List<FloatVariablePair> _FloatVariables = new List<FloatVariablePair>();
 
         [OriginalName("QuestProgressCounter")]
         private int _QuestProgressCounter;
 
         [OriginalName("QuestProgress")]
-        private List<PlotQuest> _QuestProgress;
+        private List<PlotQuest> _QuestProgress = new List<PlotQuest>();
 
         [OriginalName("QuestIDs")]
-        private List<int> _QuestIDs;
+        private List<int> _QuestIDs = new List<int>();
 
         [OriginalName("CodexEntries")]
-        private List<PlotCodex> _CodexEntries;
+        private List<PlotCodex> _CodexEntries = new List<PlotCodex>();
 
         [OriginalName("CodexIDs")]
-        private List<int> _CodexIDs;
+        private List<int> _CodexIDs = new List<int>();
         #endregion
 
         #region Helpers
@@ -153,10 +154,10 @@ namespace Gibbed.MassEffect3.FileFormats.Save
                         }
 
                         this._IntVariables.Add(new IntVariablePair()
-                            {
-                                Index = i,
-                                Value = oldIntVariables[i],
-                            });
+                        {
+                            Index = i,
+                            Value = oldIntVariables[i],
+                        });
                     }
 
                     List<float> oldFloatVariables = null;
@@ -526,6 +527,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
 
         #region PropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
+
         private void NotifyPropertyChanged(string propertyName)
         {
             if (this.PropertyChanged != null)
@@ -582,6 +584,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             #endregion
 
             public event PropertyChangedEventHandler PropertyChanged;
+
             private void NotifyPropertyChanged(string propertyName)
             {
                 if (this.PropertyChanged != null)
@@ -637,6 +640,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             #endregion
 
             public event PropertyChangedEventHandler PropertyChanged;
+
             private void NotifyPropertyChanged(string propertyName)
             {
                 if (this.PropertyChanged != null)
@@ -660,7 +664,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             private int _ActiveGoal;
 
             [OriginalName("History")]
-            private List<int> _History;
+            private List<int> _History = new List<int>();
             #endregion
 
             public void Serialize(Unreal.ISerializer stream)
@@ -726,6 +730,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             #endregion
 
             public event PropertyChangedEventHandler PropertyChanged;
+
             private void NotifyPropertyChanged(string propertyName)
             {
                 if (this.PropertyChanged != null)
@@ -740,7 +745,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
         {
             #region Fields
             [OriginalName("Pages")]
-            private List<PlotCodexPage> _Pages;
+            private List<PlotCodexPage> _Pages = new List<PlotCodexPage>();
             #endregion
 
             public void Serialize(Unreal.ISerializer stream)
@@ -764,6 +769,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             #endregion
 
             public event PropertyChangedEventHandler PropertyChanged;
+
             private void NotifyPropertyChanged(string propertyName)
             {
                 if (this.PropertyChanged != null)
@@ -819,6 +825,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
                 #endregion
 
                 public event PropertyChangedEventHandler PropertyChanged;
+
                 private void NotifyPropertyChanged(string propertyName)
                 {
                     if (this.PropertyChanged != null)

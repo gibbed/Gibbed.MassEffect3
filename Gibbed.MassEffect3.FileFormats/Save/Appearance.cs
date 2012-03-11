@@ -31,7 +31,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
         #region Fields
         [OriginalName("CombatAppearance")]
         private PlayerAppearanceType _CombatAppearance;
-        
+
         [OriginalName("CasualID")]
         private int _CasualId;
 
@@ -75,7 +75,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
         private bool _HasMorphHead;
 
         [OriginalName("MorphHead")]
-        private MorphHead _MorphHead;
+        private MorphHead _MorphHead = new MorphHead();
 
         [OriginalName("EmissiveID")]
         private int _EmissiveId;
@@ -365,6 +365,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
         #endregion
 
         public event PropertyChangedEventHandler PropertyChanged;
+
         private void NotifyPropertyChanged(string propertyName)
         {
             if (this.PropertyChanged != null)

@@ -38,7 +38,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
 
         [OriginalName("Month")]
         private int _Month;
-        
+
         [OriginalName("Year")]
         private int _Year;
         #endregion
@@ -54,12 +54,11 @@ namespace Gibbed.MassEffect3.FileFormats.Save
         public override string ToString()
         {
             return string.Format("{0}/{1}/{2} {3}:{4:D2}",
-                this.Day,
-                this.Month,
-                this.Year,
-                (int)Math.Round((this.SecondsSinceMidnight / 60.0) / 60.0),
-                (int)Math.Round(this.SecondsSinceMidnight / 60.0) % 60);
-
+                                 this.Day,
+                                 this.Month,
+                                 this.Year,
+                                 (int)Math.Round((this.SecondsSinceMidnight / 60.0) / 60.0),
+                                 (int)Math.Round(this.SecondsSinceMidnight / 60.0) % 60);
         }
 
         #region Properties
@@ -121,6 +120,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
         #endregion
 
         public event PropertyChangedEventHandler PropertyChanged;
+
         private void NotifyPropertyChanged(string propertyName)
         {
             if (this.PropertyChanged != null)

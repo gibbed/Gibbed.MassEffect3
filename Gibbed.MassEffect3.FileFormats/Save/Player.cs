@@ -77,22 +77,22 @@ namespace Gibbed.MassEffect3.FileFormats.Save
         private string _MappedPower3;
 
         [OriginalName("Appearance")]
-        private Appearance _Appearance;
+        private Appearance _Appearance = new Appearance();
 
         [OriginalName("Powers")]
-        private List<Power> _Powers;
+        private List<Power> _Powers = new List<Power>();
 
         [OriginalName("GAWAssets")]
-        private List<GAWAsset> _GAWAssets;
+        private List<GAWAsset> _GAWAssets = new List<GAWAsset>();
 
         [OriginalName("Weapons")]
-        private List<Weapon> _Weapons;
+        private List<Weapon> _Weapons = new List<Weapon>();
 
         [OriginalName("WeaponMods")]
-        private List<WeaponMod> _WeaponMods;
+        private List<WeaponMod> _WeaponMods = new List<WeaponMod>();
 
         [OriginalName("LoadoutWeapons")]
-        private Loadout _LoadoutWeapons;
+        private Loadout _LoadoutWeapons = new Loadout();
 
         [OriginalName("PrimaryWeapon")]
         private string _PrimaryWeapon;
@@ -101,10 +101,10 @@ namespace Gibbed.MassEffect3.FileFormats.Save
         private string _SecondaryWeapon;
 
         [OriginalName("LoadoutWeaponGroups")]
-        private List<int> _LoadoutWeaponGroups;
+        private List<int> _LoadoutWeaponGroups = new List<int>();
 
         [OriginalName("HotKeys")]
-        private List<HotKey> _HotKeys;
+        private List<HotKey> _HotKeys = new List<HotKey>();
 
         [OriginalName("CurrentHealth")]
         private float _CurrentHealth;
@@ -694,6 +694,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
         #endregion
 
         public event PropertyChangedEventHandler PropertyChanged;
+
         private void NotifyPropertyChanged(string propertyName)
         {
             if (this.PropertyChanged != null)

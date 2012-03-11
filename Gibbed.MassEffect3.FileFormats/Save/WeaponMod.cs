@@ -34,7 +34,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
         private string _WeaponClassName;
 
         [OriginalName("WeaponClassName")]
-        private List<string> _WeaponModClassNames;
+        private List<string> _WeaponModClassNames = new List<string>();
         #endregion
 
         public void Serialize(Unreal.ISerializer stream)
@@ -72,8 +72,9 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             }
         }
         #endregion
-        
+
         public event PropertyChangedEventHandler PropertyChanged;
+
         private void NotifyPropertyChanged(string propertyName)
         {
             if (this.PropertyChanged != null)

@@ -31,10 +31,10 @@ namespace Gibbed.MassEffect3.FileFormats.Save
     {
         #region Fields
         [OriginalName("Planets")]
-        private List<Planet> _Planets;
+        private List<Planet> _Planets = new List<Planet>();
 
         [OriginalName("Systems")]
-        private List<System> _Systems;
+        private List<System> _Systems = new List<System>();
         #endregion
 
         public void Serialize(Unreal.ISerializer stream)
@@ -72,6 +72,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
         #endregion
 
         public event PropertyChangedEventHandler PropertyChanged;
+
         private void NotifyPropertyChanged(string propertyName)
         {
             if (this.PropertyChanged != null)
@@ -93,7 +94,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             private bool _Visited;
 
             [OriginalName("Probes")]
-            private List<Vector2D> _Probes;
+            private List<Vector2D> _Probes = new List<Vector2D>();
 
             [OriginalName("bShowAsScanned")]
             private bool _ShowAsScanned;
@@ -162,6 +163,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             #endregion
 
             public event PropertyChangedEventHandler PropertyChanged;
+
             private void NotifyPropertyChanged(string propertyName)
             {
                 if (this.PropertyChanged != null)
@@ -235,6 +237,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             #endregion
 
             public event PropertyChangedEventHandler PropertyChanged;
+
             private void NotifyPropertyChanged(string propertyName)
             {
                 if (this.PropertyChanged != null)

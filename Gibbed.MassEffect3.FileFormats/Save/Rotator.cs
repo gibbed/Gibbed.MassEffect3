@@ -41,7 +41,9 @@ namespace Gibbed.MassEffect3.FileFormats.Save
         public override string ToString()
         {
             return string.Format("{0}, {1}, {2}",
-                this._Pitch, this._Yaw, this._Roll);
+                                 this._Pitch,
+                                 this._Yaw,
+                                 this._Roll);
         }
 
         #region Properties
@@ -86,6 +88,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
         #endregion
 
         public event PropertyChangedEventHandler PropertyChanged;
+
         private void NotifyPropertyChanged(string propertyName)
         {
             if (this.PropertyChanged != null)

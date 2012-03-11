@@ -57,6 +57,7 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
 
         void Serialize<TType>(ref TType value)
             where TType : class, ISerializable, new();
+
         void Serialize<TType>(ref TType value, Func<ISerializer, bool> condition, Func<TType> defaultValue)
             where TType : class, ISerializable, new();
 
@@ -74,7 +75,7 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
 
         void Serialize(ref List<string> list);
         void Serialize(ref List<string> list, Func<ISerializer, bool> condition, Func<List<string>> defaultList);
-        
+
         void Serialize(ref List<Guid> list);
         void Serialize(ref List<Guid> list, Func<ISerializer, bool> condition, Func<List<Guid>> defaultList);
 
@@ -83,6 +84,7 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
 
         void Serialize<TType>(ref List<TType> list)
             where TType : class, ISerializable, new();
+
         void Serialize<TType>(ref List<TType> list, Func<ISerializer, bool> condition, Func<List<TType>> defaultList)
             where TType : class, ISerializable, new();
     }

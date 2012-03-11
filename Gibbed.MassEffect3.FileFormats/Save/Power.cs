@@ -28,6 +28,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
     [OriginalName("PowerSaveRecord")]
     public class Power : Unreal.ISerializable, INotifyPropertyChanged
     {
+        #region Fields
         [OriginalName("PowerName")]
         private string _Name;
 
@@ -57,6 +58,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
 
         [OriginalName("WheelDisplayIndex")]
         private int _WheelDisplayIndex;
+        #endregion
 
         public void Serialize(Unreal.ISerializer stream)
         {
@@ -220,6 +222,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
         #endregion
 
         public event PropertyChangedEventHandler PropertyChanged;
+
         private void NotifyPropertyChanged(string propertyName)
         {
             if (this.PropertyChanged != null)

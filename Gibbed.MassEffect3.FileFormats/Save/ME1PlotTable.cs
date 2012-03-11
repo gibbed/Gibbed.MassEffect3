@@ -38,14 +38,15 @@ namespace Gibbed.MassEffect3.FileFormats.Save
 
         #region Fields
         [OriginalName("BoolVariables")]
-        private BitArray _BoolVariables;
+        private BitArray _BoolVariables = new BitArray(0);
+
         private BoolVariablesWrapper _BoolVariablesWrapper;
 
         [OriginalName("IntVariables")]
-        private List<int> _IntVariables;
+        private List<int> _IntVariables = new List<int>();
 
         [OriginalName("FloatVariables")]
-        private List<float> _FloatVariables;
+        private List<float> _FloatVariables = new List<float>();
         #endregion
 
         public void Serialize(Unreal.ISerializer stream)
@@ -245,6 +246,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
         #endregion
 
         public event PropertyChangedEventHandler PropertyChanged;
+
         private void NotifyPropertyChanged(string propertyName)
         {
             if (this.PropertyChanged != null)

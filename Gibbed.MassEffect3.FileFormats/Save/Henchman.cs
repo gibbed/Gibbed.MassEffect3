@@ -34,7 +34,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
         private string _Tag;
 
         [OriginalName("Powers")]
-        private List<Power> _Powers;
+        private List<Power> _Powers = new List<Power>();
 
         [OriginalName("CharacterLevel")]
         private int _CharacterLevel;
@@ -43,19 +43,19 @@ namespace Gibbed.MassEffect3.FileFormats.Save
         private int _TalentPoints;
 
         [OriginalName("LoadoutWeapons")]
-        private Loadout _LoadoutWeapons;
+        private Loadout _LoadoutWeapons = new Loadout();
 
         [OriginalName("MappedPower")]
         private string _MappedPower;
 
         [OriginalName("WeaponMods")]
-        private List<WeaponMod> _WeaponMods;
+        private List<WeaponMod> _WeaponMods = new List<WeaponMod>();
 
         [OriginalName("Grenades")]
         private int _Grenades;
 
         [OriginalName("Weapons")]
-        private List<Weapon> _Weapons;
+        private List<Weapon> _Weapons = new List<Weapon>();
         #endregion
 
         public void Serialize(Unreal.ISerializer stream)
@@ -191,6 +191,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
         #endregion
 
         public event PropertyChangedEventHandler PropertyChanged;
+
         private void NotifyPropertyChanged(string propertyName)
         {
             if (this.PropertyChanged != null)

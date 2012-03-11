@@ -27,10 +27,12 @@ namespace Gibbed.MassEffect3.FileFormats.Save
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class LinearColor : Unreal.ISerializable, INotifyPropertyChanged
     {
+        #region Fields
         private float _R;
         private float _G;
         private float _B;
         private float _A;
+        #endregion
 
         public void Serialize(Unreal.ISerializer stream)
         {
@@ -43,7 +45,10 @@ namespace Gibbed.MassEffect3.FileFormats.Save
         public override string ToString()
         {
             return string.Format("{0}, {1}, {2}, {3}",
-                this._R, this._G, this._B, this.A);
+                                 this._R,
+                                 this._G,
+                                 this._B,
+                                 this._A);
         }
 
         #region Properties
@@ -101,6 +106,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
         #endregion
 
         public event PropertyChangedEventHandler PropertyChanged;
+
         private void NotifyPropertyChanged(string propertyName)
         {
             if (this.PropertyChanged != null)

@@ -36,7 +36,11 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
 
         public Endian Endian;
         public uint Version { get; private set; }
-        public SerializeMode Mode { get { return SerializeMode.Writing; } }
+
+        public SerializeMode Mode
+        {
+            get { return SerializeMode.Writing; }
+        }
 
         public FileWriter(Stream output, uint version)
             : this(output, version, Endian.Little)
@@ -177,8 +181,10 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
             if (value.Any(c => c > 0xFF) == true)
             {
                 this._Output.WriteValueS32(-(value.Length + 1), this.Endian);
-                this._Output.WriteString(value, this.Endian == Endian.Little ?
-                    Encoding.Unicode : Encoding.BigEndianUnicode);
+                this._Output.WriteString(value,
+                                         this.Endian == Endian.Little
+                                             ? Encoding.Unicode
+                                             : Encoding.BigEndianUnicode);
                 this._Output.WriteValueU16(0, this.Endian);
             }
             else
@@ -338,6 +344,11 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
 
         private void WriteBasicList<TType>(List<TType> list, Action<FileWriter, TType> writeValue)
         {
+            if (list == null)
+            {
+                throw new ArgumentNullException("list should not be null", "list");
+            }
+
             this._Output.WriteValueS32(list.Count, this.Endian);
             foreach (var item in list)
             {
@@ -347,6 +358,11 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
 
         public void Serialize(ref List<byte> list)
         {
+            if (list == null)
+            {
+                throw new ArgumentNullException("serializable list should not be null", "list");
+            }
+
             this.WriteBasicList(list, (w, v) => w._Output.WriteValueU8(v));
         }
 
@@ -370,6 +386,11 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
 
         public void Serialize(ref List<int> list)
         {
+            if (list == null)
+            {
+                throw new ArgumentNullException("serializable list should not be null", "list");
+            }
+
             this.WriteBasicList(list, (w, v) => w._Output.WriteValueS32(v, w.Endian));
         }
 
@@ -393,6 +414,11 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
 
         public void Serialize(ref List<float> list)
         {
+            if (list == null)
+            {
+                throw new ArgumentNullException("serializable list should not be null", "list");
+            }
+
             this.WriteBasicList(list, (w, v) => w._Output.WriteValueF32(v, w.Endian));
         }
 
@@ -416,6 +442,11 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
 
         public void Serialize(ref List<string> list)
         {
+            if (list == null)
+            {
+                throw new ArgumentNullException("serializable list should not be null", "list");
+            }
+
             this.WriteBasicList(list, (w, v) => w.WriteString(v));
         }
 
@@ -439,6 +470,11 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
 
         public void Serialize(ref List<Guid> list)
         {
+            if (list == null)
+            {
+                throw new ArgumentNullException("serializable list should not be null", "list");
+            }
+
             this.WriteBasicList(list, (w, v) => w._Output.WriteValueGuid(v, w.Endian));
         }
 
@@ -462,10 +498,17 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
 
         public void SerializeEnum<TEnum>(ref List<TEnum> list)
         {
+            if (list == null)
+            {
+                throw new ArgumentNullException("serializable list should not be null", "list");
+            }
+
             this.WriteBasicList(list, (w, v) => w._Output.WriteValueEnum<TEnum>(v, w.Endian));
         }
 
-        public void SerializeEnum<TEnum>(ref List<TEnum> list, Func<ISerializer, bool> condition, Func<List<TEnum>> defaultList)
+        public void SerializeEnum<TEnum>(ref List<TEnum> list,
+                                         Func<ISerializer, bool> condition,
+                                         Func<List<TEnum>> defaultList)
         {
             if (condition == null)
             {
@@ -486,6 +529,11 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
         public void Serialize<TType>(ref List<TType> list)
             where TType : class, ISerializable, new()
         {
+            if (list == null)
+            {
+                throw new ArgumentNullException("serializable list should not be null", "list");
+            }
+
             this._Output.WriteValueS32(list.Count, this.Endian);
             foreach (var item in list)
             {
@@ -497,7 +545,9 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
             }
         }
 
-        public void Serialize<TType>(ref List<TType> list, Func<ISerializer, bool> condition, Func<List<TType>> defaultList)
+        public void Serialize<TType>(ref List<TType> list,
+                                     Func<ISerializer, bool> condition,
+                                     Func<List<TType>> defaultList)
             where TType : class, ISerializable, new()
         {
             if (condition == null)

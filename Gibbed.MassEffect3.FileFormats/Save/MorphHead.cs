@@ -34,34 +34,34 @@ namespace Gibbed.MassEffect3.FileFormats.Save
         private string _HairMesh;
 
         [OriginalName("AccessoryMeshes")]
-        private List<string> _AccessoryMeshes;
+        private List<string> _AccessoryMeshes = new List<string>();
 
         [OriginalName("MorphFeatures")]
-        private List<MorphFeature> _MorphFeatures;
+        private List<MorphFeature> _MorphFeatures = new List<MorphFeature>();
 
         [OriginalName("OffsetBones")]
-        private List<OffsetBone> _OffsetBones;
+        private List<OffsetBone> _OffsetBones = new List<OffsetBone>();
 
         [OriginalName("LOD0Vertices")]
-        private List<Vector> _Lod0Vertices;
+        private List<Vector> _Lod0Vertices = new List<Vector>();
 
         [OriginalName("LOD1Vertices")]
-        private List<Vector> _Lod1Vertices;
+        private List<Vector> _Lod1Vertices = new List<Vector>();
 
         [OriginalName("LOD2Vertices")]
-        private List<Vector> _Lod2Vertices;
+        private List<Vector> _Lod2Vertices = new List<Vector>();
 
         [OriginalName("LOD3Vertices")]
-        private List<Vector> _Lod3Vertices;
+        private List<Vector> _Lod3Vertices = new List<Vector>();
 
         [OriginalName("ScalarParameters")]
-        private List<ScalarParameter> _ScalarParameters;
+        private List<ScalarParameter> _ScalarParameters = new List<ScalarParameter>();
 
         [OriginalName("VectorParameters")]
-        private List<VectorParameter> _VectorParameters;
+        private List<VectorParameter> _VectorParameters = new List<VectorParameter>();
 
         [OriginalName("TextureParameters")]
-        private List<TextureParameter> _TextureParameters;
+        private List<TextureParameter> _TextureParameters = new List<TextureParameter>();
         #endregion
 
         public void Serialize(Unreal.ISerializer stream)
@@ -93,7 +93,9 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             }
         }
 
-        [Editor("System.Windows.Forms.Design.StringCollectionEditor, System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(System.Drawing.Design.UITypeEditor))]
+        [Editor(
+            "System.Windows.Forms.Design.StringCollectionEditor, System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+            , typeof(System.Drawing.Design.UITypeEditor))]
         public List<string> AccessoryMeshes
         {
             get { return this._AccessoryMeshes; }
@@ -226,6 +228,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
         #endregion
 
         public event PropertyChangedEventHandler PropertyChanged;
+
         private void NotifyPropertyChanged(string propertyName)
         {
             if (this.PropertyChanged != null)
@@ -254,7 +257,11 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             }
 
             // for CollectionEditor
-            public string Name { get { return this._Feature; } }
+            public string Name
+            {
+                get { return this._Feature; }
+            }
+
             public override string ToString()
             {
                 return this.Name ?? "(null)";
@@ -289,6 +296,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             #endregion
 
             public event PropertyChangedEventHandler PropertyChanged;
+
             private void NotifyPropertyChanged(string propertyName)
             {
                 if (this.PropertyChanged != null)
@@ -307,7 +315,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             private string _Name;
 
             [OriginalName("Name")]
-            private Vector _Offset;
+            private Vector _Offset = new Vector();
             #endregion
 
             public void Serialize(Unreal.ISerializer stream)
@@ -351,6 +359,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             #endregion
 
             public event PropertyChangedEventHandler PropertyChanged;
+
             private void NotifyPropertyChanged(string propertyName)
             {
                 if (this.PropertyChanged != null)
@@ -413,6 +422,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             #endregion
 
             public event PropertyChangedEventHandler PropertyChanged;
+
             private void NotifyPropertyChanged(string propertyName)
             {
                 if (this.PropertyChanged != null)
@@ -431,7 +441,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             private string _Name;
 
             [OriginalName("Value")]
-            private LinearColor _Value;
+            private LinearColor _Value = new LinearColor();
             #endregion
 
             public void Serialize(Unreal.ISerializer stream)
@@ -475,6 +485,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             #endregion
 
             public event PropertyChangedEventHandler PropertyChanged;
+
             private void NotifyPropertyChanged(string propertyName)
             {
                 if (this.PropertyChanged != null)
@@ -537,6 +548,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             #endregion
 
             public event PropertyChangedEventHandler PropertyChanged;
+
             private void NotifyPropertyChanged(string propertyName)
             {
                 if (this.PropertyChanged != null)

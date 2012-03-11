@@ -40,7 +40,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
         private int _XP;
 
         [OriginalName("Items")]
-        private List<string> _Items;
+        private List<string> _Items = new List<string>();
         #endregion
 
         public void Serialize(Unreal.ISerializer stream)
@@ -106,6 +106,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
         #endregion
 
         public event PropertyChangedEventHandler PropertyChanged;
+
         private void NotifyPropertyChanged(string propertyName)
         {
             if (this.PropertyChanged != null)

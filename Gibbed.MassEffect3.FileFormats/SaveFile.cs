@@ -60,67 +60,67 @@ namespace Gibbed.MassEffect3.FileFormats
         private Save.EndGameState _EndGameState;
 
         [Save.OriginalName("TimeStamp")]
-        private Save.SaveTimeStamp _TimeStamp;
+        private Save.SaveTimeStamp _TimeStamp = new Save.SaveTimeStamp();
 
         [Save.OriginalName("SaveLocation")]
-        private Save.Vector _Location;
+        private Save.Vector _Location = new Save.Vector();
 
         [Save.OriginalName("SaveRotation")]
-        private Save.Rotator _Rotation;
+        private Save.Rotator _Rotation = new Save.Rotator();
 
         [Save.OriginalName("CurrentLoadingTip")]
         private int _CurrentLoadingTip;
 
         [Save.OriginalName("LevelRecords")]
-        private List<Save.Level> _Levels;
+        private List<Save.Level> _Levels = new List<Save.Level>();
 
         [Save.OriginalName("StreamingRecords")]
-        private List<Save.StreamingState> _StreamingRecords;
+        private List<Save.StreamingState> _StreamingRecords = new List<Save.StreamingState>();
 
         [Save.OriginalName("KismetRecords")]
-        private List<Save.KismetBool> _KismetRecords;
+        private List<Save.KismetBool> _KismetRecords = new List<Save.KismetBool>();
 
         [Save.OriginalName("DoorRecords")]
-        private List<Save.Door> _Doors;
+        private List<Save.Door> _Doors = new List<Save.Door>();
 
         [Save.OriginalName("PlaceableRecords")]
-        private List<Save.Placeable> _Placeables;
+        private List<Save.Placeable> _Placeables = new List<Save.Placeable>();
 
         [Save.OriginalName("PawnRecords")]
-        private List<Guid> _Pawns;
+        private List<Guid> _Pawns = new List<Guid>();
 
         [Save.OriginalName("PlayerRecord")]
-        private Save.Player _Player;
+        private Save.Player _Player = new Save.Player();
 
         [Save.OriginalName("HenchmanRecords")]
-        private List<Save.Henchman> _Henchmen;
+        private List<Save.Henchman> _Henchmen = new List<Save.Henchman>();
 
         [Save.OriginalName("PlotRecord")]
-        private Save.PlotTable _Plot;
+        private Save.PlotTable _Plot = new Save.PlotTable();
 
         [Save.OriginalName("ME1PlotRecord")]
-        private Save.ME1PlotTable _ME1Plot;
+        private Save.ME1PlotTable _ME1Plot = new Save.ME1PlotTable();
 
         [Save.OriginalName("PlayerVariableRecords")]
-        private List<Save.PlayerVariable> _PlayerVariables;
+        private List<Save.PlayerVariable> _PlayerVariables = new List<Save.PlayerVariable>();
 
         [Save.OriginalName("GalaxyMapRecord")]
-        private Save.GalaxyMap _GalaxyMap;
+        private Save.GalaxyMap _GalaxyMap = new Save.GalaxyMap();
 
         [Save.OriginalName("DependentDLC")]
-        private List<Save.DependentDLC> _DependentDLC;
+        private List<Save.DependentDLC> _DependentDLC = new List<Save.DependentDLC>();
 
         [Save.OriginalName("TreasureRecords")]
-        private List<Save.LevelTreasure> _Treasures;
+        private List<Save.LevelTreasure> _Treasures = new List<Save.LevelTreasure>();
 
         [Save.OriginalName("UseModuleRecords")]
-        private List<Guid> _UseModules;
+        private List<Guid> _UseModules = new List<Guid>();
 
         [Save.OriginalName("ConversationMode")]
         private Save.AutoReplyModeOptions _ConversationMode;
 
         [Save.OriginalName("ObjectiveMarkerRecords")]
-        private List<Save.ObjectiveMarker> _ObjectiveMarkers;
+        private List<Save.ObjectiveMarker> _ObjectiveMarkers = new List<Save.ObjectiveMarker>();
 
         [Save.OriginalName("SavedObjectiveText")]
         private int _SavedObjectiveText;
@@ -161,7 +161,9 @@ namespace Gibbed.MassEffect3.FileFormats
             stream.Serialize(ref this._DependentDLC);
             stream.Serialize(ref this._Treasures, s => s.Version < 35, () => new List<Save.LevelTreasure>());
             stream.Serialize(ref this._UseModules, s => s.Version < 39, () => new List<Guid>());
-            stream.SerializeEnum(ref this._ConversationMode, s => s.Version < 49, () => Save.AutoReplyModeOptions.AllDecisions);
+            stream.SerializeEnum(ref this._ConversationMode,
+                                 s => s.Version < 49,
+                                 () => Save.AutoReplyModeOptions.AllDecisions);
             stream.Serialize(ref this._ObjectiveMarkers, s => s.Version < 52, () => new List<Save.ObjectiveMarker>());
             stream.Serialize(ref this._SavedObjectiveText, s => s.Version < 52, () => 0);
         }
@@ -238,7 +240,7 @@ namespace Gibbed.MassEffect3.FileFormats
                 }
             }
         }
-        
+
         [Category("Basic")]
         [DisplayName("Disc")]
         public int Disc
@@ -283,7 +285,7 @@ namespace Gibbed.MassEffect3.FileFormats
                 }
             }
         }
-        
+
         [Category("Basic")]
         [DisplayName("Difficulty")]
         public Save.DifficultyOptions Difficulty
@@ -343,7 +345,7 @@ namespace Gibbed.MassEffect3.FileFormats
                 }
             }
         }
-        
+
         [Category("Location")]
         [DisplayName("Rotation")]
         public Save.Rotator Rotation
@@ -448,7 +450,7 @@ namespace Gibbed.MassEffect3.FileFormats
                 }
             }
         }
-        
+
         [Category("Other")]
         [DisplayName("Pawns")]
         public List<Guid> Pawns
@@ -646,6 +648,7 @@ namespace Gibbed.MassEffect3.FileFormats
         #endregion
 
         public event PropertyChangedEventHandler PropertyChanged;
+
         private void NotifyPropertyChanged(string propertyName)
         {
             if (this.PropertyChanged != null)
@@ -671,8 +674,9 @@ namespace Gibbed.MassEffect3.FileFormats
             {
                 throw new FormatException("unexpected version");
             }
-            var endian = save._Version == 29 || save._Version == 59 ?
-                Endian.Little : Endian.Big;
+            var endian = save._Version == 29 || save._Version == 59
+                             ? Endian.Little
+                             : Endian.Big;
             if (endian == Endian.Big)
             {
                 save._Version = save._Version.Swap();

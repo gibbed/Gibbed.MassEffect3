@@ -27,12 +27,14 @@ namespace Gibbed.MassEffect3.FileFormats.Save
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class Loadout : Unreal.ISerializable, INotifyPropertyChanged
     {
+        #region Fields
         private string _Unknown0;
         private string _Unknown1;
         private string _Unknown2;
         private string _Unknown3;
         private string _Unknown4;
         private string _Unknown5;
+        #endregion
 
         public void Serialize(Unreal.ISerializer stream)
         {
@@ -125,6 +127,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
         #endregion
 
         public event PropertyChangedEventHandler PropertyChanged;
+
         private void NotifyPropertyChanged(string propertyName)
         {
             if (this.PropertyChanged != null)

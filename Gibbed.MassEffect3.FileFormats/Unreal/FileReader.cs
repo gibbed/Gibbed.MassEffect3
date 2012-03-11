@@ -35,7 +35,11 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
 
         public Endian Endian;
         public uint Version { get; private set; }
-        public SerializeMode Mode { get { return SerializeMode.Reading; } }
+
+        public SerializeMode Mode
+        {
+            get { return SerializeMode.Reading; }
+        }
 
         public FileReader(Stream input, uint version)
             : this(input, version, Endian.Little)
@@ -71,8 +75,11 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
 
             if (isUnicode == true)
             {
-                return this._Input.ReadString((uint)(length * 2), true,
-                    this.Endian == Endian.Little ? Encoding.Unicode : Encoding.BigEndianUnicode);
+                return this._Input.ReadString((uint)(length * 2),
+                                              true,
+                                              this.Endian == Endian.Little
+                                                  ? Encoding.Unicode
+                                                  : Encoding.BigEndianUnicode);
             }
 
             var bytes = this._Input.ReadBytes(length);
@@ -88,9 +95,9 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
             return sb.ToString();
         }
 
-// ReSharper disable RedundantAssignment
+        // ReSharper disable RedundantAssignment
         public void Serialize(ref bool value)
-// ReSharper restore RedundantAssignment
+            // ReSharper restore RedundantAssignment
         {
             value = this._Input.ReadValueB32(this.Endian);
         }
@@ -117,9 +124,9 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
             }
         }
 
-// ReSharper disable RedundantAssignment
+        // ReSharper disable RedundantAssignment
         public void Serialize(ref byte value)
-// ReSharper restore RedundantAssignment
+            // ReSharper restore RedundantAssignment
         {
             value = this._Input.ReadValueU8();
         }
@@ -146,9 +153,9 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
             }
         }
 
-// ReSharper disable RedundantAssignment
+        // ReSharper disable RedundantAssignment
         public void Serialize(ref int value)
-// ReSharper restore RedundantAssignment
+            // ReSharper restore RedundantAssignment
         {
             value = this._Input.ReadValueS32(this.Endian);
         }
@@ -175,9 +182,9 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
             }
         }
 
-// ReSharper disable RedundantAssignment
+        // ReSharper disable RedundantAssignment
         public void Serialize(ref uint value)
-// ReSharper restore RedundantAssignment
+            // ReSharper restore RedundantAssignment
         {
             value = this._Input.ReadValueU32(this.Endian);
         }
@@ -204,9 +211,9 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
             }
         }
 
-// ReSharper disable RedundantAssignment
+        // ReSharper disable RedundantAssignment
         public void Serialize(ref float value)
-// ReSharper restore RedundantAssignment
+            // ReSharper restore RedundantAssignment
         {
             value = this._Input.ReadValueF32(this.Endian);
         }
@@ -233,9 +240,9 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
             }
         }
 
-// ReSharper disable RedundantAssignment
+        // ReSharper disable RedundantAssignment
         public void Serialize(ref string value)
-// ReSharper restore RedundantAssignment
+            // ReSharper restore RedundantAssignment
         {
             value = this.ReadString();
         }
@@ -262,9 +269,9 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
             }
         }
 
-// ReSharper disable RedundantAssignment
+        // ReSharper disable RedundantAssignment
         public void Serialize(ref Guid value)
-// ReSharper restore RedundantAssignment
+            // ReSharper restore RedundantAssignment
         {
             value = this._Input.ReadValueGuid(this.Endian);
         }
@@ -291,9 +298,9 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
             }
         }
 
-// ReSharper disable RedundantAssignment
+        // ReSharper disable RedundantAssignment
         public void SerializeEnum<TEnum>(ref TEnum value)
-// ReSharper restore RedundantAssignment
+            // ReSharper restore RedundantAssignment
         {
             value = this._Input.ReadValueEnum<TEnum>(this.Endian);
         }
@@ -320,12 +327,17 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
             }
         }
 
-// ReSharper disable RedundantAssignment
+        // ReSharper disable RedundantAssignment
         public void Serialize<TType>(ref TType value)
-// ReSharper restore RedundantAssignment
+            // ReSharper restore RedundantAssignment
             where TType : class, ISerializable, new()
         {
-            value = new TType();
+            if (value == null)
+            {
+                throw new ArgumentNullException("serializable class value should not be null", "value");
+            }
+
+            //value = new TType();
             value.Serialize(this);
         }
 
@@ -402,7 +414,7 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
             }
         }
 
-        private List<TType> ReadBasicList<TType>(Func<FileReader, TType> readValue)
+        private void ReadBasicList<TType>(List<TType> list, Func<FileReader, TType> readValue)
         {
             var count = this._Input.ReadValueU32(this.Endian);
             if (count >= 0x7FFFFF)
@@ -410,17 +422,21 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
                 throw new FormatException("too many items in list");
             }
 
-            var list = new List<TType>();
+            list.Clear();
             for (uint i = 0; i < count; i++)
             {
                 list.Add(readValue(this));
             }
-            return list;
         }
 
         public void Serialize(ref List<byte> list)
         {
-            list = this.ReadBasicList(r => r._Input.ReadValueU8());
+            if (list == null)
+            {
+                throw new ArgumentNullException("serializable list should not be null", "list");
+            }
+
+            this.ReadBasicList(list, r => r._Input.ReadValueU8());
         }
 
         public void Serialize(ref List<byte> list, Func<ISerializer, bool> condition, Func<List<byte>> defaultList)
@@ -451,7 +467,12 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
 
         public void Serialize(ref List<int> list)
         {
-            list = this.ReadBasicList(r => r._Input.ReadValueS32(r.Endian));
+            if (list == null)
+            {
+                throw new ArgumentNullException("serializable list should not be null", "list");
+            }
+
+            this.ReadBasicList(list, r => r._Input.ReadValueS32(r.Endian));
         }
 
         public void Serialize(ref List<int> list, Func<ISerializer, bool> condition, Func<List<int>> defaultList)
@@ -482,7 +503,12 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
 
         public void Serialize(ref List<uint> list)
         {
-            list = this.ReadBasicList(r => r._Input.ReadValueU32(r.Endian));
+            if (list == null)
+            {
+                throw new ArgumentNullException("serializable list should not be null", "list");
+            }
+
+            this.ReadBasicList(list, r => r._Input.ReadValueU32(r.Endian));
         }
 
         public void Serialize(ref List<uint> list, Func<ISerializer, bool> condition, Func<List<uint>> defaultList)
@@ -513,7 +539,12 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
 
         public void Serialize(ref List<float> list)
         {
-            list = this.ReadBasicList(r => r._Input.ReadValueF32(r.Endian));
+            if (list == null)
+            {
+                throw new ArgumentNullException("serializable list should not be null", "list");
+            }
+
+            this.ReadBasicList(list, r => r._Input.ReadValueF32(r.Endian));
         }
 
         public void Serialize(ref List<float> list, Func<ISerializer, bool> condition, Func<List<float>> defaultList)
@@ -544,7 +575,12 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
 
         public void Serialize(ref List<string> list)
         {
-            list = this.ReadBasicList(r => r.ReadString());
+            if (list == null)
+            {
+                throw new ArgumentNullException("serializable list should not be null", "list");
+            }
+
+            this.ReadBasicList(list, r => r.ReadString());
         }
 
         public void Serialize(ref List<string> list, Func<ISerializer, bool> condition, Func<List<string>> defaultList)
@@ -575,7 +611,12 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
 
         public void Serialize(ref List<Guid> list)
         {
-            list = this.ReadBasicList(r => r._Input.ReadValueGuid(r.Endian));
+            if (list == null)
+            {
+                throw new ArgumentNullException("serializable list should not be null", "list");
+            }
+
+            this.ReadBasicList(list, r => r._Input.ReadValueGuid(r.Endian));
         }
 
         public void Serialize(ref List<Guid> list, Func<ISerializer, bool> condition, Func<List<Guid>> defaultList)
@@ -606,10 +647,17 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
 
         public void SerializeEnum<TEnum>(ref List<TEnum> list)
         {
-            list = this.ReadBasicList(r => r._Input.ReadValueEnum<TEnum>(r.Endian));
+            if (list == null)
+            {
+                throw new ArgumentNullException("serializable list should not be null", "list");
+            }
+
+            this.ReadBasicList(list, r => r._Input.ReadValueEnum<TEnum>(r.Endian));
         }
 
-        public void SerializeEnum<TEnum>(ref List<TEnum> list, Func<ISerializer, bool> condition, Func<List<TEnum>> defaultList)
+        public void SerializeEnum<TEnum>(ref List<TEnum> list,
+                                         Func<ISerializer, bool> condition,
+                                         Func<List<TEnum>> defaultList)
         {
             if (condition == null)
             {
@@ -638,13 +686,18 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
         public void Serialize<TType>(ref List<TType> list)
             where TType : class, ISerializable, new()
         {
+            if (list == null)
+            {
+                throw new ArgumentNullException("serializable list should not be null", "list");
+            }
+
             var count = this._Input.ReadValueU32(this.Endian);
             if (count >= 0x7FFFFF)
             {
                 throw new FormatException("too many items in list");
             }
 
-            list = new List<TType>();
+            list.Clear();
             for (uint i = 0; i < count; i++)
             {
                 var item = new TType();
@@ -653,7 +706,9 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
             }
         }
 
-        public void Serialize<TType>(ref List<TType> list, Func<ISerializer, bool> condition, Func<List<TType>> defaultList)
+        public void Serialize<TType>(ref List<TType> list,
+                                     Func<ISerializer, bool> condition,
+                                     Func<List<TType>> defaultList)
             where TType : class, ISerializable, new()
         {
             if (condition == null)
