@@ -26,12 +26,22 @@ using System.ComponentModel;
 namespace Gibbed.MassEffect3.FileFormats.Save
 {
     [TypeConverter(typeof(ExpandableObjectConverter))]
+    [OriginalName("SaveTimeStamp")]
     public class SaveTimeStamp : Unreal.ISerializable, INotifyPropertyChanged
     {
+        #region Fields
+        [OriginalName("SecondsSinceMidnight")]
         private int _SecondsSinceMidnight;
+
+        [OriginalName("Day")]
         private int _Day;
+
+        [OriginalName("Month")]
         private int _Month;
+        
+        [OriginalName("Year")]
         private int _Year;
+        #endregion
 
         public void Serialize(Unreal.ISerializer stream)
         {

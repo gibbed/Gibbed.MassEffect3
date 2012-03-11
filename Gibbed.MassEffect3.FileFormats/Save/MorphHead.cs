@@ -26,8 +26,10 @@ using System.ComponentModel;
 namespace Gibbed.MassEffect3.FileFormats.Save
 {
     [TypeConverter(typeof(ExpandableObjectConverter))]
+    [OriginalName("MorphHeadSaveRecord")]
     public class MorphHead : Unreal.ISerializable, INotifyPropertyChanged
     {
+        #region Fields
         [OriginalName("HairMesh")]
         private string _HairMesh;
 
@@ -60,6 +62,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
 
         [OriginalName("TextureParameters")]
         private List<TextureParameter> _TextureParameters;
+        #endregion
 
         public void Serialize(Unreal.ISerializer stream)
         {
@@ -232,10 +235,17 @@ namespace Gibbed.MassEffect3.FileFormats.Save
         }
 
         #region Children
+        [TypeConverter(typeof(ExpandableObjectConverter))]
+        [OriginalName("MorphFeatureSaveRecord")]
         public class MorphFeature : Unreal.ISerializable, INotifyPropertyChanged
         {
+            #region Fields
+            [OriginalName("Feature")]
             private string _Feature;
+
+            [OriginalName("Offset")]
             private float _Offset;
+            #endregion
 
             public void Serialize(Unreal.ISerializer stream)
             {
@@ -288,10 +298,17 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             }
         }
 
+        [TypeConverter(typeof(ExpandableObjectConverter))]
+        [OriginalName("OffsetBoneSaveRecord")]
         public class OffsetBone : Unreal.ISerializable, INotifyPropertyChanged
         {
+            #region Fields
+            [OriginalName("Name")]
             private string _Name;
+
+            [OriginalName("Name")]
             private Vector _Offset;
+            #endregion
 
             public void Serialize(Unreal.ISerializer stream)
             {
@@ -343,10 +360,17 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             }
         }
 
+        [TypeConverter(typeof(ExpandableObjectConverter))]
+        [OriginalName("ScalarParameterSaveRecord")]
         public class ScalarParameter : Unreal.ISerializable, INotifyPropertyChanged
         {
+            #region Fields
+            [OriginalName("Name")]
             private string _Name;
+
+            [OriginalName("Value")]
             private float _Value;
+            #endregion
 
             public void Serialize(Unreal.ISerializer stream)
             {
@@ -398,10 +422,17 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             }
         }
 
+        [TypeConverter(typeof(ExpandableObjectConverter))]
+        [OriginalName("VectorParameterSaveRecord")]
         public class VectorParameter : Unreal.ISerializable, INotifyPropertyChanged
         {
+            #region Fields
+            [OriginalName("Name")]
             private string _Name;
+
+            [OriginalName("Value")]
             private LinearColor _Value;
+            #endregion
 
             public void Serialize(Unreal.ISerializer stream)
             {
@@ -453,10 +484,17 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             }
         }
 
+        [TypeConverter(typeof(ExpandableObjectConverter))]
+        [OriginalName("TextureParameterSaveRecord")]
         public class TextureParameter : Unreal.ISerializable, INotifyPropertyChanged
         {
+            #region Fields
+            [OriginalName("Name")]
             private string _Name;
+
+            [OriginalName("Value")]
             private string _Value;
+            #endregion
 
             public void Serialize(Unreal.ISerializer stream)
             {

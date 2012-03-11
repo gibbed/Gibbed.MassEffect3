@@ -26,19 +26,22 @@ using System.ComponentModel;
 namespace Gibbed.MassEffect3.FileFormats.Save
 {
     [TypeConverter(typeof(ExpandableObjectConverter))]
+    [OriginalName("LevelTreasureSaveRecord")]
     public class LevelTreasure : Unreal.ISerializable, INotifyPropertyChanged
     {
+        #region Fields
         [OriginalName("LevelName")]
         private string _LevelName;
 
-        [OriginalName("Credits")]
+        [OriginalName("nCredits")]
         private int _Credits;
 
-        [OriginalName("XP")]
+        [OriginalName("nXP")]
         private int _XP;
 
         [OriginalName("Items")]
         private List<string> _Items;
+        #endregion
 
         public void Serialize(Unreal.ISerializer stream)
         {

@@ -26,13 +26,16 @@ using System.ComponentModel;
 namespace Gibbed.MassEffect3.FileFormats.Save
 {
     [TypeConverter(typeof(ExpandableObjectConverter))]
+    [OriginalName("KismetBoolSaveRecord")]
     public class KismetBool : Unreal.ISerializable, INotifyPropertyChanged
     {
+        #region Fields
         [OriginalName("BoolGUID")]
         private Guid _Guid;
 
         [OriginalName("Value")]
         private bool _Value;
+        #endregion
 
         public void Serialize(Unreal.ISerializer stream)
         {

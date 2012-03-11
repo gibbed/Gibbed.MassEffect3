@@ -30,40 +30,101 @@ using IdAttribute = DynamicTypeDescriptor.IdAttribute;
 namespace Gibbed.MassEffect3.FileFormats
 {
     [TypeConverter(typeof(ExpandableObjectConverter))]
+    [Save.OriginalName("SFXSaveGame")]
     public class SaveFile : Unreal.ISerializable, INotifyPropertyChanged
     {
         private Endian _Endian;
         private uint _Version;
         private uint _Checksum;
+
+        #region Fields
+        [Save.OriginalName("DebugName")]
         private string _DebugName;
+
+        [Save.OriginalName("SecondsPlayed")]
         private float _SecondsPlayed;
+
+        [Save.OriginalName("Disc")]
         private int _Disc;
+
+        [Save.OriginalName("BaseLevelName")]
         private string _BaseLevelName;
+
+        [Save.OriginalName("BaseLevelNameDisplayOverrideAsRead")]
         private string _BaseLevelNameDisplayOverrideAsRead;
+
+        [Save.OriginalName("Difficulty")]
         private Save.DifficultyOptions _Difficulty;
-        private Save.EndGameType _EndGameState;
+
+        [Save.OriginalName("EndGameState")]
+        private Save.EndGameState _EndGameState;
+
+        [Save.OriginalName("TimeStamp")]
         private Save.SaveTimeStamp _TimeStamp;
+
+        [Save.OriginalName("SaveLocation")]
         private Save.Vector _Location;
+
+        [Save.OriginalName("SaveRotation")]
         private Save.Rotator _Rotation;
+
+        [Save.OriginalName("CurrentLoadingTip")]
         private int _CurrentLoadingTip;
+
+        [Save.OriginalName("LevelRecords")]
         private List<Save.Level> _Levels;
+
+        [Save.OriginalName("StreamingRecords")]
         private List<Save.StreamingState> _StreamingRecords;
+
+        [Save.OriginalName("KismetRecords")]
         private List<Save.KismetBool> _KismetRecords;
+
+        [Save.OriginalName("DoorRecords")]
         private List<Save.Door> _Doors;
+
+        [Save.OriginalName("PlaceableRecords")]
         private List<Save.Placeable> _Placeables;
+
+        [Save.OriginalName("PawnRecords")]
         private List<Guid> _Pawns;
+
+        [Save.OriginalName("PlayerRecord")]
         private Save.Player _Player;
+
+        [Save.OriginalName("HenchmanRecords")]
         private List<Save.Henchman> _Henchmen;
+
+        [Save.OriginalName("PlotRecord")]
         private Save.PlotTable _Plot;
+
+        [Save.OriginalName("ME1PlotRecord")]
         private Save.ME1PlotTable _ME1Plot;
+
+        [Save.OriginalName("PlayerVariableRecords")]
         private List<Save.PlayerVariable> _PlayerVariables;
+
+        [Save.OriginalName("GalaxyMapRecord")]
         private Save.GalaxyMap _GalaxyMap;
+
+        [Save.OriginalName("DependentDLC")]
         private List<Save.DependentDLC> _DependentDLC;
+
+        [Save.OriginalName("TreasureRecords")]
         private List<Save.LevelTreasure> _Treasures;
+
+        [Save.OriginalName("UseModuleRecords")]
         private List<Guid> _UseModules;
+
+        [Save.OriginalName("ConversationMode")]
         private Save.AutoReplyModeOptions _ConversationMode;
+
+        [Save.OriginalName("ObjectiveMarkerRecords")]
         private List<Save.ObjectiveMarker> _ObjectiveMarkers;
+
+        [Save.OriginalName("SavedObjectiveText")]
         private int _SavedObjectiveText;
+        #endregion
 
         public void Serialize(Unreal.ISerializer stream)
         {
@@ -240,7 +301,7 @@ namespace Gibbed.MassEffect3.FileFormats
 
         [Category("Basic")]
         [DisplayName("End Game State")]
-        public Save.EndGameType EndGameState
+        public Save.EndGameState EndGameState
         {
             get { return this._EndGameState; }
             set

@@ -25,8 +25,10 @@ using System.ComponentModel;
 namespace Gibbed.MassEffect3.FileFormats.Save
 {
     [TypeConverter(typeof(ExpandableObjectConverter))]
+    [OriginalName("HotKeySaveRecord")]
     public class HotKey : Unreal.ISerializable, INotifyPropertyChanged
     {
+        #region Fields
         [OriginalName("PawnName")]
         private string _PawnName;
 
@@ -35,6 +37,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
 
         [OriginalName("PowerName")]
         private string _PowerName;
+        #endregion
 
         public void Serialize(Unreal.ISerializer stream)
         {

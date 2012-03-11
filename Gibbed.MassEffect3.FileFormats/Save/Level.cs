@@ -25,29 +25,37 @@ using System.ComponentModel;
 namespace Gibbed.MassEffect3.FileFormats.Save
 {
     [TypeConverter(typeof(ExpandableObjectConverter))]
+    [OriginalName("LevelSaveRecord")]
     public class Level : Unreal.ISerializable, INotifyPropertyChanged
     {
-        private string _LevelName;
+        #region Fields
+        [OriginalName("LevelName")]
+        private string _Name;
+
+        [OriginalName("bShouldBeLoaded")]
         private bool _ShouldBeLoaded;
+
+        [OriginalName("bShouldBeVisible")]
         private bool _ShouldBeVisible;
+        #endregion
 
         public void Serialize(Unreal.ISerializer stream)
         {
-            stream.Serialize(ref this._LevelName);
+            stream.Serialize(ref this._Name);
             stream.Serialize(ref this._ShouldBeLoaded);
             stream.Serialize(ref this._ShouldBeVisible);
         }
 
         #region Properties
-        public string LevelName
+        public string Name
         {
-            get { return this._LevelName; }
+            get { return this._Name; }
             set
             {
-                if (value != this._LevelName)
+                if (value != this._Name)
                 {
-                    this._LevelName = value;
-                    this.NotifyPropertyChanged("LevelName");
+                    this._Name = value;
+                    this.NotifyPropertyChanged("Name");
                 }
             }
         }

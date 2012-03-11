@@ -26,8 +26,10 @@ using System.ComponentModel;
 namespace Gibbed.MassEffect3.FileFormats.Save
 {
     [TypeConverter(typeof(ExpandableObjectConverter))]
+    [OriginalName("DependentDLCRecord")]
     public class DependentDLC : Unreal.ISerializable, INotifyPropertyChanged
     {
+        #region Fields
         [OriginalName("ModuleID")]
         private int _ModuleId;
 
@@ -36,6 +38,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
 
         [OriginalName("CanonicalName")]
         private string _CanonicalName;
+        #endregion
 
         public void Serialize(Unreal.ISerializer stream)
         {

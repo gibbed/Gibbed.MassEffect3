@@ -25,49 +25,48 @@ using System.ComponentModel;
 namespace Gibbed.MassEffect3.FileFormats.Save
 {
     [TypeConverter(typeof(ExpandableObjectConverter))]
+    [OriginalName("PlayerVariableSaveRecord")]
     public class PlayerVariable : Unreal.ISerializable, INotifyPropertyChanged
     {
-        private string _VariableName;
-        private int _VariableValue;
+        #region Fields
+        [OriginalName("VariableName")]
+        private string _Name;
+
+        [OriginalName("VariableValue")]
+        private int _Value;
+        #endregion
 
         public void Serialize(Unreal.ISerializer stream)
         {
-            stream.Serialize(ref this._VariableName);
-            stream.Serialize(ref this._VariableValue);
-        }
-
-        // for CollectionEditor
-        public string Name { get { return this._VariableName; } }
-        public override string ToString()
-        {
-            return this.Name ?? "(null)";
+            stream.Serialize(ref this._Name);
+            stream.Serialize(ref this._Value);
         }
 
         #region Properties
         [DisplayName("Name")]
-        public string VariableName
+        public string Name
         {
-            get { return this._VariableName; }
+            get { return this._Name; }
             set
             {
-                if (value != this._VariableName)
+                if (value != this._Name)
                 {
-                    this._VariableName = value;
-                    this.NotifyPropertyChanged("VariableName");
+                    this._Name = value;
+                    this.NotifyPropertyChanged("Name");
                 }
             }
         }
 
         [DisplayName("Value")]
-        public int VariableValue
+        public int Value
         {
-            get { return this._VariableValue; }
+            get { return this._Value; }
             set
             {
-                if (value != this._VariableValue)
+                if (value != this._Value)
                 {
-                    this._VariableValue = value;
-                    this.NotifyPropertyChanged("VariableValue");
+                    this._Value = value;
+                    this.NotifyPropertyChanged("Value");
                 }
             }
         }

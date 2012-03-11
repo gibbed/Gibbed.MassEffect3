@@ -24,10 +24,17 @@ using System.ComponentModel;
 
 namespace Gibbed.MassEffect3.FileFormats.Save
 {
+    [TypeConverter(typeof(ExpandableObjectConverter))]
+    [OriginalName("StreamingStateSaveRecord")]
     public class StreamingState : Unreal.ISerializable, INotifyPropertyChanged
     {
+        #region Fields
+        [OriginalName("Name")]
         private string _Name;
+
+        [OriginalName("bActive")]
         private bool _Active;
+        #endregion
 
         public void Serialize(Unreal.ISerializer stream)
         {

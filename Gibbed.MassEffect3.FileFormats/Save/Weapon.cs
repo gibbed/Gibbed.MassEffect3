@@ -25,19 +25,35 @@ using System.ComponentModel;
 namespace Gibbed.MassEffect3.FileFormats.Save
 {
     [TypeConverter(typeof(ExpandableObjectConverter))]
+    [OriginalName("WeaponSaveRecord")]
     public class Weapon : Unreal.ISerializable, INotifyPropertyChanged
     {
-        private string _WeaponClassName;
+        #region Fields
+        [OriginalName("WeaponClassName")]
+        private string _ClassName;
+
+        [OriginalName("AmmoUsedCount")]
         private int _AmmoUsedCount;
+
+        [OriginalName("TotalAmmo")]
         private int _TotalAmmo;
+
+        [OriginalName("bCurrentWeapon")]
         private bool _CurrentWeapon;
+
+        [OriginalName("bLastWeapon")]
         private bool _LastWeapon;
+
+        [OriginalName("AmmoPowerName")]
         private string _AmmoPowerName;
+
+        [OriginalName("AmmoPowerSourceTag")]
         private string _AmmoPowerSourceTag;
+        #endregion
 
         public void Serialize(Unreal.ISerializer stream)
         {
-            stream.Serialize(ref this._WeaponClassName);
+            stream.Serialize(ref this._ClassName);
             stream.Serialize(ref this._AmmoUsedCount);
             stream.Serialize(ref this._TotalAmmo);
             stream.Serialize(ref this._CurrentWeapon);
@@ -48,20 +64,20 @@ namespace Gibbed.MassEffect3.FileFormats.Save
 
         public override string ToString()
         {
-            return this._WeaponClassName;
+            return this._ClassName;
         }
 
         #region Properties
         [DisplayName("Class Name")]
-        public string WeaponClassName
+        public string ClassName
         {
-            get { return this._WeaponClassName; }
+            get { return this._ClassName; }
             set
             {
-                if (value != this._WeaponClassName)
+                if (value != this._ClassName)
                 {
-                    this._WeaponClassName = value;
-                    this.NotifyPropertyChanged("WeaponClassName");
+                    this._ClassName = value;
+                    this.NotifyPropertyChanged("ClassName");
                 }
             }
         }

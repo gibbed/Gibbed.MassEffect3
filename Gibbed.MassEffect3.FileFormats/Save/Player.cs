@@ -27,21 +27,23 @@ using System.ComponentModel;
 namespace Gibbed.MassEffect3.FileFormats.Save
 {
     [TypeConverter(typeof(ExpandableObjectConverter))]
+    [OriginalName("PlayerSaveRecord")]
     public class Player : Unreal.ISerializable, INotifyPropertyChanged
     {
-        [OriginalName("IsFemale")]
+        #region Fields
+        [OriginalName("bIsFemale")]
         private bool _IsFemale;
 
         [OriginalName("PlayerClassName")]
         private string _ClassName;
 
-        [OriginalName("CombatPawn")]
+        [OriginalName("bCombatPawn")]
         private bool _IsCombatPawn;
-        
-        [OriginalName("InjuredPawn")]
+
+        [OriginalName("bInjuredPawn")]
         private bool _IsInjuredPawn;
 
-        [OriginalName("UseCasualAppearance")]
+        [OriginalName("bUseCasualAppearance")]
         private bool _UseCasualAppearance;
 
         [OriginalName("Level")]
@@ -137,11 +139,12 @@ namespace Gibbed.MassEffect3.FileFormats.Save
         [OriginalName("FaceCode")]
         private string _FaceCode;
 
-        [OriginalName("ClassFriendlyName")]
+        [OriginalName("srClassFriendlyName")]
         private int _ClassFriendlyName;
 
         [OriginalName("CharacterGUID")]
         private Guid _Guid;
+        #endregion
 
         public void Serialize(Unreal.ISerializer stream)
         {

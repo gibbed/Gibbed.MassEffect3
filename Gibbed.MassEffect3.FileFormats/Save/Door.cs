@@ -26,8 +26,10 @@ using System.ComponentModel;
 namespace Gibbed.MassEffect3.FileFormats.Save
 {
     [TypeConverter(typeof(ExpandableObjectConverter))]
+    [OriginalName("DoorSaveRecord")]
     public class Door : Unreal.ISerializable, INotifyPropertyChanged
     {
+        #region Fields
         [OriginalName("DoorGUID")]
         private Guid _Guid;
 
@@ -36,6 +38,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
 
         [OriginalName("OldState")]
         private byte _OldState;
+        #endregion
 
         public void Serialize(Unreal.ISerializer stream)
         {

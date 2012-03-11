@@ -57,7 +57,7 @@
     <Compile Include="Save\DependentDLC.cs" />
     <Compile Include="Save\DifficultyOptions.cs" />
     <Compile Include="Save\Door.cs" />
-    <Compile Include="Save\EndGameType.cs" />
+    <Compile Include="Save\EndGameState.cs" />
     <Compile Include="Save\GalaxyMap.cs" />
     <Compile Include="Save\GAWAsset.cs" />
     <Compile Include="Save\Henchman.cs" />

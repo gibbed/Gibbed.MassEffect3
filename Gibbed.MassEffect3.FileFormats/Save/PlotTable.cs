@@ -24,21 +24,111 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 
 namespace Gibbed.MassEffect3.FileFormats.Save
 {
     [TypeConverter(typeof(ExpandableObjectConverter))]
+    [OriginalName("PlotTableSaveRecord")]
     public class PlotTable : Unreal.ISerializable, INotifyPropertyChanged
     {
-        private BitArray _BoolVariables;
-        private List<IntVariablePair> _IntVariables;
-        private List<FloatVariablePair> _FloatVariables;
-        private int _QuestProgressCounter;
-        private List<PlotQuest> _QuestProgress;
-        private List<int> _QuestIDs;
-        private List<PlotCodex> _CodexEntries;
-        private List<int> _CodexIDs;
+        public PlotTable()
+        {
+            this._BoolVariablesWrapper = new BoolVariablesWrapper(this);
+        }
 
+        #region Fields
+        [OriginalName("BoolVariables")]
+        private BitArray _BoolVariables;
+        private BoolVariablesWrapper _BoolVariablesWrapper;
+
+        [OriginalName("IntVariables")]
+        private List<IntVariablePair> _IntVariables;
+
+        [OriginalName("FloatVariables")]
+        private List<FloatVariablePair> _FloatVariables;
+
+        [OriginalName("QuestProgressCounter")]
+        private int _QuestProgressCounter;
+
+        [OriginalName("QuestProgress")]
+        private List<PlotQuest> _QuestProgress;
+
+        [OriginalName("QuestIDs")]
+        private List<int> _QuestIDs;
+
+        [OriginalName("CodexEntries")]
+        private List<PlotCodex> _CodexEntries;
+
+        [OriginalName("CodexIDs")]
+        private List<int> _CodexIDs;
+        #endregion
+
+        #region Helpers
+        public bool GetBoolVariable(int index)
+        {
+            if (index >= this._BoolVariables.Count)
+            {
+                return false;
+            }
+
+            return this._BoolVariables[index];
+        }
+
+        public void SetBoolVariable(int index, bool value)
+        {
+            if (index >= this._BoolVariables.Count)
+            {
+                this._BoolVariables.Length = index + 1;
+            }
+
+            this._BoolVariables[index] = value;
+        }
+
+        public int GetIntVariable(int index)
+        {
+            var variable = this._IntVariables
+                .FirstOrDefault(v => v.Index == index);
+            if (variable == null)
+            {
+                return 0;
+            }
+            return variable.Value;
+        }
+
+        public void SetIntVariable(int index, int value)
+        {
+            this._IntVariables.RemoveAll(v => v.Index == index);
+            this._IntVariables.Add(new IntVariablePair()
+            {
+                Index = index,
+                Value = value,
+            });
+        }
+
+        public float GetFloatVariable(int index)
+        {
+            var variable = this._FloatVariables
+                .FirstOrDefault(v => v.Index == index);
+            if (variable == null)
+            {
+                return 0;
+            }
+            return variable.Value;
+        }
+
+        public void SetFloatVariable(int index, float value)
+        {
+            this._FloatVariables.RemoveAll(v => v.Index == index);
+            this._FloatVariables.Add(new FloatVariablePair()
+            {
+                Index = index,
+                Value = value,
+            });
+        }
+        #endregion
+
+        #region Serialize
         public void Serialize(Unreal.ISerializer stream)
         {
             stream.Serialize(ref this._BoolVariables);
@@ -120,19 +210,168 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             stream.Serialize(ref this._CodexEntries);
             stream.Serialize(ref this._CodexIDs);
         }
+        #endregion
+
+        #region BoolVariablesWrapper
+        public class BoolVariablesWrapper : IList
+        {
+            public readonly PlotTable Target;
+
+            // for CollectionEditor, so it knows the correct Item type
+            public bool Item { get; private set; }
+
+            public BoolVariablesWrapper()
+                : this(null)
+            {
+            }
+
+            public BoolVariablesWrapper(PlotTable target)
+            {
+                this.Target = target;
+            }
+
+            #region IEnumerable Members
+            IEnumerator IEnumerable.GetEnumerator()
+            {
+                return this.Target._BoolVariables.GetEnumerator();
+            }
+            #endregion
+
+            #region IList Members
+            int IList.Add(object value)
+            {
+                if ((value is bool) == false)
+                {
+                    throw new ArgumentException("value");
+                }
+
+                var index = this.Target._BoolVariables.Length;
+                this.Target._BoolVariables.Length++;
+                this.Target._BoolVariables[index] = (bool)value;
+                return index;
+            }
+
+            void IList.Clear()
+            {
+                this.Target._BoolVariables.Length = 0;
+            }
+
+            bool IList.Contains(object value)
+            {
+                throw new NotSupportedException();
+            }
+
+            int IList.IndexOf(object value)
+            {
+                throw new NotSupportedException();
+            }
+
+            void IList.Insert(int index, object value)
+            {
+                if ((value is bool) == false)
+                {
+                    throw new ArgumentException("value");
+                }
+
+                if (index >= this.Target._BoolVariables.Length)
+                {
+                    this.Target._BoolVariables.Length = index + 1;
+                    this.Target._BoolVariables[index] = (bool)value;
+                }
+                else
+                {
+                    this.Target._BoolVariables.Length++;
+                    for (int i = this.Target._BoolVariables.Length - 1; i > index; i--)
+                    {
+                        this.Target._BoolVariables[i] = this.Target._BoolVariables[i - 1];
+                    }
+                    this.Target._BoolVariables[index] = (bool)value;
+                }
+            }
+
+            bool IList.IsFixedSize
+            {
+                get { return false; }
+            }
+
+            bool IList.IsReadOnly
+            {
+                get { return false; }
+            }
+
+            void IList.Remove(object value)
+            {
+                throw new NotSupportedException();
+            }
+
+            void IList.RemoveAt(int index)
+            {
+                if (index >= this.Target._BoolVariables.Length)
+                {
+                    throw new IndexOutOfRangeException();
+                }
+
+                for (int i = this.Target._BoolVariables.Length - 1; i > index; i--)
+                {
+                    this.Target._BoolVariables[i - 1] = this.Target._BoolVariables[i];
+                }
+                this.Target._BoolVariables.Length--;
+            }
+
+            object IList.this[int index]
+            {
+                get { return this.Target._BoolVariables[index]; }
+                set
+                {
+                    if ((value is bool) == false)
+                    {
+                        throw new ArgumentException("value");
+                    }
+
+                    this.Target._BoolVariables[index] = (bool)value;
+                }
+            }
+            #endregion
+
+            #region ICollection Members
+            void ICollection.CopyTo(Array array, int index)
+            {
+                for (int i = 0; i < this.Target._BoolVariables.Length; i++)
+                {
+                    array.SetValue(this.Target._BoolVariables[i], index + i);
+                }
+            }
+
+            int ICollection.Count
+            {
+                get { return this.Target._BoolVariables.Length; }
+            }
+
+            bool ICollection.IsSynchronized
+            {
+                get { return false; }
+            }
+
+            object ICollection.SyncRoot
+            {
+                get { return this; }
+            }
+            #endregion
+        }
+        #endregion
 
         #region Properties
-        public BitArray BoolVariables
+        public BoolVariablesWrapper BoolVariables
         {
-            get { return this._BoolVariables; }
-            set
+            get { return this._BoolVariablesWrapper; }
+            /*set
             {
                 if (value != this._BoolVariables)
                 {
                     this._BoolVariables = value;
                     this.NotifyPropertyChanged("BoolVariables");
                 }
-            }
+            }*/
         }
 
         public List<IntVariablePair> IntVariables
@@ -227,6 +466,65 @@ namespace Gibbed.MassEffect3.FileFormats.Save
         }
         #endregion
 
+        #region Helper Properties
+        [DisplayName("New Game+ Count")]
+        public int NewGamePlusCount
+        {
+            get { return this.GetIntVariable(10475); }
+            set { this.SetIntVariable(10475, value); }
+        }
+
+        [DisplayName("Paragon Points")]
+        public int ParagonPoints
+        {
+            get { return this.GetIntVariable(10159); }
+            set { this.SetIntVariable(10159, value); }
+        }
+
+        [DisplayName("Renegade Points")]
+        public int RenegadePoints
+        {
+            get { return this.GetIntVariable(10160); }
+            set { this.SetIntVariable(10160, value); }
+        }
+
+        [DisplayName("Reputation")]
+        public int Reputation
+        {
+            get { return this.GetIntVariable(10297); }
+            set { this.SetIntVariable(10297, value); }
+        }
+
+        [DisplayName("Reputation Points")]
+        public int ReputationPoints
+        {
+            get { return this.GetIntVariable(10380); }
+            set { this.SetIntVariable(10380, value); }
+        }
+
+        [DisplayName("Persuade Multiplier")]
+        public float PersuadeMultiplier
+        {
+            get { return this.GetFloatVariable(10065); }
+            set { this.SetFloatVariable(10065, value); }
+        }
+
+        [DisplayName("Is ME1 Import")]
+        public bool IsME1Import
+        {
+            get { return this.GetBoolVariable(22226); }
+            set { this.SetBoolVariable(22226, value); }
+        }
+
+        [DisplayName("Is ME2 Import")]
+        public bool IsME2Import
+        {
+            get { return this.GetBoolVariable(21554); }
+            set { this.SetBoolVariable(21554, value); }
+        }
+        #endregion
+
+        #region PropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyPropertyChanged(string propertyName)
         {
@@ -235,12 +533,19 @@ namespace Gibbed.MassEffect3.FileFormats.Save
                 this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
+        #endregion
 
         #region Children
+        [OriginalName("IntVariablePair")]
         public class IntVariablePair : Unreal.ISerializable, INotifyPropertyChanged
         {
+            #region Fields
+            [OriginalName("Index")]
             private int _Index;
+
+            [OriginalName("Value")]
             private int _Value;
+            #endregion
 
             public void Serialize(Unreal.ISerializer stream)
             {
@@ -286,10 +591,16 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             }
         }
 
+        [OriginalName("FloatVariablePair")]
         public class FloatVariablePair : Unreal.ISerializable, INotifyPropertyChanged
         {
+            #region Fields
+            [OriginalName("Index")]
             private int _Index;
+
+            [OriginalName("Value")]
             private float _Value;
+            #endregion
 
             public void Serialize(Unreal.ISerializer stream)
             {
@@ -335,12 +646,22 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             }
         }
 
+        [OriginalName("PlotQuest")]
         public class PlotQuest : Unreal.ISerializable, INotifyPropertyChanged
         {
+            #region Fields
+            [OriginalName("QuestCounter")]
             private int _QuestCounter;
+
+            [OriginalName("QuestUpdated")]
             private bool _QuestUpdated;
+
+            [OriginalName("ActiveGoal")]
             private int _ActiveGoal;
+
+            [OriginalName("History")]
             private List<int> _History;
+            #endregion
 
             public void Serialize(Unreal.ISerializer stream)
             {
@@ -414,9 +735,13 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             }
         }
 
+        [OriginalName("PlotCodex")]
         public class PlotCodex : Unreal.ISerializable, INotifyPropertyChanged
         {
+            #region Fields
+            [OriginalName("Pages")]
             private List<PlotCodexPage> _Pages;
+            #endregion
 
             public void Serialize(Unreal.ISerializer stream)
             {
@@ -448,15 +773,21 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             }
 
             #region Children
+            [OriginalName("PlotCodexPage")]
             public class PlotCodexPage : Unreal.ISerializable, INotifyPropertyChanged
             {
+                #region Fields
+                [OriginalName("Page")]
                 private int _Page;
-                private bool _New;
+
+                [OriginalName("bNew")]
+                private bool _IsNew;
+                #endregion
 
                 public void Serialize(Unreal.ISerializer stream)
                 {
                     stream.Serialize(ref this._Page);
-                    stream.Serialize(ref this._New);
+                    stream.Serialize(ref this._IsNew);
                 }
 
                 #region Properties
@@ -473,15 +804,15 @@ namespace Gibbed.MassEffect3.FileFormats.Save
                     }
                 }
 
-                public bool New
+                public bool IsNew
                 {
-                    get { return this._New; }
+                    get { return this._IsNew; }
                     set
                     {
-                        if (value != this._New)
+                        if (value != this._IsNew)
                         {
-                            this._New = value;
-                            this.NotifyPropertyChanged("New");
+                            this._IsNew = value;
+                            this.NotifyPropertyChanged("IsNew");
                         }
                     }
                 }

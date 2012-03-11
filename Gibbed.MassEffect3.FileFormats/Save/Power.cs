@@ -25,22 +25,42 @@ using System.ComponentModel;
 namespace Gibbed.MassEffect3.FileFormats.Save
 {
     [TypeConverter(typeof(ExpandableObjectConverter))]
+    [OriginalName("PowerSaveRecord")]
     public class Power : Unreal.ISerializable, INotifyPropertyChanged
     {
-        private string _PowerName;
+        [OriginalName("PowerName")]
+        private string _Name;
+
+        [OriginalName("CurrentRank")]
         private float _CurrentRank;
+
+        [OriginalName("EvolvedChoices[0]")]
         private int _EvolvedChoice0;
+
+        [OriginalName("EvolvedChoices[1]")]
         private int _EvolvedChoice1;
+
+        [OriginalName("EvolvedChoices[2]")]
         private int _EvolvedChoice2;
+
+        [OriginalName("EvolvedChoices[3]")]
         private int _EvolvedChoice3;
+
+        [OriginalName("EvolvedChoices[4]")]
         private int _EvolvedChoice4;
+
+        [OriginalName("EvolvedChoices[5]")]
         private int _EvolvedChoice5;
-        private string _PowerClassName;
+
+        [OriginalName("PowerClassName")]
+        private string _ClassName;
+
+        [OriginalName("WheelDisplayIndex")]
         private int _WheelDisplayIndex;
 
         public void Serialize(Unreal.ISerializer stream)
         {
-            stream.Serialize(ref this._PowerName);
+            stream.Serialize(ref this._Name);
             stream.Serialize(ref this._CurrentRank);
             stream.Serialize(ref this._EvolvedChoice0, s => s.Version < 30, () => 0);
             stream.Serialize(ref this._EvolvedChoice1, s => s.Version < 30, () => 0);
@@ -48,26 +68,26 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             stream.Serialize(ref this._EvolvedChoice3, s => s.Version < 31, () => 0);
             stream.Serialize(ref this._EvolvedChoice4, s => s.Version < 31, () => 0);
             stream.Serialize(ref this._EvolvedChoice5, s => s.Version < 31, () => 0);
-            stream.Serialize(ref this._PowerClassName);
+            stream.Serialize(ref this._ClassName);
             stream.Serialize(ref this._WheelDisplayIndex);
         }
 
         public override string ToString()
         {
-            return this.PowerName;
+            return this.Name;
         }
 
         #region Properties
         [DisplayName("Name")]
-        public string PowerName
+        public string Name
         {
-            get { return this._PowerName; }
+            get { return this._Name; }
             set
             {
-                if (value != this._PowerName)
+                if (value != this._Name)
                 {
-                    this._PowerName = value;
-                    this.NotifyPropertyChanged("PowerName");
+                    this._Name = value;
+                    this.NotifyPropertyChanged("Name");
                 }
             }
         }
@@ -171,15 +191,15 @@ namespace Gibbed.MassEffect3.FileFormats.Save
         }
 
         [DisplayName("Class Name")]
-        public string PowerClassName
+        public string ClassName
         {
-            get { return this._PowerClassName; }
+            get { return this._ClassName; }
             set
             {
-                if (value != this._PowerClassName)
+                if (value != this._ClassName)
                 {
-                    this._PowerClassName = value;
-                    this.NotifyPropertyChanged("PowerClassName");
+                    this._ClassName = value;
+                    this.NotifyPropertyChanged("ClassName");
                 }
             }
         }

@@ -25,13 +25,16 @@ using System.ComponentModel;
 namespace Gibbed.MassEffect3.FileFormats.Save
 {
     [TypeConverter(typeof(ExpandableObjectConverter))]
+    [OriginalName("GAWAssetSaveInfo")]
     public class GAWAsset : Unreal.ISerializable, INotifyPropertyChanged
     {
+        #region Fields
         [OriginalName("Id")]
         private int _Id;
 
         [OriginalName("Strength")]
         private int _Strength;
+        #endregion
 
         public void Serialize(Unreal.ISerializer stream)
         {

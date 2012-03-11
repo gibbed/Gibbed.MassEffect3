@@ -26,17 +26,37 @@ using System.ComponentModel;
 namespace Gibbed.MassEffect3.FileFormats.Save
 {
     [TypeConverter(typeof(ExpandableObjectConverter))]
+    [OriginalName("HenchmanSaveRecord")]
     public class Henchman : Unreal.ISerializable, INotifyPropertyChanged
     {
+        #region Fields
+        [OriginalName("Tag")]
         private string _Tag;
+
+        [OriginalName("Powers")]
         private List<Power> _Powers;
+
+        [OriginalName("CharacterLevel")]
         private int _CharacterLevel;
+
+        [OriginalName("TalentPoints")]
         private int _TalentPoints;
+
+        [OriginalName("LoadoutWeapons")]
         private Loadout _LoadoutWeapons;
+
+        [OriginalName("MappedPower")]
         private string _MappedPower;
+
+        [OriginalName("WeaponMods")]
         private List<WeaponMod> _WeaponMods;
+
+        [OriginalName("Grenades")]
         private int _Grenades;
+
+        [OriginalName("Weapons")]
         private List<Weapon> _Weapons;
+        #endregion
 
         public void Serialize(Unreal.ISerializer stream)
         {

@@ -26,10 +26,16 @@ using System.ComponentModel;
 namespace Gibbed.MassEffect3.FileFormats.Save
 {
     [TypeConverter(typeof(ExpandableObjectConverter))]
+    [OriginalName("GalaxyMapSaveRecord")]
     public class GalaxyMap : Unreal.ISerializable, INotifyPropertyChanged
     {
+        #region Fields
+        [OriginalName("Planets")]
         private List<Planet> _Planets;
+
+        [OriginalName("Systems")]
         private List<System> _Systems;
+        #endregion
 
         public void Serialize(Unreal.ISerializer stream)
         {
@@ -75,38 +81,42 @@ namespace Gibbed.MassEffect3.FileFormats.Save
         }
 
         #region Children
+        [TypeConverter(typeof(ExpandableObjectConverter))]
+        [OriginalName("PlanetSaveRecord")]
         public class Planet : Unreal.ISerializable, INotifyPropertyChanged
         {
+            #region Fields
             [OriginalName("PlanetID")]
-            private int _PlanetId;
+            private int _Id;
 
-            [OriginalName("Visited")]
+            [OriginalName("bVisited")]
             private bool _Visited;
 
             [OriginalName("Probes")]
             private List<Vector2D> _Probes;
 
-            [OriginalName("ShowAsScanned")]
+            [OriginalName("bShowAsScanned")]
             private bool _ShowAsScanned;
+            #endregion
 
             public void Serialize(Unreal.ISerializer stream)
             {
-                stream.Serialize(ref this._PlanetId);
+                stream.Serialize(ref this._Id);
                 stream.Serialize(ref this._Visited);
                 stream.Serialize(ref this._Probes);
                 stream.Serialize(ref this._ShowAsScanned, s => s.Version < 51, () => false);
             }
 
             #region Properties
-            public int PlanetId
+            public int Id
             {
-                get { return this._PlanetId; }
+                get { return this._Id; }
                 set
                 {
-                    if (value != this._PlanetId)
+                    if (value != this._Id)
                     {
-                        this._PlanetId = value;
-                        this.NotifyPropertyChanged("PlanetId");
+                        this._Id = value;
+                        this.NotifyPropertyChanged("Id");
                     }
                 }
             }
@@ -161,34 +171,38 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             }
         }
 
+        [TypeConverter(typeof(ExpandableObjectConverter))]
+        [OriginalName("SystemSaveRecord")]
         public class System : Unreal.ISerializable, INotifyPropertyChanged
         {
+            #region Fields
             [OriginalName("SystemID")]
-            private int _SystemId;
+            private int _Id;
 
-            [OriginalName("ReaperAlertLevel")]
+            [OriginalName("fReaperAlertLevel")]
             private float _ReaperAlertLevel;
 
-            [OriginalName("ReapersDetected")]
+            [OriginalName("bReapersDetected")]
             private bool _ReapersDetected;
+            #endregion
 
             public void Serialize(Unreal.ISerializer stream)
             {
-                stream.Serialize(ref this._SystemId);
+                stream.Serialize(ref this._Id);
                 stream.Serialize(ref this._ReaperAlertLevel);
                 stream.Serialize(ref this._ReapersDetected, s => s.Version < 58, () => false);
             }
 
             #region Properties
-            public int SystemId
+            public int Id
             {
-                get { return this._SystemId; }
+                get { return this._Id; }
                 set
                 {
-                    if (value != this._SystemId)
+                    if (value != this._Id)
                     {
-                        this._SystemId = value;
-                        this.NotifyPropertyChanged("SystemId");
+                        this._Id = value;
+                        this.NotifyPropertyChanged("Id");
                     }
                 }
             }

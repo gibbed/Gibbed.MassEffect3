@@ -25,8 +25,10 @@ using System.ComponentModel;
 namespace Gibbed.MassEffect3.FileFormats.Save
 {
     [TypeConverter(typeof(ExpandableObjectConverter))]
+    [OriginalName("AppearanceSaveRecord")]
     public class Appearance : Unreal.ISerializable, INotifyPropertyChanged
     {
+        #region Fields
         [OriginalName("CombatAppearance")]
         private PlayerAppearanceType _CombatAppearance;
         
@@ -69,7 +71,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
         [OriginalName("HelmetID")]
         private int _HelmetId;
 
-        [OriginalName("HasMorphHead")]
+        [OriginalName("bHasMorphHead")]
         private bool _HasMorphHead;
 
         [OriginalName("MorphHead")]
@@ -77,6 +79,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
 
         [OriginalName("EmissiveID")]
         private int _EmissiveId;
+        #endregion
 
         public void Serialize(Unreal.ISerializer stream)
         {

@@ -25,13 +25,25 @@ using System.ComponentModel;
 namespace Gibbed.MassEffect3.FileFormats.Save
 {
     [TypeConverter(typeof(ExpandableObjectConverter))]
+    [OriginalName("ObjectiveMarkerSaveRecord")]
     public class ObjectiveMarker : Unreal.ISerializable, INotifyPropertyChanged
     {
+        #region Fields
+        [OriginalName("MarkerOwnerPath")]
         private string _MarkerOwnerPath;
+
+        [OriginalName("MarkerOffset")]
         private Vector _MarkerOffset;
+
+        [OriginalName("MarkerLabel")]
         private int _MarkerLabel;
+
+        [OriginalName("BoneToAttachTo")]
         private string _BoneToAttachTo;
+
+        [OriginalName("MarkerIconType")]
         private ObjectiveMarkerIconType _MarkerIconType;
+        #endregion
 
         public void Serialize(Unreal.ISerializer stream)
         {

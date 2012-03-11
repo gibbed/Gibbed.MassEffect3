@@ -26,8 +26,10 @@ using System.ComponentModel;
 namespace Gibbed.MassEffect3.FileFormats.Save
 {
     [TypeConverter(typeof(ExpandableObjectConverter))]
+    [OriginalName("PlaceableSaveRecord")]
     public class Placeable : Unreal.ISerializable, INotifyPropertyChanged
     {
+        #region Fields
         [OriginalName("PlaceableGUID")]
         private Guid _Guid;
 
@@ -36,10 +38,13 @@ namespace Gibbed.MassEffect3.FileFormats.Save
 
         [OriginalName("IsDeactivated")]
         private byte _IsDeactivated;
+        #endregion
 
         public void Serialize(Unreal.ISerializer stream)
         {
-            throw new NotImplementedException();
+            stream.Serialize(ref this._Guid);
+            stream.Serialize(ref this._IsDestroyed);
+            stream.Serialize(ref this._IsDeactivated);
         }
 
         #region Properties
