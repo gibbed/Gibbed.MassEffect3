@@ -141,6 +141,7 @@ namespace Gibbed.MassEffect3.SaveEdit
                                 MessageBoxIcon.Error);
                 return;
             }
+            stream.Seek(-4, SeekOrigin.Current);
 
             FileFormats.SFXSaveGameFile saveFile;
             try
