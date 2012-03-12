@@ -113,6 +113,8 @@ namespace Gibbed.MassEffect3.SaveEdit
             }
             // ReSharper restore DoNotCallOverridableMethodsInConstructor
 
+            this.wrexPictureBox.Image = System.Drawing.Image.FromStream(new MemoryStream(Images.Wrex), true);
+
             string savePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             savePath = Path.Combine(savePath, "BioWare");
             savePath = Path.Combine(savePath, "Mass Effect 3");

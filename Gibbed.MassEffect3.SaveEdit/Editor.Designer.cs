@@ -84,7 +84,7 @@
             this.openHeadMorphDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveHeadMorphDialog = new System.Windows.Forms.SaveFileDialog();
             this.faqLinkLabel = new System.Windows.Forms.LinkLabel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.wrexPictureBox = new System.Windows.Forms.PictureBox();
             this.issueLinkLabel = new System.Windows.Forms.LinkLabel();
             this.openAppearancePresetFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveAppearancePresetFileDialog = new System.Windows.Forms.SaveFileDialog();
@@ -106,7 +106,7 @@
             this.rawSplitContainer.Panel1.SuspendLayout();
             this.rawSplitContainer.Panel2.SuspendLayout();
             this.rawSplitContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wrexPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // rootToolStrip
@@ -492,11 +492,11 @@
             this.faqLinkLabel.TabStop = true;
             this.faqLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.OnLinkFaq);
             // 
-            // pictureBox1
+            // wrexPictureBox
             // 
-            resources.ApplyResources(this.pictureBox1, "pictureBox1");
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.TabStop = false;
+            resources.ApplyResources(this.wrexPictureBox, "wrexPictureBox");
+            this.wrexPictureBox.Name = "wrexPictureBox";
+            this.wrexPictureBox.TabStop = false;
             // 
             // issueLinkLabel
             // 
@@ -518,7 +518,7 @@
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.issueLinkLabel);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.wrexPictureBox);
             this.Controls.Add(this.faqLinkLabel);
             this.Controls.Add(this.rootTabControl);
             this.Controls.Add(this.rootToolStrip);
@@ -549,7 +549,7 @@
             this.rawSplitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.rawSplitContainer)).EndInit();
             this.rawSplitContainer.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wrexPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -608,7 +608,7 @@
         private System.Windows.Forms.TextBox plotManualIntIdTextBox;
         private System.Windows.Forms.TextBox plotManualBoolIdTextBox;
         private System.Windows.Forms.LinkLabel faqLinkLabel;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox wrexPictureBox;
         private System.Windows.Forms.LinkLabel issueLinkLabel;
         private System.Windows.Forms.ToolStripDropDownButton appearancePresetsDropDownButton;
         private System.Windows.Forms.ToolStripMenuItem applyAppearancePresetFromFileButton;
