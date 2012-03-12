@@ -42,12 +42,47 @@ namespace Gibbed.MassEffect3.SaveEdit
             get { return this._SaveFile; }
             set
             {
-                if (value != this._SaveFile)
+                if (this._SaveFile != value)
                 {
+                    if (this._SaveFile != null)
+                    {
+                        this._SaveFile.Player.PropertyChanged -= this.OnPlayerPropertyChanged;
+                    }
+
                     this._SaveFile = value;
-                    var dtd = DynamicTypeDescriptor.ProviderInstaller.Install(value);
-                    this.rootPropertyGrid.Site = dtd.GetSite();
-                    this.rootPropertyGrid.SelectedObject = value;
+
+                    if (this._SaveFile != null)
+                    {
+                        this._SaveFile.Player.PropertyChanged += this.OnPlayerPropertyChanged;
+
+                        var dtd = DynamicTypeDescriptor.ProviderInstaller.Install(this._SaveFile);
+                        this.rootPropertyGrid.Site = dtd.GetSite();
+                        this.rootPropertyGrid.SelectedObject = value;
+                        this.playerRootTabPage.ImageKey =
+                            this._SaveFile.Player.IsFemale == false
+                                ? "Tab_Player_Root_Male"
+                                : "Tab_Player_Root_Female";
+                    }
+                }
+            }
+        }
+
+        private void OnPlayerPropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            // goofy?
+
+            if (e.PropertyName == "IsFemale")
+            {
+                if (this._SaveFile == null)
+                {
+                    this.playerRootTabPage.ImageKey = "Tab_Player_Root_Male";
+                }
+                else
+                {
+                    this.playerRootTabPage.ImageKey =
+                        this._SaveFile.Player.IsFemale == false
+                            ? "Tab_Player_Root_Male"
+                            : "Tab_Player_Root_Female";
                 }
             }
         }
@@ -98,7 +133,29 @@ namespace Gibbed.MassEffect3.SaveEdit
 
         private void LoadSaveFromStream(Stream stream)
         {
-            var saveFile = FileFormats.SFXSaveGameFile.Read(stream);
+            if (stream.ReadValueU32(Endian.Big) == 0x434F4E20)
+            {
+                MessageBox.Show("You cannot open Xbox 360 CON files with the save editor.",
+                                "Error",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                return;
+            }
+
+            FileFormats.SFXSaveGameFile saveFile;
+            try
+            {
+                saveFile = FileFormats.SFXSaveGameFile.Read(stream);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(string.Format(CultureInfo.InvariantCulture, Localization.Editor_SaveReadException, e),
+                                Localization.Error,
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                return;
+            }
+
             this.SaveFile = saveFile;
         }
 
@@ -128,20 +185,19 @@ namespace Gibbed.MassEffect3.SaveEdit
                     return;
                 }
 
-                if (string.IsNullOrEmpty(picker.SelectedPath) == false)
-                {
-                    using (var input = File.OpenRead(picker.SelectedPath))
-                    {
-                        this.LoadSaveFromStream(input);
-                    }
-                }
-                else
+                if (string.IsNullOrEmpty(picker.SelectedPath) == true)
                 {
                     MessageBox.Show(
                         Localization.Editor_ThisShouldNeverHappen,
                         Localization.Error,
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
+                    return;
+                }
+
+                using (var input = File.OpenRead(picker.SelectedPath))
+                {
+                    this.LoadSaveFromStream(input);
                 }
             }
         }

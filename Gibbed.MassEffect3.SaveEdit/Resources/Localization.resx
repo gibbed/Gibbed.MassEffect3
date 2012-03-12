@@ -193,4 +193,10 @@ Import anyway?</value>
   <data name="Editor_PlotManualLogBoolGet" xml:space="preserve">
     <value>bool {0} is set to {1}</value>
   </data>
+  <data name="Editor_SaveReadException">
+    <value xml:space="preserve">There was an exception trying to read the save file.
+Please report this message to Rick (ctrl+C to copy this dialog).
+
+{0}</value>
+  </data>
 </root>
