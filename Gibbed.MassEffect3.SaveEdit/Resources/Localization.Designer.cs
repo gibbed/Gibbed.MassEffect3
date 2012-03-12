@@ -61,6 +61,15 @@ namespace Gibbed.MassEffect3.SaveEdit.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You cannot open Xbox 360 CON files with the save editor..
+        /// </summary>
+        internal static string Editor_CannotLoadXbox360CONFile {
+            get {
+                return ResourceManager.GetString("Editor_CannotLoadXbox360CONFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Failed to parse id..
         /// </summary>
         internal static string Editor_FailedToParseId {

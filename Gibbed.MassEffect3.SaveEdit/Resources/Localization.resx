@@ -199,4 +199,7 @@ Please report this message to Rick (ctrl+C to copy this dialog) and include a co
 
 {0}</value>
   </data>
+  <data name="Editor_CannotLoadXbox360CONFile">
+    <value xml:space="preserve">You cannot open Xbox 360 CON files with the save editor.</value>
+  </data>
 </root>

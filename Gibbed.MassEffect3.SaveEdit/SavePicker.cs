@@ -23,11 +23,10 @@
 using System;
 using System.Globalization;
 using System.IO;
-using Gibbed.MassEffect3.SaveEdit.Resources;
 using System.Linq;
-using System.Resources;
 using System.Text;
 using System.Windows.Forms;
+using Gibbed.MassEffect3.SaveEdit.Resources;
 
 namespace Gibbed.MassEffect3.SaveEdit
 {
@@ -35,8 +34,6 @@ namespace Gibbed.MassEffect3.SaveEdit
     {
         public string FilePath { get; set; }
         public string SelectedPath { get; set; }
-
-        public IResourceWriter bob;
 
         public FileFormats.SFXSaveGameFile SaveFile { get; set; }
         private int _HighestSaveNumber;
@@ -307,7 +304,9 @@ namespace Gibbed.MassEffect3.SaveEdit
                         this.careerListView.Items.Add(new ListViewItem()
                         {
                             Text = Path.GetFileName(careerPath),
+                            // ReSharper disable LocalizableElement
                             ImageKey = "Class_Unknown",
+                            // ReSharper restore LocalizableElement
                             Tag = careerPath,
                         });
                     }

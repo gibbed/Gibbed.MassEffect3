@@ -50,6 +50,9 @@
             this.playerAppearanceToolStrip = new System.Windows.Forms.ToolStrip();
             this.importHeadMorphButton = new System.Windows.Forms.ToolStripButton();
             this.exportHeadMorphButton = new System.Windows.Forms.ToolStripButton();
+            this.appearancePresetsDropDownButton = new System.Windows.Forms.ToolStripDropDownButton();
+            this.applyAppearancePresetFromFileButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iconImageList = new System.Windows.Forms.ImageList(this.components);
             this.plotRootTabPage = new System.Windows.Forms.TabPage();
             this.plotTabControl = new System.Windows.Forms.TabControl();
@@ -80,6 +83,11 @@
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.openHeadMorphDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveHeadMorphDialog = new System.Windows.Forms.SaveFileDialog();
+            this.faqLinkLabel = new System.Windows.Forms.LinkLabel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.issueLinkLabel = new System.Windows.Forms.LinkLabel();
+            this.openAppearancePresetFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.saveAppearancePresetFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.rootToolStrip.SuspendLayout();
             this.rootTabControl.SuspendLayout();
             this.playerRootTabPage.SuspendLayout();
@@ -98,6 +106,7 @@
             this.rawSplitContainer.Panel1.SuspendLayout();
             this.rawSplitContainer.Panel2.SuspendLayout();
             this.rawSplitContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // rootToolStrip
@@ -228,7 +237,8 @@
             // 
             this.playerAppearanceToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.importHeadMorphButton,
-            this.exportHeadMorphButton});
+            this.exportHeadMorphButton,
+            this.appearancePresetsDropDownButton});
             resources.ApplyResources(this.playerAppearanceToolStrip, "playerAppearanceToolStrip");
             this.playerAppearanceToolStrip.Name = "playerAppearanceToolStrip";
             // 
@@ -244,6 +254,26 @@
             this.exportHeadMorphButton.Name = "exportHeadMorphButton";
             this.exportHeadMorphButton.Click += new System.EventHandler(this.OnExportHeadMorph);
             // 
+            // appearancePresetsDropDownButton
+            // 
+            this.appearancePresetsDropDownButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.applyAppearancePresetFromFileButton,
+            this.saveToFileToolStripMenuItem});
+            resources.ApplyResources(this.appearancePresetsDropDownButton, "appearancePresetsDropDownButton");
+            this.appearancePresetsDropDownButton.Name = "appearancePresetsDropDownButton";
+            // 
+            // applyAppearancePresetFromFileButton
+            // 
+            this.applyAppearancePresetFromFileButton.Name = "applyAppearancePresetFromFileButton";
+            resources.ApplyResources(this.applyAppearancePresetFromFileButton, "applyAppearancePresetFromFileButton");
+            this.applyAppearancePresetFromFileButton.Click += new System.EventHandler(this.OnLoadAppearancePresetFromFile);
+            // 
+            // saveToFileToolStripMenuItem
+            // 
+            this.saveToFileToolStripMenuItem.Name = "saveToFileToolStripMenuItem";
+            resources.ApplyResources(this.saveToFileToolStripMenuItem, "saveToFileToolStripMenuItem");
+            this.saveToFileToolStripMenuItem.Click += new System.EventHandler(this.OnSaveAppearancePresetToFile);
+            // 
             // iconImageList
             // 
             this.iconImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("iconImageList.ImageStream")));
@@ -255,6 +285,7 @@
             this.iconImageList.Images.SetKeyName(4, "Tab_Raw_Root");
             this.iconImageList.Images.SetKeyName(5, "Tab_Plot_Root");
             this.iconImageList.Images.SetKeyName(6, "Tab_Plot_Manual");
+            this.iconImageList.Images.SetKeyName(7, "Tab_About_Root");
             // 
             // plotRootTabPage
             // 
@@ -294,6 +325,7 @@
             this.plotManualClearLogButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             resources.ApplyResources(this.plotManualClearLogButton, "plotManualClearLogButton");
             this.plotManualClearLogButton.Name = "plotManualClearLogButton";
+            this.plotManualClearLogButton.Click += new System.EventHandler(this.OnPlotManualClearLog);
             // 
             // plotManualLogTextBox
             // 
@@ -453,10 +485,41 @@
             // 
             resources.ApplyResources(this.saveHeadMorphDialog, "saveHeadMorphDialog");
             // 
+            // faqLinkLabel
+            // 
+            resources.ApplyResources(this.faqLinkLabel, "faqLinkLabel");
+            this.faqLinkLabel.Name = "faqLinkLabel";
+            this.faqLinkLabel.TabStop = true;
+            this.faqLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.OnLinkFaq);
+            // 
+            // pictureBox1
+            // 
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.TabStop = false;
+            // 
+            // issueLinkLabel
+            // 
+            resources.ApplyResources(this.issueLinkLabel, "issueLinkLabel");
+            this.issueLinkLabel.Name = "issueLinkLabel";
+            this.issueLinkLabel.TabStop = true;
+            this.issueLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.OnLinkIssues);
+            // 
+            // openAppearancePresetFileDialog
+            // 
+            resources.ApplyResources(this.openAppearancePresetFileDialog, "openAppearancePresetFileDialog");
+            // 
+            // saveAppearancePresetFileDialog
+            // 
+            resources.ApplyResources(this.saveAppearancePresetFileDialog, "saveAppearancePresetFileDialog");
+            // 
             // Editor
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.issueLinkLabel);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.faqLinkLabel);
             this.Controls.Add(this.rootTabControl);
             this.Controls.Add(this.rootToolStrip);
             this.Name = "Editor";
@@ -486,6 +549,7 @@
             this.rawSplitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.rawSplitContainer)).EndInit();
             this.rawSplitContainer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -543,6 +607,14 @@
         private System.Windows.Forms.TextBox plotManualFloatIdTextBox;
         private System.Windows.Forms.TextBox plotManualIntIdTextBox;
         private System.Windows.Forms.TextBox plotManualBoolIdTextBox;
+        private System.Windows.Forms.LinkLabel faqLinkLabel;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.LinkLabel issueLinkLabel;
+        private System.Windows.Forms.ToolStripDropDownButton appearancePresetsDropDownButton;
+        private System.Windows.Forms.ToolStripMenuItem applyAppearancePresetFromFileButton;
+        private System.Windows.Forms.OpenFileDialog openAppearancePresetFileDialog;
+        private System.Windows.Forms.ToolStripMenuItem saveToFileToolStripMenuItem;
+        private System.Windows.Forms.SaveFileDialog saveAppearancePresetFileDialog;
     }
 }
 

@@ -20,7 +20,6 @@
  *    distribution.
  */
 
-
 using System;
 using System.Collections.Generic;
 using Gibbed.MassEffect3.FileFormats;
@@ -305,6 +304,7 @@ namespace Gibbed.MassEffect3.SaveEdit
 
         public enum SFXPlotType
         {
+            Invalid = 0,
             Float,
             Integer,
             Boolean,
@@ -383,6 +383,7 @@ namespace Gibbed.MassEffect3.SaveEdit
 
             public const int ME3__ME1_Plots_for_ME3__Utility__Henchman__InParty__Krogan = 13942;
         }
+
         // ReSharper restore InconsistentNaming
 
         // TODO: fill these in...
@@ -390,6 +391,5 @@ namespace Gibbed.MassEffect3.SaveEdit
         private static readonly List<CopyPlot> Me2ToMe3PlotCopy = new List<CopyPlot>();
         private static readonly List<NewGameCanonPlot> Me1CanonPlotVariables = new List<NewGameCanonPlot>();
         private static readonly List<NewGameCanonPlot> Me2CanonPlotVariables = new List<NewGameCanonPlot>();
-
     }
 }

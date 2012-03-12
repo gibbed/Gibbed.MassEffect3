@@ -21,6 +21,7 @@
  */
 
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
 using System.IO;
@@ -29,11 +30,17 @@ using System.Threading;
 using System.Windows.Forms;
 using Gibbed.IO;
 using Gibbed.MassEffect3.SaveEdit.Resources;
+using Newtonsoft.Json;
 
 namespace Gibbed.MassEffect3.SaveEdit
 {
     public partial class Editor : Form
     {
+        private static string GetExecutablePath()
+        {
+            return Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+        }
+
         private readonly string _SavePath;
         private FileFormats.SFXSaveGameFile _SaveFile;
 
@@ -75,7 +82,9 @@ namespace Gibbed.MassEffect3.SaveEdit
             {
                 if (this._SaveFile == null)
                 {
+                    // ReSharper disable LocalizableElement
                     this.playerRootTabPage.ImageKey = "Tab_Player_Root_Male";
+                    // ReSharper restore LocalizableElement
                 }
                 else
                 {
@@ -123,6 +132,13 @@ namespace Gibbed.MassEffect3.SaveEdit
                 this.saveToCareerMenuItem.Enabled = false;
             }
 
+            var presetPath = Path.Combine(GetExecutablePath(), "presets");
+            if (Directory.Exists(presetPath) == true)
+            {
+                this.openAppearancePresetFileDialog.InitialDirectory = presetPath;
+                this.saveAppearancePresetFileDialog.InitialDirectory = presetPath;
+            }
+
             // ReSharper disable LocalizableElement
             this.iconImageList.Images.Add("Unknown", new System.Drawing.Bitmap(16, 16));
             // ReSharper restore LocalizableElement
@@ -135,8 +151,8 @@ namespace Gibbed.MassEffect3.SaveEdit
         {
             if (stream.ReadValueU32(Endian.Big) == 0x434F4E20)
             {
-                MessageBox.Show("You cannot open Xbox 360 CON files with the save editor.",
-                                "Error",
+                MessageBox.Show(Localization.Editor_CannotLoadXbox360CONFile,
+                                Localization.Error,
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
                 return;
@@ -420,8 +436,7 @@ namespace Gibbed.MassEffect3.SaveEdit
                 return;
             }
 
-            if (this.SaveFile.Player.Appearance.HasMorphHead == false ||
-                this.SaveFile.Player.Appearance.MorphHead == null)
+            if (this.SaveFile.Player.Appearance.HasMorphHead == false)
             {
                 MessageBox.Show(
                     Localization.Editor_NoHeadMorph,
@@ -690,6 +705,318 @@ namespace Gibbed.MassEffect3.SaveEdit
                                        id,
                                        newValue,
                                        oldValue);
+        }
+
+        private void OnPlotManualClearLog(object sender, EventArgs e)
+        {
+            this.plotManualLogTextBox.Clear();
+        }
+
+        private void OnLinkFaq(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://code.google.com/p/me3tools/wiki/FAQ");
+        }
+
+        private void OnLinkIssues(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://code.google.com/p/me3tools/wiki/IssuesNotice?tm=3");
+        }
+
+        private static int GetTotalTalentPoints(int level)
+        {
+            int points = 0;
+
+            for (int current = 1; current <= level; current++)
+            {
+                if (current == 1)
+                {
+                    points += 3;
+                }
+                else if (current >= 2 && current <= 30)
+                {
+                    points += 2;
+                }
+                else if (current >= 31 && current <= 60)
+                {
+                    points += 4;
+                }
+            }
+
+            return points;
+        }
+
+        private void OnBalanceTalentPoints(object sender, EventArgs e)
+        {
+            int spentPoints = 0;
+            foreach (var power in this.SaveFile.Player.Powers)
+            {
+                var currentRank = (int)power.CurrentRank;
+                while (currentRank > 0)
+                {
+                    spentPoints += currentRank;
+                    currentRank--;
+                }
+            }
+
+            int totalPoints = GetTotalTalentPoints(this.SaveFile.Player.Level);
+            this.SaveFile.Player.TalentPoints = totalPoints - spentPoints;
+        }
+
+        private static void ApplyAppearancePreset(FileFormats.Save.MorphHead morphHead,
+                                                  AppearancePreset preset)
+        {
+            if (morphHead == null)
+            {
+                throw new ArgumentNullException("morphHead");
+            }
+
+            if (preset == null)
+            {
+                throw new ArgumentNullException("preset");
+            }
+
+            if (string.IsNullOrEmpty(preset.HairMesh) == false)
+            {
+                morphHead.HairMesh = preset.HairMesh;
+            }
+
+            if (preset.Scalars != null)
+            {
+                if (preset.Scalars.Remove != null)
+                {
+                    foreach (var scalar in preset.Scalars.Remove)
+                    {
+                        morphHead.ScalarParameters.RemoveAll(
+                            p => string.Compare(p.Name, scalar, StringComparison.InvariantCultureIgnoreCase) == 0);
+                    }
+                }
+
+                if (preset.Scalars.Add != null)
+                {
+                    foreach (var scalar in preset.Scalars.Add)
+                    {
+                        morphHead.ScalarParameters.Add(
+                            new FileFormats.Save.MorphHead.ScalarParameter()
+                            {
+                                Name = scalar.Key,
+                                Value = scalar.Value,
+                            });
+                    }
+                }
+
+                if (preset.Scalars.Set != null)
+                {
+                    foreach (var scalar in preset.Scalars.Set)
+                    {
+                        morphHead.ScalarParameters.RemoveAll(
+                            p => string.Compare(p.Name, scalar.Key, StringComparison.InvariantCultureIgnoreCase) == 0);
+                        morphHead.ScalarParameters.Add(
+                            new FileFormats.Save.MorphHead.ScalarParameter()
+                            {
+                                Name = scalar.Key,
+                                Value = scalar.Value,
+                            });
+                    }
+                }
+            }
+
+            if (preset.Textures != null)
+            {
+                if (preset.Textures.Remove != null)
+                {
+                    foreach (var texture in preset.Textures.Remove)
+                    {
+                        morphHead.TextureParameters.RemoveAll(
+                            p => string.Compare(p.Name, texture, StringComparison.InvariantCultureIgnoreCase) == 0);
+                    }
+                }
+
+                if (preset.Textures.Add != null)
+                {
+                    foreach (var texture in preset.Textures.Add)
+                    {
+                        morphHead.TextureParameters.Add(
+                            new FileFormats.Save.MorphHead.TextureParameter()
+                            {
+                                Name = texture.Key,
+                                Value = texture.Value,
+                            });
+                    }
+                }
+
+                if (preset.Textures.Set != null)
+                {
+                    foreach (var texture in preset.Textures.Set)
+                    {
+                        morphHead.TextureParameters.RemoveAll(
+                            p => string.Compare(p.Name, texture.Key, StringComparison.InvariantCultureIgnoreCase) == 0);
+                        morphHead.TextureParameters.Add(
+                            new FileFormats.Save.MorphHead.TextureParameter()
+                            {
+                                Name = texture.Key,
+                                Value = texture.Value,
+                            });
+                    }
+                }
+            }
+
+            if (preset.Vectors != null)
+            {
+                if (preset.Vectors.Remove != null)
+                {
+                    foreach (var vector in preset.Vectors.Remove)
+                    {
+                        morphHead.VectorParameters.RemoveAll(
+                            p => string.Compare(p.Name, vector, StringComparison.InvariantCultureIgnoreCase) == 0);
+                    }
+                }
+
+                if (preset.Vectors.Add != null)
+                {
+                    foreach (var vector in preset.Vectors.Add)
+                    {
+                        morphHead.VectorParameters.Add(
+                            new FileFormats.Save.MorphHead.VectorParameter()
+                            {
+                                Name = vector.Key,
+                                Value = new FileFormats.Save.LinearColor()
+                                {
+                                    R = vector.Value.R,
+                                    G = vector.Value.G,
+                                    B = vector.Value.B,
+                                    A = vector.Value.A,
+                                },
+                            });
+                    }
+                }
+
+                if (preset.Vectors.Set != null)
+                {
+                    foreach (var vector in preset.Vectors.Set)
+                    {
+                        morphHead.VectorParameters.RemoveAll(
+                            p => string.Compare(p.Name, vector.Key, StringComparison.InvariantCultureIgnoreCase) == 0);
+                        morphHead.VectorParameters.Add(
+                            new FileFormats.Save.MorphHead.VectorParameter()
+                            {
+                                Name = vector.Key,
+                                Value = new FileFormats.Save.LinearColor()
+                                {
+                                    R = vector.Value.R,
+                                    G = vector.Value.G,
+                                    B = vector.Value.B,
+                                    A = vector.Value.A,
+                                },
+                            });
+                    }
+                }
+            }
+        }
+
+        private void OnLoadAppearancePresetFromFile(object sender, EventArgs e)
+        {
+            if (this._SaveFile == null)
+            {
+                MessageBox.Show(
+                    Localization.Editor_NoActiveSave,
+                    Localization.Error,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
+
+            if (this._SaveFile.Player.Appearance.HasMorphHead == false)
+            {
+                MessageBox.Show(
+                    Localization.Editor_NoHeadMorph,
+                    Localization.Error,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
+
+            if (this.openAppearancePresetFileDialog.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+
+            string text;
+            using (var input = this.openAppearancePresetFileDialog.OpenFile())
+            {
+                var reader = new StreamReader(input);
+                text = reader.ReadToEnd();
+            }
+
+            var preset = JsonConvert.DeserializeObject<AppearancePreset>(text);
+            ApplyAppearancePreset(this._SaveFile.Player.Appearance.MorphHead, preset);
+        }
+
+        private void OnSaveAppearancePresetToFile(object sender, EventArgs e)
+        {
+            if (this.saveAppearancePresetFileDialog.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+
+            if (this._SaveFile == null)
+            {
+                MessageBox.Show(
+                    Localization.Editor_NoActiveSave,
+                    Localization.Error,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
+
+            if (this._SaveFile.Player.Appearance.HasMorphHead == false)
+            {
+                MessageBox.Show(
+                    Localization.Editor_NoHeadMorph,
+                    Localization.Error,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
+
+            var headMorph = this.SaveFile.Player.Appearance.MorphHead;
+
+            // ReSharper disable UseObjectOrCollectionInitializer
+            var preset = new AppearancePreset();
+            // ReSharper restore UseObjectOrCollectionInitializer
+
+            preset.HairMesh = headMorph.HairMesh;
+
+            foreach (var scalar in headMorph.ScalarParameters)
+            {
+                preset.Scalars.Set.Add(new KeyValuePair<string, float>(scalar.Name, scalar.Value));
+            }
+
+            foreach (var texture in headMorph.TextureParameters)
+            {
+                preset.Textures.Set.Add(new KeyValuePair<string, string>(texture.Name, texture.Value));
+            }
+
+            foreach (var vector in headMorph.VectorParameters)
+            {
+                preset.Vectors.Set.Add(new KeyValuePair<string, AppearancePreset.
+                                           LinearColor>(vector.Name,
+                                                        new AppearancePreset.
+                                                            LinearColor()
+                                                        {
+                                                            R = vector.Value.R,
+                                                            G = vector.Value.G,
+                                                            B = vector.Value.B,
+                                                            A = vector.Value.A,
+                                                        }));
+            }
+
+            using (var output = File.Create(this.saveAppearancePresetFileDialog.FileName))
+            {
+                var writer = new StreamWriter(output);
+                writer.Write(JsonConvert.SerializeObject(
+                    preset, Formatting.Indented));
+                writer.Flush();
+            }
         }
     }
 }
