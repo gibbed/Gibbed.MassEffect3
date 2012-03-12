@@ -181,7 +181,7 @@ namespace Gibbed.MassEffect3.SaveEdit.Resources {
         
         /// <summary>
         ///   Looks up a localized string similar to There was an exception trying to read the save file.
-        ///Please report this message to Rick (ctrl+C to copy this dialog).
+        ///Please report this message to Rick (ctrl+C to copy this dialog) and include a copy of the save file you tried to load.
         ///
         ///{0}.
         /// </summary>
