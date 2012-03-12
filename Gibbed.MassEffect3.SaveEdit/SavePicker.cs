@@ -38,7 +38,7 @@ namespace Gibbed.MassEffect3.SaveEdit
 
         public IResourceWriter bob;
 
-        public FileFormats.SaveFile SaveFile { get; set; }
+        public FileFormats.SFXSaveGameFile SaveFile { get; set; }
         private int _HighestSaveNumber;
 
         private PickerMode _FileMode = PickerMode.Invalid;
@@ -253,14 +253,14 @@ namespace Gibbed.MassEffect3.SaveEdit
                         continue;
                     }
 
-                    FileFormats.SaveFile saveFile = null;
+                    FileFormats.SFXSaveGameFile saveFile = null;
                     foreach (var careerFile in careerFiles)
                     {
                         try
                         {
                             using (var input = File.OpenRead(careerFile))
                             {
-                                saveFile = FileFormats.SaveFile.Read(input);
+                                saveFile = FileFormats.SFXSaveGameFile.Read(input);
                             }
 
                             break;
@@ -399,12 +399,12 @@ namespace Gibbed.MassEffect3.SaveEdit
                             }
                         }
 
-                        FileFormats.SaveFile saveFile = null;
+                        FileFormats.SFXSaveGameFile saveFile = null;
                         try
                         {
                             using (var input = File.OpenRead(inputPath))
                             {
-                                saveFile = FileFormats.SaveFile.Read(input);
+                                saveFile = FileFormats.SFXSaveGameFile.Read(input);
                             }
                         }
                         catch (Exception)

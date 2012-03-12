@@ -35,9 +35,9 @@ namespace Gibbed.MassEffect3.SaveEdit
     public partial class Editor : Form
     {
         private readonly string _SavePath;
-        private FileFormats.SaveFile _SaveFile;
+        private FileFormats.SFXSaveGameFile _SaveFile;
 
-        private FileFormats.SaveFile SaveFile
+        private FileFormats.SFXSaveGameFile SaveFile
         {
             get { return this._SaveFile; }
             set
@@ -98,7 +98,7 @@ namespace Gibbed.MassEffect3.SaveEdit
 
         private void LoadSaveFromStream(Stream stream)
         {
-            var saveFile = FileFormats.SaveFile.Read(stream);
+            var saveFile = FileFormats.SFXSaveGameFile.Read(stream);
             this.SaveFile = saveFile;
         }
 
@@ -195,7 +195,7 @@ namespace Gibbed.MassEffect3.SaveEdit
                                        : Endian.Big;
             using (var output = this.saveFileDialog.OpenFile())
             {
-                FileFormats.SaveFile.Write(this.SaveFile, output);
+                FileFormats.SFXSaveGameFile.Write(this.SaveFile, output);
             }
         }
 
@@ -229,7 +229,7 @@ namespace Gibbed.MassEffect3.SaveEdit
                     Directory.CreateDirectory(Path.GetDirectoryName(picker.SelectedPath));
                     using (var output = File.Create(picker.SelectedPath))
                     {
-                        FileFormats.SaveFile.Write(this.SaveFile, output);
+                        FileFormats.SFXSaveGameFile.Write(this.SaveFile, output);
                     }
                 }
                 else

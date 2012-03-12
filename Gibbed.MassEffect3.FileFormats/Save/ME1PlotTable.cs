@@ -57,7 +57,14 @@ namespace Gibbed.MassEffect3.FileFormats.Save
         }
 
         #region Properties
-        public BitArrayWrapper BoolVariables
+        [Browsable(false)]
+        public BitArray BoolVariables
+        {
+            get { return this._BoolVariables; }
+        }
+        
+        [DisplayName("Bool Variables")]
+        public BitArrayWrapper BoolVariablesWrapper
         {
             get { return this._BoolVariablesWrapper; }
             /*set
@@ -70,6 +77,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             }*/
         }
 
+        [DisplayName("Int Variables")]
         public List<int> IntVariables
         {
             get { return this._IntVariables; }
@@ -83,6 +91,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             }
         }
 
+        [DisplayName("Float Variables")]
         public List<float> FloatVariables
         {
             get { return this._FloatVariables; }
