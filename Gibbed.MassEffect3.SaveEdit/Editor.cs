@@ -101,77 +101,90 @@ namespace Gibbed.MassEffect3.SaveEdit
             this._SavePath = null;
             this.InitializeComponent();
 
-            // ReSharper disable DoNotCallOverridableMethodsInConstructor
-            this.DoubleBuffered = true;
-
-            if (Version.Revision > 0)
-            {
-                this.Text += String.Format(
-                    " (Build revision {0} @ {1})",
-                    Version.Revision,
-                    Version.Date);
-            }
-            // ReSharper restore DoNotCallOverridableMethodsInConstructor
-
             try
             {
-                this.wrexPictureBox.Image = System.Drawing.Image.FromStream(new MemoryStream(Images.Wrex), true);
-            }
-            catch (Exception e)
-            {
-                this.wrexPictureBox.Image = null;
-                MessageBox.Show(
-                    "There was an exception trying to load an image from resources (ctrl+C to copy this message):\n\n" +
-                    e.ToString(),
-                    "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-            }
+                // ReSharper disable DoNotCallOverridableMethodsInConstructor
+                this.DoubleBuffered = true;
 
-            string savePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            savePath = Path.Combine(savePath, "BioWare");
-            savePath = Path.Combine(savePath, "Mass Effect 3");
-            savePath = Path.Combine(savePath, "Save");
-
-            if (Directory.Exists(savePath) == true)
-            {
-                this._SavePath = savePath;
-                this.openFileDialog.InitialDirectory = savePath;
-                this.saveFileDialog.InitialDirectory = savePath;
-            }
-            else
-            {
-                this.dontUseCareerPickerToolStripMenuItem.Checked = true;
-                this.dontUseCareerPickerToolStripMenuItem.Enabled = false;
-                this.openFromCareerMenuItem.Enabled = false;
-                this.saveToCareerMenuItem.Enabled = false;
-            }
-
-            try
-            {
-                var presetPath = Path.Combine(GetExecutablePath(), "presets");
-                if (Directory.Exists(presetPath) == true)
+                if (Version.Revision > 0)
                 {
-                    this.openAppearancePresetFileDialog.InitialDirectory = presetPath;
-                    this.saveAppearancePresetFileDialog.InitialDirectory = presetPath;
+                    this.Text += String.Format(
+                        " (Build revision {0} @ {1})",
+                        Version.Revision,
+                        Version.Date);
                 }
+                // ReSharper restore DoNotCallOverridableMethodsInConstructor
+
+                try
+                {
+                    this.wrexPictureBox.Image = System.Drawing.Image.FromStream(new MemoryStream(Images.Wrex), true);
+                }
+                catch (Exception e)
+                {
+                    this.wrexPictureBox.Image = null;
+                    MessageBox.Show(
+                        "There was an exception trying to load an image from resources (ctrl+C to copy this message):\n\n" +
+                        e.ToString(),
+                        "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+
+                string savePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                savePath = Path.Combine(savePath, "BioWare");
+                savePath = Path.Combine(savePath, "Mass Effect 3");
+                savePath = Path.Combine(savePath, "Save");
+
+                if (Directory.Exists(savePath) == true)
+                {
+                    this._SavePath = savePath;
+                    this.openFileDialog.InitialDirectory = savePath;
+                    this.saveFileDialog.InitialDirectory = savePath;
+                }
+                else
+                {
+                    this.dontUseCareerPickerToolStripMenuItem.Checked = true;
+                    this.dontUseCareerPickerToolStripMenuItem.Enabled = false;
+                    this.openFromCareerMenuItem.Enabled = false;
+                    this.saveToCareerMenuItem.Enabled = false;
+                }
+
+                try
+                {
+                    var presetPath = Path.Combine(GetExecutablePath(), "presets");
+                    if (Directory.Exists(presetPath) == true)
+                    {
+                        this.openAppearancePresetFileDialog.InitialDirectory = presetPath;
+                        this.saveAppearancePresetFileDialog.InitialDirectory = presetPath;
+                    }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(
+                        "There was an exception trying to find the preset path (ctrl+C to copy this message):\n\n" +
+                        e.ToString(),
+                        "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+
+                // ReSharper disable LocalizableElement
+                this.iconImageList.Images.Add("Unknown", new System.Drawing.Bitmap(16, 16));
+                // ReSharper restore LocalizableElement
+
+                this.rootTabControl.SelectedTab = rawRootTabPage;
+                this.rawSplitContainer.Panel2Collapsed = true;
             }
             catch (Exception e)
             {
                 MessageBox.Show(
-                    "There was an exception trying to find the preset path (ctrl+C to copy this message):\n\n" +
+                    "There was an exception in the SaveEdit constructor (ctrl+C to copy this message):\n\n" +
                     e.ToString(),
                     "Error",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
+                throw;
             }
-
-            // ReSharper disable LocalizableElement
-            this.iconImageList.Images.Add("Unknown", new System.Drawing.Bitmap(16, 16));
-            // ReSharper restore LocalizableElement
-
-            this.rootTabControl.SelectedTab = rawRootTabPage;
-            this.rawSplitContainer.Panel2Collapsed = true;
         }
 
         private void LoadSaveFromStream(Stream stream)
