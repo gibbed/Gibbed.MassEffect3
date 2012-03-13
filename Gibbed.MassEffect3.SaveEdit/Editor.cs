@@ -113,7 +113,20 @@ namespace Gibbed.MassEffect3.SaveEdit
             }
             // ReSharper restore DoNotCallOverridableMethodsInConstructor
 
-            this.wrexPictureBox.Image = System.Drawing.Image.FromStream(new MemoryStream(Images.Wrex), true);
+            try
+            {
+                this.wrexPictureBox.Image = System.Drawing.Image.FromStream(new MemoryStream(Images.Wrex), true);
+            }
+            catch (Exception e)
+            {
+                this.wrexPictureBox.Image = null;
+                MessageBox.Show(
+                    "There was an exception trying to load an image from resources (ctrl+C to copy this message):\n\n" +
+                    e.ToString(),
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
 
             string savePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             savePath = Path.Combine(savePath, "BioWare");
@@ -134,11 +147,23 @@ namespace Gibbed.MassEffect3.SaveEdit
                 this.saveToCareerMenuItem.Enabled = false;
             }
 
-            var presetPath = Path.Combine(GetExecutablePath(), "presets");
-            if (Directory.Exists(presetPath) == true)
+            try
             {
-                this.openAppearancePresetFileDialog.InitialDirectory = presetPath;
-                this.saveAppearancePresetFileDialog.InitialDirectory = presetPath;
+                var presetPath = Path.Combine(GetExecutablePath(), "presets");
+                if (Directory.Exists(presetPath) == true)
+                {
+                    this.openAppearancePresetFileDialog.InitialDirectory = presetPath;
+                    this.saveAppearancePresetFileDialog.InitialDirectory = presetPath;
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(
+                    "There was an exception trying to find the preset path (ctrl+C to copy this message):\n\n" +
+                    e.ToString(),
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
 
             // ReSharper disable LocalizableElement
