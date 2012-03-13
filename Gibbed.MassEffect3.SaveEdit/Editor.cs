@@ -36,6 +36,59 @@ namespace Gibbed.MassEffect3.SaveEdit
 {
     public partial class Editor : Form
     {
+        public Editor()
+        {
+            this.InitializeComponent();
+
+            this._SavePath = null;
+
+            // ReSharper disable DoNotCallOverridableMethodsInConstructor
+            this.DoubleBuffered = true;
+            if (Version.Revision > 0)
+            {
+                this.Text += String.Format(
+                    " (Build revision {0} @ {1})",
+                    Version.Revision,
+                    Version.Date);
+            }
+            // ReSharper restore DoNotCallOverridableMethodsInConstructor
+
+            this.wrexPictureBox.Image = System.Drawing.Image.FromStream(new MemoryStream(Images.Wrex), true);
+
+            var savePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            savePath = Path.Combine(savePath, "BioWare");
+            savePath = Path.Combine(savePath, "Mass Effect 3");
+            savePath = Path.Combine(savePath, "Save");
+
+            if (Directory.Exists(savePath) == true)
+            {
+                this._SavePath = savePath;
+                this.openFileDialog.InitialDirectory = savePath;
+                this.saveFileDialog.InitialDirectory = savePath;
+            }
+            else
+            {
+                this.dontUseCareerPickerToolStripMenuItem.Checked = true;
+                this.dontUseCareerPickerToolStripMenuItem.Enabled = false;
+                this.openFromCareerMenuItem.Enabled = false;
+                this.saveToCareerMenuItem.Enabled = false;
+            }
+
+            var presetPath = Path.Combine(GetExecutablePath(), "presets");
+            if (Directory.Exists(presetPath) == true)
+            {
+                this.openAppearancePresetFileDialog.InitialDirectory = presetPath;
+                this.saveAppearancePresetFileDialog.InitialDirectory = presetPath;
+            }
+
+            // ReSharper disable LocalizableElement
+            this.iconImageList.Images.Add("Unknown", new System.Drawing.Bitmap(16, 16));
+            // ReSharper restore LocalizableElement
+
+            this.rootTabControl.SelectedTab = rawRootTabPage;
+            this.rawSplitContainer.Panel2Collapsed = true;
+        }
+
         private static string GetExecutablePath()
         {
             return Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
@@ -93,97 +146,6 @@ namespace Gibbed.MassEffect3.SaveEdit
                             ? "Tab_Player_Root_Male"
                             : "Tab_Player_Root_Female";
                 }
-            }
-        }
-
-        public Editor()
-        {
-            try
-            {
-                this._SavePath = null;
-                this.InitializeComponent();
-
-                // ReSharper disable DoNotCallOverridableMethodsInConstructor
-                this.DoubleBuffered = true;
-
-                if (Version.Revision > 0)
-                {
-                    this.Text += String.Format(
-                        " (Build revision {0} @ {1})",
-                        Version.Revision,
-                        Version.Date);
-                }
-                // ReSharper restore DoNotCallOverridableMethodsInConstructor
-
-                try
-                {
-                    this.wrexPictureBox.Image = System.Drawing.Image.FromStream(new MemoryStream(Images.Wrex), true);
-                }
-                catch (Exception e)
-                {
-                    this.wrexPictureBox.Image = null;
-                    MessageBox.Show(
-                        "There was an exception trying to load an image from resources (ctrl+C to copy this message):\n\n" +
-                        e.ToString(),
-                        "Error",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
-                }
-
-                string savePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-                savePath = Path.Combine(savePath, "BioWare");
-                savePath = Path.Combine(savePath, "Mass Effect 3");
-                savePath = Path.Combine(savePath, "Save");
-
-                if (Directory.Exists(savePath) == true)
-                {
-                    this._SavePath = savePath;
-                    this.openFileDialog.InitialDirectory = savePath;
-                    this.saveFileDialog.InitialDirectory = savePath;
-                }
-                else
-                {
-                    this.dontUseCareerPickerToolStripMenuItem.Checked = true;
-                    this.dontUseCareerPickerToolStripMenuItem.Enabled = false;
-                    this.openFromCareerMenuItem.Enabled = false;
-                    this.saveToCareerMenuItem.Enabled = false;
-                }
-
-                try
-                {
-                    var presetPath = Path.Combine(GetExecutablePath(), "presets");
-                    if (Directory.Exists(presetPath) == true)
-                    {
-                        this.openAppearancePresetFileDialog.InitialDirectory = presetPath;
-                        this.saveAppearancePresetFileDialog.InitialDirectory = presetPath;
-                    }
-                }
-                catch (Exception e)
-                {
-                    MessageBox.Show(
-                        "There was an exception trying to find the preset path (ctrl+C to copy this message):\n\n" +
-                        e.ToString(),
-                        "Error",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
-                }
-
-                // ReSharper disable LocalizableElement
-                this.iconImageList.Images.Add("Unknown", new System.Drawing.Bitmap(16, 16));
-                // ReSharper restore LocalizableElement
-
-                this.rootTabControl.SelectedTab = rawRootTabPage;
-                this.rawSplitContainer.Panel2Collapsed = true;
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(
-                    "There was an exception in the SaveEdit constructor (ctrl+C to copy this message):\n\n" +
-                    e.ToString(),
-                    "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-                throw;
             }
         }
 
