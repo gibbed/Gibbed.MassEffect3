@@ -98,11 +98,11 @@ namespace Gibbed.MassEffect3.SaveEdit
 
         public Editor()
         {
-            this._SavePath = null;
-            this.InitializeComponent();
-
             try
             {
+                this._SavePath = null;
+                this.InitializeComponent();
+
                 // ReSharper disable DoNotCallOverridableMethodsInConstructor
                 this.DoubleBuffered = true;
 
