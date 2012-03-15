@@ -325,63 +325,83 @@
   <metadata name="playerAppearanceToolStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>122, 41</value>
   </metadata>
-  <data name="importHeadMorphButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="morphHeadImportButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHcSURBVDhPzZJPSJNhHMffWxeho9EpQi9edgsNglh4EB10
-        aBJ6KNbBUbwUI8k/bJWQe3ntkIVpipjoQanAttDD0lWCoKVp1GxFtSwtFQubz9O7rflpz+UNOrlTfeFz
-        +36+8Ht4NO2/SbXf7zoWCNTlg3LsA442NXnJM8qxB6rq609nt7cZn5lhcCzCqVsJDpuSQ0FJ1TXJ8U6B
-        p1dw86GgJ7qF6irHHqjw+c6ksln6RkbIZKE79ATj/grGA0nbqORKSBAMC8ZfCh7HtlBd5WgllZW1JS5X
-        o6JzaAjFxy9fWU9mGYwsEJnfIDQnuTctGZsXPHolePZWIDIZjui6ru1zOgN/n25l0ix/22RpPcXzD5LJ
-        RcFUXDL1WjL7TrL4WbKZTuP0es9phWVlnsLS0hZFsKsLxZtEgqfxGCdaL1NrtqH39BMYDmGGo/RPviAa
-        W2PDsjjo8fjsNzhQU3N+VUoutbdjpX9x1ujAfXGYamMCb/ccjXffY0TW6Jj+Qe+Cheoqxx5wuN0XVoTg
-        +sAADeZV3M19VDSHcQejnLwxi347TsOdZVpGv2NO/ER1lWMP7C8v96+mUnxKJneE6irHHigoLq7b7XC0
-        5kNBUdGfj5Rb2pVjT469O0R1lfOP8xvXqLtyB6wyQgAAAABJRU5ErkJggg==
+        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAACAElEQVQ4T6XTT0iTYRwH8N9N
+        iKBjMjoEeamLXQo0xEISirZD9Ea4Q7EdfClmkcGU4VZC7uW1QxamKWKiB6UC20IPS1cJgpamUbMV1fqj
+        pWJh83l6t/X67f2Ngujk2AMfeA7f7+/hOfwIAOUjrzI/TMf8/iwlELBbqnNkp6M+31+qNTGnY3VVKnO7
+        yeH1stPm+jpGJifRNxyB+2YC+3WJsqDEkasSJ9oEXF0CNx4IdEbXwFnu0C6Hg/ZUVdHh2tozKdNE9+Ag
+        MibQEXoM7d4CtPsSzUMSl0MCwbDAyAuBR7E1cJY7tNNud1pD6llbfz/Yhy9fsZw00ReZRWRmBaFpibsT
+        EsMzAg9fCjx9IyAyGRysqfHQ9ooK//8fNzJpzH9bxcflFJ69lxibExiPS4y/kph6KzH3WWI1ncYBVT1H
+        haWlrq0lJY0s2N4O9jqRwJN4DCebLsGpN8PT2QP/QAh6OIqeseeIxpawYhjY53KdJ6tI28rLaa/TeWFR
+        SlxsaYGR/oWzWiuUwACOa6NQO6ZRf+cdtMgSWid+oGvWAGe5QzsqK2m3ojDvghC41tuLOv0KFF83DvnC
+        UIJRnLo+Bc+tOOpuz6Nx6Dv00Z/gLHeyA/5oWEyl8CmZ3BDOWr0G2mSzZW0uKqreUlzclAuro9I/p8C6
+        F1psG8TZgvyXKZ9V5u5vkwSIx0vX4BAAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="importHeadMorphButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
+  <data name="morphHeadImportButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>171, 22</value>
   </data>
-  <data name="importHeadMorphButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>133, 22</value>
+  <data name="morphHeadImportButton.Text" xml:space="preserve">
+    <value>Import From File...</value>
   </data>
-  <data name="importHeadMorphButton.Text" xml:space="preserve">
-    <value>Import Head Morph</value>
-  </data>
-  <data name="exportHeadMorphButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="morphHeadExportButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH+SURBVDhPzZJPSJNxGMffWxehOqWeIhykB+dBcyvDWBhN
-        3PDgXnSHskH4shq14VAnGyXYu/kGKv7ZENShZYtqLReW/Vl1MYTVKYQRdUgcTIpQ+/30dW3f3vc9vB26
-        uFM+8IHn8Hw/PDy/H8P892K9XlOLz9dRCHJGXbzZ4+FQYMkZVdDkdttz+Tz0/RR1PIVBoDgzQHFa6puG
-        KFqDBLZJgvFXBOFn7xFZXITR6byqCowu1xUxl8O1uW14HlEEFij6n1L4JQS5nyfg4wSvPxFMx2LKrtVt
-        be5qlq1RJGcdDgfJZnFxdBD8kwSiSYpYchtvVygeL3/H3cRn3Hm+hMloHMFIBGuZjCKpMJl6ys3mWsbA
-        cdc3dndRYTdB330Bt+dfYCm1iXcrv5D8QpFKi1jf+A0xm//nUkcNBh9z0mZz/djZwSFzPUrY8zh+uRX6
-        TjvYQADOiTBuzkbgn70HYSoMPhTCt3RaER3R6fpKdLpTzAmrtTNDKcqtg9C2B6G3z+BcVxSsPwFu4iN6
-        Hn6F/+U6xpY3cWN4WAkf1GpvHa6srFNuoLVYutKEoOpSCLXcNOqd92HsjcPCv0H7yAc4wil0P1hD38JP
-        eINz8AgCNI2NveorHGto8GZEEatbW3tCnpUzqqBIo+mQVyqEorKyvx9JMh2QKJYo3SPyrJzZJ/UHBRas
-        1CpIjLoAAAAASUVORK5CYII=
+        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAACG0lEQVQ4T6WTX0hTURzHz1sQ
+        Qb5lvhQkkb5sD5lc/2BTGjW6e4g2dELZJLyu1JzG1OEswe7WDUz6syGYI8sW1VouLK2WvRjC6imEEfVQ
+        OJgUoXaPXtf27Z7bYy+O/eBzOAd+n+85HPgRACQf8pLZxcQyMMCrtOQIf9LjIQxywu0W1KScijkqzCXE
+        7HI5MtksuCGKKpGiVqI4fJWiWt0fv05R75dhH5Nx+7WM4Iv3CM3MwOR0nq9tbSXVzc2EmLq6zimZDDom
+        19H3hMI3TTH0nMKrIrH9lAwxKuPNJxnjkYj20jKb7eLBhoayUrOZkCPt7W1yOo3TN4chPoshHKeIxNcx
+        t0jxdOEH7sc+497LeYyFo/CHQlhKpbQQVe4t4flyYhCECyubmyh18OB6TuHa1CzmE6t4t/gb8S8UiaSC
+        5ZU/UNLZ//5pb12dh1Ta7c6fGxsoMNdgt/UoDpytB9ftgNXnQ+doEJcnQvBOPIB0JwgxEMC3ZFIL2sVx
+        g4UVFZXkUGNjd4pSlNiGoWvyg3PchdEVhtUbgzD6Eb2Pv8L7ahm3FlZxaWREk3fqdFcK9PoqNYQQvcXi
+        Ssoy9GcCKBfGUdP5EMfcUVjEt2i68QFtwQR6Hi1hcPoX+v2T6JMk7DeZ3HsMBrLPaCRs6U8pCr6vrW0J
+        1sscJmsBO4qLW9iTckF1hO1FRYTBaptKoQo7bQXWy5x/lc8kasOUb8Bfu994QHgnbQkAAAAASUVORK5C
+        YII=
 </value>
   </data>
-  <data name="exportHeadMorphButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+  <data name="morphHeadExportButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>171, 22</value>
+  </data>
+  <data name="morphHeadExportButton.Text" xml:space="preserve">
+    <value>Export To File...</value>
+  </data>
+  <data name="morphHeadDropDownButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH8SURBVDhPxdNPSNNhHMfx5xR06NJBqIMnLx2MDl5ckjgq
+        MCsMVHKYUiDzhw6JfsmI9iMTstEfW2WFBLpLK2zVkmwtozIvlZj9MU0lqG1l5Z/B3JZr893zrFNH16Ev
+        fHi+Dzyv58tzeIT471XlcOyqMAxrNlFWlDscDWRZyorylhYtvbyM6TQUnYGSc7DtAhR3wJazsPMyWLqh
+        1g3H7kHvCHiGQRllRamuNybTabTr0HwTDHno/BM4chfa7v/pXTKt/eAdhekf8CYMyigrtttstkQqRVvf
+        EDeGwwTG4cF7GbmOhsAv+9sS9r2Fp1Mw9hU+zYMyygqzpjVHk0mKW/dT6mzEFRjgtZygDk7JaZPfyeyD
+        C/BxFkIRmI+BMsqKovr6gwtLS6zbt5kNTWWYjtZw3Oume/Ax/nfTjHyeY3wmRlDCDI7L6b9AGWVFYV3d
+        odlEgrW7q8jZYyHXcoBNTTqFuoOtxknKnRep6exBc3ux33pI57Mx+iciKKOsKKiuPjwTj1Ng7cJk66FE
+        91Bm+Nh76hHWrhfYeydwDoS58jLCtQ8/8YXS+OXTMkZasbGy0v5lcfGvC3Y47lDRHqDWNYR29RW6ZxLD
+        F6I9MEfHYIxLz1Moo6zINZuNb/I9wWh0RVFGWbE6L69hTX7+iWyirPqLq2RyZNavMMoo+2/1GxW1GaUf
+        nQCIAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="morphHeadDropDownButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>
-  <data name="exportHeadMorphButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 22</value>
+  <data name="morphHeadDropDownButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 22</value>
   </data>
-  <data name="exportHeadMorphButton.Text" xml:space="preserve">
-    <value>Export Head Morph</value>
+  <data name="morphHeadDropDownButton.Text" xml:space="preserve">
+    <value>Head Morph</value>
   </data>
-  <data name="applyAppearancePresetFromFileButton.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="appearancePresetOpenFromFileButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>164, 22</value>
   </data>
-  <data name="applyAppearancePresetFromFileButton.Text" xml:space="preserve">
+  <data name="appearancePresetOpenFromFileButton.Text" xml:space="preserve">
     <value>Open From File...</value>
   </data>
-  <data name="saveToFileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="appearancePresetSaveToFileButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>164, 22</value>
   </data>
-  <data name="saveToFileToolStripMenuItem.Text" xml:space="preserve">
+  <data name="appearancePresetSaveToFileButton.Text" xml:space="preserve">
     <value>Save To File...</value>
   </data>
   <data name="appearancePresetsDropDownButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -468,7 +488,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAABY
-        EQAAAk1TRnQBSQFMAgEBCAEAAZABAAGQAQABEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        EQAAAk1TRnQBSQFMAgEBCAEAAZgBAAGYAQABEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABQAMAATADAAEBAQABCAYAAQwYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -1476,34 +1496,22 @@
   <data name="&gt;&gt;dontUseCareerPickerToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;importHeadMorphButton.Name" xml:space="preserve">
-    <value>importHeadMorphButton</value>
-  </data>
-  <data name="&gt;&gt;importHeadMorphButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;exportHeadMorphButton.Name" xml:space="preserve">
-    <value>exportHeadMorphButton</value>
-  </data>
-  <data name="&gt;&gt;exportHeadMorphButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;appearancePresetsDropDownButton.Name" xml:space="preserve">
     <value>appearancePresetsDropDownButton</value>
   </data>
   <data name="&gt;&gt;appearancePresetsDropDownButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripDropDownButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;applyAppearancePresetFromFileButton.Name" xml:space="preserve">
-    <value>applyAppearancePresetFromFileButton</value>
+  <data name="&gt;&gt;appearancePresetOpenFromFileButton.Name" xml:space="preserve">
+    <value>appearancePresetOpenFromFileButton</value>
   </data>
-  <data name="&gt;&gt;applyAppearancePresetFromFileButton.Type" xml:space="preserve">
+  <data name="&gt;&gt;appearancePresetOpenFromFileButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;saveToFileToolStripMenuItem.Name" xml:space="preserve">
-    <value>saveToFileToolStripMenuItem</value>
+  <data name="&gt;&gt;appearancePresetSaveToFileButton.Name" xml:space="preserve">
+    <value>appearancePresetSaveToFileButton</value>
   </data>
-  <data name="&gt;&gt;saveToFileToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;appearancePresetSaveToFileButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;iconImageList.Name" xml:space="preserve">
@@ -1553,6 +1561,24 @@
   </data>
   <data name="&gt;&gt;saveAppearancePresetFileDialog.Type" xml:space="preserve">
     <value>System.Windows.Forms.SaveFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;morphHeadDropDownButton.Name" xml:space="preserve">
+    <value>morphHeadDropDownButton</value>
+  </data>
+  <data name="&gt;&gt;morphHeadDropDownButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripDropDownButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;morphHeadImportButton.Name" xml:space="preserve">
+    <value>morphHeadImportButton</value>
+  </data>
+  <data name="&gt;&gt;morphHeadImportButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;morphHeadExportButton.Name" xml:space="preserve">
+    <value>morphHeadExportButton</value>
+  </data>
+  <data name="&gt;&gt;morphHeadExportButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>Editor</value>

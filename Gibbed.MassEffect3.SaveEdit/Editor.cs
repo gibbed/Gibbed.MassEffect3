@@ -55,18 +55,24 @@ namespace Gibbed.MassEffect3.SaveEdit
 
             this.wrexPictureBox.Image = System.Drawing.Image.FromStream(new MemoryStream(Images.Wrex), true);
 
+            bool hasSaveFolder = false;
             var savePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            savePath = Path.Combine(savePath, "BioWare");
-            savePath = Path.Combine(savePath, "Mass Effect 3");
-            savePath = Path.Combine(savePath, "Save");
-
-            if (Directory.Exists(savePath) == true)
+            if (string.IsNullOrEmpty(savePath) == false)
             {
-                this._SavePath = savePath;
-                this.openFileDialog.InitialDirectory = savePath;
-                this.saveFileDialog.InitialDirectory = savePath;
+                savePath = Path.Combine(savePath, "BioWare");
+                savePath = Path.Combine(savePath, "Mass Effect 3");
+                savePath = Path.Combine(savePath, "Save");
+
+                if (Directory.Exists(savePath) == true)
+                {
+                    this._SavePath = savePath;
+                    this.openFileDialog.InitialDirectory = savePath;
+                    this.saveFileDialog.InitialDirectory = savePath;
+                    hasSaveFolder = true;
+                }
             }
-            else
+
+            if (hasSaveFolder == false)
             {
                 this.dontUseCareerPickerToolStripMenuItem.Checked = true;
                 this.dontUseCareerPickerToolStripMenuItem.Enabled = false;
@@ -91,7 +97,7 @@ namespace Gibbed.MassEffect3.SaveEdit
 
         private static string GetExecutablePath()
         {
-            return Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            return Path.GetDirectoryName(Application.ExecutablePath);
         }
 
         private readonly string _SavePath;
@@ -559,7 +565,7 @@ namespace Gibbed.MassEffect3.SaveEdit
 
             int id;
             if (int.TryParse(
-                this.plotManualIntValueTextBox.Text,
+                this.plotManualIntIdTextBox.Text,
                 NumberStyles.None,
                 Thread.CurrentThread.CurrentCulture,
                 out id) == false)
@@ -593,7 +599,7 @@ namespace Gibbed.MassEffect3.SaveEdit
 
             int id;
             if (int.TryParse(
-                this.plotManualIntValueTextBox.Text,
+                this.plotManualIntIdTextBox.Text,
                 NumberStyles.None,
                 Thread.CurrentThread.CurrentCulture,
                 out id) == false)

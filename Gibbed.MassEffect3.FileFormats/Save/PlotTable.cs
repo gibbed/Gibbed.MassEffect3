@@ -413,6 +413,18 @@ namespace Gibbed.MassEffect3.FileFormats.Save
                 stream.Serialize(ref this._Value);
             }
 
+            // for CollectionEditor
+            [Browsable(false)]
+            public string Name
+            {
+                get { return this._Index.ToString(System.Globalization.CultureInfo.InvariantCulture); }
+            }
+
+            public override string ToString()
+            {
+                return this.Name ?? "(null)";
+            }
+
             #region Properties
             public int Index
             {
@@ -467,6 +479,18 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             {
                 stream.Serialize(ref this._Index);
                 stream.Serialize(ref this._Value);
+            }
+
+            // for CollectionEditor
+            [Browsable(false)]
+            public string Name
+            {
+                get { return this._Index.ToString(System.Globalization.CultureInfo.InvariantCulture); }
+            }
+
+            public override string ToString()
+            {
+                return this.Name ?? "(null)";
             }
 
             #region Properties

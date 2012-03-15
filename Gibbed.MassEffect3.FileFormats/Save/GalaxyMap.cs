@@ -108,6 +108,18 @@ namespace Gibbed.MassEffect3.FileFormats.Save
                 stream.Serialize(ref this._ShowAsScanned, s => s.Version < 51, () => false);
             }
 
+            // for CollectionEditor
+            [Browsable(false)]
+            public string Name
+            {
+                get { return this._Id.ToString(global::System.Globalization.CultureInfo.InvariantCulture); }
+            }
+
+            public override string ToString()
+            {
+                return this.Name ?? "(null)";
+            }
+
             #region Properties
             public int Id
             {
@@ -193,6 +205,18 @@ namespace Gibbed.MassEffect3.FileFormats.Save
                 stream.Serialize(ref this._Id);
                 stream.Serialize(ref this._ReaperAlertLevel);
                 stream.Serialize(ref this._ReapersDetected, s => s.Version < 58, () => false);
+            }
+
+            // for CollectionEditor
+            [Browsable(false)]
+            public string Name
+            {
+                get { return this._Id.ToString(global::System.Globalization.CultureInfo.InvariantCulture); }
+            }
+
+            public override string ToString()
+            {
+                return this.Name ?? "(null)";
             }
 
             #region Properties
