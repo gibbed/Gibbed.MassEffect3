@@ -57,7 +57,7 @@ namespace Gibbed.MassEffect3.FileFormats
         private Save.DifficultyOptions _Difficulty;
 
         [Save.OriginalName("EndGameState")]
-        private Save.EndGameState _EndGameState;
+        private int _EndGameState;
 
         [Save.OriginalName("TimeStamp")]
         private Save.SaveTimeStamp _TimeStamp = new Save.SaveTimeStamp();
@@ -141,7 +141,7 @@ namespace Gibbed.MassEffect3.FileFormats
                 stream.Serialize(ref unknown);
             }
 
-            stream.SerializeEnum(ref this._EndGameState);
+            stream.Serialize(ref this._EndGameState);
             stream.Serialize(ref this._TimeStamp);
             stream.Serialize(ref this._Location);
             stream.Serialize(ref this._Rotation);
@@ -303,7 +303,7 @@ namespace Gibbed.MassEffect3.FileFormats
 
         [Category("Basic")]
         [DisplayName("End Game State")]
-        public Save.EndGameState EndGameState
+        public int EndGameState
         {
             get { return this._EndGameState; }
             set
