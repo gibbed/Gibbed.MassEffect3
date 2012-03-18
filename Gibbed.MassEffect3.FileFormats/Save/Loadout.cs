@@ -28,99 +28,99 @@ namespace Gibbed.MassEffect3.FileFormats.Save
     public class Loadout : Unreal.ISerializable, INotifyPropertyChanged
     {
         #region Fields
-        private string _Unknown0;
-        private string _Unknown1;
-        private string _Unknown2;
-        private string _Unknown3;
-        private string _Unknown4;
-        private string _Unknown5;
+        private string _AssaultRifle;
+        private string _Shotgun;
+        private string _SniperRifle;
+        private string _SubmachineGun;
+        private string _Pistol;
+        private string _HeavyWeapon;
         #endregion
 
         public void Serialize(Unreal.ISerializer stream)
         {
-            stream.Serialize(ref this._Unknown0);
-            stream.Serialize(ref this._Unknown1);
-            stream.Serialize(ref this._Unknown2);
-            stream.Serialize(ref this._Unknown3);
-            stream.Serialize(ref this._Unknown4);
-            stream.Serialize(ref this._Unknown5);
+            stream.Serialize(ref this._AssaultRifle);
+            stream.Serialize(ref this._Shotgun);
+            stream.Serialize(ref this._SniperRifle);
+            stream.Serialize(ref this._SubmachineGun);
+            stream.Serialize(ref this._Pistol);
+            stream.Serialize(ref this._HeavyWeapon);
         }
 
         #region Properties
-        public string Unknown0
+        public string AssaultRifle
         {
-            get { return this._Unknown0; }
+            get { return this._AssaultRifle; }
             set
             {
-                if (value != this._Unknown0)
+                if (value != this._AssaultRifle)
                 {
-                    this._Unknown0 = value;
-                    this.NotifyPropertyChanged("Unknown0");
+                    this._AssaultRifle = value;
+                    this.NotifyPropertyChanged("AssaultRifle");
                 }
             }
         }
 
-        public string Unknown1
+        public string Shotgun
         {
-            get { return this._Unknown1; }
+            get { return this._Shotgun; }
             set
             {
-                if (value != this._Unknown1)
+                if (value != this._Shotgun)
                 {
-                    this._Unknown1 = value;
-                    this.NotifyPropertyChanged("Unknown1");
+                    this._Shotgun = value;
+                    this.NotifyPropertyChanged("Shotgun");
                 }
             }
         }
 
-        public string Unknown2
+        public string SniperRifle
         {
-            get { return this._Unknown2; }
+            get { return this._SniperRifle; }
             set
             {
-                if (value != this._Unknown2)
+                if (value != this._SniperRifle)
                 {
-                    this._Unknown2 = value;
-                    this.NotifyPropertyChanged("Unknown2");
+                    this._SniperRifle = value;
+                    this.NotifyPropertyChanged("SniperRifle");
                 }
             }
         }
 
-        public string Unknown3
+        public string SubmachineGun
         {
-            get { return this._Unknown3; }
+            get { return this._SubmachineGun; }
             set
             {
-                if (value != this._Unknown3)
+                if (value != this._SubmachineGun)
                 {
-                    this._Unknown3 = value;
-                    this.NotifyPropertyChanged("Unknown3");
+                    this._SubmachineGun = value;
+                    this.NotifyPropertyChanged("SubmachineGun");
                 }
             }
         }
 
-        public string Unknown4
+        public string Pistol
         {
-            get { return this._Unknown4; }
+            get { return this._Pistol; }
             set
             {
-                if (value != this._Unknown4)
+                if (value != this._Pistol)
                 {
-                    this._Unknown4 = value;
-                    this.NotifyPropertyChanged("Unknown4");
+                    this._Pistol = value;
+                    this.NotifyPropertyChanged("Pistol");
                 }
             }
         }
 
-        public string Unknown5
+        public string HeavyWeapon
         {
-            get { return this._Unknown5; }
+            get { return this._HeavyWeapon; }
             set
             {
-                if (value != this._Unknown5)
+                if (value != this._HeavyWeapon)
                 {
-                    this._Unknown5 = value;
-                    this.NotifyPropertyChanged("Unknown5");
+                    this._HeavyWeapon = value;
+                    this.NotifyPropertyChanged("HeavyWeapon");
                 }
             }
         }

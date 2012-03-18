@@ -21,37 +21,30 @@
  */
 
 using System.ComponentModel;
-using System.Drawing.Design;
-using DynamicTypeDescriptor;
 
 namespace Gibbed.MassEffect3.FileFormats.Save
 {
-    [Editor(typeof(StandardValueEditor), typeof(UITypeEditor))]
     [OriginalName("EDifficultyOptions")]
     public enum DifficultyOptions : byte
     {
-        [StandardValue(null, DisplayName = "Narrative")]
         [OriginalName("DO_Level1")]
-        Level1 = 0,
+        Narrative = 0,
 
-        [StandardValue(null, DisplayName = "Casual")]
         [OriginalName("DO_Level2")]
-        Level2 = 1,
+        Casual = 1,
 
-        [StandardValue(null, DisplayName = "Normal")]
         [OriginalName("DO_Level3")]
-        Level3 = 2,
+        Normal = 2,
 
-        [StandardValue(null, DisplayName = "Hardcore")]
         [OriginalName("DO_Level4")]
-        Level4 = 3,
+        Hardcore = 3,
 
-        [StandardValue(null, DisplayName = "Insanity")]
         [OriginalName("DO_Level5")]
-        Level5 = 4,
+        Insanity = 4,
 
-        [StandardValue(null, DisplayName = "What is beyond Insanity?", Description = "(it is a mystery)")]
         [OriginalName("DO_Level6")]
-        Level6 = 5,
+        //[DisplayName("What is beyond Insanity?")]
+        //[Description("(it is a mystery)")]
+        WhatIsBeyondInsanity = 5,
     }
 }

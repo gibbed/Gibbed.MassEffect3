@@ -30,14 +30,17 @@ namespace Gibbed.MassEffect3.FileFormats.Save
 {
     [TypeConverter(typeof(ExpandableObjectConverter))]
     [OriginalName("PlotTableSaveRecord")]
-    public class PlotTable : Unreal.ISerializable, INotifyPropertyChanged
+    public class PlotTable : IPlotTable, Unreal.ISerializable, INotifyPropertyChanged
     {
         public PlotTable()
         {
+            this._Helpers = new PlotTableWrapper(this);
             this._BoolVariablesWrapper = new BitArrayWrapper(this._BoolVariables);
         }
 
         #region Fields
+        private PlotTableWrapper _Helpers;
+
         [OriginalName("BoolVariables")]
         private BitArray _BoolVariables = new BitArray(0);
 
@@ -214,6 +217,12 @@ namespace Gibbed.MassEffect3.FileFormats.Save
         #endregion
 
         #region Properties
+        [DisplayName("Known Variables")]
+        public PlotTableWrapper Helpers
+        {
+            get { return this._Helpers; }
+        }
+
         [Browsable(false)]
         public BitArray BoolVariables { get { return this._BoolVariables; } }
 
@@ -322,64 +331,6 @@ namespace Gibbed.MassEffect3.FileFormats.Save
                     this.NotifyPropertyChanged("CodexIDs");
                 }
             }
-        }
-        #endregion
-
-        #region Helper Properties
-        [DisplayName("New Game+ Count")]
-        public int NewGamePlusCount
-        {
-            get { return this.GetIntVariable(10475); }
-            set { this.SetIntVariable(10475, value); }
-        }
-
-        [DisplayName("Paragon Points")]
-        public int ParagonPoints
-        {
-            get { return this.GetIntVariable(10159); }
-            set { this.SetIntVariable(10159, value); }
-        }
-
-        [DisplayName("Renegade Points")]
-        public int RenegadePoints
-        {
-            get { return this.GetIntVariable(10160); }
-            set { this.SetIntVariable(10160, value); }
-        }
-
-        [DisplayName("Reputation")]
-        public int Reputation
-        {
-            get { return this.GetIntVariable(10297); }
-            set { this.SetIntVariable(10297, value); }
-        }
-
-        [DisplayName("Reputation Points")]
-        public int ReputationPoints
-        {
-            get { return this.GetIntVariable(10380); }
-            set { this.SetIntVariable(10380, value); }
-        }
-
-        [DisplayName("Persuade Multiplier")]
-        public float PersuadeMultiplier
-        {
-            get { return this.GetFloatVariable(10065); }
-            set { this.SetFloatVariable(10065, value); }
-        }
-
-        [DisplayName("Is ME1 Import")]
-        public bool IsME1Import
-        {
-            get { return this.GetBoolVariable(22226); }
-            set { this.SetBoolVariable(22226, value); }
-        }
-
-        [DisplayName("Is ME2 Import")]
-        public bool IsME2Import
-        {
-            get { return this.GetBoolVariable(21554); }
-            set { this.SetBoolVariable(21554, value); }
         }
         #endregion
 

@@ -20,23 +20,12 @@
  *    distribution.
  */
 
-using System.ComponentModel;
-
-namespace Gibbed.MassEffect3.FileFormats.Save
+namespace Gibbed.MassEffect3.FileFormats.Conditionals
 {
-    [OriginalName("EEndGameState")]
-    public enum EndGameState
+    public enum ValueType : byte
     {
-        [OriginalName("EGS_NotFinished")]
-        //[DisplayName("Not Finished")]
-        NotFinished = 0,
-
-        [OriginalName("EGS_OutInABlazeOfGlory")]
-        //[DisplayName("Out In A Blaze Of Glory")]
-        OutInABlazeOfGlory = 1,
-
-        [OriginalName("EGS_LivedToFightAgain")]
-        //[DisplayName("Lived To Fight Again")]
-        LivedToFightAgain = 2,
+        Bool = 0,
+        Int = 1,
+        Float = 2,
     }
 }

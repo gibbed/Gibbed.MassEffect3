@@ -115,15 +115,20 @@ namespace Gibbed.MassEffect3.SaveEdit
                         this._SaveFile.Player.PropertyChanged -= this.OnPlayerPropertyChanged;
                     }
 
+                    var oldValue = this._SaveFile;
                     this._SaveFile = value;
 
                     if (this._SaveFile != null)
                     {
                         this._SaveFile.Player.PropertyChanged += this.OnPlayerPropertyChanged;
 
-                        var dtd = DynamicTypeDescriptor.ProviderInstaller.Install(this._SaveFile);
-                        this.rootPropertyGrid.Site = dtd.GetSite();
+                        /*var dtd = DynamicTypeDescriptor.ProviderInstaller.Install(this._SaveFile);
+                        dtd.PropertySortOrder = DynamicTypeDescriptor.CustomSortOrder.AscendingById;
+                        dtd.CategorySortOrder = DynamicTypeDescriptor.CustomSortOrder.AscendingById;
+                        this.rootPropertyGrid.Site = dtd.GetSite();*/
+
                         this.rootPropertyGrid.SelectedObject = value;
+                        
                         this.playerRootTabPage.ImageKey =
                             this._SaveFile.Player.IsFemale == false
                                 ? "Tab_Player_Root_Male"

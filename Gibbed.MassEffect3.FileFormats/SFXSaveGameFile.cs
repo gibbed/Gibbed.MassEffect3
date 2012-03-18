@@ -25,7 +25,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using Gibbed.IO;
-using IdAttribute = DynamicTypeDescriptor.IdAttribute;
 
 namespace Gibbed.MassEffect3.FileFormats
 {
@@ -211,7 +210,16 @@ namespace Gibbed.MassEffect3.FileFormats
             }
         }
 
-        [Category("Other")]
+        private static class Categories
+        {
+            public const string Basic = "1. Basic";
+            public const string Location = "2. Location";
+            public const string Squad = "3. Squad";
+            public const string Plot = "4. Plot";
+            public const string Uncategorized = "5. Uncategorized";
+        }
+
+        [Category(Categories.Uncategorized)]
         [DisplayName("Debug Name")]
         public string DebugName
         {
@@ -226,7 +234,7 @@ namespace Gibbed.MassEffect3.FileFormats
             }
         }
 
-        [Category("Basic")]
+        [Category(Categories.Basic)]
         [DisplayName("Seconds Played")]
         public float SecondsPlayed
         {
@@ -241,7 +249,7 @@ namespace Gibbed.MassEffect3.FileFormats
             }
         }
 
-        [Category("Basic")]
+        [Category(Categories.Uncategorized)]
         [DisplayName("Disc")]
         public int Disc
         {
@@ -256,7 +264,7 @@ namespace Gibbed.MassEffect3.FileFormats
             }
         }
 
-        [Category("Location")]
+        [Category(Categories.Location)]
         [DisplayName("Base Level Name")]
         public string BaseLevelName
         {
@@ -271,7 +279,7 @@ namespace Gibbed.MassEffect3.FileFormats
             }
         }
 
-        [Category("Location")]
+        [Category(Categories.Location)]
         [DisplayName("Base Level Name Display Override As Read")]
         public string BaseLevelNameDisplayOverrideAsRead
         {
@@ -286,7 +294,7 @@ namespace Gibbed.MassEffect3.FileFormats
             }
         }
 
-        [Category("Basic")]
+        [Category(Categories.Basic)]
         [DisplayName("Difficulty")]
         public Save.DifficultyOptions Difficulty
         {
@@ -301,7 +309,7 @@ namespace Gibbed.MassEffect3.FileFormats
             }
         }
 
-        [Category("Basic")]
+        [Category(Categories.Basic)]
         [DisplayName("End Game State")]
         public int EndGameState
         {
@@ -316,7 +324,7 @@ namespace Gibbed.MassEffect3.FileFormats
             }
         }
 
-        [Category("Basic")]
+        [Category(Categories.Basic)]
         [DisplayName("Timestamp")]
         public Save.SaveTimeStamp TimeStamp
         {
@@ -331,7 +339,7 @@ namespace Gibbed.MassEffect3.FileFormats
             }
         }
 
-        [Category("Location")]
+        [Category(Categories.Location)]
         [DisplayName("Position")]
         public Save.Vector Location
         {
@@ -346,7 +354,7 @@ namespace Gibbed.MassEffect3.FileFormats
             }
         }
 
-        [Category("Location")]
+        [Category(Categories.Location)]
         [DisplayName("Rotation")]
         public Save.Rotator Rotation
         {
@@ -361,7 +369,7 @@ namespace Gibbed.MassEffect3.FileFormats
             }
         }
 
-        [Category("Other")]
+        [Category(Categories.Uncategorized)]
         [DisplayName("Current Loading Tip")]
         public int CurrentLoadingTip
         {
@@ -376,7 +384,7 @@ namespace Gibbed.MassEffect3.FileFormats
             }
         }
 
-        [Category("Other")]
+        [Category(Categories.Uncategorized)]
         [DisplayName("Levels")]
         public List<Save.Level> Levels
         {
@@ -391,8 +399,8 @@ namespace Gibbed.MassEffect3.FileFormats
             }
         }
 
-        [Category("Other")]
-        [DisplayName("Streaming Records")]
+        [Category(Categories.Uncategorized)]
+        [DisplayName("Streaming")]
         public List<Save.StreamingState> StreamingRecords
         {
             get { return this._StreamingRecords; }
@@ -406,8 +414,8 @@ namespace Gibbed.MassEffect3.FileFormats
             }
         }
 
-        [Category("Other")]
-        [DisplayName("Kismet Records")]
+        [Category(Categories.Uncategorized)]
+        [DisplayName("Kismet")]
         public List<Save.KismetBool> KismetRecords
         {
             get { return this._KismetRecords; }
@@ -421,7 +429,7 @@ namespace Gibbed.MassEffect3.FileFormats
             }
         }
 
-        [Category("Other")]
+        [Category(Categories.Uncategorized)]
         [DisplayName("Doors")]
         public List<Save.Door> Doors
         {
@@ -436,7 +444,7 @@ namespace Gibbed.MassEffect3.FileFormats
             }
         }
 
-        [Category("Other")]
+        [Category(Categories.Uncategorized)]
         [DisplayName("Placeables")]
         public List<Save.Placeable> Placeables
         {
@@ -451,7 +459,7 @@ namespace Gibbed.MassEffect3.FileFormats
             }
         }
 
-        [Category("Other")]
+        [Category(Categories.Uncategorized)]
         [DisplayName("Pawns")]
         public List<Guid> Pawns
         {
@@ -466,7 +474,7 @@ namespace Gibbed.MassEffect3.FileFormats
             }
         }
 
-        [Category("Squad")]
+        [Category(Categories.Squad)]
         [DisplayName("Player")]
         public Save.Player Player
         {
@@ -481,7 +489,7 @@ namespace Gibbed.MassEffect3.FileFormats
             }
         }
 
-        [Category("Squad")]
+        [Category(Categories.Squad)]
         [DisplayName("Henchmen")]
         public List<Save.Henchman> Henchmen
         {
@@ -496,7 +504,7 @@ namespace Gibbed.MassEffect3.FileFormats
             }
         }
 
-        [Category("Plot")]
+        [Category(Categories.Plot)]
         [DisplayName("Plot")]
         public Save.PlotTable Plot
         {
@@ -511,7 +519,7 @@ namespace Gibbed.MassEffect3.FileFormats
             }
         }
 
-        [Category("Plot")]
+        [Category(Categories.Plot)]
         [DisplayName("ME1 Plot")]
         public Save.ME1PlotTable ME1Plot
         {
@@ -526,7 +534,7 @@ namespace Gibbed.MassEffect3.FileFormats
             }
         }
 
-        [Category("Plot")]
+        [Category(Categories.Plot)]
         [DisplayName("Player Variables")]
         public List<Save.PlayerVariable> PlayerVariables
         {
@@ -541,7 +549,7 @@ namespace Gibbed.MassEffect3.FileFormats
             }
         }
 
-        [Category("Plot")]
+        [Category(Categories.Plot)]
         [DisplayName("Galaxy Map")]
         public Save.GalaxyMap GalaxyMap
         {
@@ -556,7 +564,7 @@ namespace Gibbed.MassEffect3.FileFormats
             }
         }
 
-        [Category("Other")]
+        [Category(Categories.Uncategorized)]
         [DisplayName("Dependent DLC")]
         public List<Save.DependentDLC> DependentDLC
         {
@@ -571,7 +579,7 @@ namespace Gibbed.MassEffect3.FileFormats
             }
         }
 
-        [Category("Other")]
+        [Category(Categories.Uncategorized)]
         [DisplayName("Treasures")]
         public List<Save.LevelTreasure> Treasures
         {
@@ -586,7 +594,7 @@ namespace Gibbed.MassEffect3.FileFormats
             }
         }
 
-        [Category("Other")]
+        [Category(Categories.Uncategorized)]
         [DisplayName("Use Modules")]
         public List<Guid> UseModules
         {
@@ -601,7 +609,7 @@ namespace Gibbed.MassEffect3.FileFormats
             }
         }
 
-        [Category("Basic")]
+        [Category(Categories.Basic)]
         [DisplayName("Conversation Mode")]
         public Save.AutoReplyModeOptions ConversationMode
         {
@@ -616,7 +624,7 @@ namespace Gibbed.MassEffect3.FileFormats
             }
         }
 
-        [Category("Other")]
+        [Category(Categories.Uncategorized)]
         [DisplayName("Objective Markers")]
         public List<Save.ObjectiveMarker> ObjectiveMarkers
         {
@@ -631,7 +639,7 @@ namespace Gibbed.MassEffect3.FileFormats
             }
         }
 
-        [Category("Other")]
+        [Category(Categories.Uncategorized)]
         [DisplayName("Saved Objective Text")]
         public int SavedObjectiveText
         {

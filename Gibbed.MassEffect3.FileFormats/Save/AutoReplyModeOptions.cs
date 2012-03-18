@@ -21,25 +21,22 @@
  */
 
 using System.ComponentModel;
-using System.Drawing.Design;
-using DynamicTypeDescriptor;
 
 namespace Gibbed.MassEffect3.FileFormats.Save
 {
-    [Editor(typeof(StandardValueEditor), typeof(UITypeEditor))]
     [OriginalName("EAutoReplyModeOptions")]
     public enum AutoReplyModeOptions : byte
     {
-        [StandardValue(null, DisplayName = "All Descisions")]
         [OriginalName("ARMO_All_Decisions")]
+        //[DisplayName("All Decisions")]
         AllDecisions = 0,
 
-        [StandardValue(null, DisplayName = "Major Decisions")]
         [OriginalName("ARMO_Major_Decisions")]
+        //[DisplayName("Major Decisions")]
         MajorDecisions = 1,
 
-        [StandardValue(null, DisplayName = "No Decisions")]
         [OriginalName("ARMO_No_Decisions")]
+        //[DisplayName("No Decisions")]
         NoDecisions = 2,
     }
 }

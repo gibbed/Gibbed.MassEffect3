@@ -20,23 +20,15 @@
  *    distribution.
  */
 
-using System.ComponentModel;
-
 namespace Gibbed.MassEffect3.FileFormats.Save
 {
-    [OriginalName("EEndGameState")]
-    public enum EndGameState
+    public interface IPlotTable
     {
-        [OriginalName("EGS_NotFinished")]
-        //[DisplayName("Not Finished")]
-        NotFinished = 0,
-
-        [OriginalName("EGS_OutInABlazeOfGlory")]
-        //[DisplayName("Out In A Blaze Of Glory")]
-        OutInABlazeOfGlory = 1,
-
-        [OriginalName("EGS_LivedToFightAgain")]
-        //[DisplayName("Lived To Fight Again")]
-        LivedToFightAgain = 2,
+        bool GetBoolVariable(int index);
+        void SetBoolVariable(int index, bool value);
+        int GetIntVariable(int index);
+        void SetIntVariable(int index, int value);
+        float GetFloatVariable(int index);
+        void SetFloatVariable(int index, float value);
     }
 }

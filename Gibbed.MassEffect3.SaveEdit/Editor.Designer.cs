@@ -48,6 +48,9 @@
             this.playerCharacterTabPage = new System.Windows.Forms.TabPage();
             this.playerAppearanceTabPage = new System.Windows.Forms.TabPage();
             this.playerAppearanceToolStrip = new System.Windows.Forms.ToolStrip();
+            this.morphHeadDropDownButton = new System.Windows.Forms.ToolStripDropDownButton();
+            this.morphHeadImportButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.morphHeadExportButton = new System.Windows.Forms.ToolStripMenuItem();
             this.appearancePresetsDropDownButton = new System.Windows.Forms.ToolStripDropDownButton();
             this.appearancePresetOpenFromFileButton = new System.Windows.Forms.ToolStripMenuItem();
             this.appearancePresetSaveToFileButton = new System.Windows.Forms.ToolStripMenuItem();
@@ -86,9 +89,6 @@
             this.issueLinkLabel = new System.Windows.Forms.LinkLabel();
             this.openAppearancePresetFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveAppearancePresetFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.morphHeadDropDownButton = new System.Windows.Forms.ToolStripDropDownButton();
-            this.morphHeadImportButton = new System.Windows.Forms.ToolStripMenuItem();
-            this.morphHeadExportButton = new System.Windows.Forms.ToolStripMenuItem();
             this.rootToolStrip.SuspendLayout();
             this.rootTabControl.SuspendLayout();
             this.playerRootTabPage.SuspendLayout();
@@ -241,6 +241,26 @@
             this.appearancePresetsDropDownButton});
             resources.ApplyResources(this.playerAppearanceToolStrip, "playerAppearanceToolStrip");
             this.playerAppearanceToolStrip.Name = "playerAppearanceToolStrip";
+            // 
+            // morphHeadDropDownButton
+            // 
+            this.morphHeadDropDownButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.morphHeadImportButton,
+            this.morphHeadExportButton});
+            resources.ApplyResources(this.morphHeadDropDownButton, "morphHeadDropDownButton");
+            this.morphHeadDropDownButton.Name = "morphHeadDropDownButton";
+            // 
+            // morphHeadImportButton
+            // 
+            resources.ApplyResources(this.morphHeadImportButton, "morphHeadImportButton");
+            this.morphHeadImportButton.Name = "morphHeadImportButton";
+            this.morphHeadImportButton.Click += new System.EventHandler(this.OnImportHeadMorph);
+            // 
+            // morphHeadExportButton
+            // 
+            resources.ApplyResources(this.morphHeadExportButton, "morphHeadExportButton");
+            this.morphHeadExportButton.Name = "morphHeadExportButton";
+            this.morphHeadExportButton.Click += new System.EventHandler(this.OnExportHeadMorph);
             // 
             // appearancePresetsDropDownButton
             // 
@@ -449,12 +469,14 @@
             // 
             resources.ApplyResources(this.rootPropertyGrid, "rootPropertyGrid");
             this.rootPropertyGrid.Name = "rootPropertyGrid";
+            this.rootPropertyGrid.PropertySort = System.Windows.Forms.PropertySort.Categorized;
             this.rootPropertyGrid.SelectedGridItemChanged += new System.Windows.Forms.SelectedGridItemChangedEventHandler(this.OnSelectedGridItemChanged);
             // 
             // childPropertyGrid
             // 
             resources.ApplyResources(this.childPropertyGrid, "childPropertyGrid");
             this.childPropertyGrid.Name = "childPropertyGrid";
+            this.childPropertyGrid.PropertySort = System.Windows.Forms.PropertySort.Categorized;
             // 
             // openFileDialog
             // 
@@ -500,26 +522,6 @@
             // saveAppearancePresetFileDialog
             // 
             resources.ApplyResources(this.saveAppearancePresetFileDialog, "saveAppearancePresetFileDialog");
-            // 
-            // morphHeadDropDownButton
-            // 
-            this.morphHeadDropDownButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.morphHeadImportButton,
-            this.morphHeadExportButton});
-            resources.ApplyResources(this.morphHeadDropDownButton, "morphHeadDropDownButton");
-            this.morphHeadDropDownButton.Name = "morphHeadDropDownButton";
-            // 
-            // morphHeadImportButton
-            // 
-            resources.ApplyResources(this.morphHeadImportButton, "morphHeadImportButton");
-            this.morphHeadImportButton.Name = "morphHeadImportButton";
-            this.morphHeadImportButton.Click += new System.EventHandler(this.OnImportHeadMorph);
-            // 
-            // morphHeadExportButton
-            // 
-            resources.ApplyResources(this.morphHeadExportButton, "morphHeadExportButton");
-            this.morphHeadExportButton.Name = "morphHeadExportButton";
-            this.morphHeadExportButton.Click += new System.EventHandler(this.OnExportHeadMorph);
             // 
             // Editor
             // 
