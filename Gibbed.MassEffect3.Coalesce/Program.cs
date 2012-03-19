@@ -165,11 +165,22 @@ namespace Gibbed.MassEffect3.Coalesce
 
                 Setup setup;
 
-                using (var input = File.OpenRead(Path.Combine(inputPath, "@coalesced.json")))
+                var setupPath = Path.Combine(inputPath, "@coalesced.json");
+                using (var input = File.OpenRead(setupPath))
                 {
                     var reader = new StreamReader(input);
                     var text = reader.ReadToEnd();
-                    setup = JsonConvert.DeserializeObject<Setup>(text);
+
+                    try
+                    {
+                        setup = JsonConvert.DeserializeObject<Setup>(text);
+                    }
+                    catch (JsonReaderException e)
+                    {
+                        Console.WriteLine("There was an error parsing '{0}':", setupPath);
+                        Console.WriteLine("  {0}", e.Message);
+                        return;
+                    }
                 }
 
                 var coal = new CoalescedFile
@@ -187,7 +198,19 @@ namespace Gibbed.MassEffect3.Coalesce
                     {
                         var reader = new StreamReader(input);
                         var text = reader.ReadToEnd();
-                        var file = JsonConvert.DeserializeObject<FileWrapper>(text);
+
+                        FileWrapper file;
+                        try
+                        {
+                            file = JsonConvert.DeserializeObject<FileWrapper>(text);
+                        }
+                        catch (JsonReaderException e)
+                        {
+                            Console.WriteLine("There was an error parsing '{0}':", iniPath);
+                            Console.WriteLine("  {0}", e.Message);
+                            return;
+                        }
+
                         coal.Files.Add(new Coalesced.File()
                             {
                                 Name = file.Name,
