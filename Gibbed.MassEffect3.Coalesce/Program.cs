@@ -148,7 +148,7 @@ namespace Gibbed.MassEffect3.Coalesce
                         }
                     }
 
-                    Directory.CreateDirectory(Path.GetDirectoryName(outputPath));
+                    Directory.CreateDirectory(outputPath);
                     using (var output = File.Create(Path.Combine(outputPath, "@coalesced.json")))
                     {
                         var writer = new StreamWriter(output);
