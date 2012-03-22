@@ -584,7 +584,10 @@ namespace Gibbed.MassEffect3.AudioExtract
             this.fileListView.BeginUpdate();
             this.fileListView.Items.Clear();
             this._BatchCheckUpdate = true;
-            foreach (var instance in this._Index.Where(l => l.Name.Contains(text) == true))
+            foreach (var instance in this._Index.Where(
+                l =>
+                (l.Path + "." + l.Name).Contains(text) == true ||
+                l.Duplicates.Any(m => (m.Path + "." + m.Name).Contains(text) == true) == true))
             {
                 instance.Selected = true;
 
@@ -687,7 +690,20 @@ namespace Gibbed.MassEffect3.AudioExtract
                 inputPath = Path.Combine(this._PackagePath, FixFilename(kv.Key, kv.Value));
                 if (File.Exists(inputPath) == false)
                 {
-                    inputPath = null;
+                    var fileName = Path.GetFileName(inputPath);
+
+                    this.openContainerFileDialog.Title = "Open " + fileName;
+                    this.openContainerFileDialog.Filter = fileName + "|" + fileName;
+
+                    if (this.openContainerFileDialog.ShowDialog() != DialogResult.OK)
+                    {
+                        this.LogError("Could not find \"{0}\"!", fileName);
+                        inputPath = null;
+                    }
+                    else
+                    {
+                        inputPath = this.openContainerFileDialog.FileName;
+                    }
                 }
 
                 paths.Add(kv, inputPath);

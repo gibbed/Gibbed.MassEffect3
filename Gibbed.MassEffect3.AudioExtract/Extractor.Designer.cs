@@ -50,6 +50,7 @@
             this.totalSizeLabel = new System.Windows.Forms.Label();
             this.saveFolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.selectVisibleButton = new System.Windows.Forms.Button();
+            this.openContainerFileDialog = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -290,6 +291,10 @@
             this.selectVisibleButton.UseVisualStyleBackColor = true;
             this.selectVisibleButton.Click += new System.EventHandler(this.OnSelectVisible);
             // 
+            // openContainerFileDialog
+            // 
+            this.openContainerFileDialog.Filter = "WwiseStream Container (*.pcc, *.afc)|*.pcc;*.afc|All Files (*.*)|*.*";
+            // 
             // Extractor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -344,6 +349,7 @@
         private System.Windows.Forms.TextBox duplicatesTextBox;
         private System.Windows.Forms.FolderBrowserDialog saveFolderBrowserDialog;
         private System.Windows.Forms.Button selectVisibleButton;
+        private System.Windows.Forms.OpenFileDialog openContainerFileDialog;
     }
 }
 
