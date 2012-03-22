@@ -39,7 +39,7 @@
     </ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <Win32Resource>U:\Projects\Mass Effect 3\Gibbed.MassEffect3.AudioExtract\win32res.res</Win32Resource>
+    <Win32Resource>win32res.res</Win32Resource>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
