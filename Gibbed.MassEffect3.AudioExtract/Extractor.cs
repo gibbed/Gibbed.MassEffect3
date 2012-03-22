@@ -47,6 +47,7 @@ namespace Gibbed.MassEffect3.AudioExtract
         }
 
         private string _ConverterPath = null;
+        private string _RevorbPath = null;
         private string _PackagePath = null;
         private List<WwiseLocation> _Index = new List<WwiseLocation>();
 
@@ -76,7 +77,8 @@ namespace Gibbed.MassEffect3.AudioExtract
                 this._PackagePath = null;
             }
 
-            if (File.Exists(Path.Combine(exePath, "ww2ogg.exe")) == false)
+            var converterPath = Path.Combine(exePath, "ww2ogg.exe");
+            if (File.Exists(converterPath) == false)
             {
                 this.convertCheckBox.Checked = false;
                 this.convertCheckBox.Enabled = false;
@@ -84,7 +86,18 @@ namespace Gibbed.MassEffect3.AudioExtract
             }
             else
             {
-                this._ConverterPath = Path.Combine(exePath, "ww2ogg.exe");
+                this._ConverterPath = converterPath;
+            }
+
+            var revorbPath = Path.Combine(exePath, "revorb.exe");
+            if (File.Exists(revorbPath) == false)
+            {
+                this.revorbCheckBox.Checked = false;
+                this.revorbCheckBox.Enabled = false;
+            }
+            else
+            {
+                this._RevorbPath = revorbPath;
             }
 
             this.ToggleControls(false);
@@ -217,8 +230,8 @@ namespace Gibbed.MassEffect3.AudioExtract
             this.selectVisibleButton.Enabled = isExtracting == false;
             this.selectSearchButton.Enabled = isExtracting == false;
             this.listButton.Enabled = isExtracting == false;
-            this.convertCheckBox.Enabled =
-                this._ConverterPath != null && isExtracting == false;
+            this.convertCheckBox.Enabled = this._ConverterPath != null && isExtracting == false;
+            this.revorbCheckBox.Enabled = this._RevorbPath != null && isExtracting == false;
             this.validateCheckBox.Enabled = isExtracting == false;
             this.cancelButton.Enabled = isExtracting == true;
             this.startButton.Enabled = isExtracting == false;
@@ -719,6 +732,7 @@ namespace Gibbed.MassEffect3.AudioExtract
 
             var validating = this.validateCheckBox.Checked == true;
             var converting = this.convertCheckBox.Checked == true;
+            var revorbing = this.revorbCheckBox.Checked == true;
 
             this._ExtractCancellationToken = new System.Threading.CancellationTokenSource();
             var token = this._ExtractCancellationToken.Token;
@@ -854,6 +868,31 @@ namespace Gibbed.MassEffect3.AudioExtract
                                 }
 
                                 File.Delete(riffPath);
+
+                                if (revorbing == true)
+                                {
+                                    var revorber = new System.Diagnostics.Process();
+                                    revorber.StartInfo.UseShellExecute = false;
+                                    revorber.StartInfo.CreateNoWindow = true;
+                                    revorber.StartInfo.RedirectStandardOutput = true;
+                                    revorber.StartInfo.FileName = this._RevorbPath;
+                                    revorber.StartInfo.Arguments = string.Format(
+                                        "\"{0}\"",
+                                        oggPath);
+
+                                    revorber.Start();
+                                    revorber.WaitForExit();
+
+                                    if (revorber.ExitCode != 0)
+                                    {
+                                        string stdout = revorber.StandardOutput.ReadToEnd();
+
+                                        this.LogError("Failed to revorb \"{0}.{1}\"!",
+                                                      location.File,
+                                                      location.Name);
+                                        this.LogMessage(stdout);
+                                    }
+                                }
                             }
 
                             succeeded++;

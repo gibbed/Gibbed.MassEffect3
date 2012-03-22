@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Extractor));
             this.startButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
@@ -51,6 +52,8 @@
             this.saveFolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.selectVisibleButton = new System.Windows.Forms.Button();
             this.openContainerFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.revorbCheckBox = new System.Windows.Forms.CheckBox();
+            this.mainToolTip = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -90,6 +93,7 @@
             this.convertCheckBox.Size = new System.Drawing.Size(63, 17);
             this.convertCheckBox.TabIndex = 2;
             this.convertCheckBox.Text = "C&onvert";
+            this.mainToolTip.SetToolTip(this.convertCheckBox, "Convert the audio track using ww2ogg.");
             this.convertCheckBox.UseVisualStyleBackColor = true;
             // 
             // validateCheckBox
@@ -98,11 +102,12 @@
             this.validateCheckBox.AutoSize = true;
             this.validateCheckBox.Checked = true;
             this.validateCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.validateCheckBox.Location = new System.Drawing.Point(333, 449);
+            this.validateCheckBox.Location = new System.Drawing.Point(266, 449);
             this.validateCheckBox.Name = "validateCheckBox";
             this.validateCheckBox.Size = new System.Drawing.Size(64, 17);
             this.validateCheckBox.TabIndex = 3;
             this.validateCheckBox.Text = "&Validate";
+            this.mainToolTip.SetToolTip(this.validateCheckBox, "Validate audio track data with known hash.");
             this.validateCheckBox.UseVisualStyleBackColor = true;
             // 
             // logTextBox
@@ -295,11 +300,25 @@
             // 
             this.openContainerFileDialog.Filter = "WwiseStream Container (*.pcc, *.afc)|*.pcc;*.afc|All Files (*.*)|*.*";
             // 
+            // revorbCheckBox
+            // 
+            this.revorbCheckBox.AutoSize = true;
+            this.revorbCheckBox.Checked = true;
+            this.revorbCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.revorbCheckBox.Location = new System.Drawing.Point(336, 449);
+            this.revorbCheckBox.Name = "revorbCheckBox";
+            this.revorbCheckBox.Size = new System.Drawing.Size(61, 17);
+            this.revorbCheckBox.TabIndex = 14;
+            this.revorbCheckBox.Text = "Revorb";
+            this.mainToolTip.SetToolTip(this.revorbCheckBox, "Recompute page granule positions in Ogg Vorbis file (it\'s a good thing).");
+            this.revorbCheckBox.UseVisualStyleBackColor = true;
+            // 
             // Extractor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(640, 480);
+            this.Controls.Add(this.revorbCheckBox);
             this.Controls.Add(this.selectVisibleButton);
             this.Controls.Add(this.totalSizeLabel);
             this.Controls.Add(this.selectSearchButton);
@@ -350,6 +369,8 @@
         private System.Windows.Forms.FolderBrowserDialog saveFolderBrowserDialog;
         private System.Windows.Forms.Button selectVisibleButton;
         private System.Windows.Forms.OpenFileDialog openContainerFileDialog;
+        private System.Windows.Forms.CheckBox revorbCheckBox;
+        private System.Windows.Forms.ToolTip mainToolTip;
     }
 }
 
