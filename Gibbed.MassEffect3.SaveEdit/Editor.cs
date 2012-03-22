@@ -795,6 +795,11 @@ namespace Gibbed.MassEffect3.SaveEdit
 
             if (preset.Scalars != null)
             {
+                if (preset.Scalars.Clear == true)
+                {
+                    morphHead.ScalarParameters.Clear();
+                }
+
                 if (preset.Scalars.Remove != null)
                 {
                     foreach (var scalar in preset.Scalars.Remove)
@@ -835,6 +840,11 @@ namespace Gibbed.MassEffect3.SaveEdit
 
             if (preset.Textures != null)
             {
+                if (preset.Textures.Clear == true)
+                {
+                    morphHead.TextureParameters.Clear();
+                }
+
                 if (preset.Textures.Remove != null)
                 {
                     foreach (var texture in preset.Textures.Remove)
@@ -875,6 +885,11 @@ namespace Gibbed.MassEffect3.SaveEdit
 
             if (preset.Vectors != null)
             {
+                if (preset.Vectors.Clear == true)
+                {
+                    morphHead.VectorParameters.Clear();
+                }
+
                 if (preset.Vectors.Remove != null)
                 {
                     foreach (var vector in preset.Vectors.Remove)

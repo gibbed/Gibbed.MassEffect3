@@ -40,8 +40,8 @@ namespace Gibbed.MassEffect3.FileFormats
         {
             stream.WriteValueU32(hash.A, Endian.Big);
             stream.WriteValueU32(hash.B, Endian.Big);
-            stream.WriteValueU64(hash.C, Endian.Big);
-            stream.WriteValueU64(hash.D, Endian.Big);
+            stream.WriteValueU32(hash.C, Endian.Big);
+            stream.WriteValueU32(hash.D, Endian.Big);
         }
     }
 }

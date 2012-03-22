@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gibbed.MassEffect3.SaveEdit
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorPicker", "ColorPicker\ColorPicker.csproj", "{8632C79B-A1CC-45D1-BED8-4B335F72D769}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gibbed.MassEffect3.AudioExtract", "Gibbed.MassEffect3.AudioExtract\Gibbed.MassEffect3.AudioExtract.csproj", "{01B2A49B-0F64-4ACD-BDB7-8544E8721124}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -147,6 +149,16 @@ Global
 		{8632C79B-A1CC-45D1-BED8-4B335F72D769}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{8632C79B-A1CC-45D1-BED8-4B335F72D769}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{8632C79B-A1CC-45D1-BED8-4B335F72D769}.Release|x86.ActiveCfg = Release|Any CPU
+		{01B2A49B-0F64-4ACD-BDB7-8544E8721124}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{01B2A49B-0F64-4ACD-BDB7-8544E8721124}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{01B2A49B-0F64-4ACD-BDB7-8544E8721124}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{01B2A49B-0F64-4ACD-BDB7-8544E8721124}.Debug|x86.ActiveCfg = Debug|x86
+		{01B2A49B-0F64-4ACD-BDB7-8544E8721124}.Debug|x86.Build.0 = Debug|x86
+		{01B2A49B-0F64-4ACD-BDB7-8544E8721124}.Release|Any CPU.ActiveCfg = Release|x86
+		{01B2A49B-0F64-4ACD-BDB7-8544E8721124}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{01B2A49B-0F64-4ACD-BDB7-8544E8721124}.Release|Mixed Platforms.Build.0 = Release|x86
+		{01B2A49B-0F64-4ACD-BDB7-8544E8721124}.Release|x86.ActiveCfg = Release|x86
+		{01B2A49B-0F64-4ACD-BDB7-8544E8721124}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -162,5 +174,6 @@ Global
 		{2378F5BE-624F-4E04-ACB3-F865245E80BF} = {4B4D1290-F547-46E3-A91A-584141CB367C}
 		{B79BBD01-10A2-4542-A941-962370FCD471} = {4B4D1290-F547-46E3-A91A-584141CB367C}
 		{AA269746-CEFB-4DD0-BC51-04201DD61FD8} = {4B4D1290-F547-46E3-A91A-584141CB367C}
+		{01B2A49B-0F64-4ACD-BDB7-8544E8721124} = {4B4D1290-F547-46E3-A91A-584141CB367C}
 	EndGlobalSection
 EndGlobal

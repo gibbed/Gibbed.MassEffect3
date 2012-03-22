@@ -46,6 +46,9 @@ namespace Gibbed.MassEffect3.SaveEdit
         [JsonObject(MemberSerialization.OptIn)]
         public class Parameter<TType>
         {
+            [JsonProperty(PropertyName = "Clear")]
+            public bool Clear = false;
+
             [JsonProperty(PropertyName = "Remove")]
             public List<string> Remove = new List<string>();
 
