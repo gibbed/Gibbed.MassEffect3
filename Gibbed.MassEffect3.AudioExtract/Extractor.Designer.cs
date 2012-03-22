@@ -288,6 +288,7 @@
             // 
             // selectVisibleButton
             // 
+            this.selectVisibleButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.selectVisibleButton.Location = new System.Drawing.Point(174, 285);
             this.selectVisibleButton.Name = "selectVisibleButton";
             this.selectVisibleButton.Size = new System.Drawing.Size(75, 23);
@@ -302,6 +303,7 @@
             // 
             // revorbCheckBox
             // 
+            this.revorbCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.revorbCheckBox.AutoSize = true;
             this.revorbCheckBox.Checked = true;
             this.revorbCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
