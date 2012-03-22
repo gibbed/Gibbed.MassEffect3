@@ -46,25 +46,19 @@ namespace Gibbed.MassEffect3.AudioExtract
             return Path.GetDirectoryName(Application.ExecutablePath);
         }
 
-        private string _ConverterPath = null;
-        private string _RevorbPath = null;
-        private string _PackagePath = null;
-        private List<WwiseLocation> _Index = new List<WwiseLocation>();
+        private string _ConverterPath;
+        private string _RevorbPath;
+        private string _PackagePath;
+        private readonly List<WwiseLocation> _Index = new List<WwiseLocation>();
 
         private void OnLoad(object sender, EventArgs e)
         {
             var exePath = GetExecutablePath();
 
-            string path;
-            path = (string)Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\BioWare\Mass Effect 3", "Install Dir", null);
-            if (path == null)
-            {
-                path =
-                    (string)
-                    Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\BioWare\Mass Effect 3",
-                                      "Install Dir",
-                                      null);
-            }
+            string path =
+                (string)Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\BioWare\Mass Effect 3", "Install Dir", null) ??
+                (string)
+                Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\BioWare\Mass Effect 3", "Install Dir", null);
 
             if (path != null)
             {
@@ -249,7 +243,7 @@ namespace Gibbed.MassEffect3.AudioExtract
                 return;
             }
 
-            this.progressBar1.Value = (int)percent;
+            this.progressBar1.Value = percent;
         }
         #endregion
 
@@ -321,7 +315,7 @@ namespace Gibbed.MassEffect3.AudioExtract
 
             public bool Selected;
 
-            public List<WwiseLocation> Duplicates = new List<WwiseLocation>();
+            public readonly List<WwiseLocation> Duplicates = new List<WwiseLocation>();
         }
 
         private class FilterFile
@@ -347,7 +341,7 @@ namespace Gibbed.MassEffect3.AudioExtract
             }
         }
 
-        private void OnWwiseIndexLoaded(List<WwiseLocation> index)
+        private void OnWwiseIndexLoaded(IEnumerable<WwiseLocation> index)
         {
             this._Index.Clear();
             this._Index.AddRange(index);
@@ -583,9 +577,11 @@ namespace Gibbed.MassEffect3.AudioExtract
 
         private void OnSelectSearch(object sender, EventArgs e)
         {
-            var search = new SearchBox();
-            search.Owner = this;
-            search.InputText = "mus";
+            var search = new SearchBox
+            {
+                Owner = this,
+                InputText = "mus"
+            };
 
             if (search.ShowDialog() != DialogResult.OK)
             {
@@ -641,7 +637,7 @@ namespace Gibbed.MassEffect3.AudioExtract
             this.duplicatesTextBox.SelectionStart = 0;
         }
 
-        private bool _BatchCheckUpdate = false;
+        private bool _BatchCheckUpdate;
 
         private void OnFileChecked(object sender, ItemCheckEventArgs e)
         {
@@ -658,7 +654,76 @@ namespace Gibbed.MassEffect3.AudioExtract
             }
         }
 
-        private System.Threading.CancellationTokenSource _ExtractCancellationToken = null;
+        private System.Threading.CancellationTokenSource _ExtractCancellationToken;
+
+        private static Stream ReadPackage(Stream input)
+        {
+            var magic = input.ReadValueU32(Endian.Little);
+            if (magic != 0x9E2A83C1 &&
+                magic.Swap() != 0x9E2A83C1)
+            {
+                throw new FormatException("not a package");
+            }
+            var endian = magic == 0x9E2A83C1
+                             ? Endian.Little
+                             : Endian.Big;
+
+            var versionLo = input.ReadValueU16(endian);
+            var versionHi = input.ReadValueU16(endian);
+
+            if (versionLo != 684 &&
+                versionHi != 194)
+            {
+                throw new FormatException("unsupported version");
+            }
+
+            input.Seek(4, SeekOrigin.Current);
+
+            var folderNameLength = input.ReadValueS32(endian);
+            var folderNameByteLength =
+                folderNameLength >= 0 ? folderNameLength : (-folderNameLength * 2);
+            input.Seek(folderNameByteLength, SeekOrigin.Current);
+
+            /*var packageFlagsOffset = input.Position;*/
+            var packageFlags = input.ReadValueU32(endian);
+
+            if ((packageFlags & 8) != 0)
+            {
+                input.Seek(4, SeekOrigin.Current);
+            }
+
+            input.Seek(24, SeekOrigin.Current);
+
+            if ((packageFlags & 0x02000000) == 0)
+            {
+                return input;
+            }
+
+            input.Seek(36, SeekOrigin.Current);
+
+            var generationsCount = input.ReadValueU32(endian);
+            input.Seek(generationsCount * 12, SeekOrigin.Current);
+
+            input.Seek(20, SeekOrigin.Current);
+
+            var blockCount = input.ReadValueU32(endian);
+
+            var blockStream = new BlockStream(input);
+            for (int i = 0; i < blockCount; i++)
+            {
+                var uncompressedOffset = input.ReadValueU32(endian);
+                var uncompressedSize = input.ReadValueU32(endian);
+                var compressedOffset = input.ReadValueU32(endian);
+                var compressedSize = input.ReadValueU32(endian);
+                blockStream.AddBlock(
+                    uncompressedOffset,
+                    uncompressedSize,
+                    compressedOffset,
+                    compressedSize);
+            }
+
+            return blockStream;
+        }
 
         private void OnStart(object sender, EventArgs e)
         {
@@ -739,12 +804,13 @@ namespace Gibbed.MassEffect3.AudioExtract
             var task = Task.Factory.StartNew(
                 () =>
                 {
-                    int succeeded, failed, current;
+                    int succeeded, failed;
 
                     var streams = new Dictionary<KeyValuePair<string, bool>, Stream>();
                     var dupeNames = new Dictionary<string, int>();
                     try
                     {
+                        int current;
                         succeeded = failed = current = 0;
 
                         foreach (var location in locations)
@@ -775,7 +841,8 @@ namespace Gibbed.MassEffect3.AudioExtract
                                 }
                                 else
                                 {
-                                    throw new NotImplementedException();
+                                    input = File.OpenRead(paths[source]);
+                                    input = ReadPackage(input);
                                 }
                             }
                             else
@@ -840,16 +907,21 @@ namespace Gibbed.MassEffect3.AudioExtract
 
                             if (converting == true)
                             {
-                                var ogger = new System.Diagnostics.Process();
-                                ogger.StartInfo.UseShellExecute = false;
-                                ogger.StartInfo.CreateNoWindow = true;
-                                ogger.StartInfo.RedirectStandardOutput = true;
-                                ogger.StartInfo.FileName = this._ConverterPath;
-                                ogger.StartInfo.Arguments = string.Format(
-                                    "-o \"{0}\" --pcb \"{2}\" \"{1}\"",
-                                    oggPath,
-                                    riffPath,
-                                    pcbPath);
+                                var ogger = new System.Diagnostics.Process
+                                {
+                                    StartInfo =
+                                        {
+                                            UseShellExecute = false,
+                                            CreateNoWindow = true,
+                                            RedirectStandardOutput = true,
+                                            FileName = this._ConverterPath,
+                                            Arguments = string.Format(
+                                                "-o \"{0}\" --pcb \"{2}\" \"{1}\"",
+                                                oggPath,
+                                                riffPath,
+                                                pcbPath)
+                                        }
+                                };
 
                                 ogger.Start();
                                 ogger.WaitForExit();
@@ -871,14 +943,19 @@ namespace Gibbed.MassEffect3.AudioExtract
 
                                 if (revorbing == true)
                                 {
-                                    var revorber = new System.Diagnostics.Process();
-                                    revorber.StartInfo.UseShellExecute = false;
-                                    revorber.StartInfo.CreateNoWindow = true;
-                                    revorber.StartInfo.RedirectStandardOutput = true;
-                                    revorber.StartInfo.FileName = this._RevorbPath;
-                                    revorber.StartInfo.Arguments = string.Format(
-                                        "\"{0}\"",
-                                        oggPath);
+                                    var revorber = new System.Diagnostics.Process
+                                    {
+                                        StartInfo =
+                                            {
+                                                UseShellExecute = false,
+                                                CreateNoWindow = true,
+                                                RedirectStandardOutput = true,
+                                                FileName = this._RevorbPath,
+                                                Arguments = string.Format(
+                                                    "\"{0}\"",
+                                                    oggPath)
+                                            }
+                                    };
 
                                     revorber.Start();
                                     revorber.WaitForExit();
@@ -933,14 +1010,9 @@ namespace Gibbed.MassEffect3.AudioExtract
                     this.LogError("Failed to extract!");
                     if (t.Exception != null)
                     {
-                        if (t.Exception.InnerException != null)
-                        {
-                            this.LogError(t.Exception.InnerException.ToString());
-                        }
-                        else
-                        {
-                            this.LogError(t.Exception.ToString());
-                        }
+                        this.LogError(t.Exception.InnerException != null
+                                          ? t.Exception.InnerException.ToString()
+                                          : t.Exception.ToString());
                     }
                     this.ToggleControls(false);
                 },
