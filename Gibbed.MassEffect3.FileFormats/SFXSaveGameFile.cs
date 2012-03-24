@@ -56,7 +56,7 @@ namespace Gibbed.MassEffect3.FileFormats
         private Save.DifficultyOptions _Difficulty;
 
         [Save.OriginalName("EndGameState")]
-        private int _EndGameState;
+        private Save.EndGameState _EndGameState;
 
         [Save.OriginalName("TimeStamp")]
         private Save.SaveTimeStamp _TimeStamp = new Save.SaveTimeStamp();
@@ -140,7 +140,7 @@ namespace Gibbed.MassEffect3.FileFormats
                 stream.Serialize(ref unknown);
             }
 
-            stream.Serialize(ref this._EndGameState);
+            stream.SerializeEnum(ref this._EndGameState);
             stream.Serialize(ref this._TimeStamp);
             stream.Serialize(ref this._Location);
             stream.Serialize(ref this._Rotation);
@@ -311,7 +311,8 @@ namespace Gibbed.MassEffect3.FileFormats
 
         [Category(Categories.Basic)]
         [DisplayName("End Game State")]
-        public int EndGameState
+        [Description("Note: this value was re-used from Mass Effect 2, and the value of 'LivedToFightAgain' is what indicates that the save can be imported. It has nothing to do with your ending of Mass Effect 3.")]
+        public Save.EndGameState EndGameState
         {
             get { return this._EndGameState; }
             set

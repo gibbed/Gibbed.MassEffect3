@@ -96,7 +96,7 @@ namespace Gibbed.MassEffect3.AudioExtract
             public int PathIndex;
             public int NameIndex;
             public int ActorIndex;
-            public int UnknownIndex;
+            public int GroupIndex;
             public int LocaleIndex;
             public int FileIndex;
             public bool IsPackage;
@@ -108,7 +108,7 @@ namespace Gibbed.MassEffect3.AudioExtract
                 stream.Serialize(ref this.PathIndex);
                 stream.Serialize(ref this.NameIndex);
                 stream.Serialize(ref this.ActorIndex);
-                stream.Serialize(ref this.UnknownIndex);
+                stream.Serialize(ref this.GroupIndex);
                 stream.Serialize(ref this.LocaleIndex);
                 stream.Serialize(ref this.FileIndex);
                 stream.Serialize(ref this.IsPackage);

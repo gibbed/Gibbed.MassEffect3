@@ -54,6 +54,7 @@
             this.openContainerFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.revorbCheckBox = new System.Windows.Forms.CheckBox();
             this.mainToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.groupComboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -141,6 +142,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.groupComboBox);
             this.splitContainer1.Panel1.Controls.Add(this.containerListBox);
             this.splitContainer1.Panel1.Controls.Add(this.actorComboBox);
             this.splitContainer1.Panel1.Controls.Add(this.localeComboBox);
@@ -162,7 +164,7 @@
             this.containerListBox.FormattingEnabled = true;
             this.containerListBox.Location = new System.Drawing.Point(3, 3);
             this.containerListBox.Name = "containerListBox";
-            this.containerListBox.Size = new System.Drawing.Size(199, 173);
+            this.containerListBox.Size = new System.Drawing.Size(199, 147);
             this.containerListBox.TabIndex = 3;
             // 
             // actorComboBox
@@ -171,7 +173,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.actorComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.actorComboBox.FormattingEnabled = true;
-            this.actorComboBox.Location = new System.Drawing.Point(3, 187);
+            this.actorComboBox.Location = new System.Drawing.Point(3, 160);
             this.actorComboBox.Name = "actorComboBox";
             this.actorComboBox.Size = new System.Drawing.Size(199, 21);
             this.actorComboBox.TabIndex = 2;
@@ -315,6 +317,15 @@
             this.mainToolTip.SetToolTip(this.revorbCheckBox, "Recompute page granule positions in Ogg Vorbis file (it\'s a good thing).");
             this.revorbCheckBox.UseVisualStyleBackColor = true;
             // 
+            // groupComboBox
+            // 
+            this.groupComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.groupComboBox.FormattingEnabled = true;
+            this.groupComboBox.Location = new System.Drawing.Point(3, 187);
+            this.groupComboBox.Name = "groupComboBox";
+            this.groupComboBox.Size = new System.Drawing.Size(199, 21);
+            this.groupComboBox.TabIndex = 4;
+            // 
             // Extractor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -373,6 +384,7 @@
         private System.Windows.Forms.OpenFileDialog openContainerFileDialog;
         private System.Windows.Forms.CheckBox revorbCheckBox;
         private System.Windows.Forms.ToolTip mainToolTip;
+        private System.Windows.Forms.ComboBox groupComboBox;
     }
 }
 

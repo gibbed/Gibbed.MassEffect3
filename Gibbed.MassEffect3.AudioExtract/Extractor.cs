@@ -133,7 +133,7 @@ namespace Gibbed.MassEffect3.AudioExtract
                                     Path = index.Strings[firstInstance.PathIndex],
                                     Name = index.Strings[firstInstance.NameIndex],
                                     Actor = index.Strings[firstInstance.ActorIndex],
-                                    Unknown = index.Strings[firstInstance.UnknownIndex],
+                                    Group = index.Strings[firstInstance.GroupIndex],
                                     Locale = index.Strings[firstInstance.LocaleIndex],
                                     File = index.Strings[firstInstance.FileIndex],
                                     IsPackage = firstInstance.IsPackage,
@@ -149,7 +149,7 @@ namespace Gibbed.MassEffect3.AudioExtract
                                         Path = index.Strings[instance.PathIndex],
                                         Name = index.Strings[instance.NameIndex],
                                         Actor = index.Strings[instance.ActorIndex],
-                                        Unknown = index.Strings[instance.UnknownIndex],
+                                        Group = index.Strings[instance.GroupIndex],
                                         Locale = index.Strings[instance.LocaleIndex],
                                         File = index.Strings[instance.FileIndex],
                                         IsPackage = instance.IsPackage,
@@ -306,7 +306,7 @@ namespace Gibbed.MassEffect3.AudioExtract
             public string Path;
             public string Name;
             public string Actor;
-            public string Unknown;
+            public string Group;
             public string Locale;
             public string File;
             public bool IsPackage;
@@ -407,6 +407,37 @@ namespace Gibbed.MassEffect3.AudioExtract
             this.actorComboBox.SelectedIndex = 0;
             this.actorComboBox.EndUpdate();
 
+            this.groupComboBox.BeginUpdate();
+            this.groupComboBox.Items.Clear();
+
+            this.groupComboBox.Items.Add(new FilterItem()
+            {
+                Name = "(any group)",
+                Value = null,
+            });
+
+            this.groupComboBox.Items.Add(new FilterItem()
+            {
+                Name = "(no group)",
+                Value = "",
+            });
+
+            foreach (var group in this._Index
+                .Where(i => string.IsNullOrEmpty(i.Group) == false)
+                .Select(i => i.Group)
+                .Distinct()
+                .OrderBy(l => l))
+            {
+                this.groupComboBox.Items.Add(new FilterItem()
+                {
+                    Name = group,
+                    Value = group,
+                });
+            }
+
+            this.groupComboBox.SelectedIndex = 0;
+            this.groupComboBox.EndUpdate();
+
             this.localeComboBox.BeginUpdate();
             this.localeComboBox.Items.Clear();
 
@@ -445,6 +476,7 @@ namespace Gibbed.MassEffect3.AudioExtract
         {
             var containerFilter = (FilterFile)this.containerListBox.SelectedItem;
             var actorFilter = (FilterItem)this.actorComboBox.SelectedItem;
+            var unknownFilter = (FilterItem)this.groupComboBox.SelectedItem;
             var localeFilter = (FilterItem)this.localeComboBox.SelectedItem;
 
             if (containerFilter != null &&
@@ -464,6 +496,13 @@ namespace Gibbed.MassEffect3.AudioExtract
                     i => i.Actor == actorFilter.Value || i.Duplicates.Any(f => f.Actor == actorFilter.Value));
             }
 
+            if (unknownFilter != null &&
+                unknownFilter.Value != null)
+            {
+                instances = instances.Where(
+                    i => i.Group == unknownFilter.Value || i.Duplicates.Any(f => f.Group == unknownFilter.Value));
+            }
+
             if (localeFilter != null &&
                 localeFilter.Value != null)
             {
@@ -478,10 +517,12 @@ namespace Gibbed.MassEffect3.AudioExtract
         {
             var containerFilter = (FilterFile)this.containerListBox.SelectedItem;
             var actorFilter = (FilterItem)this.actorComboBox.SelectedItem;
+            var unknownFilter = (FilterItem)this.groupComboBox.SelectedItem;
             var localeFilter = (FilterItem)this.localeComboBox.SelectedItem;
 
             if ((containerFilter == null || containerFilter.Value == null) &&
                 actorFilter.Value == null &&
+                unknownFilter.Value == null &&
                 localeFilter.Value == null)
             {
                 if (
@@ -763,20 +804,26 @@ namespace Gibbed.MassEffect3.AudioExtract
 
             foreach (var kv in locations.Select(l => new KeyValuePair<string, bool>(l.File, l.IsPackage)).Distinct())
             {
-                string inputPath;
+                var inputName = FixFilename(kv.Key, kv.Value);
+                string inputPath = null;
 
-                inputPath = Path.Combine(this._PackagePath, FixFilename(kv.Key, kv.Value));
-                if (File.Exists(inputPath) == false)
+                if (this._PackagePath != null)
                 {
-                    var fileName = Path.GetFileName(inputPath);
+                    inputPath = Path.Combine(this._PackagePath, inputName);
+                    if (File.Exists(inputPath) == false)
+                    {
+                        inputPath = null;
+                    }
+                }
 
-                    this.openContainerFileDialog.Title = "Open " + fileName;
-                    this.openContainerFileDialog.Filter = fileName + "|" + fileName;
+                if (inputPath == null)
+                {
+                    this.openContainerFileDialog.Title = "Open " + inputName;
+                    this.openContainerFileDialog.Filter = inputName + "|" + inputName;
 
                     if (this.openContainerFileDialog.ShowDialog() != DialogResult.OK)
                     {
-                        this.LogError("Could not find \"{0}\"!", fileName);
-                        inputPath = null;
+                        this.LogError("Could not find \"{0}\"!", inputName);
                     }
                     else
                     {
@@ -878,7 +925,7 @@ namespace Gibbed.MassEffect3.AudioExtract
                             }
 
 
-                            var outputPath = Path.Combine(basePath, location.File, name);
+                            var outputPath = Path.Combine(basePath, location.File, location.Path + "." + name);
 
                             int dupeCounter;
                             if (dupeNames.TryGetValue(outputPath, out dupeCounter) == false)
