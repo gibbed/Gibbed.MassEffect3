@@ -656,6 +656,7 @@ namespace Gibbed.MassEffect3.FileFormats
         }
         #endregion
 
+        #region PropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void NotifyPropertyChanged(string propertyName)
@@ -665,6 +666,7 @@ namespace Gibbed.MassEffect3.FileFormats
                 this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
+        #endregion
 
         public static SFXSaveGameFile Read(Stream input)
         {

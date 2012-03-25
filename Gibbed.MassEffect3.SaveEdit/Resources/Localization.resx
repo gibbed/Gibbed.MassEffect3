@@ -202,4 +202,7 @@ Please report this message to Rick (ctrl+C to copy this dialog) and include a co
   <data name="Editor_CannotLoadXbox360CONFile">
     <value xml:space="preserve">You cannot open Xbox 360 CON files with the save editor.</value>
   </data>
+  <data name="Editor_SaveFileTooOld">
+    <value xml:space="preserve">The save file you have tried to load is too old for the Save Editor. You have probably tried to load a Mass Effect 2 save file.</value>
+  </data>
 </root>

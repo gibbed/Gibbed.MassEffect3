@@ -146,7 +146,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             {
                 if (stream.Mode == Unreal.SerializeMode.Reading)
                 {
-                    List<int> oldIntVariables = null;
+                    var oldIntVariables = new List<int>();
                     stream.Serialize(ref oldIntVariables);
                     this._IntVariables = new List<IntVariablePair>();
                     for (int i = 0; i < oldIntVariables.Count; i++)
@@ -163,7 +163,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
                         });
                     }
 
-                    List<float> oldFloatVariables = null;
+                    var oldFloatVariables = new List<float>();
                     stream.Serialize(ref oldFloatVariables);
                     this._FloatVariables = new List<FloatVariablePair>();
                     for (int i = 0; i < oldFloatVariables.Count; i++)

@@ -186,6 +186,16 @@ namespace Gibbed.MassEffect3.SaveEdit
                 return;
             }
 
+            if (saveFile.Version < 59)
+            {
+                MessageBox.Show(
+                    Localization.Editor_SaveFileTooOld,
+                    Localization.Error,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
+
             this.SaveFile = saveFile;
         }
 

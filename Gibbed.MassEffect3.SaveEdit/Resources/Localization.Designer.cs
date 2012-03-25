@@ -189,6 +189,15 @@ namespace Gibbed.MassEffect3.SaveEdit.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The save file you have tried to load is too old for the Save Editor. You have probably tried to load a Mass Effect 2 save file..
+        /// </summary>
+        internal static string Editor_SaveFileTooOld {
+            get {
+                return ResourceManager.GetString("Editor_SaveFileTooOld", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to There was an exception trying to read the save file.
         ///Please report this message to Rick (ctrl+C to copy this dialog) and include a copy of the save file you tried to load.
         ///
