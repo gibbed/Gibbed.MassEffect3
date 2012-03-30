@@ -23,14 +23,15 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Globalization;
-using ColorPicker;
-using System.IO;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Globalization;
+using System.IO;
+using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using ColorPicker;
 using Gibbed.IO;
 using Gibbed.MassEffect3.SaveEdit.Resources;
 using Newtonsoft.Json;
@@ -57,6 +58,8 @@ namespace Gibbed.MassEffect3.SaveEdit
             // ReSharper restore DoNotCallOverridableMethodsInConstructor
 
             this.wrexPictureBox.Image = Image.FromStream(new MemoryStream(Images.Wrex), true);
+
+            this.LoadDefaultMaleSave();
 
             bool hasSaveFolder = false;
             var savePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
@@ -90,6 +93,8 @@ namespace Gibbed.MassEffect3.SaveEdit
                 this.saveAppearancePresetFileDialog.InitialDirectory = presetPath;
             }
 
+            this.SuspendLayout();
+
             // ReSharper disable LocalizableElement
             this.iconImageList.Images.Add("Unknown", new Bitmap(16, 16));
             // ReSharper restore LocalizableElement
@@ -97,12 +102,12 @@ namespace Gibbed.MassEffect3.SaveEdit
             //this.rootTabControl.SelectedTab = rawRootTabPage;
             this.rawSplitContainer.Panel2Collapsed = true;
 
-            this.LoadDefaultMaleSave();
+            this.AddTable(Localization.Editor_BasicTable_Character_Label, BasicTable.Character.Build(this));
+            this.AddTable(Localization.Editor_BasicTable_Reputation_Label, BasicTable.Reputation.Build(this));
+            this.AddTable(Localization.Editor_BasicTable_Resources_Label, BasicTable.Resources.Build(this));
 
-            this.SuspendLayout();
-            this.AddTable("Character", BasicTable.Character.Build(this));
-            this.AddTable("Reputation", BasicTable.Reputation.Build(this));
-            this.AddTable("Resources", BasicTable.Resources.Build(this));
+            this.AddPlotEditors();
+
             this.ResumeLayout();
         }
 
@@ -118,9 +123,8 @@ namespace Gibbed.MassEffect3.SaveEdit
 
             panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35));
             panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 65));
-// ReSharper disable ForCanBeConvertedToForeach
-            for (int i = 0; i < items.Count; i++)
-// ReSharper restore ForCanBeConvertedToForeach
+            // ReSharper disable ForCanBeConvertedToForeach
+            for (int i = 0; i < items.Count; i++) // ReSharper restore ForCanBeConvertedToForeach
             {
                 panel.RowStyles.Add(new RowStyle(SizeType.AutoSize));
             }
@@ -135,9 +139,7 @@ namespace Gibbed.MassEffect3.SaveEdit
                 {
                     var label = new Label()
                     {
-// ReSharper disable LocalizableElement
-                        Text = item.Name + ":",
-// ReSharper restore LocalizableElement
+                        Text = string.Format(Localization.Editor_BasicTable_ItemLabelFormat, item.Name),
                         Dock = DockStyle.Fill,
                         AutoSize = true,
                         TextAlign = ContentAlignment.MiddleRight,
@@ -169,6 +171,307 @@ namespace Gibbed.MassEffect3.SaveEdit
             group.Controls.Add(panel);
 
             this.playerBasicPanel.Controls.Add(group);
+        }
+
+        private readonly List<CheckedListBox> _PlotBools = new List<CheckedListBox>();
+        private readonly List<NumericUpDown> _PlotInts = new List<NumericUpDown>();
+
+        private void AddPlotEditors()
+        {
+            var plotPath = Path.Combine(GetExecutablePath(), "plots");
+            if (Directory.Exists(plotPath) == false)
+            {
+                return;
+            }
+
+            var containers = new List<PlotCategoryContainer>();
+            foreach (var inputPath in Directory.GetFiles(plotPath, "*.me3plot", SearchOption.AllDirectories))
+            {
+                try
+                {
+                    string text;
+                    using (var input = File.OpenRead(inputPath))
+                    {
+                        var reader = new StreamReader(input);
+                        text = reader.ReadToEnd();
+                    }
+
+                    var settings = new JsonSerializerSettings()
+                    {
+                        MissingMemberHandling = MissingMemberHandling.Error,
+                    };
+
+                    var cat = JsonConvert.DeserializeObject<PlotCategoryContainer>(text, settings);
+                    containers.Add(cat);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(
+                        string.Format(Localization.Editor_PlotCategoryLoadError, inputPath, e),
+                        Localization.Error,
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+            }
+
+            foreach (var container in containers.OrderBy(c => c.Order))
+            {
+                var tabs = new List<TabPage>();
+
+                foreach (var category in container.Categories.OrderBy(c => c.Order))
+                {
+                    int count = 0;
+                    count += string.IsNullOrEmpty(category.Note) == false ? 1 : 0;
+                    count += category.Bools.Any() ? 1 : 0;
+                    count += category.Ints.Any() ? 1 : 0;
+                    count += category.Floats.Any() ? 1 : 0;
+
+                    if (count == 0)
+                    {
+                        continue;
+                    }
+
+                    var categoryTabPage = new TabPage()
+                    {
+                        Text = category.Name,
+                        UseVisualStyleBackColor = true,
+                    };
+                    tabs.Add(categoryTabPage);
+
+                    Control boolControl = null;
+                    Control intControl = null;
+                    Control floatControl = null;
+
+                    if (count > 1)
+                    {
+                        var categoryTabControl = new TabControl()
+                        {
+                            Dock = DockStyle.Fill,
+                        };
+                        categoryTabPage.Controls.Add(categoryTabControl);
+
+                        if (string.IsNullOrEmpty(category.Note) == false)
+                        {
+                            var tabPage = new TabPage()
+                            {
+                                Text = Localization.Editor_PlotEditor_NoteLabel,
+                                UseVisualStyleBackColor = true,
+                            };
+                            categoryTabControl.Controls.Add(tabPage);
+
+                            var textBox = new TextBox()
+                            {
+                                Dock = DockStyle.Fill,
+                                Multiline = true,
+                                Text = category.Note.Trim(),
+                                ReadOnly = true,
+                                //ForeColor = SystemColors
+                            };
+                            tabPage.Controls.Add(textBox);
+                        }
+
+                        if (category.Bools.Count > 0)
+                        {
+                            var tabPage = new TabPage()
+                            {
+                                Text = Localization.Editor_PlotEditor_BoolsLabel,
+                                UseVisualStyleBackColor = true,
+                            };
+                            categoryTabControl.Controls.Add(tabPage);
+
+                            boolControl = tabPage;
+                        }
+
+                        if (category.Ints.Count > 0)
+                        {
+                            var tabPage = new TabPage()
+                            {
+                                Text = Localization.Editor_PlotEditor_IntsLabel,
+                                UseVisualStyleBackColor = true,
+                            };
+                            categoryTabControl.Controls.Add(tabPage);
+
+                            intControl = tabPage;
+                        }
+
+                        if (category.Floats.Count > 0)
+                        {
+                            var tabPage = new TabPage()
+                            {
+                                Text = Localization.Editor_PlotEditor_FloatsLabel,
+                                UseVisualStyleBackColor = true,
+                            };
+                            categoryTabControl.Controls.Add(tabPage);
+
+                            floatControl = tabPage;
+                        }
+                    }
+                    else
+                    {
+                        boolControl = categoryTabPage;
+                        intControl = categoryTabPage;
+                        floatControl = categoryTabPage;
+                    }
+
+                    if (category.Bools.Count > 0)
+                    {
+                        var listBox = new CheckedListBox()
+                        {
+                            Dock = DockStyle.Fill,
+                            MultiColumn = category.MultilineBools,
+                            ColumnWidth = 225,
+                            Sorted = true,
+                            IntegralHeight = false,
+                        };
+                        listBox.ItemCheck += this.OnPlotBoolChecked;
+                        // ReSharper disable PossibleNullReferenceException
+                        boolControl.Controls.Add(listBox);
+                        // ReSharper restore PossibleNullReferenceException
+
+                        foreach (var plot in category.Bools)
+                        {
+                            listBox.Items.Add(plot);
+                        }
+
+                        this._PlotBools.Add(listBox);
+                    }
+
+                    if (category.Ints.Count > 0)
+                    {
+                        var panel = new TableLayoutPanel()
+                        {
+                            Dock = DockStyle.Fill,
+                            ColumnCount = 2,
+                            RowCount = category.Ints.Count + 1,
+                        };
+
+                        panel.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
+
+                        foreach (var value in category.Ints)
+                        {
+                            var label = new Label
+                            {
+                                Text = string.Format(Localization.Editor_PlotEditor_ValueLabelFormat, value.Name),
+                                Dock = DockStyle.Fill,
+                                AutoSize = true,
+                                TextAlign = ContentAlignment.MiddleRight,
+                            };
+                            panel.Controls.Add(label);
+
+                            var numericUpDown = new NumericUpDown()
+                            {
+                                Minimum = int.MinValue,
+                                Maximum = int.MaxValue,
+                                Increment = 1,
+                                Tag = value,
+                            };
+                            numericUpDown.ValueChanged += this.OnPlotIntValueChanged;
+                            panel.Controls.Add(numericUpDown);
+
+                            this._PlotInts.Add(numericUpDown);
+                        }
+
+                        // ReSharper disable PossibleNullReferenceException
+                        intControl.Controls.Add(panel);
+                        // ReSharper restore PossibleNullReferenceException
+                    }
+                }
+
+                if (tabs.Any() == false)
+                {
+                    continue;
+                }
+
+                //if (tabs.Count > 1)
+                {
+                    var containerTabPage = new TabPage()
+                    {
+                        Text = container.Name,
+                        UseVisualStyleBackColor = true,
+                    };
+                    this.plotTabControl.TabPages.Add(containerTabPage);
+
+                    var containerTabControl = new TabControl()
+                    {
+                        Dock = DockStyle.Fill,
+                    };
+                    containerTabPage.Controls.Add(containerTabControl);
+
+                    containerTabControl.TabPages.AddRange(tabs.ToArray());
+                }
+                /*else
+                {
+                    this.plotTabControl.TabPages.Add(tabs.First());
+                }*/
+            }
+        }
+
+        private void UpdatePlotEditors()
+        {
+            foreach (var list in this._PlotBools)
+            {
+                for (int i = 0; i < list.Items.Count; i++)
+                {
+                    var plot = list.Items[i] as PlotBool;
+                    if (plot == null)
+                    {
+                        continue;
+                    }
+
+                    var value = this.SaveFile.Plot.GetBoolVariable(plot.Id);
+                    list.SetItemChecked(i, value);
+                }
+            }
+
+            foreach (var numericUpDown in this._PlotInts)
+            {
+                var plot = numericUpDown.Tag as PlotInt;
+                if (plot == null)
+                {
+                    continue;
+                }
+
+                numericUpDown.Value = this.SaveFile.Plot.GetIntVariable(plot.Id);
+            }
+        }
+
+        private void OnPlotBoolChecked(object sender, ItemCheckEventArgs e)
+        {
+            var list = sender as CheckedListBox;
+
+            if (list == null)
+            {
+                e.NewValue = e.CurrentValue;
+                return;
+            }
+
+            var plot = list.Items[e.Index] as PlotBool;
+
+            if (plot == null)
+            {
+                e.NewValue = e.CurrentValue;
+                return;
+            }
+
+            this.SaveFile.Plot.SetBoolVariable(plot.Id, e.NewValue == CheckState.Checked);
+        }
+
+        private void OnPlotIntValueChanged(object sender, EventArgs e)
+        {
+            var numericUpDown = sender as NumericUpDown;
+
+            if (numericUpDown == null)
+            {
+                return;
+            }
+
+            var plot = numericUpDown.Tag as PlotInt;
+            if (plot == null)
+            {
+                return;
+            }
+
+            this.SaveFile.Plot.SetIntVariable(plot.Id, (int)numericUpDown.Value);
         }
 
         private static string GetExecutablePath()
@@ -218,7 +521,7 @@ namespace Gibbed.MassEffect3.SaveEdit
                         this._SaveFile.Player.PropertyChanged += this.OnPlayerPropertyChanged;
                         this._SaveFile.Player.Appearance.PropertyChanged += this.OnPlayerAppearancePropertyChanged;
 
-                        this.rootPropertyGrid.SelectedObject = value;
+                        this.rawParentPropertyGrid.SelectedObject = value;
                         this.saveFileBindingSource.DataSource = value;
                         this.vectorParametersBindingSource.DataSource =
                             value.Player.Appearance.MorphHead.VectorParameters;
@@ -238,19 +541,10 @@ namespace Gibbed.MassEffect3.SaveEdit
 
             if (e.PropertyName == "IsFemale")
             {
-                if (this._SaveFile == null)
-                {
-                    // ReSharper disable LocalizableElement
-                    this.playerRootTabPage.ImageKey = "Tab_Player_Root_Male";
-                    // ReSharper restore LocalizableElement
-                }
-                else
-                {
-                    this.playerRootTabPage.ImageKey =
-                        this._SaveFile.Player.IsFemale == false
-                            ? "Tab_Player_Root_Male"
-                            : "Tab_Player_Root_Female";
-                }
+                this.playerRootTabPage.ImageKey =
+                    (this._SaveFile == null || this._SaveFile.Player.IsFemale == false)
+                        ? "Tab_Player_Root_Male"
+                        : "Tab_Player_Root_Female";
             }
         }
 
@@ -265,7 +559,7 @@ namespace Gibbed.MassEffect3.SaveEdit
 
         private void LoadSaveFromStream(Stream stream)
         {
-            if (stream.ReadValueU32(Endian.Big) == 0x434F4E20)
+            if (stream.ReadValueU32(Endian.Big) == 0x434F4E20) // 'CON '
             {
                 MessageBox.Show(Localization.Editor_CannotLoadXbox360CONFile,
                                 Localization.Error,
@@ -300,8 +594,8 @@ namespace Gibbed.MassEffect3.SaveEdit
             }
 
             this.SaveFile = saveFile;
+            this.UpdatePlotEditors();
         }
-
 
         private void OnSaveNewMale(object sender, EventArgs e)
         {
@@ -363,6 +657,9 @@ namespace Gibbed.MassEffect3.SaveEdit
                 return;
             }
 
+            var dir = Path.GetDirectoryName(this.openFileDialog.FileName);
+            this.openFileDialog.InitialDirectory = dir;
+
             using (var input = this.openFileDialog.OpenFile())
             {
                 this.LoadSaveFromStream(input);
@@ -399,6 +696,9 @@ namespace Gibbed.MassEffect3.SaveEdit
             {
                 return;
             }
+
+            var dir = Path.GetDirectoryName(this.saveFileDialog.FileName);
+            this.saveFileDialog.InitialDirectory = dir;
 
             this.SaveFile.Endian = this.saveFileDialog.FilterIndex != 2
                                        ? Endian.Little
@@ -474,7 +774,7 @@ namespace Gibbed.MassEffect3.SaveEdit
             {
                 if ((e.NewSelection.Value is FileFormats.Unreal.ISerializable) == true)
                 {
-                    this.childPropertyGrid.SelectedObject = e.NewSelection.Value;
+                    this.rawChildPropertyGrid.SelectedObject = e.NewSelection.Value;
                     this.rawSplitContainer.Panel2Collapsed = false;
 
                     var newPc = e.NewSelection.Value as INotifyPropertyChanged;
@@ -487,13 +787,13 @@ namespace Gibbed.MassEffect3.SaveEdit
                 }
             }
 
-            this.childPropertyGrid.SelectedObject = null;
+            this.rawChildPropertyGrid.SelectedObject = null;
             this.rawSplitContainer.Panel2Collapsed = true;
         }
 
         private void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            this.rootPropertyGrid.Refresh();
+            this.rawParentPropertyGrid.Refresh();
         }
 
         private const string HeadMorphMagic = "GIBBEDMASSEFFECT3HEADMORPH";
@@ -514,6 +814,9 @@ namespace Gibbed.MassEffect3.SaveEdit
             {
                 return;
             }
+
+            var dir = Path.GetDirectoryName(this.openHeadMorphDialog.FileName);
+            this.openHeadMorphDialog.InitialDirectory = dir;
 
             using (var input = this.openHeadMorphDialog.OpenFile())
             {
@@ -593,6 +896,9 @@ namespace Gibbed.MassEffect3.SaveEdit
                 return;
             }
 
+            var dir = Path.GetDirectoryName(this.saveHeadMorphDialog.FileName);
+            this.saveHeadMorphDialog.InitialDirectory = dir;
+
             using (var output = this.saveHeadMorphDialog.OpenFile())
             {
                 output.WriteString(HeadMorphMagic, Encoding.ASCII);
@@ -631,6 +937,9 @@ namespace Gibbed.MassEffect3.SaveEdit
             {
                 return;
             }
+
+            var dir = Path.GetDirectoryName(this.openHeadMorphLegacyDialog.FileName);
+            this.openHeadMorphLegacyDialog.InitialDirectory = dir;
 
             using (var input = this.openHeadMorphLegacyDialog.OpenFile())
             {
@@ -943,46 +1252,6 @@ namespace Gibbed.MassEffect3.SaveEdit
             System.Diagnostics.Process.Start("http://code.google.com/p/me3tools/wiki/IssuesNotice?tm=3");
         }
 
-        private static int GetTotalTalentPoints(int level)
-        {
-            int points = 0;
-
-            for (int current = 1; current <= level; current++)
-            {
-                if (current == 1)
-                {
-                    points += 3;
-                }
-                else if (current >= 2 && current <= 30)
-                {
-                    points += 2;
-                }
-                else if (current >= 31 && current <= 60)
-                {
-                    points += 4;
-                }
-            }
-
-            return points;
-        }
-
-        private void OnBalanceTalentPoints(object sender, EventArgs e)
-        {
-            int spentPoints = 0;
-            foreach (var power in this.SaveFile.Player.Powers)
-            {
-                var currentRank = (int)power.CurrentRank;
-                while (currentRank > 0)
-                {
-                    spentPoints += currentRank;
-                    currentRank--;
-                }
-            }
-
-            int totalPoints = GetTotalTalentPoints(this.SaveFile.Player.Level);
-            this.SaveFile.Player.TalentPoints = totalPoints - spentPoints;
-        }
-
         private static void ApplyAppearancePreset(FileFormats.Save.MorphHead morphHead,
                                                   AppearancePreset preset)
         {
@@ -1178,6 +1447,9 @@ namespace Gibbed.MassEffect3.SaveEdit
                 return;
             }
 
+            var dir = Path.GetDirectoryName(this.openAppearancePresetFileDialog.FileName);
+            this.openAppearancePresetFileDialog.InitialDirectory = dir;
+
             string text;
             using (var input = this.openAppearancePresetFileDialog.OpenFile())
             {
@@ -1191,11 +1463,6 @@ namespace Gibbed.MassEffect3.SaveEdit
 
         private void OnSaveAppearancePresetToFile(object sender, EventArgs e)
         {
-            if (this.saveAppearancePresetFileDialog.ShowDialog() != DialogResult.OK)
-            {
-                return;
-            }
-
             if (this._SaveFile == null)
             {
                 MessageBox.Show(
@@ -1215,6 +1482,14 @@ namespace Gibbed.MassEffect3.SaveEdit
                     MessageBoxIcon.Error);
                 return;
             }
+
+            if (this.saveAppearancePresetFileDialog.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+
+            var dir = Path.GetDirectoryName(this.saveAppearancePresetFileDialog.FileName);
+            this.saveAppearancePresetFileDialog.InitialDirectory = dir;
 
             var headMorph = this.SaveFile.Player.Appearance.MorphHead;
 
@@ -1381,9 +1656,9 @@ namespace Gibbed.MassEffect3.SaveEdit
             {
                 var bgra = LinearColorToBgra(item.Value);
 
-// ReSharper disable UseObjectOrCollectionInitializer
+                // ReSharper disable UseObjectOrCollectionInitializer
                 var picker = new ColorPicker.ColorDialog();
-// ReSharper restore UseObjectOrCollectionInitializer
+                // ReSharper restore UseObjectOrCollectionInitializer
                 picker.WheelColor = bgra;
 
                 if (picker.ShowDialog() != DialogResult.OK)
@@ -1392,6 +1667,16 @@ namespace Gibbed.MassEffect3.SaveEdit
                 }
 
                 item.Value = BgraToLinearColor(picker.WheelColor);
+            }
+        }
+
+        private void OnRootTabIndexChanged(object sender, EventArgs e)
+        {
+            if (this.rootTabControl.SelectedTab == this.rawTabPage)
+            {
+                // HACK: refresh property grids, just in case
+                this.rawParentPropertyGrid.Refresh();
+                this.rawChildPropertyGrid.Refresh();
             }
         }
     }

@@ -79,6 +79,15 @@ namespace Gibbed.MassEffect3.SaveEdit.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Character.
+        /// </summary>
+        internal static string Editor_BasicTable_Character_Label {
+            get {
+                return ResourceManager.GetString("Editor_BasicTable_Character_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Level.
         /// </summary>
         internal static string Editor_BasicTable_Character_Level {
@@ -120,6 +129,24 @@ namespace Gibbed.MassEffect3.SaveEdit.Resources {
         internal static string Editor_BasicTable_Character_TalentPoints {
             get {
                 return ResourceManager.GetString("Editor_BasicTable_Character_TalentPoints", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0}:.
+        /// </summary>
+        internal static string Editor_BasicTable_ItemLabelFormat {
+            get {
+                return ResourceManager.GetString("Editor_BasicTable_ItemLabelFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reputation.
+        /// </summary>
+        internal static string Editor_BasicTable_Reputation_Label {
+            get {
+                return ResourceManager.GetString("Editor_BasicTable_Reputation_Label", resourceCulture);
             }
         }
         
@@ -187,6 +214,15 @@ namespace Gibbed.MassEffect3.SaveEdit.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Resources.
+        /// </summary>
+        internal static string Editor_BasicTable_Resources_Label {
+            get {
+                return ResourceManager.GetString("Editor_BasicTable_Resources_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Medi-gel.
         /// </summary>
         internal static string Editor_BasicTable_Resources_Medigel {
@@ -241,7 +277,7 @@ namespace Gibbed.MassEffect3.SaveEdit.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to While you can import head morph data created by Mass Effect 2, it is unlikely to work perfectly.
+        ///   Looks up a localized string similar to While you can import head morph data created by Mass Effect 2, it is unlikely to work properly.
         ///
         ///Are you sure you want to import a legacy head morph?.
         /// </summary>
@@ -286,6 +322,62 @@ namespace Gibbed.MassEffect3.SaveEdit.Resources {
         internal static string Editor_NoHeadMorph {
             get {
                 return ResourceManager.GetString("Editor_NoHeadMorph", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There was an error loading {0}!
+        ///
+        ///{1}.
+        /// </summary>
+        internal static string Editor_PlotCategoryLoadError {
+            get {
+                return ResourceManager.GetString("Editor_PlotCategoryLoadError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Flags.
+        /// </summary>
+        internal static string Editor_PlotEditor_BoolsLabel {
+            get {
+                return ResourceManager.GetString("Editor_PlotEditor_BoolsLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Floats.
+        /// </summary>
+        internal static string Editor_PlotEditor_FloatsLabel {
+            get {
+                return ResourceManager.GetString("Editor_PlotEditor_FloatsLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Integers.
+        /// </summary>
+        internal static string Editor_PlotEditor_IntsLabel {
+            get {
+                return ResourceManager.GetString("Editor_PlotEditor_IntsLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Notes.
+        /// </summary>
+        internal static string Editor_PlotEditor_NoteLabel {
+            get {
+                return ResourceManager.GetString("Editor_PlotEditor_NoteLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0}.
+        /// </summary>
+        internal static string Editor_PlotEditor_ValueLabelFormat {
+            get {
+                return ResourceManager.GetString("Editor_PlotEditor_ValueLabelFormat", resourceCulture);
             }
         }
         

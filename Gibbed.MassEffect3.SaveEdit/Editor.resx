@@ -122,13 +122,13 @@
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="newMaleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>139, 22</value>
   </data>
   <data name="newMaleToolStripMenuItem.Text" xml:space="preserve">
     <value>New &amp;Male</value>
   </data>
   <data name="newFemaleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>139, 22</value>
   </data>
   <data name="newFemaleToolStripMenuItem.Text" xml:space="preserve">
     <value>New &amp;Female</value>
@@ -384,7 +384,7 @@ otherwise your head will be messed up in-game.</value>
     <value>Top, Bottom, Left, Right</value>
   </data>
   <metadata name="vectorParametersBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>295, 86</value>
+    <value>190, 95</value>
   </metadata>
   <data name="playerAppearanceColorsListBox.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -414,24 +414,24 @@ otherwise your head will be messed up in-game.</value>
     <value>0</value>
   </data>
   <metadata name="playerAppearanceColorsToolStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>520, 86</value>
+    <value>415, 95</value>
   </metadata>
   <data name="playerAppearanceColorsAddColorButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         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
-        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
+        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
 </value>
   </data>
   <data name="playerAppearanceColorsAddColorButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
@@ -446,19 +446,19 @@ otherwise your head will be messed up in-game.</value>
   <data name="playerAppearanceColorsRemoveColorButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         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
-        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
+        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
 </value>
   </data>
   <data name="playerAppearanceColorsRemoveColorButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
@@ -476,20 +476,20 @@ otherwise your head will be messed up in-game.</value>
   <data name="playerAppearanceColorsChangeColorButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALsSURBVDhPndNbSJNhHAbwv87yJsIu1EyFLiQtD116iGSZ
-        GYIXEcMhRGhoqGnmKinTZs4VG1MrobB0nnWiMjUPC81NMydpmofGJJYXbomSytQYbLKnd15MJCHohYfv
-        u3if3/f+4f2I/mNVhYREGlxclFoi7l/1ER55fr1IfP1Zjljvdbhaf9ijWs8JEc8Rlz9FPE8ejxeQEx5e
-        gKIidLm4DO8D5iR0YUF4rH61Km3aMlS/tjqmsa22jtgs9V1rq8mvpqeieaqMiMQXFosFcT4+ZbVEcU5g
-        tosu6Vt93//+3mLGbCOgeAyIBICAPQsbsC6vxOjrQJvl50PE+kXXenh4hDnLDR3kMztxtG97rWYLxjJg
-        nBV7iwG5DJBVYl0qhrY0Co5yh/DMjupUubafhn2cQI2asnVG3tKO/S2wlQssSYE5OfChDesKKbRvonfL
-        nQXR+CEcgO6ccUlBY9lOQDJGndMbEosRD7CBJ9jZYeUNFTan2qBt5u6Wlc+4+FY0CBM73PSNDYuMxjqd
-        QJqG9EMrxfZPuI05SLCEVmxhHNp3d4HtBXS8jMFkzSB05YD2DtCWvmLPJI3eCcSqydC4IrQ3Ixu9DBhl
-        wDwD2AZUiBMxoPwIrRLoZ4CCAdJrK/bLpDY4AT8VDQpNV6xSdoLnbIQ61EPFgM/4hUkzMDAFNCmAiqeA
-        OBO4FWOyniTV4N4daKL8iJlQcy4DclEIKZohxwTaGNC+CdTNAGXtQF4JkHwdOO07Y3YlZf4eICJ/Th9H
-        l2BKsKayEQRshGJMQoY1yBhQMgvcZyMkS4DzCSYrh9OnI5L777/GLcR36/E2chfTbUnoQCq+IIsBWQy4
-        yYCkLiAoY9Hm5t9jJGrlH/wL5bjyOfIgna9aYI40dVvjl+ft8QvL9qhuk9U3T23mhMl1dEhwYNmNid4s
-        wRTgHkcpgaUkuqoh0T0DPRIZiC/SUHBKKbkHOO5+KMtxFkfHuVzZ2xEWL5YT/4jjQ469jg79AVx31MBK
-        XN5OAAAAAElFTkSuQmCC
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALoSURBVDhPndNdSJNRGAfwR2d6E2EXWqZChfTlR5d+RLLM
+        DMGrGA4hQk2jTDNXSZk2c67YmFoJhaXzK3WiMjU/FlqbZk7SZroak1gi27qQVKbGYJP9O/NiIglBBx7e
+        c3H+v/M8cF6i/1i1ERGxJi8vpZaI+1d8lEcBX84S33iSIzYG+tYZff3rjJwIsZ64fB3xAng8Xlh+dHQx
+        SkvR4+U1sg3QS+jMnHBv02Jt9rT9fdOSZVzjtDSPOu1NPUuL6c+ndfE81bWY1Kd2ux1JQUGVDURJHmC2
+        h84Z24Pf/v7eZsPsa0DxABAJAAH7ljRjWV6DsReHnPaf95AYEt/g7+8f5Qk3d1HQ7OSegfWl+jVYKoEJ
+        FuwvA+QyQFaDZakY2oo4uMNdwhMbqiNV2kEaCfIA9WrKM1h45g3XK2CtADBLAb0ceNeBZYUU2pfxm+Hu
+        4nj8EA7BcMpiVtB4ngeQjFP39IrEbsFdrOAhNjZYeEWFVV0HtK3czbDyMRffSodhZc1NZ67YZTTe7QGy
+        NWRUmYWuj7gBPSQwox1rmID2zS1gfQ5dzxIwVT8MQxWgvQm0XDW7ckhj9ACJajLJGdCKPPQzYIwBXxnA
+        DqBanIoh5QdolcAgAxQMKL9odp0ntckDhKhoWGhNcUhZB0/YCI1ogooBn/ALUzZgSMduVQDVjwBxDnA9
+        weo4SKrhrTfQQkUxM5G2AgYUoARStEKOSXQwoHMVaJwBKjuBwnIg/RJwPHjG5k3Koi1ARKGcAY4hhXWR
+        xUYQsBHKMAUZliBjQPkscIeNkC4BTqdYHRzOgIFIHrr9GbcR36dvn4U7n+lMQxey8Bm5DMhlwBUGpPUA
+        hy/PO31C+yxE7fydf6F8bz5HfswQrBbYYq29juQFnStZv+CK67U6ggvVNk6U3EC7BDuGfZi4j1U4hfkl
+        UcbRChJd0JDotonui0zEF2koPKOC/MLcbz+S1X5W7oxnebPdblaBrA78o9wXuc+6M/QHfbrUR9vAYXgA
+        AAAASUVORK5CYII=
 </value>
   </data>
   <data name="playerAppearanceColorsChangeColorButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
@@ -556,14 +556,14 @@ otherwise your head will be messed up in-game.</value>
     <value>0</value>
   </data>
   <metadata name="iconImageList.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>255, 17</value>
+    <value>773, 56</value>
   </metadata>
   <data name="iconImageList.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAADk
-        EgAAAk1TRnQBSQFMAgEBCQEAAZgBAQGYAQEBEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        EgAAAk1TRnQBSQFMAgEBCQEAAcgBAQHIAQEBEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABQAMAATADAAEBAQABCAYAAQwYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -668,7 +668,7 @@ otherwise your head will be messed up in-game.</value>
     <value>0</value>
   </data>
   <metadata name="playerAppearanceToolStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>122, 41</value>
+    <value>141, 17</value>
   </metadata>
   <data name="morphHeadImportButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -886,7 +886,7 @@ otherwise your head will be messed up in-game.</value>
     <value>Top, Bottom, Left, Right</value>
   </data>
   <metadata name="plotManualToolStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>321, 41</value>
+    <value>17, 56</value>
   </metadata>
   <data name="plotManualToolStrip.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Bottom</value>
@@ -1404,28 +1404,28 @@ otherwise your head will be messed up in-game.</value>
   <data name="rawSplitContainer.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
   </data>
-  <data name="rootPropertyGrid.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="rawParentPropertyGrid.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="rootPropertyGrid.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="rawParentPropertyGrid.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="rootPropertyGrid.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="rawParentPropertyGrid.Size" type="System.Drawing.Size, System.Drawing">
     <value>381, 382</value>
   </data>
-  <data name="rootPropertyGrid.TabIndex" type="System.Int32, mscorlib">
+  <data name="rawParentPropertyGrid.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;rootPropertyGrid.Name" xml:space="preserve">
-    <value>rootPropertyGrid</value>
+  <data name="&gt;&gt;rawParentPropertyGrid.Name" xml:space="preserve">
+    <value>rawParentPropertyGrid</value>
   </data>
-  <data name="&gt;&gt;rootPropertyGrid.Type" xml:space="preserve">
+  <data name="&gt;&gt;rawParentPropertyGrid.Type" xml:space="preserve">
     <value>System.Windows.Forms.PropertyGrid, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;rootPropertyGrid.Parent" xml:space="preserve">
+  <data name="&gt;&gt;rawParentPropertyGrid.Parent" xml:space="preserve">
     <value>rawSplitContainer.Panel1</value>
   </data>
-  <data name="&gt;&gt;rootPropertyGrid.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;rawParentPropertyGrid.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="&gt;&gt;rawSplitContainer.Panel1.Name" xml:space="preserve">
@@ -1440,28 +1440,28 @@ otherwise your head will be messed up in-game.</value>
   <data name="&gt;&gt;rawSplitContainer.Panel1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="childPropertyGrid.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="rawChildPropertyGrid.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="childPropertyGrid.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="rawChildPropertyGrid.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="childPropertyGrid.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="rawChildPropertyGrid.Size" type="System.Drawing.Size, System.Drawing">
     <value>377, 382</value>
   </data>
-  <data name="childPropertyGrid.TabIndex" type="System.Int32, mscorlib">
+  <data name="rawChildPropertyGrid.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;childPropertyGrid.Name" xml:space="preserve">
-    <value>childPropertyGrid</value>
+  <data name="&gt;&gt;rawChildPropertyGrid.Name" xml:space="preserve">
+    <value>rawChildPropertyGrid</value>
   </data>
-  <data name="&gt;&gt;childPropertyGrid.Type" xml:space="preserve">
+  <data name="&gt;&gt;rawChildPropertyGrid.Type" xml:space="preserve">
     <value>System.Windows.Forms.PropertyGrid, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;childPropertyGrid.Parent" xml:space="preserve">
+  <data name="&gt;&gt;rawChildPropertyGrid.Parent" xml:space="preserve">
     <value>rawSplitContainer.Panel2</value>
   </data>
-  <data name="&gt;&gt;childPropertyGrid.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;rawChildPropertyGrid.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="&gt;&gt;rawSplitContainer.Panel2.Name" xml:space="preserve">
@@ -1492,39 +1492,39 @@ otherwise your head will be messed up in-game.</value>
     <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;rawSplitContainer.Parent" xml:space="preserve">
-    <value>rawRootTabPage</value>
+    <value>rawTabPage</value>
   </data>
   <data name="&gt;&gt;rawSplitContainer.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="rawRootTabPage.ImageKey" xml:space="preserve">
+  <data name="rawTabPage.ImageKey" xml:space="preserve">
     <value>Tab_Raw_Root</value>
   </data>
-  <data name="rawRootTabPage.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="rawTabPage.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 23</value>
   </data>
-  <data name="rawRootTabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="rawTabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
   </data>
-  <data name="rawRootTabPage.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="rawTabPage.Size" type="System.Drawing.Size, System.Drawing">
     <value>768, 388</value>
   </data>
-  <data name="rawRootTabPage.TabIndex" type="System.Int32, mscorlib">
+  <data name="rawTabPage.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="rawRootTabPage.Text" xml:space="preserve">
+  <data name="rawTabPage.Text" xml:space="preserve">
     <value>Raw</value>
   </data>
-  <data name="&gt;&gt;rawRootTabPage.Name" xml:space="preserve">
-    <value>rawRootTabPage</value>
+  <data name="&gt;&gt;rawTabPage.Name" xml:space="preserve">
+    <value>rawTabPage</value>
   </data>
-  <data name="&gt;&gt;rawRootTabPage.Type" xml:space="preserve">
+  <data name="&gt;&gt;rawTabPage.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;rawRootTabPage.Parent" xml:space="preserve">
+  <data name="&gt;&gt;rawTabPage.Parent" xml:space="preserve">
     <value>rootTabControl</value>
   </data>
-  <data name="&gt;&gt;rawRootTabPage.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;rawTabPage.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="rootTabControl.Location" type="System.Drawing.Point, System.Drawing">
@@ -1549,28 +1549,28 @@ otherwise your head will be messed up in-game.</value>
     <value>3</value>
   </data>
   <metadata name="saveFileBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>122, 86</value>
+    <value>17, 95</value>
   </metadata>
   <metadata name="openFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>122, 17</value>
+    <value>180, 56</value>
   </metadata>
   <data name="openFileDialog.Filter" xml:space="preserve">
     <value>Mass Effect 3 Save (*.pcsav, *.xbsav)|*.pcsav;*.xbsav|All Files (*.*)|*.*</value>
   </data>
   <metadata name="saveFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>382, 17</value>
+    <value>340, 17</value>
   </metadata>
   <data name="saveFileDialog.Filter" xml:space="preserve">
     <value>Mass Effect 3 PC Save (*.pcsav)|*.pcsav|Mass Effect 3 XBOX 360 Save (*.xbsav)|*.xbsav|All Files (*.*)|*.*</value>
   </data>
   <metadata name="openHeadMorphDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>511, 17</value>
+    <value>469, 17</value>
   </metadata>
   <data name="openHeadMorphDialog.Filter" xml:space="preserve">
     <value>Mass Effect 3 Head Morphs (*.me3headmorph)|*.me3headmorph</value>
   </data>
   <metadata name="saveHeadMorphDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>692, 17</value>
+    <value>650, 17</value>
   </metadata>
   <data name="saveHeadMorphDialog.Filter" xml:space="preserve">
     <value>Mass Effect 3 Head Morphs (*.me3headmorph)|*.me3headmorph</value>
@@ -1666,19 +1666,19 @@ otherwise your head will be messed up in-game.</value>
     <value>0</value>
   </data>
   <metadata name="openAppearancePresetFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>429, 47</value>
+    <value>313, 56</value>
   </metadata>
   <data name="openAppearancePresetFileDialog.Filter" xml:space="preserve">
     <value>Mass Effect 3 Appearance Preset (*.me3appearance)|*.me3appearance</value>
   </data>
   <metadata name="saveAppearancePresetFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>661, 47</value>
+    <value>545, 56</value>
   </metadata>
   <data name="saveAppearancePresetFileDialog.Filter" xml:space="preserve">
     <value>Mass Effect 3 Appearance Preset (*.me3appearance)|*.me3appearance</value>
   </data>
   <metadata name="openHeadMorphLegacyDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>754, 86</value>
+    <value>649, 95</value>
   </metadata>
   <data name="openHeadMorphLegacyDialog.Filter" xml:space="preserve">
     <value>Mass Effect 2 Head Morphs (*.me3headmorph)|*.me2headmorph</value>
@@ -1687,7 +1687,7 @@ otherwise your head will be messed up in-game.</value>
     <value>True</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>139</value>
+    <value>172</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>

@@ -206,7 +206,7 @@ Please report this message to Rick (ctrl+C to copy this dialog) and include a co
     <value>The save file you have tried to load is too old for the Save Editor. You have probably tried to load a Mass Effect 2 save file.</value>
   </data>
   <data name="Editor_HeadMorphLegacy" xml:space="preserve">
-    <value>While you can import head morph data created by Mass Effect 2, it is unlikely to work perfectly.
+    <value>While you can import head morph data created by Mass Effect 2, it is unlikely to work properly.
 
 Are you sure you want to import a legacy head morph?</value>
   </data>
@@ -231,31 +231,63 @@ Are you sure you want to import a legacy head morph?</value>
   <data name="Editor_BasicTable_Character_TalentPoints" xml:space="preserve">
     <value>Talent Points</value>
   </data>
-  <data name="Editor_BasicTable_Reputation_ParagonPoints">
-    <value xml:space="preserve">Paragon Points</value>
+  <data name="Editor_BasicTable_Reputation_ParagonPoints" xml:space="preserve">
+    <value>Paragon Points</value>
   </data>
-  <data name="Editor_BasicTable_Reputation_RenegadePoints">
-    <value xml:space="preserve">Renegade Points</value>
+  <data name="Editor_BasicTable_Reputation_RenegadePoints" xml:space="preserve">
+    <value>Renegade Points</value>
   </data>
-  <data name="Editor_BasicTable_Reputation_Reputation">
-    <value xml:space="preserve">Reputation</value>
+  <data name="Editor_BasicTable_Reputation_Reputation" xml:space="preserve">
+    <value>Reputation</value>
   </data>
-  <data name="Editor_BasicTable_Reputation_ReputationPoints">
-    <value xml:space="preserve">Reputation Points</value>
+  <data name="Editor_BasicTable_Reputation_ReputationPoints" xml:space="preserve">
+    <value>Reputation Points</value>
   </data>
-  <data name="Editor_BasicTable_Resources_Credits">
-    <value xml:space="preserve">Credits</value>
+  <data name="Editor_BasicTable_Resources_Credits" xml:space="preserve">
+    <value>Credits</value>
   </data>
-  <data name="Editor_BasicTable_Resources_Medigel">
-    <value xml:space="preserve">Medi-gel</value>
+  <data name="Editor_BasicTable_Resources_Medigel" xml:space="preserve">
+    <value>Medi-gel</value>
   </data>
-  <data name="Editor_BasicTable_Resources_ExtraMedigel">
-    <value xml:space="preserve">Extra Medi-gel</value>
+  <data name="Editor_BasicTable_Resources_ExtraMedigel" xml:space="preserve">
+    <value>Extra Medi-gel</value>
   </data>
-  <data name="Editor_BasicTable_Resources_Grenades">
-    <value xml:space="preserve">Grenades</value>
+  <data name="Editor_BasicTable_Resources_Grenades" xml:space="preserve">
+    <value>Grenades</value>
   </data>
-  <data name="Editor_ColorName">
-    <value xml:space="preserve">Color Name</value>
+  <data name="Editor_ColorName" xml:space="preserve">
+    <value>Color Name</value>
+  </data>
+  <data name="Editor_BasicTable_Character_Label" xml:space="preserve">
+    <value>Character</value>
+  </data>
+  <data name="Editor_BasicTable_Reputation_Label" xml:space="preserve">
+    <value>Reputation</value>
+  </data>
+  <data name="Editor_BasicTable_Resources_Label" xml:space="preserve">
+    <value>Resources</value>
+  </data>
+  <data name="Editor_BasicTable_ItemLabelFormat" xml:space="preserve">
+    <value>{0}:</value>
+  </data>
+  <data name="Editor_PlotCategoryLoadError" xml:space="preserve">
+    <value>There was an error loading {0}!
+
+{1}</value>
+  </data>
+  <data name="Editor_PlotEditor_NoteLabel" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="Editor_PlotEditor_BoolsLabel" xml:space="preserve">
+    <value>Flags</value>
+  </data>
+  <data name="Editor_PlotEditor_IntsLabel" xml:space="preserve">
+    <value>Integers</value>
+  </data>
+  <data name="Editor_PlotEditor_FloatsLabel" xml:space="preserve">
+    <value>Floats</value>
+  </data>
+  <data name="Editor_PlotEditor_ValueLabelFormat" xml:space="preserve">
+    <value>{0}</value>
   </data>
 </root>

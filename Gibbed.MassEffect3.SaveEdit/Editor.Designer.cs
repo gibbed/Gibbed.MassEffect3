@@ -88,10 +88,10 @@
             this.plotManualBoolSetButton = new System.Windows.Forms.Button();
             this.plotManualBoolGetButton = new System.Windows.Forms.Button();
             this.plotManualBoolValueCheckBox = new System.Windows.Forms.CheckBox();
-            this.rawRootTabPage = new System.Windows.Forms.TabPage();
+            this.rawTabPage = new System.Windows.Forms.TabPage();
             this.rawSplitContainer = new System.Windows.Forms.SplitContainer();
-            this.rootPropertyGrid = new System.Windows.Forms.PropertyGrid();
-            this.childPropertyGrid = new System.Windows.Forms.PropertyGrid();
+            this.rawParentPropertyGrid = new System.Windows.Forms.PropertyGrid();
+            this.rawChildPropertyGrid = new System.Windows.Forms.PropertyGrid();
             this.saveFileBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
@@ -121,7 +121,7 @@
             this.plotManualFloatGroupBox.SuspendLayout();
             this.plotManualIntGroupBox.SuspendLayout();
             this.plotManualBoolGroupBox.SuspendLayout();
-            this.rawRootTabPage.SuspendLayout();
+            this.rawTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rawSplitContainer)).BeginInit();
             this.rawSplitContainer.Panel1.SuspendLayout();
             this.rawSplitContainer.Panel2.SuspendLayout();
@@ -222,10 +222,11 @@
             resources.ApplyResources(this.rootTabControl, "rootTabControl");
             this.rootTabControl.Controls.Add(this.playerRootTabPage);
             this.rootTabControl.Controls.Add(this.plotRootTabPage);
-            this.rootTabControl.Controls.Add(this.rawRootTabPage);
+            this.rootTabControl.Controls.Add(this.rawTabPage);
             this.rootTabControl.ImageList = this.iconImageList;
             this.rootTabControl.Name = "rootTabControl";
             this.rootTabControl.SelectedIndex = 0;
+            this.rootTabControl.TabIndexChanged += new System.EventHandler(this.OnRootTabIndexChanged);
             // 
             // playerRootTabPage
             // 
@@ -553,12 +554,12 @@
             this.plotManualBoolValueCheckBox.Name = "plotManualBoolValueCheckBox";
             this.plotManualBoolValueCheckBox.UseVisualStyleBackColor = true;
             // 
-            // rawRootTabPage
+            // rawTabPage
             // 
-            this.rawRootTabPage.Controls.Add(this.rawSplitContainer);
-            resources.ApplyResources(this.rawRootTabPage, "rawRootTabPage");
-            this.rawRootTabPage.Name = "rawRootTabPage";
-            this.rawRootTabPage.UseVisualStyleBackColor = true;
+            this.rawTabPage.Controls.Add(this.rawSplitContainer);
+            resources.ApplyResources(this.rawTabPage, "rawTabPage");
+            this.rawTabPage.Name = "rawTabPage";
+            this.rawTabPage.UseVisualStyleBackColor = true;
             // 
             // rawSplitContainer
             // 
@@ -567,24 +568,24 @@
             // 
             // rawSplitContainer.Panel1
             // 
-            this.rawSplitContainer.Panel1.Controls.Add(this.rootPropertyGrid);
+            this.rawSplitContainer.Panel1.Controls.Add(this.rawParentPropertyGrid);
             // 
             // rawSplitContainer.Panel2
             // 
-            this.rawSplitContainer.Panel2.Controls.Add(this.childPropertyGrid);
+            this.rawSplitContainer.Panel2.Controls.Add(this.rawChildPropertyGrid);
             // 
-            // rootPropertyGrid
+            // rawParentPropertyGrid
             // 
-            resources.ApplyResources(this.rootPropertyGrid, "rootPropertyGrid");
-            this.rootPropertyGrid.Name = "rootPropertyGrid";
-            this.rootPropertyGrid.PropertySort = System.Windows.Forms.PropertySort.Categorized;
-            this.rootPropertyGrid.SelectedGridItemChanged += new System.Windows.Forms.SelectedGridItemChangedEventHandler(this.OnSelectedGridItemChanged);
+            resources.ApplyResources(this.rawParentPropertyGrid, "rawParentPropertyGrid");
+            this.rawParentPropertyGrid.Name = "rawParentPropertyGrid";
+            this.rawParentPropertyGrid.PropertySort = System.Windows.Forms.PropertySort.Categorized;
+            this.rawParentPropertyGrid.SelectedGridItemChanged += new System.Windows.Forms.SelectedGridItemChangedEventHandler(this.OnSelectedGridItemChanged);
             // 
-            // childPropertyGrid
+            // rawChildPropertyGrid
             // 
-            resources.ApplyResources(this.childPropertyGrid, "childPropertyGrid");
-            this.childPropertyGrid.Name = "childPropertyGrid";
-            this.childPropertyGrid.PropertySort = System.Windows.Forms.PropertySort.Categorized;
+            resources.ApplyResources(this.rawChildPropertyGrid, "rawChildPropertyGrid");
+            this.rawChildPropertyGrid.Name = "rawChildPropertyGrid";
+            this.rawChildPropertyGrid.PropertySort = System.Windows.Forms.PropertySort.Categorized;
             // 
             // saveFileBindingSource
             // 
@@ -594,18 +595,22 @@
             // 
             this.openFileDialog.DefaultExt = "pcsav";
             resources.ApplyResources(this.openFileDialog, "openFileDialog");
+            this.openFileDialog.RestoreDirectory = true;
             // 
             // saveFileDialog
             // 
             resources.ApplyResources(this.saveFileDialog, "saveFileDialog");
+            this.saveFileDialog.RestoreDirectory = true;
             // 
             // openHeadMorphDialog
             // 
             resources.ApplyResources(this.openHeadMorphDialog, "openHeadMorphDialog");
+            this.openHeadMorphDialog.RestoreDirectory = true;
             // 
             // saveHeadMorphDialog
             // 
             resources.ApplyResources(this.saveHeadMorphDialog, "saveHeadMorphDialog");
+            this.saveHeadMorphDialog.RestoreDirectory = true;
             // 
             // faqLinkLabel
             // 
@@ -630,10 +635,12 @@
             // openAppearancePresetFileDialog
             // 
             resources.ApplyResources(this.openAppearancePresetFileDialog, "openAppearancePresetFileDialog");
+            this.openAppearancePresetFileDialog.RestoreDirectory = true;
             // 
             // saveAppearancePresetFileDialog
             // 
             resources.ApplyResources(this.saveAppearancePresetFileDialog, "saveAppearancePresetFileDialog");
+            this.saveAppearancePresetFileDialog.RestoreDirectory = true;
             // 
             // openHeadMorphLegacyDialog
             // 
@@ -678,7 +685,7 @@
             this.plotManualIntGroupBox.PerformLayout();
             this.plotManualBoolGroupBox.ResumeLayout(false);
             this.plotManualBoolGroupBox.PerformLayout();
-            this.rawRootTabPage.ResumeLayout(false);
+            this.rawTabPage.ResumeLayout(false);
             this.rawSplitContainer.Panel1.ResumeLayout(false);
             this.rawSplitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.rawSplitContainer)).EndInit();
@@ -695,12 +702,12 @@
         private System.Windows.Forms.ToolStrip rootToolStrip;
         private System.Windows.Forms.TabControl rootTabControl;
         private System.Windows.Forms.TabPage playerRootTabPage;
-        private System.Windows.Forms.TabPage rawRootTabPage;
+        private System.Windows.Forms.TabPage rawTabPage;
         private System.Windows.Forms.ToolStripSplitButton openFromGenericButton;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.SplitContainer rawSplitContainer;
-        private System.Windows.Forms.PropertyGrid rootPropertyGrid;
-        private System.Windows.Forms.PropertyGrid childPropertyGrid;
+        private System.Windows.Forms.PropertyGrid rawParentPropertyGrid;
+        private System.Windows.Forms.PropertyGrid rawChildPropertyGrid;
         private System.Windows.Forms.ImageList iconImageList;
         private System.Windows.Forms.ToolStripSplitButton saveToGenericButton;
         private System.Windows.Forms.ToolStripDropDownButton toolStripSplitButton1;

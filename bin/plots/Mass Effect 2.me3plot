@@ -1,0 +1,84 @@
+{
+	name: "Mass Effect 2",
+	categories:
+	[
+		{
+			name: "Missions",
+			
+			bools:
+			[
+				{id: 757, name: "[Legion: A House Divided] Heretics dead"},
+				{id: 759, name: "[Legion: A House Divided] Heretics rewritten"},
+				
+				{id: 2676, name: "[Mordin: Old Blood] Maelon's data saved"},
+				{id: 2677, name: "[Mordin: Old Blood] Maelon's data destroyed"},
+				
+				{id: 6561, name: "[Project Overlord] David saved"},
+				{id: 6562, name: "[Project Overlord] David handed over"},
+				
+				{id: 360, name: "[Jacob: The Gift of Greatness] Dad marooned"},
+				{id: 361, name: "[Jacob: The Gift of Greatness] Dad arrested"},
+				{id: 362, name: "[Jacob: The Gift of Greatness] Dad killed"},
+				{id: 1497, name: "[Jacob: The Gift of Greatness] Completed"},
+				
+				{id: 2935, name: "[Tali: Treason] Cleared of charges"},
+			],
+		},
+		{
+			name: "Henchmen",
+			
+			bools:
+			[
+				{id: 33, name: "Miranda acquired"},
+				{id: 34, name: "Jacob acquired"},
+				{id: 35, name: "Jack acquired"},
+				{id: 36, name: "Legion acquired"},
+				{id: 37, name: "Kasumi acquired"},
+				{id: 38, name: "Garrus acquired"},
+				{id: 39, name: "Thane acquired"},
+				{id: 40, name: "Tali acquired"},
+				{id: 41, name: "Mordin acquired"},
+				{id: 42, name: "Grunt acquired"},
+				{id: 43, name: "Samara acquired"},
+				{id: 44, name: "Zaeed acquired"},
+				
+				{id: 177, name: "Miranda is loyal"},
+				{id: 178, name: "Jacob is loyal"},
+				{id: 179, name: "Jack is loyal"},
+				{id: 180, name: "Legion is loyal"},
+      
+				{id: 182, name: "Kasumi is loyal"},
+				{id: 183, name: "Garrus is loyal"},
+				{id: 185, name: "Thane is loyal"},
+				{id: 186, name: "Tali is loyal"},
+				{id: 188, name: "Mordin is loyal"},
+				{id: 189, name: "Grunt is loyal"},
+      
+				{id: 191, name: "Samara is loyal"},
+				{id: 192, name: "Zaeed is loyal"},
+				
+				{id: 195, name: "Miranda is dead"},
+				{id: 196, name: "Jacob is dead"},
+				{id: 197, name: "Jack is dead"},
+				{id: 198, name: "Legion is dead"},
+				{id: 199, name: "Kasumi is dead"},
+				{id: 200, name: "Garrus is dead"},
+				{id: 201, name: "Thane is dead"},
+				{id: 202, name: "Tali is dead"},
+				{id: 203, name: "Mordin is dead"},
+				{id: 204, name: "Grunt is dead"},
+				{id: 205, name: "Samara is dead"},
+				{id: 206, name: "Zaeed is dead"},
+				
+				{id: 1664, name: "Samara is Morinth"},
+			],
+		},
+		{
+			name: "Romance",
+			
+			bools:
+			[
+			],
+		},
+	],
+}

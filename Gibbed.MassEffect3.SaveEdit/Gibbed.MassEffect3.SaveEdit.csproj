@@ -84,6 +84,11 @@
     <Compile Include="PlayerGender.cs" />
     <Compile Include="PlayerNotoriety.cs" />
     <Compile Include="PlayerOrigin.cs" />
+    <Compile Include="PlotBool.cs" />
+    <Compile Include="PlotCategoryContainer.cs" />
+    <Compile Include="PlotCategory.cs" />
+    <Compile Include="PlotFloat.cs" />
+    <Compile Include="PlotInt.cs" />
     <Compile Include="Resources\Localization.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
