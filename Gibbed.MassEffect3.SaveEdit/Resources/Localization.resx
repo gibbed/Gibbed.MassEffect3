@@ -199,10 +199,63 @@ Please report this message to Rick (ctrl+C to copy this dialog) and include a co
 
 {0}</value>
   </data>
-  <data name="Editor_CannotLoadXbox360CONFile">
-    <value xml:space="preserve">You cannot open Xbox 360 CON files with the save editor.</value>
+  <data name="Editor_CannotLoadXbox360CONFile" xml:space="preserve">
+    <value>You cannot open Xbox 360 CON files with the save editor.</value>
   </data>
-  <data name="Editor_SaveFileTooOld">
-    <value xml:space="preserve">The save file you have tried to load is too old for the Save Editor. You have probably tried to load a Mass Effect 2 save file.</value>
+  <data name="Editor_SaveFileTooOld" xml:space="preserve">
+    <value>The save file you have tried to load is too old for the Save Editor. You have probably tried to load a Mass Effect 2 save file.</value>
+  </data>
+  <data name="Editor_HeadMorphLegacy" xml:space="preserve">
+    <value>While you can import head morph data created by Mass Effect 2, it is unlikely to work perfectly.
+
+Are you sure you want to import a legacy head morph?</value>
+  </data>
+  <data name="Editor_BasicTable_Character_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Editor_BasicTable_Character_Level" xml:space="preserve">
+    <value>Level</value>
+  </data>
+  <data name="Editor_BasicTable_Character_Class" xml:space="preserve">
+    <value>Class</value>
+  </data>
+  <data name="Editor_BasicTable_Character_Gender" xml:space="preserve">
+    <value>Gender*</value>
+  </data>
+  <data name="Editor_BasicTable_Character_Origin" xml:space="preserve">
+    <value>Origin</value>
+  </data>
+  <data name="Editor_BasicTable_Character_Notoriety" xml:space="preserve">
+    <value>Notoriety</value>
+  </data>
+  <data name="Editor_BasicTable_Character_TalentPoints" xml:space="preserve">
+    <value>Talent Points</value>
+  </data>
+  <data name="Editor_BasicTable_Reputation_ParagonPoints">
+    <value xml:space="preserve">Paragon Points</value>
+  </data>
+  <data name="Editor_BasicTable_Reputation_RenegadePoints">
+    <value xml:space="preserve">Renegade Points</value>
+  </data>
+  <data name="Editor_BasicTable_Reputation_Reputation">
+    <value xml:space="preserve">Reputation</value>
+  </data>
+  <data name="Editor_BasicTable_Reputation_ReputationPoints">
+    <value xml:space="preserve">Reputation Points</value>
+  </data>
+  <data name="Editor_BasicTable_Resources_Credits">
+    <value xml:space="preserve">Credits</value>
+  </data>
+  <data name="Editor_BasicTable_Resources_Medigel">
+    <value xml:space="preserve">Medi-gel</value>
+  </data>
+  <data name="Editor_BasicTable_Resources_ExtraMedigel">
+    <value xml:space="preserve">Extra Medi-gel</value>
+  </data>
+  <data name="Editor_BasicTable_Resources_Grenades">
+    <value xml:space="preserve">Grenades</value>
+  </data>
+  <data name="Editor_ColorName">
+    <value xml:space="preserve">Color Name</value>
   </data>
 </root>

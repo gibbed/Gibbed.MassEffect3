@@ -24,7 +24,10 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
+using ColorPicker;
 using System.IO;
+using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
@@ -53,7 +56,7 @@ namespace Gibbed.MassEffect3.SaveEdit
             }
             // ReSharper restore DoNotCallOverridableMethodsInConstructor
 
-            this.wrexPictureBox.Image = System.Drawing.Image.FromStream(new MemoryStream(Images.Wrex), true);
+            this.wrexPictureBox.Image = Image.FromStream(new MemoryStream(Images.Wrex), true);
 
             bool hasSaveFolder = false;
             var savePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
@@ -88,16 +91,107 @@ namespace Gibbed.MassEffect3.SaveEdit
             }
 
             // ReSharper disable LocalizableElement
-            this.iconImageList.Images.Add("Unknown", new System.Drawing.Bitmap(16, 16));
+            this.iconImageList.Images.Add("Unknown", new Bitmap(16, 16));
             // ReSharper restore LocalizableElement
 
-            this.rootTabControl.SelectedTab = rawRootTabPage;
+            //this.rootTabControl.SelectedTab = rawRootTabPage;
             this.rawSplitContainer.Panel2Collapsed = true;
+
+            this.LoadDefaultMaleSave();
+
+            this.SuspendLayout();
+            this.AddTable("Character", BasicTable.Character.Build(this));
+            this.AddTable("Reputation", BasicTable.Reputation.Build(this));
+            this.AddTable("Resources", BasicTable.Resources.Build(this));
+            this.ResumeLayout();
+        }
+
+        private void AddTable(string name, List<BasicTable.TableItem> items)
+        {
+            int row = 0;
+
+            var panel = new TableLayoutPanel
+            {
+                ColumnCount = 2,
+                RowCount = items.Count
+            };
+
+            panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35));
+            panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 65));
+// ReSharper disable ForCanBeConvertedToForeach
+            for (int i = 0; i < items.Count; i++)
+// ReSharper restore ForCanBeConvertedToForeach
+            {
+                panel.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+            }
+
+            foreach (var item in items)
+            {
+                panel.Controls.Add(item.Control);
+                panel.SetRow(item.Control, row);
+                panel.SetColumn(item.Control, 1);
+
+                if (string.IsNullOrEmpty(item.Name) == false)
+                {
+                    var label = new Label()
+                    {
+// ReSharper disable LocalizableElement
+                        Text = item.Name + ":",
+// ReSharper restore LocalizableElement
+                        Dock = DockStyle.Fill,
+                        AutoSize = true,
+                        TextAlign = ContentAlignment.MiddleRight,
+                    };
+                    panel.Controls.Add(label);
+                    panel.SetRow(label, row);
+                    panel.SetColumn(label, 0);
+                }
+                else
+                {
+                    panel.SetColumnSpan(item.Control, 2);
+                }
+
+                if (item.Binding != null)
+                {
+                    item.Control.DataBindings.Add(item.Binding);
+                }
+
+                row++;
+            }
+
+            panel.AutoSize = true;
+            panel.Dock = DockStyle.Fill;
+
+            var group = new GroupBox();
+            group.Text = name;
+            group.MinimumSize = new Size(320, 0);
+            group.AutoSize = true;
+            group.Controls.Add(panel);
+
+            this.playerBasicPanel.Controls.Add(group);
         }
 
         private static string GetExecutablePath()
         {
             return Path.GetDirectoryName(Application.ExecutablePath);
+        }
+
+        private void LoadDefaultMaleSave()
+        {
+            using (var memory = new MemoryStream(Properties.Resources.DefaultMaleSave))
+            {
+                this.LoadSaveFromStream(memory);
+                this.SaveFile.Player.Guid = Guid.NewGuid();
+            }
+        }
+
+        private void LoadDefaultFemaleSave()
+        {
+            using (var memory = new MemoryStream(Properties.Resources.DefaultFemaleSave))
+            {
+                this.LoadSaveFromStream(memory);
+                this.SaveFile.Player.Guid = Guid.NewGuid();
+            }
         }
 
         private readonly string _SavePath;
@@ -113,6 +207,7 @@ namespace Gibbed.MassEffect3.SaveEdit
                     if (this._SaveFile != null)
                     {
                         this._SaveFile.Player.PropertyChanged -= this.OnPlayerPropertyChanged;
+                        this._SaveFile.Player.Appearance.PropertyChanged -= this.OnPlayerAppearancePropertyChanged;
                     }
 
                     var oldValue = this._SaveFile;
@@ -121,14 +216,13 @@ namespace Gibbed.MassEffect3.SaveEdit
                     if (this._SaveFile != null)
                     {
                         this._SaveFile.Player.PropertyChanged += this.OnPlayerPropertyChanged;
-
-                        /*var dtd = DynamicTypeDescriptor.ProviderInstaller.Install(this._SaveFile);
-                        dtd.PropertySortOrder = DynamicTypeDescriptor.CustomSortOrder.AscendingById;
-                        dtd.CategorySortOrder = DynamicTypeDescriptor.CustomSortOrder.AscendingById;
-                        this.rootPropertyGrid.Site = dtd.GetSite();*/
+                        this._SaveFile.Player.Appearance.PropertyChanged += this.OnPlayerAppearancePropertyChanged;
 
                         this.rootPropertyGrid.SelectedObject = value;
-                        
+                        this.saveFileBindingSource.DataSource = value;
+                        this.vectorParametersBindingSource.DataSource =
+                            value.Player.Appearance.MorphHead.VectorParameters;
+
                         this.playerRootTabPage.ImageKey =
                             this._SaveFile.Player.IsFemale == false
                                 ? "Tab_Player_Root_Male"
@@ -157,6 +251,15 @@ namespace Gibbed.MassEffect3.SaveEdit
                             ? "Tab_Player_Root_Male"
                             : "Tab_Player_Root_Female";
                 }
+            }
+        }
+
+        private void OnPlayerAppearancePropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == "MorphHead")
+            {
+                this.vectorParametersBindingSource.DataSource =
+                    this._SaveFile.Player.Appearance.MorphHead.VectorParameters;
             }
         }
 
@@ -199,19 +302,30 @@ namespace Gibbed.MassEffect3.SaveEdit
             this.SaveFile = saveFile;
         }
 
-        private void OnOpenFromGeneric(object sender, EventArgs e)
+
+        private void OnSaveNewMale(object sender, EventArgs e)
+        {
+            this.LoadDefaultMaleSave();
+        }
+
+        private void OnSaveNewFemale(object sender, EventArgs e)
+        {
+            this.LoadDefaultFemaleSave();
+        }
+
+        private void OnSaveOpenFromGeneric(object sender, EventArgs e)
         {
             if (this.dontUseCareerPickerToolStripMenuItem.Checked == false)
             {
-                this.OnOpenFromCareer(sender, e);
+                this.OnSaveOpenFromCareer(sender, e);
             }
             else
             {
-                this.OnOpenFromFile(sender, e);
+                this.OnSaveOpenFromFile(sender, e);
             }
         }
 
-        private void OnOpenFromCareer(object sender, EventArgs e)
+        private void OnSaveOpenFromCareer(object sender, EventArgs e)
         {
             using (var picker = new SavePicker())
             {
@@ -242,7 +356,7 @@ namespace Gibbed.MassEffect3.SaveEdit
             }
         }
 
-        private void OnOpenFromFile(object sender, EventArgs e)
+        private void OnSaveOpenFromFile(object sender, EventArgs e)
         {
             if (this.openFileDialog.ShowDialog() != DialogResult.OK)
             {
@@ -255,19 +369,19 @@ namespace Gibbed.MassEffect3.SaveEdit
             }
         }
 
-        private void OnSaveToGeneric(object sender, EventArgs e)
+        private void OnSaveSaveToGeneric(object sender, EventArgs e)
         {
             if (this.dontUseCareerPickerToolStripMenuItem.Checked == false)
             {
-                this.OnSaveToCareer(sender, e);
+                this.OnSaveSaveToCareer(sender, e);
             }
             else
             {
-                this.OnSaveToFile(sender, e);
+                this.OnSaveSaveToFile(sender, e);
             }
         }
 
-        private void OnSaveToFile(object sender, EventArgs e)
+        private void OnSaveSaveToFile(object sender, EventArgs e)
         {
             if (this.SaveFile == null)
             {
@@ -295,7 +409,7 @@ namespace Gibbed.MassEffect3.SaveEdit
             }
         }
 
-        private void OnSaveToCareer(object sender, EventArgs e)
+        private void OnSaveSaveToCareer(object sender, EventArgs e)
         {
             if (this.SaveFile == null)
             {
@@ -322,7 +436,12 @@ namespace Gibbed.MassEffect3.SaveEdit
 
                 if (string.IsNullOrEmpty(picker.SelectedPath) == false)
                 {
-                    Directory.CreateDirectory(Path.GetDirectoryName(picker.SelectedPath));
+                    var selectedDirectory = Path.GetDirectoryName(picker.SelectedPath);
+                    if (selectedDirectory != null)
+                    {
+                        Directory.CreateDirectory(selectedDirectory);
+                    }
+
                     using (var output = File.Create(picker.SelectedPath))
                     {
                         FileFormats.SFXSaveGameFile.Write(this.SaveFile, output);
@@ -344,10 +463,10 @@ namespace Gibbed.MassEffect3.SaveEdit
         {
             if (e.OldSelection != null)
             {
-                var oldPC = e.OldSelection.Value as INotifyPropertyChanged;
-                if (oldPC != null)
+                var oldPc = e.OldSelection.Value as INotifyPropertyChanged;
+                if (oldPc != null)
                 {
-                    oldPC.PropertyChanged -= this.OnPropertyChanged;
+                    oldPc.PropertyChanged -= this.OnPropertyChanged;
                 }
             }
 
@@ -358,10 +477,10 @@ namespace Gibbed.MassEffect3.SaveEdit
                     this.childPropertyGrid.SelectedObject = e.NewSelection.Value;
                     this.rawSplitContainer.Panel2Collapsed = false;
 
-                    var newPC = e.NewSelection.Value as INotifyPropertyChanged;
-                    if (newPC != null)
+                    var newPc = e.NewSelection.Value as INotifyPropertyChanged;
+                    if (newPc != null)
                     {
-                        newPC.PropertyChanged += this.OnPropertyChanged;
+                        newPc.PropertyChanged += this.OnPropertyChanged;
                     }
 
                     return;
@@ -482,6 +601,85 @@ namespace Gibbed.MassEffect3.SaveEdit
                 var writer = new FileFormats.Unreal.FileWriter(
                     output, this.SaveFile.Version, Endian.Little);
                 this.SaveFile.Player.Appearance.MorphHead.Serialize(writer);
+            }
+        }
+
+        private const string HeadMorphMagicLegacy = "GIBBEDMASSEFFECT2HEADMORPH";
+
+        private void OnImportHeadMorphLegacy(object sender, EventArgs e)
+        {
+            if (this.SaveFile == null)
+            {
+                MessageBox.Show(
+                    Localization.Editor_NoActiveSave,
+                    Localization.Error,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
+
+            if (MessageBox.Show(
+                Localization.Editor_HeadMorphLegacy,
+                Localization.Warning,
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning) != DialogResult.Yes)
+            {
+                return;
+            }
+
+            if (this.openHeadMorphLegacyDialog.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+
+            using (var input = this.openHeadMorphLegacyDialog.OpenFile())
+            {
+                if (input.ReadString(HeadMorphMagicLegacy.Length, Encoding.ASCII) != HeadMorphMagicLegacy)
+                {
+                    MessageBox.Show(
+                        Localization.Editor_HeadMorphInvalid,
+                        Localization.Error,
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                    input.Close();
+                    return;
+                }
+
+                if (input.ReadValueU8() != 0)
+                {
+                    MessageBox.Show(
+                        Localization.Editor_HeadMorphVersionUnsupported,
+                        Localization.Error,
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                    input.Close();
+                    return;
+                }
+
+                uint version = input.ReadValueU32();
+
+                if (version != 29)
+                {
+                    if (MessageBox.Show(
+                        string.Format(
+                            Localization.Editor_HeadMorphVersionMaybeIncompatible,
+                            version,
+                            this.SaveFile.Version),
+                        Localization.Question,
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question) == DialogResult.No)
+                    {
+                        input.Close();
+                        return;
+                    }
+                }
+
+                var reader = new FileFormats.Unreal.FileReader(
+                    input, version, Endian.Little);
+                var morphHead = new FileFormats.Save.MorphHead();
+                morphHead.Serialize(reader);
+                this.SaveFile.Player.Appearance.MorphHead = morphHead;
+                this.SaveFile.Player.Appearance.HasMorphHead = true;
             }
         }
 
@@ -904,8 +1102,9 @@ namespace Gibbed.MassEffect3.SaveEdit
                 {
                     foreach (var vector in preset.Vectors.Remove)
                     {
+                        string temp = vector;
                         morphHead.VectorParameters.RemoveAll(
-                            p => string.Compare(p.Name, vector, StringComparison.InvariantCultureIgnoreCase) == 0);
+                            p => string.Compare(p.Name, temp, StringComparison.InvariantCultureIgnoreCase) == 0);
                     }
                 }
 
@@ -932,8 +1131,9 @@ namespace Gibbed.MassEffect3.SaveEdit
                 {
                     foreach (var vector in preset.Vectors.Set)
                     {
+                        var temp = vector;
                         morphHead.VectorParameters.RemoveAll(
-                            p => string.Compare(p.Name, vector.Key, StringComparison.InvariantCultureIgnoreCase) == 0);
+                            p => string.Compare(p.Name, temp.Key, StringComparison.InvariantCultureIgnoreCase) == 0);
                         morphHead.VectorParameters.Add(
                             new FileFormats.Save.MorphHead.VectorParameter()
                             {
@@ -1054,6 +1254,144 @@ namespace Gibbed.MassEffect3.SaveEdit
                 writer.Write(JsonConvert.SerializeObject(
                     preset, Formatting.Indented));
                 writer.Flush();
+            }
+        }
+
+        private static ColorBgra LinearColorToBgra(FileFormats.Save.LinearColor linearColor)
+        {
+            return LinearColorToBgra(
+                linearColor.R,
+                linearColor.G,
+                linearColor.B,
+                linearColor.A);
+        }
+
+        private static ColorBgra LinearColorToBgra(float r, float g, float b, float a)
+        {
+            var rb = (byte)Math.Round(r * 255);
+            var gb = (byte)Math.Round(g * 255);
+            var bb = (byte)Math.Round(b * 255);
+            var ab = (byte)Math.Round(a * 255);
+            return ColorBgra.FromBgra(bb, gb, rb, ab);
+        }
+
+        private static FileFormats.Save.LinearColor BgraToLinearColor(ColorBgra bgra)
+        {
+            return new FileFormats.Save.LinearColor(
+                (float)bgra.R / 255,
+                (float)bgra.G / 255,
+                (float)bgra.B / 255,
+                (float)bgra.A / 255);
+        }
+
+        private void OnDrawColorListBoxItem(object sender, DrawItemEventArgs e)
+        {
+            if (e.Index < 0)
+            {
+                return;
+            }
+
+            var g = e.Graphics;
+            var listbox = (ListBox)sender;
+
+            var backColor = (e.State & DrawItemState.Selected) != 0
+                                ? SystemColors.Highlight
+                                : listbox.BackColor;
+            var foreColor = (e.State & DrawItemState.Selected) != 0
+                                ? SystemColors.HighlightText
+                                : listbox.ForeColor;
+
+            g.FillRectangle(new SolidBrush(backColor), e.Bounds);
+
+            var colorBounds = e.Bounds;
+
+            colorBounds.Width = 30;
+            colorBounds.Height -= 4;
+            colorBounds.X += 2;
+            colorBounds.Y += 2;
+
+            var textBounds = e.Bounds;
+            textBounds.Offset(30, 0);
+            textBounds.Inflate(-2, -2);
+            var textBoundsF = new RectangleF(textBounds.X, textBounds.Y, textBounds.Width, textBounds.Height);
+
+            g.FillRectangle(
+                new HatchBrush(
+                    HatchStyle.LargeCheckerBoard,
+                    Color.White,
+                    Color.Gray),
+                colorBounds);
+
+            var item = listbox.Items[e.Index];
+
+            var vector = item as FileFormats.Save.MorphHead.VectorParameter;
+            if (vector != null)
+            {
+                var valueColor = LinearColorToBgra(vector.Value).ToColor();
+
+                g.FillRectangle(new SolidBrush(valueColor), colorBounds);
+                g.DrawRectangle(Pens.Black, colorBounds);
+
+                var format = StringFormat.GenericDefault;
+                format.LineAlignment = StringAlignment.Center;
+
+                e.Graphics.DrawString(vector.Name,
+                                      listbox.Font,
+                                      new SolidBrush(foreColor),
+                                      textBoundsF,
+                                      format);
+            }
+        }
+
+        private void OnPlayerAppearanceColorRemove(object sender, EventArgs e)
+        {
+            var item = this.playerAppearanceColorsListBox.SelectedItem as FileFormats.Save.MorphHead.VectorParameter;
+            if (item != null)
+            {
+                this._SaveFile.Player.Appearance.MorphHead.VectorParameters.Remove(item);
+            }
+        }
+
+        private void OnPlayerAppearanceColorAdd(object sender, EventArgs e)
+        {
+            var input = new InputBox
+            {
+                Owner = this,
+                Text = Localization.Editor_ColorName,
+                InputText = "",
+            };
+
+            if (input.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+
+            this._SaveFile.Player.Appearance.MorphHead.VectorParameters.Add(
+                new FileFormats.Save.MorphHead.VectorParameter()
+                {
+                    Name = input.InputText,
+                    Value = new FileFormats.Save.LinearColor(1, 1, 1, 1),
+                });
+        }
+
+        private void OnPlayerAppearanceColorChange(object sender, EventArgs e)
+        {
+            var item = this.playerAppearanceColorsListBox.SelectedItem as FileFormats.Save.MorphHead.VectorParameter;
+            if (item != null)
+            {
+                var bgra = LinearColorToBgra(item.Value);
+
+// ReSharper disable UseObjectOrCollectionInitializer
+                var picker = new ColorPicker.ColorDialog();
+// ReSharper restore UseObjectOrCollectionInitializer
+                picker.WheelColor = bgra;
+
+                if (picker.ShowDialog() != DialogResult.OK)
+                {
+                    return;
+                }
+
+                item.Value = BgraToLinearColor(picker.WheelColor);
             }
         }
     }

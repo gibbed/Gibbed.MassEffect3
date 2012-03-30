@@ -23,6 +23,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Text;
 using Gibbed.IO;
@@ -716,6 +717,57 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
         public void Serialize<TType>(ref List<TType> list,
                                      Func<ISerializer, bool> condition,
                                      Func<List<TType>> defaultList)
+            where TType : class, ISerializable, new()
+        {
+            if (condition == null)
+            {
+                throw new ArgumentNullException("condition");
+            }
+
+            if (defaultList == null)
+            {
+                throw new ArgumentNullException("defaultList");
+            }
+
+            if (condition(this) == false)
+            {
+                this.Serialize(ref list);
+            }
+            else
+            {
+                list = defaultList();
+                if (list == null)
+                {
+                    throw new ArgumentException("evaluated default list cannot be null", "defaultList");
+                }
+            }
+        }
+
+        public void Serialize<TType>(ref BindingList<TType> list) where TType : class, ISerializable, new()
+        {
+            if (list == null)
+            {
+                throw new ArgumentNullException("serializable list should not be null", "list");
+            }
+
+            var count = this._Input.ReadValueU32(this.Endian);
+            if (count >= 0x7FFFFF)
+            {
+                throw new FormatException("too many items in list");
+            }
+
+            list.Clear();
+            for (uint i = 0; i < count; i++)
+            {
+                var item = new TType();
+                item.Serialize(this);
+                list.Add(item);
+            }
+        }
+
+        public void Serialize<TType>(ref BindingList<TType> list,
+                                     Func<ISerializer, bool> condition,
+                                     Func<BindingList<TType>> defaultList)
             where TType : class, ISerializable, new()
         {
             if (condition == null)

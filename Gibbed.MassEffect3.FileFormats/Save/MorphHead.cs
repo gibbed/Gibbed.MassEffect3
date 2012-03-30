@@ -58,7 +58,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
         private List<ScalarParameter> _ScalarParameters = new List<ScalarParameter>();
 
         [OriginalName("VectorParameters")]
-        private List<VectorParameter> _VectorParameters = new List<VectorParameter>();
+        private BindingList<VectorParameter> _VectorParameters = new BindingList<VectorParameter>();
 
         [OriginalName("TextureParameters")]
         private List<TextureParameter> _TextureParameters = new List<TextureParameter>();
@@ -200,7 +200,7 @@ namespace Gibbed.MassEffect3.FileFormats.Save
             }
         }
 
-        public List<VectorParameter> VectorParameters
+        public BindingList<VectorParameter> VectorParameters
         {
             get { return this._VectorParameters; }
             set

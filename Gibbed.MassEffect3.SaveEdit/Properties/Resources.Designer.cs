@@ -59,5 +59,19 @@ namespace Gibbed.MassEffect3.SaveEdit.Properties {
                 resourceCulture = value;
             }
         }
+        
+        internal static byte[] DefaultFemaleSave {
+            get {
+                object obj = ResourceManager.GetObject("DefaultFemaleSave", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        internal static byte[] DefaultMaleSave {
+            get {
+                object obj = ResourceManager.GetObject("DefaultMaleSave", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

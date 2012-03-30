@@ -23,6 +23,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace Gibbed.MassEffect3.FileFormats.Unreal
 {
@@ -86,6 +87,14 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
             where TType : class, ISerializable, new();
 
         void Serialize<TType>(ref List<TType> list, Func<ISerializer, bool> condition, Func<List<TType>> defaultList)
+            where TType : class, ISerializable, new();
+
+        void Serialize<TType>(ref BindingList<TType> list)
+            where TType : class, ISerializable, new();
+
+        void Serialize<TType>(ref BindingList<TType> list,
+                              Func<ISerializer, bool> condition,
+                              Func<BindingList<TType>> defaultList)
             where TType : class, ISerializable, new();
     }
 }

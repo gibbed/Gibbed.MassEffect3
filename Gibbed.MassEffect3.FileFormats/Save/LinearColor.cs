@@ -34,6 +34,19 @@ namespace Gibbed.MassEffect3.FileFormats.Save
         private float _A;
         #endregion
 
+        public LinearColor()
+            : this(0.0f, 0.0f, 0.0f, 0.0f)
+        {
+        }
+
+        public LinearColor(float r, float g, float b, float a)
+        {
+            this._R = r;
+            this._G = g;
+            this._B = b;
+            this._A = a;
+        }
+
         public void Serialize(Unreal.ISerializer stream)
         {
             stream.Serialize(ref this._R);

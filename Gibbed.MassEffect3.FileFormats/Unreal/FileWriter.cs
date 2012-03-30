@@ -565,5 +565,41 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
                 this.Serialize(ref list);
             }
         }
+
+        public void Serialize<TType>(ref System.ComponentModel.BindingList<TType> list) where TType : class, ISerializable, new()
+        {
+            if (list == null)
+            {
+                throw new ArgumentNullException("serializable list should not be null", "list");
+            }
+
+            this._Output.WriteValueS32(list.Count, this.Endian);
+            foreach (var item in list)
+            {
+                if (item == null)
+                {
+                    throw new ArgumentException("items in list cannot be null", "list");
+                }
+                item.Serialize(this);
+            }
+        }
+
+        public void Serialize<TType>(ref System.ComponentModel.BindingList<TType> list, Func<ISerializer, bool> condition, Func<System.ComponentModel.BindingList<TType>> defaultList) where TType : class, ISerializable, new()
+        {
+            if (condition == null)
+            {
+                throw new ArgumentNullException("condition");
+            }
+
+            if (defaultList == null)
+            {
+                throw new ArgumentNullException("defaultList");
+            }
+
+            if (condition(this) == false)
+            {
+                this.Serialize(ref list);
+            }
+        }
     }
 }

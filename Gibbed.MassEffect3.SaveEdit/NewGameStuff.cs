@@ -326,8 +326,10 @@ namespace Gibbed.MassEffect3.SaveEdit
 
         public struct CopyPlot
         {
+// ReSharper disable InconsistentNaming
             public int SId;
             public int TId;
+// ReSharper restore InconsistentNaming
             public SFXPlotType Type;
         }
 

@@ -61,11 +61,155 @@ namespace Gibbed.MassEffect3.SaveEdit.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Class.
+        /// </summary>
+        internal static string Editor_BasicTable_Character_Class {
+            get {
+                return ResourceManager.GetString("Editor_BasicTable_Character_Class", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gender*.
+        /// </summary>
+        internal static string Editor_BasicTable_Character_Gender {
+            get {
+                return ResourceManager.GetString("Editor_BasicTable_Character_Gender", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Level.
+        /// </summary>
+        internal static string Editor_BasicTable_Character_Level {
+            get {
+                return ResourceManager.GetString("Editor_BasicTable_Character_Level", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        internal static string Editor_BasicTable_Character_Name {
+            get {
+                return ResourceManager.GetString("Editor_BasicTable_Character_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Notoriety.
+        /// </summary>
+        internal static string Editor_BasicTable_Character_Notoriety {
+            get {
+                return ResourceManager.GetString("Editor_BasicTable_Character_Notoriety", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Origin.
+        /// </summary>
+        internal static string Editor_BasicTable_Character_Origin {
+            get {
+                return ResourceManager.GetString("Editor_BasicTable_Character_Origin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Talent Points.
+        /// </summary>
+        internal static string Editor_BasicTable_Character_TalentPoints {
+            get {
+                return ResourceManager.GetString("Editor_BasicTable_Character_TalentPoints", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Paragon Points.
+        /// </summary>
+        internal static string Editor_BasicTable_Reputation_ParagonPoints {
+            get {
+                return ResourceManager.GetString("Editor_BasicTable_Reputation_ParagonPoints", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Renegade Points.
+        /// </summary>
+        internal static string Editor_BasicTable_Reputation_RenegadePoints {
+            get {
+                return ResourceManager.GetString("Editor_BasicTable_Reputation_RenegadePoints", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reputation.
+        /// </summary>
+        internal static string Editor_BasicTable_Reputation_Reputation {
+            get {
+                return ResourceManager.GetString("Editor_BasicTable_Reputation_Reputation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reputation Points.
+        /// </summary>
+        internal static string Editor_BasicTable_Reputation_ReputationPoints {
+            get {
+                return ResourceManager.GetString("Editor_BasicTable_Reputation_ReputationPoints", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Credits.
+        /// </summary>
+        internal static string Editor_BasicTable_Resources_Credits {
+            get {
+                return ResourceManager.GetString("Editor_BasicTable_Resources_Credits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Extra Medi-gel.
+        /// </summary>
+        internal static string Editor_BasicTable_Resources_ExtraMedigel {
+            get {
+                return ResourceManager.GetString("Editor_BasicTable_Resources_ExtraMedigel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Grenades.
+        /// </summary>
+        internal static string Editor_BasicTable_Resources_Grenades {
+            get {
+                return ResourceManager.GetString("Editor_BasicTable_Resources_Grenades", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Medi-gel.
+        /// </summary>
+        internal static string Editor_BasicTable_Resources_Medigel {
+            get {
+                return ResourceManager.GetString("Editor_BasicTable_Resources_Medigel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You cannot open Xbox 360 CON files with the save editor..
         /// </summary>
         internal static string Editor_CannotLoadXbox360CONFile {
             get {
                 return ResourceManager.GetString("Editor_CannotLoadXbox360CONFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Color Name.
+        /// </summary>
+        internal static string Editor_ColorName {
+            get {
+                return ResourceManager.GetString("Editor_ColorName", resourceCulture);
             }
         }
         
@@ -93,6 +237,17 @@ namespace Gibbed.MassEffect3.SaveEdit.Resources {
         internal static string Editor_HeadMorphInvalid {
             get {
                 return ResourceManager.GetString("Editor_HeadMorphInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to While you can import head morph data created by Mass Effect 2, it is unlikely to work perfectly.
+        ///
+        ///Are you sure you want to import a legacy head morph?.
+        /// </summary>
+        internal static string Editor_HeadMorphLegacy {
+            get {
+                return ResourceManager.GetString("Editor_HeadMorphLegacy", resourceCulture);
             }
         }
         
