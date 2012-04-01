@@ -21,19 +21,33 @@
  */
 
 using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
+using System.Linq;
 using Gibbed.IO;
 
-namespace Gibbed.MassEffect3.FileFormats
+namespace Gibbed.MassEffect3.ConditionalDump
 {
     public class ConditionalsFile
     {
         public Endian Endian;
         public uint Version;
 
+        private readonly Dictionary<uint, byte[]> _Buffers
+            = new Dictionary<uint, byte[]>();
+
+        public ReadOnlyCollection<int> Ids
+        {
+            get { return new ReadOnlyCollection<int>(this._Conditionals.Keys.ToArray()); }
+        }
+
+        private readonly Dictionary<int, uint> _Conditionals
+            = new Dictionary<int, uint>();
+
         public void Serialize(Stream output)
         {
-            throw new NotImplementedException();
+            throw new NotSupportedException();
         }
 
         public void Deserialize(Stream input)
@@ -64,33 +78,55 @@ namespace Gibbed.MassEffect3.FileFormats
                 offsets[i] = input.ReadValueU32(endian);
             }
 
-            for (ushort i = 0; i < count; i++)
+            var sortedOffsets = offsets
+                .OrderBy(o => o)
+                .Distinct()
+                .ToArray();
+
+            this._Buffers.Clear();
+            for (int i = 0; i < sortedOffsets.Length; i++)
             {
-                var id = ids[i];
-                var offset = offsets[i];
+                var offset = sortedOffsets[i];
+                if (offset == 0)
+                {
+                    continue;
+                }
+
+                var nextOffset = i + 1 < sortedOffsets.Length
+                                     ? sortedOffsets[i + 1]
+                                     : input.Length;
 
                 input.Seek(offset, SeekOrigin.Begin);
 
-                var flags = input.ReadValueU8();
+                var length = (int)(nextOffset - offset);
 
-                var valueType = (Conditionals.ValueType)((flags & 0x0F) >> 0);
-                var opType = (Conditionals.OpType)((flags & 0xF0) >> 4);
-
-                if (valueType == Conditionals.ValueType.Bool)
-                {
-                    switch (opType)
-                    {
-                        default:
-                        {
-                            throw new NotSupportedException();
-                        }
-                    }
-                }
+                var bytes = input.ReadBytes(length);
+                this._Buffers.Add(offset, bytes);
             }
 
-            throw new NotImplementedException();
+            this._Conditionals.Clear();
+            for (int i = 0; i < count; i++)
+            {
+                this._Conditionals.Add(ids[i], offsets[i]);
+            }
 
             this.Endian = endian;
+        }
+
+        public byte[] GetConditional(int id)
+        {
+            if (this._Conditionals.ContainsKey(id) == false)
+            {
+                throw new ArgumentOutOfRangeException("id");
+            }
+
+            var offset = this._Conditionals[id];
+            if (this._Buffers.ContainsKey(offset) == false)
+            {
+                throw new InvalidOperationException();
+            }
+
+            return (byte[])this._Buffers[offset].Clone();
         }
     }
 }

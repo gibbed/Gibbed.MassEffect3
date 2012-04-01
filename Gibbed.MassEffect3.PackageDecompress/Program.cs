@@ -28,7 +28,7 @@ using Gibbed.IO;
 using ICSharpCode.SharpZipLib.Zip.Compression.Streams;
 using NDesk.Options;
 
-namespace Gibbed.MassEffect3.DecompressPackage
+namespace Gibbed.MassEffect3.PackageDecompress
 {
     internal class Program
     {

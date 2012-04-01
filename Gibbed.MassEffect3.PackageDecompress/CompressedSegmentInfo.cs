@@ -20,12 +20,11 @@
  *    distribution.
  */
 
-namespace Gibbed.MassEffect3.FileFormats.Conditionals
+namespace Gibbed.MassEffect3.PackageDecompress
 {
-    public enum ValueType : byte
+    internal struct CompressedSegmentInfo
     {
-        Bool = 0,
-        Int = 1,
-        Float = 2,
+        public uint UncompressedSize;
+        public uint CompressedSize;
     }
 }

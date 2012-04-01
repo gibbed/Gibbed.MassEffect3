@@ -1,37 +1,57 @@
 {
-	name: "Mass Effect 3",
-	categories:
-	[
-		{
-			name: "Henchmen",
-			
-			bools:
-			[
-				{id: 17678, name: "Liara acquired"},
-				{id: 17679, name: "Kaidan acquired"},
-				{id: 17680, name: "Ashley acquired"},
-				{id: 17681, name: "Garrus acquired"},
-				{id: 17682, name: "EDI acquired"},
-				{id: 17683, name: "Javik acquired"},
-				{id: 17694, name: "James acquired"},
-				{id: 17838, name: "Tali acquired"},
-				
-				{id: 17663, name: "Liara in squad"},
-				{id: 17664, name: "Kaidan in squad"},
-				{id: 17665, name: "Ashley in squad"},
-				{id: 17666, name: "Garrus in squad"},
-				{id: 17667, name: "EDI in squad"},
-				{id: 17668, name: "Javik in squad"},
-				{id: 17692, name: "James in squad"},
-				{id: 17836, name: "Tali in squad"},
-			],
-		},
-		{
-			name: "Romance",
-			
-			bools:
-			[
-			],
-		},
-	],
+  name: "Mass Effect 3",
+  categories:
+  [
+    {
+      name: "Missions",
+    },
+    {
+      name: "Henchmen",
+
+      bools:
+      [
+        {id: 17678, name: "Liara acquired"},
+        {id: 17679, name: "Kaidan acquired"},
+        {id: 17680, name: "Ashley acquired"},
+        {id: 17681, name: "Garrus acquired"},
+        {id: 17682, name: "EDI acquired"},
+        {id: 17683, name: "Javik acquired"},
+
+        {id: 17694, name: "James acquired"},
+
+        {id: 17838, name: "Tali acquired"},
+
+        {id: 17663, name: "Liara in squad"},
+        {id: 17664, name: "Kaidan in squad"},
+        {id: 17665, name: "Ashley in squad"},
+        {id: 17666, name: "Garrus in squad"},
+        {id: 17667, name: "EDI in squad"},
+        {id: 17668, name: "Javik in squad"},
+
+        {id: 17692, name: "James in squad"},
+
+        {id: 17836, name: "Tali in squad"},
+      ],
+    },
+    {
+      name: "Romance",
+
+      bools:
+      [
+      ],
+    },
+    {
+      name: "Misc",
+
+      bools:
+      [
+        {id: 21041, name: "Caught Space Hamster"},
+      ],
+
+      ints:
+      [
+        {id: 10430, name: "Effective Military Strength"},
+      ],
+    },
+  ],
 }

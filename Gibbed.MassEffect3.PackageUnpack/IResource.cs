@@ -20,9 +20,13 @@
  *    distribution.
  */
 
-namespace Gibbed.MassEffect3.FileFormats.Conditionals
+namespace Gibbed.MassEffect3.PackageUnpack
 {
-    public enum OpType : byte
+    internal interface IResource
     {
+        string LocalName { get; }
+        string FullName { get; }
+        string LocalPath { get; }
+        string FullPath { get; }
     }
 }

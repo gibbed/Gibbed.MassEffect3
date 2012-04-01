@@ -419,19 +419,19 @@ otherwise your head will be messed up in-game.</value>
   <data name="playerAppearanceColorsAddColorButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        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
+        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
 </value>
   </data>
   <data name="playerAppearanceColorsAddColorButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
@@ -446,19 +446,19 @@ otherwise your head will be messed up in-game.</value>
   <data name="playerAppearanceColorsRemoveColorButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         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
-        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
+        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
 </value>
   </data>
   <data name="playerAppearanceColorsRemoveColorButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
@@ -476,20 +476,20 @@ otherwise your head will be messed up in-game.</value>
   <data name="playerAppearanceColorsChangeColorButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALoSURBVDhPndNdSJNRGAfwR2d6E2EXWqZChfTlR5d+RLLM
-        DMGrGA4hQk2jTDNXSZk2c67YmFoJhaXzK3WiMjU/FlqbZk7SZroak1gi27qQVKbGYJP9O/NiIglBBx7e
-        c3H+v/M8cF6i/1i1ERGxJi8vpZaI+1d8lEcBX84S33iSIzYG+tYZff3rjJwIsZ64fB3xAng8Xlh+dHQx
-        SkvR4+U1sg3QS+jMnHBv02Jt9rT9fdOSZVzjtDSPOu1NPUuL6c+ndfE81bWY1Kd2ux1JQUGVDURJHmC2
-        h84Z24Pf/v7eZsPsa0DxABAJAAH7ljRjWV6DsReHnPaf95AYEt/g7+8f5Qk3d1HQ7OSegfWl+jVYKoEJ
-        FuwvA+QyQFaDZakY2oo4uMNdwhMbqiNV2kEaCfIA9WrKM1h45g3XK2CtADBLAb0ceNeBZYUU2pfxm+Hu
-        4nj8EA7BcMpiVtB4ngeQjFP39IrEbsFdrOAhNjZYeEWFVV0HtK3czbDyMRffSodhZc1NZ67YZTTe7QGy
-        NWRUmYWuj7gBPSQwox1rmID2zS1gfQ5dzxIwVT8MQxWgvQm0XDW7ckhj9ACJajLJGdCKPPQzYIwBXxnA
-        DqBanIoh5QdolcAgAxQMKL9odp0ntckDhKhoWGhNcUhZB0/YCI1ogooBn/ALUzZgSMduVQDVjwBxDnA9
-        weo4SKrhrTfQQkUxM5G2AgYUoARStEKOSXQwoHMVaJwBKjuBwnIg/RJwPHjG5k3Koi1ARKGcAY4hhXWR
-        xUYQsBHKMAUZliBjQPkscIeNkC4BTqdYHRzOgIFIHrr9GbcR36dvn4U7n+lMQxey8Bm5DMhlwBUGpPUA
-        hy/PO31C+yxE7fydf6F8bz5HfswQrBbYYq29juQFnStZv+CK67U6ggvVNk6U3EC7BDuGfZi4j1U4hfkl
-        UcbRChJd0JDotonui0zEF2koPKOC/MLcbz+S1X5W7oxnebPdblaBrA78o9wXuc+6M/QHfbrUR9vAYXgA
-        AAAASUVORK5CYII=
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALpSURBVDhPndNdSJNhFAfwozO9ibALNVPJC+nLjy79iMYy
+        MwSvYjiECA2NMs1cJWXazLliY2olFJbOr9SJypz5sdDaNHOSNlNrTGKJunUhqUyNwSb798yLiRQEPXB4
+        34vn/3vPgfMS/cepjYqKN3t5qfREvD/iI3wK+HyGBKYTHIkp0LfO5OtfZ+JESWaJJzAQP4DP50fkx8YW
+        o7QUai+v4V3ArJROz4n2Ny3XZk/Z3zWtLI7pnIuNI057k3plOePZlIHL11yNS3tit9uRHBxc2UCU7AFm
+        1HTW1B7y5te3NhtmXgHK+4BYCAjZs6QZq4oajD4/5LT/uIukUG6Dv79/jCfc3EXBMxP7+jdX6jdgqQTG
+        WbCvDFDIAXkNVmUS6CsS4A53iY5vaQ5X6QdoONgD1Gspz2jhL225XgIbBcCSDJhVAG87sKqUQf+Cux3u
+        Lubiu2gQxpOWJSWN5XkA6Rh1T61J7RbcwRoeYGuLhdc0WDd0QN/K2w6rHvHwtXQIVtbc1KU1u5zGuj1A
+        to5M/Qsi1wdcxyykWEI7NjAO/eubwOYcup4mYrJ+CMYqQH8DaL6y4MohnckDJGnJXMuAVuShjwGjDPjC
+        AHYB1ZI0DKreQ68CBhigZEDZhQXXOdKaPUCohoZE1lSHjHXwmI3QiCZoGPARPzFpAwYNQIsSqH4ISHKA
+        a4lWRzhphnZ2oIWK4qajbQUMKEAJZGiFAhPoYEDnOtA4DVR2AoXlQMZF4FjItM2bVEU7gJjCOP0cYyrr
+        IouNIGQjlGEScqxAzoDyGeA2GyFDCpxKtTo4nH4jkSJs9xq3kcCnN8jCm89wpqMLWfiEXAbkMuAyA9LV
+        QHjmvNMnrNdC1C74+y+U7y3gKI4aQ7RCW7y1x5EyP+lKmZ53JfRYHSGFWhsnRmGkPcK/hn2YGMQqkiL8
+        kinzSAWJz+tIfMtM98RmEoh1FJlZQX4R7t2PZnWAlTvjOd7sbS+rQFYH/1HuD7nvujP0GzgO1CEQnPP1
+        AAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="playerAppearanceColorsChangeColorButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
@@ -563,7 +563,7 @@ otherwise your head will be messed up in-game.</value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAADk
-        EgAAAk1TRnQBSQFMAgEBCQEAAcgBAQHIAQEBEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        EgAAAk1TRnQBSQFMAgEBCQEAAdgBAQHYAQEBEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABQAMAATADAAEBAQABCAYAAQwYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA

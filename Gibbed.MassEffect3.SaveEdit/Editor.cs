@@ -214,6 +214,10 @@ namespace Gibbed.MassEffect3.SaveEdit
                 }
             }
 
+            var consumedBools = new List<int>();
+            var consumedInts = new List<int>();
+            var consumedFloats = new List<int>();
+
             foreach (var container in containers.OrderBy(c => c.Order))
             {
                 var tabs = new List<TabPage>();
@@ -265,7 +269,7 @@ namespace Gibbed.MassEffect3.SaveEdit
                                 Multiline = true,
                                 Text = category.Note.Trim(),
                                 ReadOnly = true,
-                                //ForeColor = SystemColors
+                                BackColor = SystemColors.Window,
                             };
                             tabPage.Controls.Add(textBox);
                         }
@@ -330,6 +334,12 @@ namespace Gibbed.MassEffect3.SaveEdit
 
                         foreach (var plot in category.Bools)
                         {
+                            if (consumedBools.Contains(plot.Id) == true)
+                            {
+                                throw new FormatException(string.Format("bool ID {0} already added", plot.Id));
+                            }
+                            consumedBools.Add(plot.Id);
+
                             listBox.Items.Add(plot);
                         }
 
@@ -347,11 +357,17 @@ namespace Gibbed.MassEffect3.SaveEdit
 
                         panel.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
 
-                        foreach (var value in category.Ints)
+                        foreach (var plot in category.Ints)
                         {
+                            if (consumedInts.Contains(plot.Id) == true)
+                            {
+                                throw new FormatException(string.Format("int ID {0} already added", plot.Id));
+                            }
+                            consumedInts.Add(plot.Id);
+
                             var label = new Label
                             {
-                                Text = string.Format(Localization.Editor_PlotEditor_ValueLabelFormat, value.Name),
+                                Text = string.Format(Localization.Editor_PlotEditor_ValueLabelFormat, plot.Name),
                                 Dock = DockStyle.Fill,
                                 AutoSize = true,
                                 TextAlign = ContentAlignment.MiddleRight,
@@ -363,7 +379,7 @@ namespace Gibbed.MassEffect3.SaveEdit
                                 Minimum = int.MinValue,
                                 Maximum = int.MaxValue,
                                 Increment = 1,
-                                Tag = value,
+                                Tag = plot,
                             };
                             numericUpDown.ValueChanged += this.OnPlotIntValueChanged;
                             panel.Controls.Add(numericUpDown);

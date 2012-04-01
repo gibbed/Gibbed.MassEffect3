@@ -20,13 +20,12 @@
  *    distribution.
  */
 
-namespace Gibbed.MassEffect3.DecompressPackage
+namespace Gibbed.MassEffect3.ConditionalDump
 {
-    internal struct CompressedBlockInfo
+    public enum FlagType : byte
     {
-        public uint UncompressedOffset;
-        public uint UncompressedSize;
-        public uint CompressedOffset;
-        public uint CompressedSize;
+        Bool = 0,
+        Int = 1,
+        Float = 2,
     }
 }

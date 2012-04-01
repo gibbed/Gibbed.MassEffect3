@@ -30,7 +30,7 @@ using Gibbed.MassEffect3.FileFormats;
 using NDesk.Options;
 using SFXArchive = Gibbed.MassEffect3.FileFormats.SFXArchive;
 
-namespace Gibbed.MassEffect3.UnpackSFXArchive
+namespace Gibbed.MassEffect3.SFXArchiveUnpack
 {
     internal class Program
     {

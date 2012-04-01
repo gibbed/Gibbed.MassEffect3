@@ -27,7 +27,7 @@ using System.Linq;
 using Gibbed.IO;
 using ICSharpCode.SharpZipLib.Zip.Compression.Streams;
 
-namespace Gibbed.MassEffect3.UnpackPackage
+namespace Gibbed.MassEffect3.PackageUnpack
 {
     public class BlockStream : Stream
     {

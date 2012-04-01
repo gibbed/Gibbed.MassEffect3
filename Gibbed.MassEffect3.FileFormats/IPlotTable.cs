@@ -20,7 +20,7 @@
  *    distribution.
  */
 
-namespace Gibbed.MassEffect3.FileFormats.Save
+namespace Gibbed.MassEffect3.FileFormats
 {
     public interface IPlotTable
     {

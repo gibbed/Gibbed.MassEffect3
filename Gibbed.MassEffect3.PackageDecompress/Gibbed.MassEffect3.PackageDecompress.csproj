@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{07D98321-3607-4E71-8199-F966AD1F4B05}</ProjectGuid>
+    <ProjectGuid>{FBD4D8AE-4752-4126-B155-A1CDA73E773E}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Gibbed.MassEffect3.UnpackPackage</RootNamespace>
-    <AssemblyName>Gibbed.MassEffect3.UnpackPackage</AssemblyName>
+    <RootNamespace>Gibbed.MassEffect3.PackageDecompress</RootNamespace>
+    <AssemblyName>Gibbed.MassEffect3.PackageDecompress</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
@@ -47,10 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BlockStream.cs" />
-    <Compile Include="ExportInfo.cs" />
-    <Compile Include="ImportInfo.cs" />
-    <Compile Include="IResource.cs" />
+    <Compile Include="CompressedBlockInfo.cs" />
+    <Compile Include="CompressedSegmentInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

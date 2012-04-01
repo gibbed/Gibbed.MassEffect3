@@ -28,7 +28,7 @@ using System.Text;
 using Gibbed.IO;
 using NDesk.Options;
 
-namespace Gibbed.MassEffect3.UnpackPackage
+namespace Gibbed.MassEffect3.PackageUnpack
 {
     internal class Program
     {

@@ -23,7 +23,7 @@
 using System;
 using System.Runtime.InteropServices;
 
-namespace Gibbed.MassEffect3.UnpackSFXArchive
+namespace Gibbed.MassEffect3.SFXArchiveUnpack
 {
     public static class LZMA
     {

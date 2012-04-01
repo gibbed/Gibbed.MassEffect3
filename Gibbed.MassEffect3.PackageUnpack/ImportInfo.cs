@@ -22,7 +22,7 @@
 
 using System.IO;
 
-namespace Gibbed.MassEffect3.UnpackPackage
+namespace Gibbed.MassEffect3.PackageUnpack
 {
     internal class ImportInfo : IResource
     {

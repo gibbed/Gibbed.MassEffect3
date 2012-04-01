@@ -20,13 +20,13 @@
  *    distribution.
  */
 
-namespace Gibbed.MassEffect3.UnpackPackage
+namespace Gibbed.MassEffect3.PackageDecompress
 {
-    internal interface IResource
+    internal struct CompressedBlockInfo
     {
-        string LocalName { get; }
-        string FullName { get; }
-        string LocalPath { get; }
-        string FullPath { get; }
+        public uint UncompressedOffset;
+        public uint UncompressedSize;
+        public uint CompressedOffset;
+        public uint CompressedSize;
     }
 }
