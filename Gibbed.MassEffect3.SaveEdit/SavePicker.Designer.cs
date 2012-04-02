@@ -31,19 +31,19 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SavePicker));
             this.mainSplitContainer = new System.Windows.Forms.SplitContainer();
+            this.careerListView = new Gibbed.MassEffect3.SaveEdit.DoubleBufferedListView();
+            this.careerHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.iconImageList = new System.Windows.Forms.ImageList(this.components);
             this.careerToolStrip = new System.Windows.Forms.ToolStrip();
             this.deleteCareerButton = new System.Windows.Forms.ToolStripButton();
             this.refreshButton = new System.Windows.Forms.ToolStripButton();
+            this.saveListView = new Gibbed.MassEffect3.SaveEdit.DoubleBufferedListView();
+            this.saveHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.saveToolStrip = new System.Windows.Forms.ToolStrip();
             this.deleteSaveButton = new System.Windows.Forms.ToolStripButton();
             this.loadFileButton = new System.Windows.Forms.ToolStripButton();
             this.saveFileButton = new System.Windows.Forms.ToolStripButton();
             this.cancelButton = new System.Windows.Forms.ToolStripButton();
-            this.careerListView = new Gibbed.MassEffect3.SaveEdit.DoubleBufferedListView();
-            this.careerHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.saveListView = new Gibbed.MassEffect3.SaveEdit.DoubleBufferedListView();
-            this.saveHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).BeginInit();
             this.mainSplitContainer.Panel1.SuspendLayout();
             this.mainSplitContainer.Panel2.SuspendLayout();
@@ -66,6 +66,27 @@
             // 
             this.mainSplitContainer.Panel2.Controls.Add(this.saveListView);
             this.mainSplitContainer.Panel2.Controls.Add(this.saveToolStrip);
+            // 
+            // careerListView
+            // 
+            this.careerListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.careerHeader});
+            resources.ApplyResources(this.careerListView, "careerListView");
+            this.careerListView.FullRowSelect = true;
+            this.careerListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.careerListView.HideSelection = false;
+            this.careerListView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            ((System.Windows.Forms.ListViewItem)(resources.GetObject("careerListView.Items")))});
+            this.careerListView.LargeImageList = this.iconImageList;
+            this.careerListView.Name = "careerListView";
+            this.careerListView.SmallImageList = this.iconImageList;
+            this.careerListView.UseCompatibleStateImageBehavior = false;
+            this.careerListView.View = System.Windows.Forms.View.Details;
+            this.careerListView.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.OnSelectCareer);
+            // 
+            // careerHeader
+            // 
+            resources.ApplyResources(this.careerHeader, "careerHeader");
             // 
             // iconImageList
             // 
@@ -101,6 +122,28 @@
             resources.ApplyResources(this.refreshButton, "refreshButton");
             this.refreshButton.Name = "refreshButton";
             this.refreshButton.Click += new System.EventHandler(this.OnRefresh);
+            // 
+            // saveListView
+            // 
+            this.saveListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.saveHeader});
+            resources.ApplyResources(this.saveListView, "saveListView");
+            this.saveListView.FullRowSelect = true;
+            this.saveListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.saveListView.HideSelection = false;
+            this.saveListView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            ((System.Windows.Forms.ListViewItem)(resources.GetObject("saveListView.Items")))});
+            this.saveListView.LargeImageList = this.iconImageList;
+            this.saveListView.Name = "saveListView";
+            this.saveListView.SmallImageList = this.iconImageList;
+            this.saveListView.UseCompatibleStateImageBehavior = false;
+            this.saveListView.View = System.Windows.Forms.View.Details;
+            this.saveListView.ItemActivate += new System.EventHandler(this.OnSaveActivate);
+            this.saveListView.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.OnSelectSave);
+            // 
+            // saveHeader
+            // 
+            resources.ApplyResources(this.saveHeader, "saveHeader");
             // 
             // saveToolStrip
             // 
@@ -138,49 +181,6 @@
             resources.ApplyResources(this.cancelButton, "cancelButton");
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Click += new System.EventHandler(this.OnCancel);
-            // 
-            // careerListView
-            // 
-            this.careerListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.careerHeader});
-            resources.ApplyResources(this.careerListView, "careerListView");
-            this.careerListView.FullRowSelect = true;
-            this.careerListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.careerListView.HideSelection = false;
-            this.careerListView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            ((System.Windows.Forms.ListViewItem)(resources.GetObject("careerListView.Items")))});
-            this.careerListView.LargeImageList = this.iconImageList;
-            this.careerListView.Name = "careerListView";
-            this.careerListView.SmallImageList = this.iconImageList;
-            this.careerListView.UseCompatibleStateImageBehavior = false;
-            this.careerListView.View = System.Windows.Forms.View.Details;
-            this.careerListView.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.OnSelectCareer);
-            // 
-            // careerHeader
-            // 
-            resources.ApplyResources(this.careerHeader, "careerHeader");
-            // 
-            // saveListView
-            // 
-            this.saveListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.saveHeader});
-            resources.ApplyResources(this.saveListView, "saveListView");
-            this.saveListView.FullRowSelect = true;
-            this.saveListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.saveListView.HideSelection = false;
-            this.saveListView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            ((System.Windows.Forms.ListViewItem)(resources.GetObject("saveListView.Items")))});
-            this.saveListView.LargeImageList = this.iconImageList;
-            this.saveListView.Name = "saveListView";
-            this.saveListView.SmallImageList = this.iconImageList;
-            this.saveListView.UseCompatibleStateImageBehavior = false;
-            this.saveListView.View = System.Windows.Forms.View.Details;
-            this.saveListView.ItemActivate += new System.EventHandler(this.OnSaveActivate);
-            this.saveListView.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.OnSelectSave);
-            // 
-            // saveHeader
-            // 
-            resources.ApplyResources(this.saveHeader, "saveHeader");
             // 
             // SavePicker
             // 

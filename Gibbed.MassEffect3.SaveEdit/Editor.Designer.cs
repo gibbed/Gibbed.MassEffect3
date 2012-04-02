@@ -30,8 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Editor));
+            this.rawSplitContainer = new System.Windows.Forms.SplitContainer();
+            this.rawParentPropertyGrid = new System.Windows.Forms.PropertyGrid();
+            this.rawChildPropertyGrid = new System.Windows.Forms.PropertyGrid();
             this.rootToolStrip = new System.Windows.Forms.ToolStrip();
-            this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.newSplitButton = new System.Windows.Forms.ToolStripDropDownButton();
             this.newMaleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newFemaleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFromGenericButton = new System.Windows.Forms.ToolStripSplitButton();
@@ -89,9 +92,6 @@
             this.plotManualBoolGetButton = new System.Windows.Forms.Button();
             this.plotManualBoolValueCheckBox = new System.Windows.Forms.CheckBox();
             this.rawTabPage = new System.Windows.Forms.TabPage();
-            this.rawSplitContainer = new System.Windows.Forms.SplitContainer();
-            this.rawParentPropertyGrid = new System.Windows.Forms.PropertyGrid();
-            this.rawChildPropertyGrid = new System.Windows.Forms.PropertyGrid();
             this.saveFileBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
@@ -103,6 +103,10 @@
             this.openAppearancePresetFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveAppearancePresetFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.openHeadMorphLegacyDialog = new System.Windows.Forms.OpenFileDialog();
+            ((System.ComponentModel.ISupportInitialize)(this.rawSplitContainer)).BeginInit();
+            this.rawSplitContainer.Panel1.SuspendLayout();
+            this.rawSplitContainer.Panel2.SuspendLayout();
+            this.rawSplitContainer.SuspendLayout();
             this.rootToolStrip.SuspendLayout();
             this.rootTabControl.SuspendLayout();
             this.playerRootTabPage.SuspendLayout();
@@ -122,100 +126,124 @@
             this.plotManualIntGroupBox.SuspendLayout();
             this.plotManualBoolGroupBox.SuspendLayout();
             this.rawTabPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rawSplitContainer)).BeginInit();
-            this.rawSplitContainer.Panel1.SuspendLayout();
-            this.rawSplitContainer.Panel2.SuspendLayout();
-            this.rawSplitContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.saveFileBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wrexPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
+            // rawSplitContainer
+            // 
+            resources.ApplyResources(this.rawSplitContainer, "rawSplitContainer");
+            this.rawSplitContainer.Name = "rawSplitContainer";
+            // 
+            // rawSplitContainer.Panel1
+            // 
+            resources.ApplyResources(this.rawSplitContainer.Panel1, "rawSplitContainer.Panel1");
+            this.rawSplitContainer.Panel1.Controls.Add(this.rawParentPropertyGrid);
+            // 
+            // rawSplitContainer.Panel2
+            // 
+            resources.ApplyResources(this.rawSplitContainer.Panel2, "rawSplitContainer.Panel2");
+            this.rawSplitContainer.Panel2.Controls.Add(this.rawChildPropertyGrid);
+            // 
+            // rawParentPropertyGrid
+            // 
+            resources.ApplyResources(this.rawParentPropertyGrid, "rawParentPropertyGrid");
+            this.rawParentPropertyGrid.Name = "rawParentPropertyGrid";
+            this.rawParentPropertyGrid.PropertySort = System.Windows.Forms.PropertySort.Categorized;
+            this.rawParentPropertyGrid.SelectedGridItemChanged += new System.Windows.Forms.SelectedGridItemChangedEventHandler(this.OnSelectedGridItemChanged);
+            // 
+            // rawChildPropertyGrid
+            // 
+            resources.ApplyResources(this.rawChildPropertyGrid, "rawChildPropertyGrid");
+            this.rawChildPropertyGrid.Name = "rawChildPropertyGrid";
+            this.rawChildPropertyGrid.PropertySort = System.Windows.Forms.PropertySort.Categorized;
+            // 
             // rootToolStrip
             // 
+            resources.ApplyResources(this.rootToolStrip, "rootToolStrip");
             this.rootToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripSplitButton1,
+            this.newSplitButton,
             this.openFromGenericButton,
             this.saveToGenericButton,
             this.settingsButton});
-            resources.ApplyResources(this.rootToolStrip, "rootToolStrip");
             this.rootToolStrip.Name = "rootToolStrip";
             // 
-            // toolStripSplitButton1
+            // newSplitButton
             // 
-            this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripSplitButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            resources.ApplyResources(this.newSplitButton, "newSplitButton");
+            this.newSplitButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.newSplitButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newMaleToolStripMenuItem,
             this.newFemaleToolStripMenuItem});
-            resources.ApplyResources(this.toolStripSplitButton1, "toolStripSplitButton1");
-            this.toolStripSplitButton1.Name = "toolStripSplitButton1";
+            this.newSplitButton.Name = "newSplitButton";
             // 
             // newMaleToolStripMenuItem
             // 
-            this.newMaleToolStripMenuItem.Name = "newMaleToolStripMenuItem";
             resources.ApplyResources(this.newMaleToolStripMenuItem, "newMaleToolStripMenuItem");
+            this.newMaleToolStripMenuItem.Name = "newMaleToolStripMenuItem";
             this.newMaleToolStripMenuItem.Click += new System.EventHandler(this.OnSaveNewMale);
             // 
             // newFemaleToolStripMenuItem
             // 
-            this.newFemaleToolStripMenuItem.Name = "newFemaleToolStripMenuItem";
             resources.ApplyResources(this.newFemaleToolStripMenuItem, "newFemaleToolStripMenuItem");
+            this.newFemaleToolStripMenuItem.Name = "newFemaleToolStripMenuItem";
             this.newFemaleToolStripMenuItem.Click += new System.EventHandler(this.OnSaveNewFemale);
             // 
             // openFromGenericButton
             // 
+            resources.ApplyResources(this.openFromGenericButton, "openFromGenericButton");
             this.openFromGenericButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openFromCareerMenuItem,
             this.openFromFileMenuItem});
-            resources.ApplyResources(this.openFromGenericButton, "openFromGenericButton");
             this.openFromGenericButton.Name = "openFromGenericButton";
             this.openFromGenericButton.ButtonClick += new System.EventHandler(this.OnSaveOpenFromGeneric);
             // 
             // openFromCareerMenuItem
             // 
-            this.openFromCareerMenuItem.Name = "openFromCareerMenuItem";
             resources.ApplyResources(this.openFromCareerMenuItem, "openFromCareerMenuItem");
+            this.openFromCareerMenuItem.Name = "openFromCareerMenuItem";
             this.openFromCareerMenuItem.Click += new System.EventHandler(this.OnSaveOpenFromCareer);
             // 
             // openFromFileMenuItem
             // 
-            this.openFromFileMenuItem.Name = "openFromFileMenuItem";
             resources.ApplyResources(this.openFromFileMenuItem, "openFromFileMenuItem");
+            this.openFromFileMenuItem.Name = "openFromFileMenuItem";
             this.openFromFileMenuItem.Click += new System.EventHandler(this.OnSaveOpenFromFile);
             // 
             // saveToGenericButton
             // 
+            resources.ApplyResources(this.saveToGenericButton, "saveToGenericButton");
             this.saveToGenericButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.saveToCareerMenuItem,
             this.saveToFileMenuItem});
-            resources.ApplyResources(this.saveToGenericButton, "saveToGenericButton");
             this.saveToGenericButton.Name = "saveToGenericButton";
             this.saveToGenericButton.ButtonClick += new System.EventHandler(this.OnSaveSaveToGeneric);
             // 
             // saveToCareerMenuItem
             // 
-            this.saveToCareerMenuItem.Name = "saveToCareerMenuItem";
             resources.ApplyResources(this.saveToCareerMenuItem, "saveToCareerMenuItem");
+            this.saveToCareerMenuItem.Name = "saveToCareerMenuItem";
             this.saveToCareerMenuItem.Click += new System.EventHandler(this.OnSaveSaveToCareer);
             // 
             // saveToFileMenuItem
             // 
-            this.saveToFileMenuItem.Name = "saveToFileMenuItem";
             resources.ApplyResources(this.saveToFileMenuItem, "saveToFileMenuItem");
+            this.saveToFileMenuItem.Name = "saveToFileMenuItem";
             this.saveToFileMenuItem.Click += new System.EventHandler(this.OnSaveSaveToFile);
             // 
             // settingsButton
             // 
+            resources.ApplyResources(this.settingsButton, "settingsButton");
             this.settingsButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.settingsButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dontUseCareerPickerToolStripMenuItem});
-            resources.ApplyResources(this.settingsButton, "settingsButton");
             this.settingsButton.Name = "settingsButton";
             // 
             // dontUseCareerPickerToolStripMenuItem
             // 
+            resources.ApplyResources(this.dontUseCareerPickerToolStripMenuItem, "dontUseCareerPickerToolStripMenuItem");
             this.dontUseCareerPickerToolStripMenuItem.CheckOnClick = true;
             this.dontUseCareerPickerToolStripMenuItem.Name = "dontUseCareerPickerToolStripMenuItem";
-            resources.ApplyResources(this.dontUseCareerPickerToolStripMenuItem, "dontUseCareerPickerToolStripMenuItem");
             // 
             // rootTabControl
             // 
@@ -230,8 +258,8 @@
             // 
             // playerRootTabPage
             // 
-            this.playerRootTabPage.Controls.Add(this.playerTabControl);
             resources.ApplyResources(this.playerRootTabPage, "playerRootTabPage");
+            this.playerRootTabPage.Controls.Add(this.playerTabControl);
             this.playerRootTabPage.Name = "playerRootTabPage";
             this.playerRootTabPage.UseVisualStyleBackColor = true;
             // 
@@ -246,9 +274,9 @@
             // 
             // playerBasicTabPage
             // 
+            resources.ApplyResources(this.playerBasicTabPage, "playerBasicTabPage");
             this.playerBasicTabPage.Controls.Add(this.playerBasicPanel);
             this.playerBasicTabPage.Controls.Add(this.playerBasicGenderWarningLabel);
-            resources.ApplyResources(this.playerBasicTabPage, "playerBasicTabPage");
             this.playerBasicTabPage.Name = "playerBasicTabPage";
             this.playerBasicTabPage.UseVisualStyleBackColor = true;
             // 
@@ -264,9 +292,9 @@
             // 
             // playerAppearanceTabPage
             // 
+            resources.ApplyResources(this.playerAppearanceTabPage, "playerAppearanceTabPage");
             this.playerAppearanceTabPage.Controls.Add(this.playerAppearanceTabControl);
             this.playerAppearanceTabPage.Controls.Add(this.playerAppearanceToolStrip);
-            resources.ApplyResources(this.playerAppearanceTabPage, "playerAppearanceTabPage");
             this.playerAppearanceTabPage.Name = "playerAppearanceTabPage";
             this.playerAppearanceTabPage.UseVisualStyleBackColor = true;
             // 
@@ -280,17 +308,17 @@
             // 
             // playerAppearanceColorsTabPage
             // 
+            resources.ApplyResources(this.playerAppearanceColorsTabPage, "playerAppearanceColorsTabPage");
             this.playerAppearanceColorsTabPage.Controls.Add(this.playerAppearanceColorsListBox);
             this.playerAppearanceColorsTabPage.Controls.Add(this.playerAppearanceColorsToolStrip);
-            resources.ApplyResources(this.playerAppearanceColorsTabPage, "playerAppearanceColorsTabPage");
             this.playerAppearanceColorsTabPage.Name = "playerAppearanceColorsTabPage";
             this.playerAppearanceColorsTabPage.UseVisualStyleBackColor = true;
             // 
             // playerAppearanceColorsListBox
             // 
+            resources.ApplyResources(this.playerAppearanceColorsListBox, "playerAppearanceColorsListBox");
             this.playerAppearanceColorsListBox.DataSource = this.vectorParametersBindingSource;
             this.playerAppearanceColorsListBox.DisplayMember = "Name";
-            resources.ApplyResources(this.playerAppearanceColorsListBox, "playerAppearanceColorsListBox");
             this.playerAppearanceColorsListBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.playerAppearanceColorsListBox.FormattingEnabled = true;
             this.playerAppearanceColorsListBox.Name = "playerAppearanceColorsListBox";
@@ -304,12 +332,12 @@
             // 
             // playerAppearanceColorsToolStrip
             // 
+            resources.ApplyResources(this.playerAppearanceColorsToolStrip, "playerAppearanceColorsToolStrip");
             this.playerAppearanceColorsToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.playerAppearanceColorsAddColorButton,
             this.playerAppearanceColorsRemoveColorButton,
             this.toolStripSeparator1,
             this.playerAppearanceColorsChangeColorButton});
-            resources.ApplyResources(this.playerAppearanceColorsToolStrip, "playerAppearanceColorsToolStrip");
             this.playerAppearanceColorsToolStrip.Name = "playerAppearanceColorsToolStrip";
             // 
             // playerAppearanceColorsAddColorButton
@@ -326,8 +354,8 @@
             // 
             // toolStripSeparator1
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
             resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
             // 
             // playerAppearanceColorsChangeColorButton
             // 
@@ -351,19 +379,19 @@
             // 
             // playerAppearanceToolStrip
             // 
+            resources.ApplyResources(this.playerAppearanceToolStrip, "playerAppearanceToolStrip");
             this.playerAppearanceToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.morphHeadDropDownButton,
             this.appearancePresetsDropDownButton});
-            resources.ApplyResources(this.playerAppearanceToolStrip, "playerAppearanceToolStrip");
             this.playerAppearanceToolStrip.Name = "playerAppearanceToolStrip";
             // 
             // morphHeadDropDownButton
             // 
+            resources.ApplyResources(this.morphHeadDropDownButton, "morphHeadDropDownButton");
             this.morphHeadDropDownButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.morphHeadImportButton,
             this.morphHeadImportLegacyButton,
             this.morphHeadExportButton});
-            resources.ApplyResources(this.morphHeadDropDownButton, "morphHeadDropDownButton");
             this.morphHeadDropDownButton.Name = "morphHeadDropDownButton";
             // 
             // morphHeadImportButton
@@ -374,8 +402,8 @@
             // 
             // morphHeadImportLegacyButton
             // 
-            this.morphHeadImportLegacyButton.Name = "morphHeadImportLegacyButton";
             resources.ApplyResources(this.morphHeadImportLegacyButton, "morphHeadImportLegacyButton");
+            this.morphHeadImportLegacyButton.Name = "morphHeadImportLegacyButton";
             this.morphHeadImportLegacyButton.Click += new System.EventHandler(this.OnImportHeadMorphLegacy);
             // 
             // morphHeadExportButton
@@ -386,28 +414,28 @@
             // 
             // appearancePresetsDropDownButton
             // 
+            resources.ApplyResources(this.appearancePresetsDropDownButton, "appearancePresetsDropDownButton");
             this.appearancePresetsDropDownButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.appearancePresetOpenFromFileButton,
             this.appearancePresetSaveToFileButton});
-            resources.ApplyResources(this.appearancePresetsDropDownButton, "appearancePresetsDropDownButton");
             this.appearancePresetsDropDownButton.Name = "appearancePresetsDropDownButton";
             // 
             // appearancePresetOpenFromFileButton
             // 
-            this.appearancePresetOpenFromFileButton.Name = "appearancePresetOpenFromFileButton";
             resources.ApplyResources(this.appearancePresetOpenFromFileButton, "appearancePresetOpenFromFileButton");
+            this.appearancePresetOpenFromFileButton.Name = "appearancePresetOpenFromFileButton";
             this.appearancePresetOpenFromFileButton.Click += new System.EventHandler(this.OnLoadAppearancePresetFromFile);
             // 
             // appearancePresetSaveToFileButton
             // 
-            this.appearancePresetSaveToFileButton.Name = "appearancePresetSaveToFileButton";
             resources.ApplyResources(this.appearancePresetSaveToFileButton, "appearancePresetSaveToFileButton");
+            this.appearancePresetSaveToFileButton.Name = "appearancePresetSaveToFileButton";
             this.appearancePresetSaveToFileButton.Click += new System.EventHandler(this.OnSaveAppearancePresetToFile);
             // 
             // plotRootTabPage
             // 
-            this.plotRootTabPage.Controls.Add(this.plotTabControl);
             resources.ApplyResources(this.plotRootTabPage, "plotRootTabPage");
+            this.plotRootTabPage.Controls.Add(this.plotTabControl);
             this.plotRootTabPage.Name = "plotRootTabPage";
             this.plotRootTabPage.UseVisualStyleBackColor = true;
             // 
@@ -421,12 +449,12 @@
             // 
             // plotManulTabPage
             // 
+            resources.ApplyResources(this.plotManulTabPage, "plotManulTabPage");
             this.plotManulTabPage.Controls.Add(this.plotManualToolStrip);
             this.plotManulTabPage.Controls.Add(this.plotManualLogTextBox);
             this.plotManulTabPage.Controls.Add(this.plotManualFloatGroupBox);
             this.plotManulTabPage.Controls.Add(this.plotManualIntGroupBox);
             this.plotManulTabPage.Controls.Add(this.plotManualBoolGroupBox);
-            resources.ApplyResources(this.plotManulTabPage, "plotManulTabPage");
             this.plotManulTabPage.Name = "plotManulTabPage";
             this.plotManulTabPage.UseVisualStyleBackColor = true;
             // 
@@ -439,8 +467,8 @@
             // 
             // plotManualClearLogButton
             // 
-            this.plotManualClearLogButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             resources.ApplyResources(this.plotManualClearLogButton, "plotManualClearLogButton");
+            this.plotManualClearLogButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.plotManualClearLogButton.Name = "plotManualClearLogButton";
             this.plotManualClearLogButton.Click += new System.EventHandler(this.OnPlotManualClearLog);
             // 
@@ -453,11 +481,11 @@
             // 
             // plotManualFloatGroupBox
             // 
+            resources.ApplyResources(this.plotManualFloatGroupBox, "plotManualFloatGroupBox");
             this.plotManualFloatGroupBox.Controls.Add(this.plotManualFloatIdTextBox);
             this.plotManualFloatGroupBox.Controls.Add(this.plotManualFloatGetButton);
             this.plotManualFloatGroupBox.Controls.Add(this.plotManualFloatSetButton);
             this.plotManualFloatGroupBox.Controls.Add(this.plotManualFloatValueTextBox);
-            resources.ApplyResources(this.plotManualFloatGroupBox, "plotManualFloatGroupBox");
             this.plotManualFloatGroupBox.Name = "plotManualFloatGroupBox";
             this.plotManualFloatGroupBox.TabStop = false;
             // 
@@ -487,11 +515,11 @@
             // 
             // plotManualIntGroupBox
             // 
+            resources.ApplyResources(this.plotManualIntGroupBox, "plotManualIntGroupBox");
             this.plotManualIntGroupBox.Controls.Add(this.plotManualIntIdTextBox);
             this.plotManualIntGroupBox.Controls.Add(this.plotManualIntGetButton);
             this.plotManualIntGroupBox.Controls.Add(this.plotManualIntSetButton);
             this.plotManualIntGroupBox.Controls.Add(this.plotManualIntValueTextBox);
-            resources.ApplyResources(this.plotManualIntGroupBox, "plotManualIntGroupBox");
             this.plotManualIntGroupBox.Name = "plotManualIntGroupBox";
             this.plotManualIntGroupBox.TabStop = false;
             // 
@@ -521,11 +549,11 @@
             // 
             // plotManualBoolGroupBox
             // 
+            resources.ApplyResources(this.plotManualBoolGroupBox, "plotManualBoolGroupBox");
             this.plotManualBoolGroupBox.Controls.Add(this.plotManualBoolIdTextBox);
             this.plotManualBoolGroupBox.Controls.Add(this.plotManualBoolSetButton);
             this.plotManualBoolGroupBox.Controls.Add(this.plotManualBoolGetButton);
             this.plotManualBoolGroupBox.Controls.Add(this.plotManualBoolValueCheckBox);
-            resources.ApplyResources(this.plotManualBoolGroupBox, "plotManualBoolGroupBox");
             this.plotManualBoolGroupBox.Name = "plotManualBoolGroupBox";
             this.plotManualBoolGroupBox.TabStop = false;
             // 
@@ -556,36 +584,10 @@
             // 
             // rawTabPage
             // 
-            this.rawTabPage.Controls.Add(this.rawSplitContainer);
             resources.ApplyResources(this.rawTabPage, "rawTabPage");
+            this.rawTabPage.Controls.Add(this.rawSplitContainer);
             this.rawTabPage.Name = "rawTabPage";
             this.rawTabPage.UseVisualStyleBackColor = true;
-            // 
-            // rawSplitContainer
-            // 
-            resources.ApplyResources(this.rawSplitContainer, "rawSplitContainer");
-            this.rawSplitContainer.Name = "rawSplitContainer";
-            // 
-            // rawSplitContainer.Panel1
-            // 
-            this.rawSplitContainer.Panel1.Controls.Add(this.rawParentPropertyGrid);
-            // 
-            // rawSplitContainer.Panel2
-            // 
-            this.rawSplitContainer.Panel2.Controls.Add(this.rawChildPropertyGrid);
-            // 
-            // rawParentPropertyGrid
-            // 
-            resources.ApplyResources(this.rawParentPropertyGrid, "rawParentPropertyGrid");
-            this.rawParentPropertyGrid.Name = "rawParentPropertyGrid";
-            this.rawParentPropertyGrid.PropertySort = System.Windows.Forms.PropertySort.Categorized;
-            this.rawParentPropertyGrid.SelectedGridItemChanged += new System.Windows.Forms.SelectedGridItemChangedEventHandler(this.OnSelectedGridItemChanged);
-            // 
-            // rawChildPropertyGrid
-            // 
-            resources.ApplyResources(this.rawChildPropertyGrid, "rawChildPropertyGrid");
-            this.rawChildPropertyGrid.Name = "rawChildPropertyGrid";
-            this.rawChildPropertyGrid.PropertySort = System.Windows.Forms.PropertySort.Categorized;
             // 
             // saveFileBindingSource
             // 
@@ -656,6 +658,10 @@
             this.Controls.Add(this.rootTabControl);
             this.Controls.Add(this.rootToolStrip);
             this.Name = "Editor";
+            this.rawSplitContainer.Panel1.ResumeLayout(false);
+            this.rawSplitContainer.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.rawSplitContainer)).EndInit();
+            this.rawSplitContainer.ResumeLayout(false);
             this.rootToolStrip.ResumeLayout(false);
             this.rootToolStrip.PerformLayout();
             this.rootTabControl.ResumeLayout(false);
@@ -686,10 +692,6 @@
             this.plotManualBoolGroupBox.ResumeLayout(false);
             this.plotManualBoolGroupBox.PerformLayout();
             this.rawTabPage.ResumeLayout(false);
-            this.rawSplitContainer.Panel1.ResumeLayout(false);
-            this.rawSplitContainer.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.rawSplitContainer)).EndInit();
-            this.rawSplitContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.saveFileBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.wrexPictureBox)).EndInit();
             this.ResumeLayout(false);
@@ -710,7 +712,7 @@
         private System.Windows.Forms.PropertyGrid rawChildPropertyGrid;
         private System.Windows.Forms.ImageList iconImageList;
         private System.Windows.Forms.ToolStripSplitButton saveToGenericButton;
-        private System.Windows.Forms.ToolStripDropDownButton toolStripSplitButton1;
+        private System.Windows.Forms.ToolStripDropDownButton newSplitButton;
         private System.Windows.Forms.TabControl playerTabControl;
         private System.Windows.Forms.TabPage playerBasicTabPage;
         private System.Windows.Forms.TabPage playerAppearanceTabPage;

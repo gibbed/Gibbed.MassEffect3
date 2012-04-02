@@ -137,7 +137,8 @@
   </data>
   <data name="SavePicker_DeleteCareerIOException" xml:space="preserve">
     <value>There was an error removing the directory:
-</value>
+
+{0}</value>
   </data>
   <data name="Error" xml:space="preserve">
     <value>Error</value>

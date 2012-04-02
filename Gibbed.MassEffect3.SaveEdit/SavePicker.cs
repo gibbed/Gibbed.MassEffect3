@@ -377,7 +377,7 @@ namespace Gibbed.MassEffect3.SaveEdit
                 this.saveListView.Items.Add(item);
             }
 
-            this._HighestSaveNumber = 0;
+            this._HighestSaveNumber = 1;
             if (savePath != null)
             {
                 if (Directory.Exists(this.FilePath) == true)
@@ -557,6 +557,7 @@ namespace Gibbed.MassEffect3.SaveEdit
             // ReSharper disable LocalizableElement
             if (this.careerListView.SelectedItems[0].Name == "New Career") // ReSharper restore LocalizableElement
             {
+                this.SaveFile.Player.Guid = Guid.NewGuid();
                 var name = string.Format("{0}_{1}{2}_{3}_{4}_{5}",
                                          FilterPath(this.SaveFile.Player.FirstName),
                                          (int)this.SaveFile.Player.Origin,
@@ -566,7 +567,7 @@ namespace Gibbed.MassEffect3.SaveEdit
                                          BitConverter.ToString(this.SaveFile.Player.Guid.ToByteArray()).Replace("-", "")
                                              .Substring(0, 7));
                 path = Path.Combine(path, name);
-                saveNumber = 0;
+                saveNumber = 1;
             }
             else if ((this.careerListView.SelectedItems[0].Tag is string) == false)
             {

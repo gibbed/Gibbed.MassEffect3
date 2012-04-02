@@ -494,7 +494,8 @@ namespace Gibbed.MassEffect3.SaveEdit.Resources {
         
         /// <summary>
         ///   Looks up a localized string similar to There was an error removing the directory:
-        ///.
+        ///
+        ///{0}.
         /// </summary>
         internal static string SavePicker_DeleteCareerIOException {
             get {

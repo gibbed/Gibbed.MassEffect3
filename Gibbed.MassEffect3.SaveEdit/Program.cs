@@ -31,8 +31,17 @@ namespace Gibbed.MassEffect3.SaveEdit
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        public static void Main()
+        public static void Main(string[] args)
         {
+            if (args.Length >= 2 &&
+                args[0].ToLowerInvariant() == "-culture")
+            {
+                System.Threading.Thread.CurrentThread.CurrentCulture =
+                    System.Globalization.CultureInfo.GetCultureInfo(args[1]);
+                System.Threading.Thread.CurrentThread.CurrentUICulture =
+                    System.Globalization.CultureInfo.GetCultureInfo(args[1]);
+            }
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Editor());
