@@ -219,4 +219,77 @@
   <data name="Warning" xml:space="preserve">
     <value>Внимание</value>
   </data>
+  <data name="Editor_BasicTable_Character_Label" xml:space="preserve">
+    <value>Персонаж</value>
+  </data>
+  <data name="Editor_BasicTable_Character_Notoriety" xml:space="preserve">
+    <value>Предыстория</value>
+  </data>
+  <data name="Editor_BasicTable_Character_Origin" xml:space="preserve">
+    <value>Происхождение</value>
+  </data>
+  <data name="Editor_BasicTable_Reputation_ReputationPoints" xml:space="preserve">
+    <value>Очки репутации</value>
+  </data>
+  <data name="Editor_BasicTable_Resources_Medigel" xml:space="preserve">
+    <value>Медигель</value>
+  </data>
+  <data name="Editor_BasicTable_Resources_ExtraMedigel" xml:space="preserve">
+    <value>Экстра Медигель</value>
+  </data>
+  <data name="Editor_CannotLoadXbox360CONFile" xml:space="preserve">
+    <value>Вы не можете открыть Xbox 360 CON файлы в редакторе сейвов.</value>
+  </data>
+  <data name="Editor_ColorName" xml:space="preserve">
+    <value>Цвет</value>
+  </data>
+  <data name="Editor_FailedToParseValue" xml:space="preserve">
+    <value>Ошибка чтения значения.</value>
+  </data>
+  <data name="Editor_HeadMorphInvalid" xml:space="preserve">
+    <value>Этот файл не похож на экспортированную модель лица.</value>
+  </data>
+  <data name="Editor_HeadMorphLegacy" xml:space="preserve">
+    <value>Вы можете импортировать модель лица созданного в Mass Effect2, но маловероятно, что импорт пройдет успешно.
+
+Вы уверены, что хотите продолжить?</value>
+  </data>
+  <data name="Editor_HeadMorphVersionMaybeIncompatible" xml:space="preserve">
+    <value>Вы импортируете модель лица с версии ({0}), версия вашего сохранения ({1}).
+
+Вы уверены, что хотите продолжить?</value>
+  </data>
+  <data name="Editor_HeadMorphVersionUnsupported" xml:space="preserve">
+    <value>Неподдерживаемая версия экспортированных настроек лица.</value>
+  </data>
+  <data name="Editor_NoHeadMorph" xml:space="preserve">
+    <value>Эта сохраненная игра не имеет нестандартних настроек лица.</value>
+  </data>
+  <data name="Editor_PlotManualLogBoolGet" xml:space="preserve">
+    <value>флаг {0}стал равен {1}</value>
+  </data>
+  <data name="Editor_PlotManualLogBoolSet" xml:space="preserve">
+    <value>флаг {0} стал равен {1} (было {2})</value>
+  </data>
+  <data name="Editor_PlotManualLogFloatGet" xml:space="preserve">
+    <value>дробное {0} стало равно {1}</value>
+  </data>
+  <data name="Editor_PlotManualLogFloatSet" xml:space="preserve">
+    <value>дробное {0} стало равно {1} (было {2})</value>
+  </data>
+  <data name="Editor_PlotManualLogIntGet" xml:space="preserve">
+    <value>целое {0} стало равно {1}</value>
+  </data>
+  <data name="Editor_PlotManualLogIntSet" xml:space="preserve">
+    <value>целое {0} стало равно {1} (было {2})</value>
+  </data>
+  <data name="Editor_SaveFileTooOld" xml:space="preserve">
+    <value>Слишком старый сейв для редактора. Возможно вы загружаете сейв Mass Effect 2.</value>
+  </data>
+  <data name="Editor_SaveReadException" xml:space="preserve">
+    <value>При прочтении сейва произошла ошибка.
+Пожалуйста отправьте это сообщение Rick (ctrl+C скопировать диалог) и сейв, который вы пытались загрузить.
+
+{0}</value>
+  </data>
 </root>
