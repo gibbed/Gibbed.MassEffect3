@@ -39,8 +39,8 @@ namespace Gibbed.MassEffect3.SaveEdit
         {
             var genders = new List<PlayerGender>
             {
-                new PlayerGender(false, "Male"),
-                new PlayerGender(true, "Female"),
+                new PlayerGender(false, Resources.Localization.PlayerGender_Male),
+                new PlayerGender(true, Resources.Localization.PlayerGender_Female),
             };
             return genders;
         }

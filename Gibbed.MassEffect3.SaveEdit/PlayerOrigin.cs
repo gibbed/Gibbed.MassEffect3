@@ -39,10 +39,10 @@ namespace Gibbed.MassEffect3.SaveEdit
         {
             var origins = new List<PlayerOrigin>
             {
-                new PlayerOrigin(FileFormats.Save.OriginType.None, "None"),
-                new PlayerOrigin(FileFormats.Save.OriginType.Colony, "Colonist"),
-                new PlayerOrigin(FileFormats.Save.OriginType.Earthborn, "Earthborn"),
-                new PlayerOrigin(FileFormats.Save.OriginType.Spacer, "Spacer"),
+                new PlayerOrigin(FileFormats.Save.OriginType.None, Resources.Localization.PlayerOrigin_None),
+                new PlayerOrigin(FileFormats.Save.OriginType.Colony, Resources.Localization.PlayerOrigin_Colony),
+                new PlayerOrigin(FileFormats.Save.OriginType.Earthborn, Resources.Localization.PlayerOrigin_Earthborn),
+                new PlayerOrigin(FileFormats.Save.OriginType.Spacer, Resources.Localization.PlayerOrigin_Spacer),
             };
             return origins;
         }

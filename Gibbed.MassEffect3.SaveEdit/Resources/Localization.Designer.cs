@@ -475,6 +475,204 @@ namespace Gibbed.MassEffect3.SaveEdit.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Adept.
+        /// </summary>
+        internal static string PlayerClass_Adept {
+            get {
+                return ResourceManager.GetString("PlayerClass_Adept", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Adept (out of combat).
+        /// </summary>
+        internal static string PlayerClass_AdeptNonCombat {
+            get {
+                return ResourceManager.GetString("PlayerClass_AdeptNonCombat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Engineer.
+        /// </summary>
+        internal static string PlayerClass_Engineer {
+            get {
+                return ResourceManager.GetString("PlayerClass_Engineer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Engineer (out of combat).
+        /// </summary>
+        internal static string PlayerClass_EngineerNonCombat {
+            get {
+                return ResourceManager.GetString("PlayerClass_EngineerNonCombat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Infiltrator.
+        /// </summary>
+        internal static string PlayerClass_Infiltrator {
+            get {
+                return ResourceManager.GetString("PlayerClass_Infiltrator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Infiltrator (out of combat).
+        /// </summary>
+        internal static string PlayerClass_InfiltratorNonCombat {
+            get {
+                return ResourceManager.GetString("PlayerClass_InfiltratorNonCombat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sentinel.
+        /// </summary>
+        internal static string PlayerClass_Sentinel {
+            get {
+                return ResourceManager.GetString("PlayerClass_Sentinel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sentinel (out of combat).
+        /// </summary>
+        internal static string PlayerClass_SentinelNonCombat {
+            get {
+                return ResourceManager.GetString("PlayerClass_SentinelNonCombat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Soldier.
+        /// </summary>
+        internal static string PlayerClass_Soldier {
+            get {
+                return ResourceManager.GetString("PlayerClass_Soldier", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Soldier (out of combat).
+        /// </summary>
+        internal static string PlayerClass_SoldierNonCombat {
+            get {
+                return ResourceManager.GetString("PlayerClass_SoldierNonCombat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vanguard.
+        /// </summary>
+        internal static string PlayerClass_Vanguard {
+            get {
+                return ResourceManager.GetString("PlayerClass_Vanguard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vanguard (out of combat).
+        /// </summary>
+        internal static string PlayerClass_VanguardNonCombat {
+            get {
+                return ResourceManager.GetString("PlayerClass_VanguardNonCombat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Female.
+        /// </summary>
+        internal static string PlayerGender_Female {
+            get {
+                return ResourceManager.GetString("PlayerGender_Female", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Male.
+        /// </summary>
+        internal static string PlayerGender_Male {
+            get {
+                return ResourceManager.GetString("PlayerGender_Male", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to None.
+        /// </summary>
+        internal static string PlayerNotoriety_None {
+            get {
+                return ResourceManager.GetString("PlayerNotoriety_None", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ruthless.
+        /// </summary>
+        internal static string PlayerNotoriety_Ruthless {
+            get {
+                return ResourceManager.GetString("PlayerNotoriety_Ruthless", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sole Survivor.
+        /// </summary>
+        internal static string PlayerNotoriety_Survivor {
+            get {
+                return ResourceManager.GetString("PlayerNotoriety_Survivor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to War Hero.
+        /// </summary>
+        internal static string PlayerNotoriety_Warhero {
+            get {
+                return ResourceManager.GetString("PlayerNotoriety_Warhero", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Colonist.
+        /// </summary>
+        internal static string PlayerOrigin_Colony {
+            get {
+                return ResourceManager.GetString("PlayerOrigin_Colony", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Earthborn.
+        /// </summary>
+        internal static string PlayerOrigin_Earthborn {
+            get {
+                return ResourceManager.GetString("PlayerOrigin_Earthborn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to None.
+        /// </summary>
+        internal static string PlayerOrigin_None {
+            get {
+                return ResourceManager.GetString("PlayerOrigin_None", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Spacer.
+        /// </summary>
+        internal static string PlayerOrigin_Spacer {
+            get {
+                return ResourceManager.GetString("PlayerOrigin_Spacer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Question.
         /// </summary>
         internal static string Question {
@@ -514,7 +712,8 @@ namespace Gibbed.MassEffect3.SaveEdit.Resources {
         
         /// <summary>
         ///   Looks up a localized string similar to There was an error removing the file:
-        ///.
+        ///
+        ///{0}.
         /// </summary>
         internal static string SavePicker_DeleteSaveIOException {
             get {

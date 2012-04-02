@@ -148,7 +148,8 @@
   </data>
   <data name="SavePicker_DeleteSaveIOException" xml:space="preserve">
     <value>There was an error removing the file:
-</value>
+
+{0}</value>
   </data>
   <data name="Editor_ThisShouldNeverHappen" xml:space="preserve">
     <value>This should never happen.</value>
@@ -290,5 +291,71 @@ Are you sure you want to import a legacy head morph?</value>
   </data>
   <data name="Editor_PlotEditor_ValueLabelFormat" xml:space="preserve">
     <value>{0}</value>
+  </data>
+  <data name="PlayerClass_Adept">
+    <value xml:space="preserve">Adept</value>
+  </data>
+  <data name="PlayerClass_Engineer">
+    <value xml:space="preserve">Engineer</value>
+  </data>
+  <data name="PlayerClass_Infiltrator">
+    <value xml:space="preserve">Infiltrator</value>
+  </data>
+  <data name="PlayerClass_Sentinel">
+    <value xml:space="preserve">Sentinel</value>
+  </data>
+  <data name="PlayerClass_Soldier">
+    <value xml:space="preserve">Soldier</value>
+  </data>
+  <data name="PlayerClass_Vanguard">
+    <value xml:space="preserve">Vanguard</value>
+  </data>
+  <data name="PlayerClass_AdeptNonCombat">
+    <value xml:space="preserve">Adept (out of combat)</value>
+  </data>
+  <data name="PlayerClass_EngineerNonCombat">
+    <value xml:space="preserve">Engineer (out of combat)</value>
+  </data>
+  <data name="PlayerClass_InfiltratorNonCombat">
+    <value xml:space="preserve">Infiltrator (out of combat)</value>
+  </data>
+  <data name="PlayerClass_SentinelNonCombat">
+    <value xml:space="preserve">Sentinel (out of combat)</value>
+  </data>
+  <data name="PlayerClass_SoldierNonCombat">
+    <value xml:space="preserve">Soldier (out of combat)</value>
+  </data>
+  <data name="PlayerClass_VanguardNonCombat">
+    <value xml:space="preserve">Vanguard (out of combat)</value>
+  </data>
+  <data name="PlayerGender_Male">
+    <value xml:space="preserve">Male</value>
+  </data>
+  <data name="PlayerGender_Female">
+    <value xml:space="preserve">Female</value>
+  </data>
+  <data name="PlayerNotoriety_None">
+    <value xml:space="preserve">None</value>
+  </data>
+  <data name="PlayerNotoriety_Ruthless">
+    <value xml:space="preserve">Ruthless</value>
+  </data>
+  <data name="PlayerNotoriety_Survivor">
+    <value xml:space="preserve">Sole Survivor</value>
+  </data>
+  <data name="PlayerNotoriety_Warhero">
+    <value xml:space="preserve">War Hero</value>
+  </data>
+  <data name="PlayerOrigin_None">
+    <value xml:space="preserve">None</value>
+  </data>
+  <data name="PlayerOrigin_Colony">
+    <value xml:space="preserve">Colonist</value>
+  </data>
+  <data name="PlayerOrigin_Earthborn">
+    <value xml:space="preserve">Earthborn</value>
+  </data>
+  <data name="PlayerOrigin_Spacer">
+    <value xml:space="preserve">Spacer</value>
   </data>
 </root>

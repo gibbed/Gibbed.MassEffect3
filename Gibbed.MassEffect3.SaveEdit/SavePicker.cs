@@ -98,6 +98,7 @@ namespace Gibbed.MassEffect3.SaveEdit
             Infiltrator,
             Vanguard,
         }
+
         // ReSharper restore UnusedMember.Local
 
         private static bool ParseCareerName(
@@ -655,8 +656,7 @@ namespace Gibbed.MassEffect3.SaveEdit
                 catch (IOException ex)
                 {
                     MessageBox.Show(
-                        Localization.SavePicker_DeleteCareerIOException +
-                        ex.Message,
+                        string.Format(Localization.SavePicker_DeleteCareerIOException, ex.Message),
                         Localization.Error,
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
@@ -697,8 +697,7 @@ namespace Gibbed.MassEffect3.SaveEdit
             catch (IOException ex)
             {
                 MessageBox.Show(
-                    Localization.SavePicker_DeleteSaveIOException +
-                    ex.Message,
+                    string.Format(Localization.SavePicker_DeleteSaveIOException, ex.Message),
                     Localization.Error,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
