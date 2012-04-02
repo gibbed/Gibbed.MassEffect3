@@ -102,12 +102,26 @@ namespace Gibbed.MassEffect3.FileFormats.Save
 
         public void SetIntVariable(int index, int value)
         {
-            this._IntVariables.RemoveAll(v => v.Index == index);
-            this._IntVariables.Add(new IntVariablePair()
+            var targets = this._IntVariables
+                .Where(v => v.Index == index)
+                .ToArray();
+
+            if (targets.Length == 0)
             {
-                Index = index,
-                Value = value,
-            });
+                this._IntVariables.Add(new IntVariablePair()
+                {
+                    Index = index,
+                    Value = value,
+                });
+                return;
+            }
+
+            targets[0].Value = value;
+
+            for (int i = 1; i < targets.Length; i++)
+            {
+                this._IntVariables.Remove(targets[i]);
+            }
         }
 
         public float GetFloatVariable(int index)
@@ -123,12 +137,26 @@ namespace Gibbed.MassEffect3.FileFormats.Save
 
         public void SetFloatVariable(int index, float value)
         {
-            this._FloatVariables.RemoveAll(v => v.Index == index);
-            this._FloatVariables.Add(new FloatVariablePair()
+            var targets = this._FloatVariables
+                .Where(v => v.Index == index)
+                .ToArray();
+
+            if (targets.Length == 0)
             {
-                Index = index,
-                Value = value,
-            });
+                this._FloatVariables.Add(new FloatVariablePair()
+                {
+                    Index = index,
+                    Value = value,
+                });
+                return;
+            }
+
+            targets[0].Value = value;
+
+            for (int i = 1; i < targets.Length; i++)
+            {
+                this._FloatVariables.Remove(targets[i]);
+            }
         }
         #endregion
 
@@ -224,7 +252,10 @@ namespace Gibbed.MassEffect3.FileFormats.Save
         }
 
         [Browsable(false)]
-        public BitArray BoolVariables { get { return this._BoolVariables; } }
+        public BitArray BoolVariables
+        {
+            get { return this._BoolVariables; }
+        }
 
         [DisplayName("Bool Variables")]
         public BitArrayWrapper BoolVariablesWrapper

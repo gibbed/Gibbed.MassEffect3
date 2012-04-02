@@ -422,8 +422,17 @@ namespace Gibbed.MassEffect3.SaveEdit
             }
         }
 
+        private int _UpdatingPlotEditors = 0;
+
+        private bool IsUpdatingPlotEditors
+        {
+            get { return this._UpdatingPlotEditors != 0; }
+        }
+
         private void UpdatePlotEditors()
         {
+            this._UpdatingPlotEditors++;
+
             foreach (var list in this._PlotBools)
             {
                 for (int i = 0; i < list.Items.Count; i++)
@@ -449,10 +458,17 @@ namespace Gibbed.MassEffect3.SaveEdit
 
                 numericUpDown.Value = this.SaveFile.Plot.GetIntVariable(plot.Id);
             }
+
+            this._UpdatingPlotEditors--;
         }
 
         private void OnPlotBoolChecked(object sender, ItemCheckEventArgs e)
         {
+            if (this.IsUpdatingPlotEditors == true)
+            {
+                return;
+            }
+
             var list = sender as CheckedListBox;
 
             if (list == null)
@@ -474,6 +490,11 @@ namespace Gibbed.MassEffect3.SaveEdit
 
         private void OnPlotIntValueChanged(object sender, EventArgs e)
         {
+            if (this.IsUpdatingPlotEditors == true)
+            {
+                return;
+            }
+
             var numericUpDown = sender as NumericUpDown;
 
             if (numericUpDown == null)
