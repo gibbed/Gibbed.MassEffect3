@@ -232,6 +232,15 @@ namespace Gibbed.MassEffect3.SaveEdit.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to  (Build revision {0} @ {1}).
+        /// </summary>
+        internal static string Editor_BuildRevision {
+            get {
+                return ResourceManager.GetString("Editor_BuildRevision", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You cannot open Xbox 360 CON files with the save editor..
         /// </summary>
         internal static string Editor_CannotLoadXbox360CONFile {

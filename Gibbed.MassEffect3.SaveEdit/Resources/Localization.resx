@@ -358,4 +358,7 @@ Are you sure you want to import a legacy head morph?</value>
   <data name="PlayerOrigin_Spacer" xml:space="preserve">
     <value>Spacer</value>
   </data>
+  <data name="Editor_BuildRevision">
+    <value xml:space="preserve"> (Build revision {0} @ {1})</value>
+  </data>
 </root>

@@ -129,14 +129,23 @@
   <data name="Difficulty_DisplayName" xml:space="preserve">
     <value>Сложность</value>
   </data>
+  <data name="Disc_DisplayName" xml:space="preserve">
+    <value>Диск</value>
+  </data>
   <data name="Doors_DisplayName" xml:space="preserve">
     <value>Двери</value>
   </data>
+  <data name="EndGameState_DisplayName" xml:space="preserve">
+    <value>Состояние окончания игры</value>
+  </data>
   <data name="GalaxyMap_DisplayName" xml:space="preserve">
-    <value>Галактическая</value>
+    <value>Галактическая карта</value>
   </data>
   <data name="Henchmen_DisplayName" xml:space="preserve">
     <value>Члены отряда</value>
+  </data>
+  <data name="KismetRecords_DisplayName" xml:space="preserve">
+    <value>Судьба</value>
   </data>
   <data name="Levels_DisplayName" xml:space="preserve">
     <value>Уровни</value>
@@ -147,14 +156,29 @@
   <data name="Location_DisplayName" xml:space="preserve">
     <value>Позиция</value>
   </data>
+  <data name="ME1Plot_DisplayName" xml:space="preserve">
+    <value>Точки ME1</value>
+  </data>
+  <data name="ObjectiveMarkers_DisplayName" xml:space="preserve">
+    <value>Маркеры заданий</value>
+  </data>
   <data name="Player_DisplayName" xml:space="preserve">
     <value>Игрок</value>
+  </data>
+  <data name="Rotation_DisplayName" xml:space="preserve">
+    <value>Поворот</value>
   </data>
   <data name="SecondsPlayed_DisplayName" xml:space="preserve">
     <value>Сыграно секунд</value>
   </data>
   <data name="Squad_Category" xml:space="preserve">
     <value>3. Отряд</value>
+  </data>
+  <data name="StreamingRecords_DisplayName" xml:space="preserve">
+    <value>Поток</value>
+  </data>
+  <data name="TimeStamp_DisplayName" xml:space="preserve">
+    <value>Штамп времени</value>
   </data>
   <data name="Treasures_DisplayName" xml:space="preserve">
     <value>Сокровища</value>

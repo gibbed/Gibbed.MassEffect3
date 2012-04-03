@@ -51,7 +51,7 @@ namespace Gibbed.MassEffect3.SaveEdit
             if (Version.Revision > 0)
             {
                 this.Text += String.Format(
-                    " (Build revision {0} @ {1})",
+                    Localization.Editor_BuildRevision,
                     Version.Revision,
                     Version.Date);
             }
