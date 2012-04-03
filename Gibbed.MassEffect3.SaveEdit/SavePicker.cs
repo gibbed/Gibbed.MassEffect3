@@ -35,7 +35,7 @@ namespace Gibbed.MassEffect3.SaveEdit
         public string FilePath { get; set; }
         public string SelectedPath { get; set; }
 
-        public FileFormats.SFXSaveGameFile SaveFile { get; set; }
+        public SaveFormats.SFXSaveGameFile SaveFile { get; set; }
         private int _HighestSaveNumber;
 
         private PickerMode _FileMode = PickerMode.Invalid;
@@ -104,15 +104,15 @@ namespace Gibbed.MassEffect3.SaveEdit
         private static bool ParseCareerName(
             string input,
             out string name,
-            out FileFormats.Save.OriginType originType,
-            out FileFormats.Save.NotorietyType reputationType,
+            out SaveFormats.OriginType originType,
+            out SaveFormats.NotorietyType reputationType,
             out PlayerClass classType,
             out DateTime date)
         {
             name = null;
             classType = PlayerClass.Invalid;
-            originType = FileFormats.Save.OriginType.None;
-            reputationType = FileFormats.Save.NotorietyType.None;
+            originType = SaveFormats.OriginType.None;
+            reputationType = SaveFormats.NotorietyType.None;
             date = DateTime.Now;
 
             var parts = input.Split('_');
@@ -133,25 +133,25 @@ namespace Gibbed.MassEffect3.SaveEdit
             {
                 case '0':
                 {
-                    originType = FileFormats.Save.OriginType.None;
+                    originType = SaveFormats.OriginType.None;
                     break;
                 }
 
                 case '1':
                 {
-                    originType = FileFormats.Save.OriginType.Spacer;
+                    originType = SaveFormats.OriginType.Spacer;
                     break;
                 }
 
                 case '2':
                 {
-                    originType = FileFormats.Save.OriginType.Colony;
+                    originType = SaveFormats.OriginType.Colony;
                     break;
                 }
 
                 case '3':
                 {
-                    originType = FileFormats.Save.OriginType.Earthborn;
+                    originType = SaveFormats.OriginType.Earthborn;
                     break;
                 }
 
@@ -165,25 +165,25 @@ namespace Gibbed.MassEffect3.SaveEdit
             {
                 case '0':
                 {
-                    reputationType = FileFormats.Save.NotorietyType.None;
+                    reputationType = SaveFormats.NotorietyType.None;
                     break;
                 }
 
                 case '1':
                 {
-                    reputationType = FileFormats.Save.NotorietyType.Survivor;
+                    reputationType = SaveFormats.NotorietyType.Survivor;
                     break;
                 }
 
                 case '2':
                 {
-                    reputationType = FileFormats.Save.NotorietyType.Warhero;
+                    reputationType = SaveFormats.NotorietyType.Warhero;
                     break;
                 }
 
                 case '3':
                 {
-                    reputationType = FileFormats.Save.NotorietyType.Ruthless;
+                    reputationType = SaveFormats.NotorietyType.Ruthless;
                     break;
                 }
 
@@ -251,14 +251,14 @@ namespace Gibbed.MassEffect3.SaveEdit
                         continue;
                     }
 
-                    FileFormats.SFXSaveGameFile saveFile = null;
+                    SaveFormats.SFXSaveGameFile saveFile = null;
                     foreach (var careerFile in careerFiles)
                     {
                         try
                         {
                             using (var input = File.OpenRead(careerFile))
                             {
-                                saveFile = FileFormats.SFXSaveGameFile.Read(input);
+                                saveFile = SaveFormats.SFXSaveGameFile.Read(input);
                             }
 
                             break;
@@ -271,8 +271,8 @@ namespace Gibbed.MassEffect3.SaveEdit
 
                     // attempt to parse the directory name
                     string name;
-                    FileFormats.Save.OriginType originType;
-                    FileFormats.Save.NotorietyType reputationType;
+                    SaveFormats.OriginType originType;
+                    SaveFormats.NotorietyType reputationType;
                     PlayerClass classType;
                     DateTime date;
 
@@ -399,12 +399,12 @@ namespace Gibbed.MassEffect3.SaveEdit
                             }
                         }
 
-                        FileFormats.SFXSaveGameFile saveFile = null;
+                        SaveFormats.SFXSaveGameFile saveFile = null;
                         try
                         {
                             using (var input = File.OpenRead(inputPath))
                             {
-                                saveFile = FileFormats.SFXSaveGameFile.Read(input);
+                                saveFile = SaveFormats.SFXSaveGameFile.Read(input);
                             }
                         }
                         catch (Exception)

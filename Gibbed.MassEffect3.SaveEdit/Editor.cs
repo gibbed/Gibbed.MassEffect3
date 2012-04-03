@@ -535,9 +535,9 @@ namespace Gibbed.MassEffect3.SaveEdit
         }
 
         private readonly string _SavePath;
-        private FileFormats.SFXSaveGameFile _SaveFile;
+        private SaveFormats.SFXSaveGameFile _SaveFile;
 
-        private FileFormats.SFXSaveGameFile SaveFile
+        private SaveFormats.SFXSaveGameFile SaveFile
         {
             get { return this._SaveFile; }
             set
@@ -606,10 +606,10 @@ namespace Gibbed.MassEffect3.SaveEdit
             }
             stream.Seek(-4, SeekOrigin.Current);
 
-            FileFormats.SFXSaveGameFile saveFile;
+            SaveFormats.SFXSaveGameFile saveFile;
             try
             {
-                saveFile = FileFormats.SFXSaveGameFile.Read(stream);
+                saveFile = SaveFormats.SFXSaveGameFile.Read(stream);
             }
             catch (Exception e)
             {
@@ -742,7 +742,7 @@ namespace Gibbed.MassEffect3.SaveEdit
                                        : Endian.Big;
             using (var output = this.saveFileDialog.OpenFile())
             {
-                FileFormats.SFXSaveGameFile.Write(this.SaveFile, output);
+                SaveFormats.SFXSaveGameFile.Write(this.SaveFile, output);
             }
         }
 
@@ -781,7 +781,7 @@ namespace Gibbed.MassEffect3.SaveEdit
 
                     using (var output = File.Create(picker.SelectedPath))
                     {
-                        FileFormats.SFXSaveGameFile.Write(this.SaveFile, output);
+                        SaveFormats.SFXSaveGameFile.Write(this.SaveFile, output);
                     }
                 }
                 else
@@ -899,7 +899,7 @@ namespace Gibbed.MassEffect3.SaveEdit
 
                 var reader = new FileFormats.Unreal.FileReader(
                     input, version, Endian.Little);
-                var morphHead = new FileFormats.Save.MorphHead();
+                var morphHead = new SaveFormats.MorphHead();
                 morphHead.Serialize(reader);
                 this.SaveFile.Player.Appearance.MorphHead = morphHead;
                 this.SaveFile.Player.Appearance.HasMorphHead = true;
@@ -1022,7 +1022,7 @@ namespace Gibbed.MassEffect3.SaveEdit
 
                 var reader = new FileFormats.Unreal.FileReader(
                     input, version, Endian.Little);
-                var morphHead = new FileFormats.Save.MorphHead();
+                var morphHead = new SaveFormats.MorphHead();
                 morphHead.Serialize(reader);
                 this.SaveFile.Player.Appearance.MorphHead = morphHead;
                 this.SaveFile.Player.Appearance.HasMorphHead = true;
@@ -1289,7 +1289,7 @@ namespace Gibbed.MassEffect3.SaveEdit
             System.Diagnostics.Process.Start("http://code.google.com/p/me3tools/wiki/IssuesNotice?tm=3");
         }
 
-        private static void ApplyAppearancePreset(FileFormats.Save.MorphHead morphHead,
+        private static void ApplyAppearancePreset(SaveFormats.MorphHead morphHead,
                                                   AppearancePreset preset)
         {
             if (morphHead == null)
@@ -1328,7 +1328,7 @@ namespace Gibbed.MassEffect3.SaveEdit
                     foreach (var scalar in preset.Scalars.Add)
                     {
                         morphHead.ScalarParameters.Add(
-                            new FileFormats.Save.MorphHead.ScalarParameter()
+                            new SaveFormats.MorphHead.ScalarParameter()
                             {
                                 Name = scalar.Key,
                                 Value = scalar.Value,
@@ -1343,7 +1343,7 @@ namespace Gibbed.MassEffect3.SaveEdit
                         morphHead.ScalarParameters.RemoveAll(
                             p => string.Compare(p.Name, scalar.Key, StringComparison.InvariantCultureIgnoreCase) == 0);
                         morphHead.ScalarParameters.Add(
-                            new FileFormats.Save.MorphHead.ScalarParameter()
+                            new SaveFormats.MorphHead.ScalarParameter()
                             {
                                 Name = scalar.Key,
                                 Value = scalar.Value,
@@ -1373,7 +1373,7 @@ namespace Gibbed.MassEffect3.SaveEdit
                     foreach (var texture in preset.Textures.Add)
                     {
                         morphHead.TextureParameters.Add(
-                            new FileFormats.Save.MorphHead.TextureParameter()
+                            new SaveFormats.MorphHead.TextureParameter()
                             {
                                 Name = texture.Key,
                                 Value = texture.Value,
@@ -1388,7 +1388,7 @@ namespace Gibbed.MassEffect3.SaveEdit
                         morphHead.TextureParameters.RemoveAll(
                             p => string.Compare(p.Name, texture.Key, StringComparison.InvariantCultureIgnoreCase) == 0);
                         morphHead.TextureParameters.Add(
-                            new FileFormats.Save.MorphHead.TextureParameter()
+                            new SaveFormats.MorphHead.TextureParameter()
                             {
                                 Name = texture.Key,
                                 Value = texture.Value,
@@ -1419,10 +1419,10 @@ namespace Gibbed.MassEffect3.SaveEdit
                     foreach (var vector in preset.Vectors.Add)
                     {
                         morphHead.VectorParameters.Add(
-                            new FileFormats.Save.MorphHead.VectorParameter()
+                            new SaveFormats.MorphHead.VectorParameter()
                             {
                                 Name = vector.Key,
-                                Value = new FileFormats.Save.LinearColor()
+                                Value = new SaveFormats.LinearColor()
                                 {
                                     R = vector.Value.R,
                                     G = vector.Value.G,
@@ -1441,10 +1441,10 @@ namespace Gibbed.MassEffect3.SaveEdit
                         morphHead.VectorParameters.RemoveAll(
                             p => string.Compare(p.Name, temp.Key, StringComparison.InvariantCultureIgnoreCase) == 0);
                         morphHead.VectorParameters.Add(
-                            new FileFormats.Save.MorphHead.VectorParameter()
+                            new SaveFormats.MorphHead.VectorParameter()
                             {
                                 Name = vector.Key,
-                                Value = new FileFormats.Save.LinearColor()
+                                Value = new SaveFormats.LinearColor()
                                 {
                                     R = vector.Value.R,
                                     G = vector.Value.G,
@@ -1569,7 +1569,7 @@ namespace Gibbed.MassEffect3.SaveEdit
             }
         }
 
-        private static ColorBgra LinearColorToBgra(FileFormats.Save.LinearColor linearColor)
+        private static ColorBgra LinearColorToBgra(SaveFormats.LinearColor linearColor)
         {
             return LinearColorToBgra(
                 linearColor.R,
@@ -1587,9 +1587,9 @@ namespace Gibbed.MassEffect3.SaveEdit
             return ColorBgra.FromBgra(bb, gb, rb, ab);
         }
 
-        private static FileFormats.Save.LinearColor BgraToLinearColor(ColorBgra bgra)
+        private static SaveFormats.LinearColor BgraToLinearColor(ColorBgra bgra)
         {
-            return new FileFormats.Save.LinearColor(
+            return new SaveFormats.LinearColor(
                 (float)bgra.R / 255,
                 (float)bgra.G / 255,
                 (float)bgra.B / 255,
@@ -1636,7 +1636,7 @@ namespace Gibbed.MassEffect3.SaveEdit
 
             var item = listbox.Items[e.Index];
 
-            var vector = item as FileFormats.Save.MorphHead.VectorParameter;
+            var vector = item as SaveFormats.MorphHead.VectorParameter;
             if (vector != null)
             {
                 var valueColor = LinearColorToBgra(vector.Value).ToColor();
@@ -1657,7 +1657,7 @@ namespace Gibbed.MassEffect3.SaveEdit
 
         private void OnPlayerAppearanceColorRemove(object sender, EventArgs e)
         {
-            var item = this.playerAppearanceColorsListBox.SelectedItem as FileFormats.Save.MorphHead.VectorParameter;
+            var item = this.playerAppearanceColorsListBox.SelectedItem as SaveFormats.MorphHead.VectorParameter;
             if (item != null)
             {
                 this._SaveFile.Player.Appearance.MorphHead.VectorParameters.Remove(item);
@@ -1679,16 +1679,16 @@ namespace Gibbed.MassEffect3.SaveEdit
             }
 
             this._SaveFile.Player.Appearance.MorphHead.VectorParameters.Add(
-                new FileFormats.Save.MorphHead.VectorParameter()
+                new SaveFormats.MorphHead.VectorParameter()
                 {
                     Name = input.InputText,
-                    Value = new FileFormats.Save.LinearColor(1, 1, 1, 1),
+                    Value = new SaveFormats.LinearColor(1, 1, 1, 1),
                 });
         }
 
         private void OnPlayerAppearanceColorChange(object sender, EventArgs e)
         {
-            var item = this.playerAppearanceColorsListBox.SelectedItem as FileFormats.Save.MorphHead.VectorParameter;
+            var item = this.playerAppearanceColorsListBox.SelectedItem as SaveFormats.MorphHead.VectorParameter;
             if (item != null)
             {
                 var bgra = LinearColorToBgra(item.Value);

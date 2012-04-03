@@ -26,10 +26,10 @@ namespace Gibbed.MassEffect3.SaveEdit
 {
     internal class PlayerOrigin
     {
-        public FileFormats.Save.OriginType Type { get; set; }
+        public SaveFormats.OriginType Type { get; set; }
         public string Name { get; set; }
 
-        public PlayerOrigin(FileFormats.Save.OriginType type, string name)
+        public PlayerOrigin(SaveFormats.OriginType type, string name)
         {
             this.Type = type;
             this.Name = name;
@@ -39,10 +39,10 @@ namespace Gibbed.MassEffect3.SaveEdit
         {
             var origins = new List<PlayerOrigin>
             {
-                new PlayerOrigin(FileFormats.Save.OriginType.None, Resources.Localization.PlayerOrigin_None),
-                new PlayerOrigin(FileFormats.Save.OriginType.Colony, Resources.Localization.PlayerOrigin_Colony),
-                new PlayerOrigin(FileFormats.Save.OriginType.Earthborn, Resources.Localization.PlayerOrigin_Earthborn),
-                new PlayerOrigin(FileFormats.Save.OriginType.Spacer, Resources.Localization.PlayerOrigin_Spacer),
+                new PlayerOrigin(SaveFormats.OriginType.None, Resources.Localization.PlayerOrigin_None),
+                new PlayerOrigin(SaveFormats.OriginType.Colony, Resources.Localization.PlayerOrigin_Colony),
+                new PlayerOrigin(SaveFormats.OriginType.Earthborn, Resources.Localization.PlayerOrigin_Earthborn),
+                new PlayerOrigin(SaveFormats.OriginType.Spacer, Resources.Localization.PlayerOrigin_Spacer),
             };
             return origins;
         }

@@ -52,44 +52,6 @@
     <Compile Include="Huffman\Pair.cs" />
     <Compile Include="Huffman\Encoder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="IPlotTable.cs" />
-    <Compile Include="Save\PlotTableWrapper.cs" />
-    <Compile Include="SFXSaveGameFile.cs" />
-    <Compile Include="Save\Appearance.cs" />
-    <Compile Include="Save\AutoReplyModeOptions.cs" />
-    <Compile Include="Save\DependentDLC.cs" />
-    <Compile Include="Save\DifficultyOptions.cs" />
-    <Compile Include="Save\Door.cs" />
-    <Compile Include="Save\EndGameState.cs" />
-    <Compile Include="Save\GalaxyMap.cs" />
-    <Compile Include="Save\GAWAsset.cs" />
-    <Compile Include="Save\Henchman.cs" />
-    <Compile Include="Save\HotKey.cs" />
-    <Compile Include="Save\KismetBool.cs" />
-    <Compile Include="Save\Level.cs" />
-    <Compile Include="Save\LevelTreasure.cs" />
-    <Compile Include="Save\LinearColor.cs" />
-    <Compile Include="Save\Loadout.cs" />
-    <Compile Include="Save\ME1PlotTable.cs" />
-    <Compile Include="Save\MorphHead.cs" />
-    <Compile Include="Save\NotorietyType.cs" />
-    <Compile Include="Save\ObjectiveMarker.cs" />
-    <Compile Include="Save\ObjectiveMarkerIconType.cs" />
-    <Compile Include="Save\OriginalNameAttribute.cs" />
-    <Compile Include="Save\OriginType.cs" />
-    <Compile Include="Save\Placeable.cs" />
-    <Compile Include="Save\PlayerAppearanceType.cs" />
-    <Compile Include="Save\Player.cs" />
-    <Compile Include="Save\PlayerVariable.cs" />
-    <Compile Include="Save\PlotTable.cs" />
-    <Compile Include="Save\Power.cs" />
-    <Compile Include="Save\Rotator.cs" />
-    <Compile Include="Save\SaveTimeStamp.cs" />
-    <Compile Include="Save\StreamingState.cs" />
-    <Compile Include="Save\Vector.cs" />
-    <Compile Include="Save\Vector2D.cs" />
-    <Compile Include="Save\Weapon.cs" />
-    <Compile Include="Save\WeaponMod.cs" />
     <Compile Include="SFXArchiveFile.cs" />
     <Compile Include="SFXArchive\CompressionScheme.cs" />
     <Compile Include="FileNameHash.cs" />
@@ -113,6 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Conditionals\" />
+    <Folder Include="Save\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

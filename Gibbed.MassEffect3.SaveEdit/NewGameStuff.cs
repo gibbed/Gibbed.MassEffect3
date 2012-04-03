@@ -22,7 +22,7 @@
 
 using System;
 using System.Collections.Generic;
-using Gibbed.MassEffect3.FileFormats;
+using Gibbed.MassEffect3.SaveFormats;
 
 namespace Gibbed.MassEffect3.SaveEdit
 {
@@ -133,7 +133,7 @@ namespace Gibbed.MassEffect3.SaveEdit
 
         public static void MergeMe1PlotRecord(
             this SFXSaveGameFile target,
-            FileFormats.Save.ME1PlotTable me1Plots)
+            ME1PlotTable me1Plots)
         {
             for (int i = 0;
                  i < me1Plots.BoolVariables.Length

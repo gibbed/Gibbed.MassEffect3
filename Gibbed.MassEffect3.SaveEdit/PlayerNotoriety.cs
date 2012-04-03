@@ -26,10 +26,10 @@ namespace Gibbed.MassEffect3.SaveEdit
 {
     internal class PlayerNotoriety
     {
-        public FileFormats.Save.NotorietyType Type { get; set; }
+        public SaveFormats.NotorietyType Type { get; set; }
         public string Name { get; set; }
 
-        public PlayerNotoriety(FileFormats.Save.NotorietyType type, string name)
+        public PlayerNotoriety(SaveFormats.NotorietyType type, string name)
         {
             this.Type = type;
             this.Name = name;
@@ -39,10 +39,10 @@ namespace Gibbed.MassEffect3.SaveEdit
         {
             var notorieties = new List<PlayerNotoriety>
             {
-                new PlayerNotoriety(FileFormats.Save.NotorietyType.None, Resources.Localization.PlayerNotoriety_None),
-                new PlayerNotoriety(FileFormats.Save.NotorietyType.Ruthless, Resources.Localization.PlayerNotoriety_Ruthless),
-                new PlayerNotoriety(FileFormats.Save.NotorietyType.Survivor, Resources.Localization.PlayerNotoriety_Survivor),
-                new PlayerNotoriety(FileFormats.Save.NotorietyType.Warhero, Resources.Localization.PlayerNotoriety_Warhero),
+                new PlayerNotoriety(SaveFormats.NotorietyType.None, Resources.Localization.PlayerNotoriety_None),
+                new PlayerNotoriety(SaveFormats.NotorietyType.Ruthless, Resources.Localization.PlayerNotoriety_Ruthless),
+                new PlayerNotoriety(SaveFormats.NotorietyType.Survivor, Resources.Localization.PlayerNotoriety_Survivor),
+                new PlayerNotoriety(SaveFormats.NotorietyType.Warhero, Resources.Localization.PlayerNotoriety_Warhero),
             };
             return notorieties;
         }

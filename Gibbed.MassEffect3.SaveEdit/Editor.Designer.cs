@@ -326,7 +326,7 @@
             // 
             // vectorParametersBindingSource
             // 
-            this.vectorParametersBindingSource.DataSource = typeof(Gibbed.MassEffect3.FileFormats.Save.MorphHead.VectorParameter);
+            this.vectorParametersBindingSource.DataSource = typeof(Gibbed.MassEffect3.SaveFormats.MorphHead.VectorParameter);
             // 
             // playerAppearanceColorsToolStrip
             // 
@@ -589,7 +589,7 @@
             // 
             // saveFileBindingSource
             // 
-            this.saveFileBindingSource.DataSource = typeof(Gibbed.MassEffect3.FileFormats.SFXSaveGameFile);
+            this.saveFileBindingSource.DataSource = typeof(Gibbed.MassEffect3.SaveFormats.SFXSaveGameFile);
             // 
             // openFileDialog
             // 
