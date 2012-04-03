@@ -346,7 +346,7 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
         {
             if (list == null)
             {
-                throw new ArgumentNullException("list should not be null", "list");
+                throw new ArgumentNullException("list", "list should not be null");
             }
 
             this._Output.WriteValueS32(list.Count, this.Endian);
@@ -360,7 +360,7 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
         {
             if (list == null)
             {
-                throw new ArgumentNullException("serializable list should not be null", "list");
+                throw new ArgumentNullException("list", "serializable list should not be null");
             }
 
             this.WriteBasicList(list, (w, v) => w._Output.WriteValueU8(v));
@@ -388,7 +388,7 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
         {
             if (list == null)
             {
-                throw new ArgumentNullException("serializable list should not be null", "list");
+                throw new ArgumentNullException("list", "serializable list should not be null");
             }
 
             this.WriteBasicList(list, (w, v) => w._Output.WriteValueS32(v, w.Endian));
@@ -416,7 +416,7 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
         {
             if (list == null)
             {
-                throw new ArgumentNullException("serializable list should not be null", "list");
+                throw new ArgumentNullException("list", "serializable list should not be null");
             }
 
             this.WriteBasicList(list, (w, v) => w._Output.WriteValueF32(v, w.Endian));
@@ -444,7 +444,7 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
         {
             if (list == null)
             {
-                throw new ArgumentNullException("serializable list should not be null", "list");
+                throw new ArgumentNullException("list", "serializable list should not be null");
             }
 
             this.WriteBasicList(list, (w, v) => w.WriteString(v));
@@ -472,7 +472,7 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
         {
             if (list == null)
             {
-                throw new ArgumentNullException("serializable list should not be null", "list");
+                throw new ArgumentNullException("list", "serializable list should not be null");
             }
 
             this.WriteBasicList(list, (w, v) => w._Output.WriteValueGuid(v, w.Endian));
@@ -500,7 +500,7 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
         {
             if (list == null)
             {
-                throw new ArgumentNullException("serializable list should not be null", "list");
+                throw new ArgumentNullException("list", "serializable list should not be null");
             }
 
             this.WriteBasicList(list, (w, v) => w._Output.WriteValueEnum<TEnum>(v, w.Endian));
@@ -531,7 +531,7 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
         {
             if (list == null)
             {
-                throw new ArgumentNullException("serializable list should not be null", "list");
+                throw new ArgumentNullException("list", "serializable list should not be null");
             }
 
             this._Output.WriteValueS32(list.Count, this.Endian);
@@ -570,7 +570,7 @@ namespace Gibbed.MassEffect3.FileFormats.Unreal
         {
             if (list == null)
             {
-                throw new ArgumentNullException("serializable list should not be null", "list");
+                throw new ArgumentNullException("list", "serializable list should not be null");
             }
 
             this._Output.WriteValueS32(list.Count, this.Endian);

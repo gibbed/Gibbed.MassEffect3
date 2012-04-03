@@ -166,7 +166,7 @@ namespace Gibbed.MassEffect3.FileFormats.Huffman
                 var path = new List<bool>();
                 path.AddRange(data);
                 path.Add(true);
-                    
+
                 var right = Traverse(node.Right, symbol, path);
                 if (right != null)
                 {
@@ -200,7 +200,8 @@ namespace Gibbed.MassEffect3.FileFormats.Huffman
                 if (this._Codes.ContainsKey(t) == false)
                 {
                     throw new ArgumentException(string.Format(
-                        "could not lookup '{0}'", t), "text");
+                        "could not lookup '{0}'", t),
+                                                "text");
                 }
 
                 bitCount += this.Encode(t, bits, offset + bitCount);
@@ -230,7 +231,9 @@ namespace Gibbed.MassEffect3.FileFormats.Huffman
                     throw new InvalidOperationException();
                 }
 
+                // ReSharper disable PossibleNullReferenceException
                 if (node.Left.Left == null &&
+                    // ReSharper restore PossibleNullReferenceException
                     node.Left.Right == null)
                 {
                     pair.Left = -1 - node.Left.Symbol;

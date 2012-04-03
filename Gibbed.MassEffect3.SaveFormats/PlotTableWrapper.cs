@@ -156,7 +156,6 @@ namespace Gibbed.MassEffect3.SaveFormats
 
         private const int IsMe2ImportId = 21554;
 
-        [DisplayName("Is ME2 Import")]
         [LocalizedDisplayName("IsMe2Import", typeof(Localization.PlotTableWrapper))]
         public bool IsMe2Import
         {
@@ -173,7 +172,6 @@ namespace Gibbed.MassEffect3.SaveFormats
 
         private const int IsMe1ImportId = 22226;
 
-        [DisplayName("Is ME1 Import")]
         [LocalizedDisplayName("IsMe1Import", typeof(Localization.PlotTableWrapper))]
         public bool IsMe1Import
         {

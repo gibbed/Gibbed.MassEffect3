@@ -21,10 +21,11 @@
  */
 
 using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using Gibbed.MassEffect3.SaveEdit.Resources;
 
@@ -71,7 +72,7 @@ namespace Gibbed.MassEffect3.SaveEdit
             this.careerListView.Items.Clear();
             this.careerListView.Items.Add(new ListViewItem()
             {
-                Text = Localization.SavePIcker_NewCareerLabel,
+                Text = Localization.SavePicker_NewCareerLabel,
                 // ReSharper disable LocalizableElement
                 ImageKey = "New",
                 // ReSharper restore LocalizableElement
@@ -106,11 +107,11 @@ namespace Gibbed.MassEffect3.SaveEdit
             out string name,
             out SaveFormats.OriginType originType,
             out SaveFormats.NotorietyType reputationType,
-            out PlayerClass classType,
+            out string className,
             out DateTime date)
         {
             name = null;
-            classType = PlayerClass.Invalid;
+            className = null;
             originType = SaveFormats.OriginType.None;
             reputationType = SaveFormats.NotorietyType.None;
             date = DateTime.Now;
@@ -193,11 +194,11 @@ namespace Gibbed.MassEffect3.SaveEdit
                 }
             }
 
-            if (parts[2] == null ||
-                Enum.TryParse(parts[2], true, out classType) == false)
+            if (parts[2] == null)
             {
                 return false;
             }
+            className = parts[2];
 
             if (parts[3] == null ||
                 parts[3].Length != 6)
@@ -273,7 +274,7 @@ namespace Gibbed.MassEffect3.SaveEdit
                     string name;
                     SaveFormats.OriginType originType;
                     SaveFormats.NotorietyType reputationType;
-                    PlayerClass classType;
+                    string className;
                     DateTime date;
 
                     if (ParseCareerName(
@@ -281,9 +282,22 @@ namespace Gibbed.MassEffect3.SaveEdit
                         out name,
                         out originType,
                         out reputationType,
-                        out classType,
+                        out className,
                         out date) == true)
                     {
+                        var classType = PlayerClass.Invalid;
+
+                        if (saveFile != null)
+                        {
+                            classType = GetPlayerClassFromStringId(saveFile.Player.ClassFriendlyName);
+                        }
+
+                        if (classType == PlayerClass.Invalid &&
+                            className != null)
+                        {
+                            classType = GetPlayerClassFromLocalizedName(className);
+                        }
+
                         string displayName = "";
                         displayName += (saveFile == null ? name : saveFile.Player.FirstName) + "\n";
                         displayName += string.Format("{0}, {1}",
@@ -323,7 +337,7 @@ namespace Gibbed.MassEffect3.SaveEdit
                         // ReSharper disable LocalizableElement
                         Name = "New Career",
                         // ReSharper restore LocalizableElement
-                        Text = Localization.SavePIcker_NewCareerLabel,
+                        Text = Localization.SavePicker_NewCareerLabel,
                         // ReSharper disable LocalizableElement
                         ImageKey = "New",
                         // ReSharper restore LocalizableElement
@@ -337,7 +351,7 @@ namespace Gibbed.MassEffect3.SaveEdit
                         // ReSharper disable LocalizableElement
                         Name = "New Career",
                         // ReSharper restore LocalizableElement
-                        Text = Localization.SavePIcker_NewCareerLabel,
+                        Text = Localization.SavePicker_NewCareerLabel,
                         // ReSharper disable LocalizableElement
                         ImageKey = "New",
                         // ReSharper restore LocalizableElement
@@ -476,23 +490,152 @@ namespace Gibbed.MassEffect3.SaveEdit
             }
         }
 
-        private static string FilterPath(string path)
+        // ReSharper disable UnusedParameter.Local
+        private static char Sanitize(char c, bool extended)
+            // ReSharper restore UnusedParameter.Local
         {
-            var sb = new StringBuilder();
-            foreach (var c in path)
+            if ((c >= 'A' && c <= 'Z') ||
+                (c >= 'a' && c <= 'z') ||
+                (c >= '0' && c <= '9'))
             {
-                if ((c >= 'A' && c <= 'Z') ||
-                    (c >= 'a' && c <= 'z'))
-                {
-                    sb.Append(c);
-                }
+                return c;
             }
-            return sb.ToString();
+
+            return '\0';
+
+            /* disabled because it's broken in ME3 and doesn't actually
+             * sanitize these characters at all
+             */
+
+            /*
+            if (extended == false)
+            {
+                return '\0';
+            }
+
+            var remaps = new Dictionary<string, char>()
+            {
+                {"ÀÁÂÃÄÅ", 'A'},
+                {"àáâãäå", 'a'},
+                {"Ç", 'C'},
+                {"ç", 'c'},
+                {"ÈÉÊË", 'E'},
+                {"èéêë", 'e'},
+                {"ÌÍÎÏ", 'I'},
+                {"ìíîï", 'i'},
+                {"Ñ", 'N'},
+                {"ñ", 'n'},
+                {"ÐÒÓÔÕÖ", 'O'},
+                {"ðòóôõö", 'o'},
+                {"Þ", 'P'},
+                {"þ", 'p'},
+                {"ÙÚÛÜ", 'U'},
+                {"ùúûü", 'u'},
+                {"Ý", 'Y'},
+                {"ýÿ", 'y'},
+            };
+
+            return remaps.FirstOrDefault(r => r.Key.IndexOf(c) >= 0).Value;
+            */
         }
 
-        private static string TranslateClass(int index)
+        private static string SanitizePath(string path)
         {
-            switch (index)
+            return path
+                .Select(c => Sanitize(c, true))
+                .Where(d => d != '\0')
+                .Aggregate("", (c, d) => c + d);
+        }
+
+        private static PlayerClass GetPlayerClassFromLocalizedName(string name)
+        {
+            if (string.IsNullOrEmpty(name) == true)
+            {
+                return PlayerClass.Invalid;
+            }
+
+            name = SanitizePath(name); // just in case
+            name = name.ToLowerInvariant();
+
+            /* due to how poorly Bioware's career naming code is implemented
+             * this cannot be guaranteed to find a match, especially on
+             * Russian versions of the game where the class names turn into
+             * empty strings due to filtering. */
+
+            if (ClassFileNames.Adept.Any(n => n == name) == true)
+            {
+                return PlayerClass.Adept;
+            }
+
+            if (ClassFileNames.Soldier.Any(n => n == name) == true)
+            {
+                return PlayerClass.Soldier;
+            }
+
+            if (ClassFileNames.Engineer.Any(n => n == name) == true)
+            {
+                return PlayerClass.Engineer;
+            }
+
+            if (ClassFileNames.Sentinel.Any(n => n == name) == true)
+            {
+                return PlayerClass.Sentinel;
+            }
+
+            if (ClassFileNames.Infiltrator.Any(n => n == name) == true)
+            {
+                return PlayerClass.Infiltrator;
+            }
+
+            if (ClassFileNames.Vanguard.Any(n => n == name) == true)
+            {
+                return PlayerClass.Vanguard;
+            }
+
+            return PlayerClass.Invalid;
+        }
+
+        private static PlayerClass GetPlayerClassFromStringId(int id)
+        {
+            switch (id)
+            {
+                case 93954:
+                {
+                    return PlayerClass.Adept;
+                }
+
+                case 93952:
+                {
+                    return PlayerClass.Soldier;
+                }
+
+                case 93953:
+                {
+                    return PlayerClass.Engineer;
+                }
+
+                case 93957:
+                {
+                    return PlayerClass.Sentinel;
+                }
+
+                case 93955:
+                {
+                    return PlayerClass.Infiltrator;
+                }
+
+                case 93956:
+                {
+                    return PlayerClass.Vanguard;
+                }
+            }
+
+            return PlayerClass.Invalid;
+        }
+
+        private static string GetClassNameFromStringId(int id)
+        {
+            switch (id)
             {
                 case 93954:
                 {
@@ -523,12 +666,9 @@ namespace Gibbed.MassEffect3.SaveEdit
                 {
                     return "Vanguard";
                 }
-
-                default:
-                {
-                    return "Unknown";
-                }
             }
+
+            return "Unknown";
         }
 
         private string GetSelectedPath(out bool exists)
@@ -559,14 +699,36 @@ namespace Gibbed.MassEffect3.SaveEdit
             if (this.careerListView.SelectedItems[0].Name == "New Career") // ReSharper restore LocalizableElement
             {
                 this.SaveFile.Player.Guid = Guid.NewGuid();
-                var name = string.Format("{0}_{1}{2}_{3}_{4}_{5}",
-                                         FilterPath(this.SaveFile.Player.FirstName),
+
+                var firstName = SanitizePath(this.SaveFile.Player.FirstName);
+                if (string.IsNullOrEmpty(firstName) == true)
+                {
+                    firstName = "Shep";
+                }
+
+                var className = SanitizePath(GetClassNameFromStringId(this.SaveFile.Player.ClassFriendlyName));
+
+                var now = DateTime.Now;
+
+                var stamp = 0;
+                stamp += now.Hour;
+                stamp *= 60;
+                stamp += now.Minute;
+                stamp *= 60;
+                stamp += now.Second;
+                stamp *= 1000;
+                stamp += now.Millisecond;
+
+                var name = string.Format("{0}_{1}{2}_{3}_{4:d2}{5:d2}{6:d2}_{7:x7}",
+                                         firstName,
                                          (int)this.SaveFile.Player.Origin,
                                          (int)this.SaveFile.Player.Notoriety,
-                                         TranslateClass(this.SaveFile.Player.ClassFriendlyName),
-                                         DateTime.Now.ToString("ddMMyy", CultureInfo.InvariantCulture),
-                                         BitConverter.ToString(this.SaveFile.Player.Guid.ToByteArray()).Replace("-", "")
-                                             .Substring(0, 7));
+                                         className,
+                                         DateTime.Now.Day,
+                                         DateTime.Now.Month,
+                                         DateTime.Now.Year % 100,
+                                         stamp);
+
                 path = Path.Combine(path, name);
                 saveNumber = 1;
             }
@@ -714,6 +876,111 @@ namespace Gibbed.MassEffect3.SaveEdit
         private void OnSaveActivate(object sender, EventArgs e)
         {
             this.OnChooseSave(sender, e);
+        }
+
+        private static class ClassFileNames
+        {
+            // 93954
+            public static readonly ReadOnlyCollection<string> Adept
+                = new ReadOnlyCollection<string>(
+                    (IList<string>)
+                    new[]
+                    {
+                        "Adept", // INT
+                        "Adepto", // ESN
+                        "Adepte", // FRA
+                        "Adepto", // ITA
+                        "Experte", // DEU
+                        "Adept", // POL
+                        "Адепт", // RUS
+                    }
+                        .Select(s => SanitizePath(s).ToLowerInvariant())
+                        .Where(s => string.IsNullOrEmpty(s) == false));
+
+            // 93953
+            public static readonly ReadOnlyCollection<string> Engineer
+                = new ReadOnlyCollection<string>(
+                    (IList<string>)
+                    new[]
+                    {
+                        "Engineer", // INT
+                        "Ingeniero", // ESN
+                        "Ingénieur", // FRA
+                        "Ingegnere", // ITA
+                        "Techniker", // DEU
+                        "Inżynier", // POL
+                        "Инженер", // RUS
+                    }
+                        .Select(s => SanitizePath(s).ToLowerInvariant())
+                        .Where(s => string.IsNullOrEmpty(s) == false));
+
+            // 93955
+            public static readonly ReadOnlyCollection<string> Infiltrator
+                = new ReadOnlyCollection<string>(
+                    (IList<string>)
+                    new[]
+                    {
+                        "Infiltrator", // INT
+                        "Infiltrado", // ESN
+                        "Franc-tireur", // FRA
+                        "Incursore", // ITA
+                        "Infiltrator", // DEU
+                        "Szpieg", // POL
+                        "Разведчик", // RUS
+                    }
+                        .Select(s => SanitizePath(s).ToLowerInvariant())
+                        .Where(s => string.IsNullOrEmpty(s) == false));
+
+            // 93957
+            public static readonly ReadOnlyCollection<string> Sentinel
+                = new ReadOnlyCollection<string>(
+                    (IList<string>)
+                    new[]
+                    {
+                        "Sentinel", // INT
+                        "Centinela", // ESN
+                        "Sentinelle", // FRA
+                        "Sentinella", // ITA
+                        "Wächter", // DEU
+                        "Strażnik", // POL
+                        "Страж", // RUS
+                    }
+                        .Select(s => SanitizePath(s).ToLowerInvariant())
+                        .Where(s => string.IsNullOrEmpty(s) == false));
+
+            // 93952
+            public static readonly ReadOnlyCollection<string> Soldier
+                = new ReadOnlyCollection<string>(
+                    (IList<string>)
+                    new[]
+                    {
+                        "Soldier", // INT
+                        "Soldado", // ESN
+                        "Soldat", // FRA
+                        "Soldato", // ITA
+                        "Soldat", // DEU
+                        "Żołnierz", // POL
+                        "Солдат", // RUS
+                    }
+                        .Select(s => SanitizePath(s).ToLowerInvariant())
+                        .Where(s => string.IsNullOrEmpty(s) == false));
+
+            // 93956
+            public static readonly ReadOnlyCollection<string> Vanguard
+                = new ReadOnlyCollection<string>(
+                    (IList<string>)
+                    new[]
+                    {
+                        "Vanguard", // INT
+                        "Vanguardia", // ESN
+                        "Porte-étendard", // FRA
+                        "Ricognitore", // ITA
+                        "Frontkämpfer", // DEU
+                        "Szturmowiec", // POL
+                        "Штурмовик", // RUS
+                    }
+                        .Select(s => SanitizePath(s).ToLowerInvariant())
+                        .Where(s => string.IsNullOrEmpty(s) == false));
         }
     }
 }

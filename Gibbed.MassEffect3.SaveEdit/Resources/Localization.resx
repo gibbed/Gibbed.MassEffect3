@@ -123,7 +123,7 @@
   <data name="SavePicker_DeleteCareerConfirmation" xml:space="preserve">
     <value>Are you sure you want to delete this career?</value>
   </data>
-  <data name="SavePIcker_NewCareerLabel" xml:space="preserve">
+  <data name="SavePicker_NewCareerLabel" xml:space="preserve">
     <value>(new career)</value>
   </data>
   <data name="SavePicker_NewSaveLabel" xml:space="preserve">
@@ -292,70 +292,70 @@ Are you sure you want to import a legacy head morph?</value>
   <data name="Editor_PlotEditor_ValueLabelFormat" xml:space="preserve">
     <value>{0}</value>
   </data>
-  <data name="PlayerClass_Adept">
-    <value xml:space="preserve">Adept</value>
+  <data name="PlayerClass_Adept" xml:space="preserve">
+    <value>Adept</value>
   </data>
-  <data name="PlayerClass_Engineer">
-    <value xml:space="preserve">Engineer</value>
+  <data name="PlayerClass_Engineer" xml:space="preserve">
+    <value>Engineer</value>
   </data>
-  <data name="PlayerClass_Infiltrator">
-    <value xml:space="preserve">Infiltrator</value>
+  <data name="PlayerClass_Infiltrator" xml:space="preserve">
+    <value>Infiltrator</value>
   </data>
-  <data name="PlayerClass_Sentinel">
-    <value xml:space="preserve">Sentinel</value>
+  <data name="PlayerClass_Sentinel" xml:space="preserve">
+    <value>Sentinel</value>
   </data>
-  <data name="PlayerClass_Soldier">
-    <value xml:space="preserve">Soldier</value>
+  <data name="PlayerClass_Soldier" xml:space="preserve">
+    <value>Soldier</value>
   </data>
-  <data name="PlayerClass_Vanguard">
-    <value xml:space="preserve">Vanguard</value>
+  <data name="PlayerClass_Vanguard" xml:space="preserve">
+    <value>Vanguard</value>
   </data>
-  <data name="PlayerClass_AdeptNonCombat">
-    <value xml:space="preserve">Adept (out of combat)</value>
+  <data name="PlayerClass_AdeptNonCombat" xml:space="preserve">
+    <value>Adept (out of combat)</value>
   </data>
-  <data name="PlayerClass_EngineerNonCombat">
-    <value xml:space="preserve">Engineer (out of combat)</value>
+  <data name="PlayerClass_EngineerNonCombat" xml:space="preserve">
+    <value>Engineer (out of combat)</value>
   </data>
-  <data name="PlayerClass_InfiltratorNonCombat">
-    <value xml:space="preserve">Infiltrator (out of combat)</value>
+  <data name="PlayerClass_InfiltratorNonCombat" xml:space="preserve">
+    <value>Infiltrator (out of combat)</value>
   </data>
-  <data name="PlayerClass_SentinelNonCombat">
-    <value xml:space="preserve">Sentinel (out of combat)</value>
+  <data name="PlayerClass_SentinelNonCombat" xml:space="preserve">
+    <value>Sentinel (out of combat)</value>
   </data>
-  <data name="PlayerClass_SoldierNonCombat">
-    <value xml:space="preserve">Soldier (out of combat)</value>
+  <data name="PlayerClass_SoldierNonCombat" xml:space="preserve">
+    <value>Soldier (out of combat)</value>
   </data>
-  <data name="PlayerClass_VanguardNonCombat">
-    <value xml:space="preserve">Vanguard (out of combat)</value>
+  <data name="PlayerClass_VanguardNonCombat" xml:space="preserve">
+    <value>Vanguard (out of combat)</value>
   </data>
-  <data name="PlayerGender_Male">
-    <value xml:space="preserve">Male</value>
+  <data name="PlayerGender_Male" xml:space="preserve">
+    <value>Male</value>
   </data>
-  <data name="PlayerGender_Female">
-    <value xml:space="preserve">Female</value>
+  <data name="PlayerGender_Female" xml:space="preserve">
+    <value>Female</value>
   </data>
-  <data name="PlayerNotoriety_None">
-    <value xml:space="preserve">None</value>
+  <data name="PlayerNotoriety_None" xml:space="preserve">
+    <value>None</value>
   </data>
-  <data name="PlayerNotoriety_Ruthless">
-    <value xml:space="preserve">Ruthless</value>
+  <data name="PlayerNotoriety_Ruthless" xml:space="preserve">
+    <value>Ruthless</value>
   </data>
-  <data name="PlayerNotoriety_Survivor">
-    <value xml:space="preserve">Sole Survivor</value>
+  <data name="PlayerNotoriety_Survivor" xml:space="preserve">
+    <value>Sole Survivor</value>
   </data>
-  <data name="PlayerNotoriety_Warhero">
-    <value xml:space="preserve">War Hero</value>
+  <data name="PlayerNotoriety_Warhero" xml:space="preserve">
+    <value>War Hero</value>
   </data>
-  <data name="PlayerOrigin_None">
-    <value xml:space="preserve">None</value>
+  <data name="PlayerOrigin_None" xml:space="preserve">
+    <value>None</value>
   </data>
-  <data name="PlayerOrigin_Colony">
-    <value xml:space="preserve">Colonist</value>
+  <data name="PlayerOrigin_Colony" xml:space="preserve">
+    <value>Colonist</value>
   </data>
-  <data name="PlayerOrigin_Earthborn">
-    <value xml:space="preserve">Earthborn</value>
+  <data name="PlayerOrigin_Earthborn" xml:space="preserve">
+    <value>Earthborn</value>
   </data>
-  <data name="PlayerOrigin_Spacer">
-    <value xml:space="preserve">Spacer</value>
+  <data name="PlayerOrigin_Spacer" xml:space="preserve">
+    <value>Spacer</value>
   </data>
 </root>

@@ -25,6 +25,10 @@ using System.ComponentModel;
 
 namespace Gibbed.MassEffect3.SaveFormats
 {
+    [AttributeUsage(AttributeTargets.Property |
+                    AttributeTargets.Event |
+                    AttributeTargets.Class |
+                    AttributeTargets.Method)]
     internal class LocalizedDisplayNameAttribute : DisplayNameAttribute
     {
         private readonly LocalizedString _DisplayName = new LocalizedString();

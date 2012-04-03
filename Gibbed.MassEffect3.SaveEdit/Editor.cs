@@ -422,7 +422,7 @@ namespace Gibbed.MassEffect3.SaveEdit
             }
         }
 
-        private int _UpdatingPlotEditors = 0;
+        private int _UpdatingPlotEditors;
 
         private bool IsUpdatingPlotEditors
         {

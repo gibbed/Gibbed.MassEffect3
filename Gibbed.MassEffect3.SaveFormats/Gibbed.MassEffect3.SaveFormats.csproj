@@ -241,54 +241,79 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Appearance.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Localization\Appearance.ru.resx" />
     <EmbeddedResource Include="Localization\DependentDLC.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>DependentDLC.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Localization\DependentDLC.ru.resx" />
     <EmbeddedResource Include="Localization\Door.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Door.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localization\Door.ru.resx">
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Localization\GalaxyMap.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>GalaxyMap.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Localization\GalaxyMap.ru.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Localization\GAWAsset.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>GAWAsset.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localization\GAWAsset.ru.resx">
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Localization\Henchman.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Henchman.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Localization\Henchmen.ru.resx" />
     <EmbeddedResource Include="Localization\HotKey.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>HotKey.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localization\HotKey.ru.resx">
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Localization\KismetBool.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>KismetBool.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Localization\KismetBool.ru.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Localization\Level.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Level.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Localization\Level.ru.resx" />
     <EmbeddedResource Include="Localization\LevelTreasure.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>LevelTreasure.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Localization\LevelTreasure.ru.resx" />
     <EmbeddedResource Include="Localization\LinearColor.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>LinearColor.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localization\LinearColor.ru.resx">
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Localization\Loadout.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Loadout.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Localization\Loadout.ru.resx" />
     <EmbeddedResource Include="Localization\MorphHead.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>MorphHead.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Localization\MorphHead.ru.resx" />
     <EmbeddedResource Include="Localization\ObjectiveMarker.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ObjectiveMarker.Designer.cs</LastGenOutput>
@@ -297,58 +322,76 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Placeable.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Localization\Placeable.ru.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Localization\Player.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Player.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localization\Player.ru.resx">
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Localization\PlayerVariable.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>PlayerVariable.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Localization\PlayerVariable.ru.resx" />
     <EmbeddedResource Include="Localization\PlotTable.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>PlotTable.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Localization\PlotTable.ru.resx" />
     <EmbeddedResource Include="Localization\PlotTableWrapper.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>PlotTableWrapper.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Localization\PlotTableWrapper.ru.resx" />
     <EmbeddedResource Include="Localization\Power.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Power.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Localization\Power.ru.resx" />
     <EmbeddedResource Include="Localization\Rotator.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Rotator.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Localization\Rotator.ru.resx" />
     <EmbeddedResource Include="Localization\SaveTimeStamp.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>SaveTimeStamp.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Localization\SaveTimeStamp.ru.resx" />
     <EmbeddedResource Include="Localization\SFXSaveGameFile.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>SFXSaveGameFile.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Localization\SFXSaveGameFile.ru.resx" />
     <EmbeddedResource Include="Localization\StreamingState.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>StreamingState.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Localization\StreamingState.ru.resx" />
     <EmbeddedResource Include="Localization\Vector.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Vector.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Localization\Vector.ru.resx" />
     <EmbeddedResource Include="Localization\Vector2D.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Vector2D.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Localization\Vector2D.ru.resx" />
     <EmbeddedResource Include="Localization\Weapon.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Weapon.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Localization\Weapon.ru.resx" />
     <EmbeddedResource Include="Localization\WeaponMod.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>WeaponMod.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Localization\WeaponMod.ru.resx" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

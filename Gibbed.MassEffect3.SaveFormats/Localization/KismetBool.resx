@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Guid_DisplayName" xml:space="preserve">
-    <value>Guid</value>
+    <value>GUID</value>
   </data>
   <data name="Value_DisplayName" xml:space="preserve">
     <value>Value</value>

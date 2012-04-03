@@ -83,7 +83,6 @@ namespace Gibbed.MassEffect3.SaveFormats
             }
         }
 
-        [DisplayName("Ammo Used Count")]
         [LocalizedDisplayName("AmmoUsedCount", typeof(Localization.Weapon))]
         public int AmmoUsedCount
         {
@@ -98,7 +97,6 @@ namespace Gibbed.MassEffect3.SaveFormats
             }
         }
 
-        [DisplayName("Ammo Total")]
         [LocalizedDisplayName("AmmoTotal", typeof(Localization.Weapon))]
         public int AmmoTotal
         {
@@ -155,7 +153,6 @@ namespace Gibbed.MassEffect3.SaveFormats
             }
         }
 
-        [DisplayName("Ammo Power Source Tag")]
         [LocalizedDisplayName("AmmoPowerSourceTag", typeof(Localization.Weapon))]
         public string AmmoPowerSourceTag
         {

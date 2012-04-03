@@ -121,7 +121,7 @@
     <value>Current State</value>
   </data>
   <data name="Guid_DisplayName" xml:space="preserve">
-    <value>Guid</value>
+    <value>GUID</value>
   </data>
   <data name="OldState_DisplayName" xml:space="preserve">
     <value>Old State</value>

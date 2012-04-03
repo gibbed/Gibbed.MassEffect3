@@ -45,7 +45,6 @@ namespace Gibbed.MassEffect3.SaveFormats
         }
 
         #region Properties
-        [DisplayName("Weapon Class Name")]
         [LocalizedDisplayName("WeaponClassName", typeof(Localization.WeaponMod))]
         public string WeaponClassName
         {

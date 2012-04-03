@@ -169,7 +169,7 @@ namespace Gibbed.MassEffect3.SaveFormats.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Guid.
+        ///   Looks up a localized string similar to GUID.
         /// </summary>
         public static string Guid_DisplayName {
             get {

@@ -114,6 +114,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Editor.ru.resx">
       <DependentUpon>Editor.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="InputBox.resx">
       <DependentUpon>InputBox.cs</DependentUpon>
@@ -134,13 +135,16 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Images.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Localization.ru.resx" />
+    <EmbeddedResource Include="Resources\Localization.ru.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="SavePicker.resx">
       <DependentUpon>SavePicker.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="SavePicker.ru.resx">
       <DependentUpon>SavePicker.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Properties\DataSources\Gibbed.MassEffect3.FileFormats.SFXSaveGameFile.datasource" />

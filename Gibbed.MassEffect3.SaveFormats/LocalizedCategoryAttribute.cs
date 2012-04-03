@@ -25,6 +25,7 @@ using System.ComponentModel;
 
 namespace Gibbed.MassEffect3.SaveFormats
 {
+    [AttributeUsage(AttributeTargets.All)] 
     internal class LocalizedCategoryAttribute : CategoryAttribute
     {
         private readonly LocalizedString _Category = new LocalizedString();

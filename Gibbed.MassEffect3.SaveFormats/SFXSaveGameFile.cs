@@ -573,7 +573,6 @@ namespace Gibbed.MassEffect3.SaveFormats
         }
 
         [LocalizedCategory(Categories.Uncategorized, typeof(Localization.SFXSaveGameFile))]
-        [DisplayName("Dependent DLC")]
         [LocalizedDisplayName("DependentDLC", typeof(Localization.SFXSaveGameFile))]
         public List<DependentDLC> DependentDLC
         {

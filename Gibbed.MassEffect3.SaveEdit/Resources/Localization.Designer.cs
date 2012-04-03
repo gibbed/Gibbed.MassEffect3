@@ -724,9 +724,9 @@ namespace Gibbed.MassEffect3.SaveEdit.Resources {
         /// <summary>
         ///   Looks up a localized string similar to (new career).
         /// </summary>
-        internal static string SavePIcker_NewCareerLabel {
+        internal static string SavePicker_NewCareerLabel {
             get {
-                return ResourceManager.GetString("SavePIcker_NewCareerLabel", resourceCulture);
+                return ResourceManager.GetString("SavePicker_NewCareerLabel", resourceCulture);
             }
         }
         

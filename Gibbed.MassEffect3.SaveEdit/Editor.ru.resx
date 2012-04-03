@@ -118,18 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="newMaleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>168, 22</value>
-  </data>
-  <data name="newMaleToolStripMenuItem.Text" xml:space="preserve">
-    <value>Новый &amp;Мужчина</value>
-  </data>
-  <data name="newFemaleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>168, 22</value>
-  </data>
-  <data name="newFemaleToolStripMenuItem.Text" xml:space="preserve">
-    <value>Новая &amp;Женщина</value>
-  </data>
   <data name="newSplitButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -144,17 +132,17 @@
         K/lVVdtCyVaW3GdP5jqz+sS3tAYj+QVkkUPvjWBiKwAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="openFromCareerMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>222, 22</value>
+  <data name="newMaleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>168, 22</value>
   </data>
-  <data name="openFromCareerMenuItem.Text" xml:space="preserve">
-    <value>Открыть из &amp;прохождения...</value>
+  <data name="newMaleToolStripMenuItem.Text" xml:space="preserve">
+    <value>Новый &amp;Мужчина</value>
   </data>
-  <data name="openFromFileMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>222, 22</value>
+  <data name="newFemaleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>168, 22</value>
   </data>
-  <data name="openFromFileMenuItem.Text" xml:space="preserve">
-    <value>Открыть из &amp;файла...</value>
+  <data name="newFemaleToolStripMenuItem.Text" xml:space="preserve">
+    <value>Новая &amp;Женщина</value>
   </data>
   <data name="openFromGenericButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -179,17 +167,17 @@
   <data name="openFromGenericButton.Text" xml:space="preserve">
     <value>Открыть</value>
   </data>
-  <data name="saveToCareerMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>229, 22</value>
+  <data name="openFromCareerMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>222, 22</value>
   </data>
-  <data name="saveToCareerMenuItem.Text" xml:space="preserve">
-    <value>Сохранить в &amp;Прохождение...</value>
+  <data name="openFromCareerMenuItem.Text" xml:space="preserve">
+    <value>Открыть из &amp;прохождения...</value>
   </data>
-  <data name="saveToFileMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>229, 22</value>
+  <data name="openFromFileMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>222, 22</value>
   </data>
-  <data name="saveToFileMenuItem.Text" xml:space="preserve">
-    <value>Сохранить в &amp;файл...</value>
+  <data name="openFromFileMenuItem.Text" xml:space="preserve">
+    <value>Открыть из &amp;файла...</value>
   </data>
   <data name="saveToGenericButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -210,11 +198,17 @@
   <data name="saveToGenericButton.Text" xml:space="preserve">
     <value>Сохранить</value>
   </data>
-  <data name="dontUseCareerPickerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>302, 22</value>
+  <data name="saveToCareerMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>229, 22</value>
   </data>
-  <data name="dontUseCareerPickerToolStripMenuItem.Text" xml:space="preserve">
-    <value>Не использется выбранное прохождение</value>
+  <data name="saveToCareerMenuItem.Text" xml:space="preserve">
+    <value>Сохранить в &amp;Прохождение...</value>
+  </data>
+  <data name="saveToFileMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>229, 22</value>
+  </data>
+  <data name="saveToFileMenuItem.Text" xml:space="preserve">
+    <value>Сохранить в &amp;файл...</value>
   </data>
   <data name="settingsButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -236,88 +230,14 @@
   <data name="settingsButton.Text" xml:space="preserve">
     <value>Настройки</value>
   </data>
-  <data name="playerBasicGenderWarningLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>441, 26</value>
+  <data name="dontUseCareerPickerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>283, 22</value>
   </data>
-  <data name="playerBasicGenderWarningLabel.Text" xml:space="preserve">
-    <value>* При смене пола персонажа, сбросьте модель лица или импортируйте подходящею,
-иначе в игре голова будет отображаться неправильно.</value>
+  <data name="dontUseCareerPickerToolStripMenuItem.Text" xml:space="preserve">
+    <value>Не использовать выбор прохождения</value>
   </data>
   <data name="playerBasicTabPage.Text" xml:space="preserve">
     <value>Основы</value>
-  </data>
-  <data name="playerAppearanceColorsAddColorButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALUSURBVDhPrdJbSJNhGAfwx01WFyaVLMsVdBEUzJCuKqJ0
-        mJXQVRijCDqgFpLZ7EAYtnIVzKZFhSC5mStrkeUBDxOtLVEzndpmzG/FWOTspCbTcqTb/j11MZEOV73w
-        5/0uvuf3Ps/7fUT/e7WlkfRlMimFBPElYYlEL0gW6gVx/KUBSlL2UZr0n+cNaEnhUi8yfi7L6Pc/NY55
-        Oq0znvK2Gb+xduzzgZJ+16I84yBpFX9EHLWUIjyQNX97c98Hx13AdA7Q5AK5vOffAW5149t1u0+QVTY7
-        qDZlDnLnES1z9EQ3fh0rn4S3GOjiwoYCwKADdKXAxTrgVAfvHnwt8Ew6oroam+jZsjBSbqFspzdtKBC6
-        BUyqgKFCYMAAPHkIVDUDFS+B4rfAaR8CmiCcm7xDJurMDgPaTqrpH9f6vTiDcVxAIMDF42bA3Q3YXEDL
-        KILGaUxcBoa5uf5D434dddaEgQwrCY9d6lAHjmEAWgzhASbRheB3L0IfpzDVC7yvBpxXgefH+TqOuEJZ
-        ZBXCwFYLuW8ycA/ZaGCgnYFXDLzHCD75gME+LmSgiQETA+p9rtB2srjDwHIztaqHd04XcgfXeIQKGGFm
-        oBujsDHQwkClCdiiPwGZfivke3cEV5K5dfZLVFLeBvtan4oBFfJRiHswoAcPGaia4Du08x1WAUv1yUj/
-        cgrzr2wMiqg6bxbQ0Apxo9i5k7tI5xFyeYQC2KDDGHQMrK9XYWmFAjGlCuweyUSEJsFPJTEOKltcOovc
-        J2Vkfaw3ybN/Zg8eIR29OMrAUQakxiQoPuz6LXRjoW3uX5kjUooNa5wyS65v43DddOpgeyj1xWBIejsx
-        KNGuC0bkrPbHv9sM0kXZfqVoQbiDSJZiOXJaNW8bHVxdRJpdVtKcdNNZjZuUGivJDxbRmejXcR456HyU
-        nRLpZ014ifgpirOEE/fXHJYYKFNkpyxJGb/zs4Z+ALdB3f75TFhBAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="playerAppearanceColorsAddColorButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>106, 22</value>
-  </data>
-  <data name="playerAppearanceColorsAddColorButton.Text" xml:space="preserve">
-    <value>Добавить цвет</value>
-  </data>
-  <data name="playerAppearanceColorsRemoveColorButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALBSURBVDhPrdJbSJNhGAfwRydKJJUXnpqBkHQyKfCm6EKt
-        NASvQhpBmIZGmFaOkjBs5DSYTYuMSEzFmSfUPJAntFyiZjqd22JuxFrgJmXKmKeRuv17djOLom764M/7
-        XbzP732f5/uI/vczlEyB06dIZDgiKDIE+VYafHdVGgSHi3QUK5qi5MC/nqeTUZxREqCYf56hdrxRLJpH
-        lRvm6qENh6JjcT71qdoYkKeYIVncHxFtB8UbmoR9qx8b7NC+ABrvAlIxIOY1vxaoGMfqY43dIKzr01JH
-        /C9IbSuFaid2dK8sVi/DUgqMcWFXAVAlB+TlQGEncGuEVzNWCszLWv+x7h56G+pBqgcpW29Jnt10VQDL
-        OcBsMaCrAl43Ay19QM00UPoZyLVjU+qE/oRltpFGsz2AbJTa1TaZw4LbsOEeNje52NYLmMYBlRHoX4BT
-        sY6l+4CVL6e+ZHPIabTdA2QoyfDSKHGN4Bp0kGEWTVjGGJzfLXB9WcPaJDDXBugfAu9u8DiuGF2ZpDR4
-        gNODZHrCQD2y0cXAMAMfGJjDN3y1AzNTXMhADwONDEguGF1naNDkAcJ6aUBiTVov5hs84hZqoEAvA+NY
-        gIqBfgbqGoEybqEoE7h60roeTr0DW1+ijvKOaaLsOQzkIB/FqEcVJtDMQMsSz1DDM2zhGRYCqSnAQaHG
-        7k1teVuAlPYIugX6JL5FOrcg5hYKoIIci5AzUHHuMir3RqM8LBplAUfxwCvcUUPe2nqi8i2kgUQ+r4It
-        seaLG+fRinRMIouBLAZKD0XDkZLyW54RqX79K697iwRVB/TCQbH9uLVzPXFm2JX4fsYVGxPjTAzZ58zc
-        ttOR67X9k4QL3ZH+dAMfloI5kRThl0Bp+0tIelZJ0psmuiM1kUiqpMi0EvKLSOA9UZwQjrvG83jzmz8n
-        iLP7H3Ef5N7rrqEfnOTYi71m004AAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="playerAppearanceColorsRemoveColorButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>98, 22</value>
-  </data>
-  <data name="playerAppearanceColorsRemoveColorButton.Text" xml:space="preserve">
-    <value>Удалить цвет</value>
-  </data>
-  <data name="playerAppearanceColorsChangeColorButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALqSURBVDhPndNdSJNhFAfwozO9ibALNVOxC+nLjy79iGSZ
-        GYJXMRxCpIZGmWaukjJt5lyxMbUyClPnV+pEbWp+LLQ2zZylaWrNjVheuHUhqUyNwSb798yLiRQEPXB4
-        34vn/3vPgfMS/cepCQuLNrq5KbVE3D/iIzzy+XyK+PpjHLHe17NW7+ldq+eEieeIy58ing+PxwvJjYws
-        RHExut3chncAcxI6aRDubVyqyZy2vm1cXhjT2BfqRuzWxu7lpbSn01OxPNXlqORHVqsVCf7+5fVECS5g
-        tptO69sCXv/61mrB7AtAcRcQCQABexY1YUVehdFnwXbrj9uID4yt9/b2jnCFmzrJf3ZiT//Gct06TOXA
-        OAv2lQByGSCrwopUDG1ZDJzhTuHRTdXBCu0ADfu7gDo15ehMvMVNRzWwngcsSoE5OfCmHSsKKbTPY7fC
-        XYWx+C4chO64aVFBYzkuQDJGXdOrEqsJt7CKe9jcZOFVFdam2qFt4W6FlQ+4+Fo8BDNrbvrCqlVGY10u
-        IFND+pcGoeM9rmIOEiyiDesYh/bVdWDDgM7HcZisG4KuAtBeA6ovGRxZpNG7gHg1GZ8woAU56GPAKAO+
-        MIBdQKU4GYPKd9AqgQEGKBggPGdwnCG10QUEqmhIaE6ySVkHD9kIDWiEigEf8ROTFmBwCmhWAJX3AXEW
-        cCXObDtAqqHtHWimgqiZcEseA/JQBClaIMcE2hnQsQY0zADlHUB+KZB2HjgSMGNxJ2XBNiCiIE4/R5fE
-        ushgIwjYCCWYhAzLkDGgdBa4yUZIkwAnksw2DqdfRyQP2rnGrcT36PUzcRdS7SnoRAY+IZsB2Qy4yICU
-        biA4dcHuEdRrImrj//0XynXnc+SHdQFqgSXa3GNLnB91JH6Yd8T0mG0B+WoLJ0Kuo12Cv4Y9mOjHKpRC
-        vBIo/VAZic5qSHTDSHdERuKLNBSaXkZeIc7dD2e1j5Uz4zru7G03K19W+/9Rzg857zoz9BuLuNO66iDl
-        uQAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="playerAppearanceColorsChangeColorButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 22</value>
-  </data>
-  <data name="playerAppearanceColorsChangeColorButton.Text" xml:space="preserve">
-    <value>Изменить цвет</value>
   </data>
   <data name="playerAppearanceColorsTabPage.Text" xml:space="preserve">
     <value>Цвета</value>
@@ -327,7 +247,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAADk
-        EgAAAk1TRnQBSQFMAgEBCQEAARgBAgEYAQIBEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        EgAAAk1TRnQBSQFMAgEBCQEAASABAgEgAQIBEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABQAMAATADAAEBAQABCAYAAQwYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -410,54 +330,97 @@
         AQ8BgAEBAgAB+AEfAfgBHwGAAQEBgAEBAfgBHwH4AR8BgAEBAeEBBws=
 </value>
   </data>
-  <data name="morphHeadImportButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="playerAppearanceTabPage.Text" xml:space="preserve">
+    <value>Внешность</value>
+  </data>
+  <data name="playerRootTabPage.Text" xml:space="preserve">
+    <value>Игрок</value>
+  </data>
+  <data name="plotRootTabPage.Text" xml:space="preserve">
+    <value>Точки</value>
+  </data>
+  <data name="rawTabPage.Text" xml:space="preserve">
+    <value>Таблица</value>
+  </data>
+  <data name="playerBasicGenderWarningLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>441, 26</value>
+  </data>
+  <data name="playerBasicGenderWarningLabel.Text" xml:space="preserve">
+    <value>* При смене пола персонажа, сбросьте модель лица или импортируйте подходящею,
+иначе в игре голова будет отображаться неправильно.</value>
+  </data>
+  <data name="playerAppearanceColorsAddColorButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         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
-        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
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALTSURBVDhPrdJbSJNhGAfwx01WF0s6MDMt6CIwWBFdVUTl
+        UJPAKzFGEHTADohmrgNi2MplMJsWCYHlZs7MRUoZpZMsl+USna1tMT+LsWizg4fGXDlSt39PXUyiw1Uv
+        /Hm/i+/5vc/zfh/R/149uSR7mU5KYZ24QkiU6AXJQr0gXlPhojTlC8qV/fM8l5YUw+pFxtG6A/bwY+OE
+        12qZ8db3zISNbROje6/YhxeVGodIq/gj4myjTOFWSufXN81BOG8AptOARgWoeC9rBK714+tlR1BIaep0
+        UlvmL0hjKy1zDiS0f5moD8FfDfRx4YNywKADdLXAuXvAiV7evfhS7g05pX3tHfRkWQyp76ZCtz/XNxu9
+        BoSKAV8l4DIAj24DLZ1Aw0ug+i1wMohZTQTuzX6fiayFMUBrpbv2gDbsRwkCOIvZWS4OmAFPP2AbBh6O
+        I2KcxuR5YISbs+8PhHVkvRsDDlhIaBXU0V4cgQta+HALIfQh8s2P6McpTA0C7+8A7ovA86PA1cNCNJ8s
+        QgzI6CZPDQM3UYgHDDxj4BUD7zGGT0Fg6AUXMtDBgIkB9W4hmkXdnhiw3Exd6pHs6Uru4BKP0AAjzAz0
+        Yxw2Bh4y0GQCtuqPIUWfAfmurMhKMnfNfYkmKt3oWBssZqAYZajETRgwgNsMtEzyHTr4DluAJH068j6f
+        wPwLmyIiulM6B2hohbhd7M7mLvJ4BBWPUA4bdJiAjoEN94uR1KDAkloFdo4dRJxmXZiuLHFS3eLaOaSZ
+        lPH3l/rTvHtmdqEVeRhEAQMFDMiMaVB8yPktVLPQ9utfWSRSig2r3SndquCmkXvTO9xPozv63FHZ9W0R
+        iXZ9JK4oNbzm3RaQTmr7maoFsQ7iWVrKkdOqedtpX2oVaXIspDnuoVMaDyk1FpLvq6KShNfJXjnojNRB
+        2+hHTWyJ+EnKSeQk/zWHJAY6KHJQvqSO3/lRQ98BoyPd8Xs9o4UAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="morphHeadImportButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>214, 22</value>
+  <data name="playerAppearanceColorsAddColorButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>106, 22</value>
   </data>
-  <data name="morphHeadImportButton.Text" xml:space="preserve">
-    <value>Импорт из файла...</value>
+  <data name="playerAppearanceColorsAddColorButton.Text" xml:space="preserve">
+    <value>Добавить цвет</value>
   </data>
-  <data name="morphHeadImportLegacyButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>214, 22</value>
-  </data>
-  <data name="morphHeadImportLegacyButton.Text" xml:space="preserve">
-    <value>Импорт из файла (ME2)...</value>
-  </data>
-  <data name="morphHeadExportButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="playerAppearanceColorsRemoveColorButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAACG0lEQVQ4T6WTX0hTURzHz1sQ
-        Qb5lvhQkkb5sD5lc/2BTGjW6e4g2dELZJLyu1JzG1OEswe7WDUz6syGYI8sW1VouLK2WvRjC6imEEfVQ
-        OJgUoXaPXtf27Z7bYy+O/eBzOAd+n+85HPgRACQf8pLZxcQyMMCrtOQIf9LjIQxywu0W1KScijkqzCXE
-        7HI5MtksuCGKKpGiVqI4fJWiWt0fv05R75dhH5Nx+7WM4Iv3CM3MwOR0nq9tbSXVzc2EmLq6zimZDDom
-        19H3hMI3TTH0nMKrIrH9lAwxKuPNJxnjkYj20jKb7eLBhoayUrOZkCPt7W1yOo3TN4chPoshHKeIxNcx
-        t0jxdOEH7sc+497LeYyFo/CHQlhKpbQQVe4t4flyYhCECyubmyh18OB6TuHa1CzmE6t4t/gb8S8UiaSC
-        5ZU/UNLZ//5pb12dh1Ta7c6fGxsoMNdgt/UoDpytB9ftgNXnQ+doEJcnQvBOPIB0JwgxEMC3ZFIL2sVx
-        g4UVFZXkUGNjd4pSlNiGoWvyg3PchdEVhtUbgzD6Eb2Pv8L7ahm3FlZxaWREk3fqdFcK9PoqNYQQvcXi
-        Ssoy9GcCKBfGUdP5EMfcUVjEt2i68QFtwQR6Hi1hcPoX+v2T6JMk7DeZ3HsMBrLPaCRs6U8pCr6vrW0J
-        1sscJmsBO4qLW9iTckF1hO1FRYTBaptKoQo7bQXWy5x/lc8kasOUb8Bfu994QHgnbQkAAAAASUVORK5C
-        YII=
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALASURBVDhPrdJbSJNhGAfwRydKJJUXnpqBkHQyKfCm6EKt
+        tASvQhpBmIZGmFaOkjBs5DSYTYuEyMyJM0+oeCB1ouWyXKLzNGN+EmuBU8oUmafRdPv37GYmRd30wZ/3
+        u3if3/s87/cR/e+nL5H8x06RRDgiKhACvMsF713lguhwwQRFS0Yo0f+v500oKGZK5qeee5E2anujXjDr
+        tOvmir51m7p1YS756eiUX456khQxf0QMrRQr1Iu7Vj/VWmF4CdTdA+RSQMprbhVQNojVJ+NWQVzdZaDW
+        2C1IVRMFG4Z2dKwsVCzDUgwMcGF7HqBSAspSIL8NuN3PqxkreeZlg+9ARye9DXYjFb2UabQkTm84y4Dl
+        LGC6EJhQAa8bgMYuoHIMKP4CZFuxIXfAeMIyXUe6TDeg0FHL6KLCZsEdLOI+Nja4eFEDmAYB/RTQPQ+H
+        2o6lB8AMNzd6edGmJF2LG0jTktAkyJz9uI4JKDCNeixjAI4fFji/rmFtGJhtBoyPgA83gedXBWc6aQU3
+        cLqXTCUM1CAT7Qy8Z+AjA7P4jm9WYHKECxnoZKCOAdlFwXmGek1uIERDPbKZBHshd/CYR6iEGhoGBjEP
+        PQPdDFTXASU8QkE6cO3kjD2UND2bX6Kaco6NR1izGMhCLgpRAxWG0MBA4xLf4TjfYSPfYT6QnAQcFI9b
+        Pak5ZxOQ0x5Rh8iYwF2k8ghSHiEPeiixACUDZeevoHxvJEpDIlHidxQPPUJtleRpqCEq3URqSeL1KtAS
+        bb60fgFNSMUwMhjIYKD4UCRsSUm/5RmRfutfecNTIlIdMIp7pdbjM232eOM7Z/yA0RkVFeU4G7TPkb5t
+        py3bY/tnGRe6Iv+lAy+WAjnhFOYTRyn7i0h+TkvyWya6KzeRRK6l8JQi8gmL4z0RnCCOq8b9ePKbLyeA
+        s/sfcR3k2uuqoZ+Kr9h+iQdTawAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="morphHeadExportButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>214, 22</value>
+  <data name="playerAppearanceColorsRemoveColorButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>98, 22</value>
   </data>
-  <data name="morphHeadExportButton.Text" xml:space="preserve">
-    <value>Экспорт в файл...</value>
+  <data name="playerAppearanceColorsRemoveColorButton.Text" xml:space="preserve">
+    <value>Удалить цвет</value>
+  </data>
+  <data name="playerAppearanceColorsChangeColorButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALoSURBVDhPndNdSFNhGAfwR2d2E2EXWqZiF9KXH12mRrKs
+        DMGrGA4hUkOjTDNXSZk2a63YmFoJhabzK3WiY2p+LLQ2P3KSpql1OBJrF25dSCrLYrCN/XvXxUQSgl54
+        OOfi/f/O88BziP7j1MXEJJj9/HQmIuFf8VERBX88SWL+iEDOhwTW84FB9bwgRr5AQvEMiYJFIlFU4dGj
+        pSgvR4+f38gmYEFBJxalu5qX63JnHW+bVywTRpelYdTlaO5ZWc56NjuTJNJfjk9/4nA4kBIaWtlIlOID
+        5nvoNN8R9vrXl3Y75l8CmruATAJI2LOsBavqGow/j3Q5vt3GqfCkxqCgoDhfuEVLofNTOwd+rjSsw1oJ
+        TLJg/31ArQJUNVhVymGqSIQ3rJUeduv3V5kGaSTUBzQYqICzipbcnhfAehGwpAQW1MCbTqxqlDDVJv0J
+        d5cm4at0CNwx65KGJgp8gGKCumfXFA4rbmEN9+B2s/CaHj9mOmFqE/4J6x4J8bl8GDbW3OyFNYeKJrp9
+        QK6ReC0v9bzDVSxAgSV0YB2TML26DvxchPZpMqYbhsFVAaZrQO0l3pNHRt4HnDKQuZoBbShAPwPGGfCJ
+        AewCquXpGNKNwaQDBhmgYYD0HO85QwazDwjX07DUluZUsg4esxGa0Aw9A97jO6btwNAM0KoBqh8C8jzg
+        SrLNuY/0wxs70Eol8XOx9iIGFKEMSrRBjSl0MqDrB9A0B1R2AcUPgKzzwKGwObs/6Uo2ABlFCAYEXBrr
+        IoeNIGEj3Mc0VFiBigEP5oGbbIQsBXA8zeYUCAY4InXE5jVuJ3FA326r0JLpyoAWOfiAfAbkM+AiAzJ6
+        gMhMiysgos9K1CHe+hcq9BcL1Ae5MIPEnmDrdaZyY57USc6T2GtzhhUb7II4NUfbJFuGA5i4m1U0RW1P
+        oewDFSQ7ayTZDTPdkZlJLDNSdHYFbY/y7n4sqz2svBnf8WdvO1iFsNr7j/J+yHvXm6HfervTrymECZkA
+        AAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="playerAppearanceColorsChangeColorButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>108, 22</value>
+  </data>
+  <data name="playerAppearanceColorsChangeColorButton.Text" xml:space="preserve">
+    <value>Изменить цвет</value>
   </data>
   <data name="morphHeadDropDownButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -480,17 +443,23 @@
   <data name="morphHeadDropDownButton.Text" xml:space="preserve">
     <value>Модель лица</value>
   </data>
-  <data name="appearancePresetOpenFromFileButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>183, 22</value>
+  <data name="morphHeadImportButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>214, 22</value>
   </data>
-  <data name="appearancePresetOpenFromFileButton.Text" xml:space="preserve">
-    <value>Открыть из файла...</value>
+  <data name="morphHeadImportButton.Text" xml:space="preserve">
+    <value>Импорт из файла...</value>
   </data>
-  <data name="appearancePresetSaveToFileButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>183, 22</value>
+  <data name="morphHeadImportLegacyButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>214, 22</value>
   </data>
-  <data name="appearancePresetSaveToFileButton.Text" xml:space="preserve">
-    <value>Сохранить в файл...</value>
+  <data name="morphHeadImportLegacyButton.Text" xml:space="preserve">
+    <value>Импорт из файла (ME2)...</value>
+  </data>
+  <data name="morphHeadExportButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>214, 22</value>
+  </data>
+  <data name="morphHeadExportButton.Text" xml:space="preserve">
+    <value>Экспорт в файл...</value>
   </data>
   <data name="appearancePresetsDropDownButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -511,11 +480,20 @@
   <data name="appearancePresetsDropDownButton.ToolTipText" xml:space="preserve">
     <value>Предустановленные настройки</value>
   </data>
-  <data name="playerAppearanceTabPage.Text" xml:space="preserve">
-    <value>Внешность</value>
+  <data name="appearancePresetOpenFromFileButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>183, 22</value>
   </data>
-  <data name="playerRootTabPage.Text" xml:space="preserve">
-    <value>Игрок</value>
+  <data name="appearancePresetOpenFromFileButton.Text" xml:space="preserve">
+    <value>Открыть из файла...</value>
+  </data>
+  <data name="appearancePresetSaveToFileButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>183, 22</value>
+  </data>
+  <data name="appearancePresetSaveToFileButton.Text" xml:space="preserve">
+    <value>Сохранить в файл...</value>
+  </data>
+  <data name="plotManulTabPage.Text" xml:space="preserve">
+    <value>Вручную</value>
   </data>
   <data name="plotManualClearLogButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -538,14 +516,17 @@
   <data name="plotManualClearLogButton.Text" xml:space="preserve">
     <value>Очистить лог</value>
   </data>
+  <data name="plotManualFloatGroupBox.Text" xml:space="preserve">
+    <value>Дробное</value>
+  </data>
   <data name="plotManualFloatGetButton.Text" xml:space="preserve">
     <value>Получить</value>
   </data>
   <data name="plotManualFloatSetButton.Text" xml:space="preserve">
     <value>Установить</value>
   </data>
-  <data name="plotManualFloatGroupBox.Text" xml:space="preserve">
-    <value>Дробное</value>
+  <data name="plotManualIntGroupBox.Text" xml:space="preserve">
+    <value>Целое</value>
   </data>
   <data name="plotManualIntGetButton.Text" xml:space="preserve">
     <value>Получить</value>
@@ -553,8 +534,8 @@
   <data name="plotManualIntSetButton.Text" xml:space="preserve">
     <value>Установить</value>
   </data>
-  <data name="plotManualIntGroupBox.Text" xml:space="preserve">
-    <value>Целое</value>
+  <data name="plotManualBoolGroupBox.Text" xml:space="preserve">
+    <value>Флаг</value>
   </data>
   <data name="plotManualBoolSetButton.Text" xml:space="preserve">
     <value>Установить</value>
@@ -568,18 +549,6 @@
   <data name="plotManualBoolValueCheckBox.Text" xml:space="preserve">
     <value>установлен</value>
   </data>
-  <data name="plotManualBoolGroupBox.Text" xml:space="preserve">
-    <value>Флаг</value>
-  </data>
-  <data name="plotManulTabPage.Text" xml:space="preserve">
-    <value>Вручную</value>
-  </data>
-  <data name="plotRootTabPage.Text" xml:space="preserve">
-    <value>Точки</value>
-  </data>
-  <data name="rawTabPage.Text" xml:space="preserve">
-    <value>Таблица</value>
-  </data>
   <data name="openFileDialog.Filter" xml:space="preserve">
     <value>Сейвы Mass Effect 3 (*.pcsav, *.xbsav)|*.pcsav;*.xbsav|Все файлы (*.*)|*.*</value>
   </data>
@@ -587,6 +556,9 @@
     <value>Сейвы Mass Effect 3 PC (*.pcsav)|*.pcsav|Сейвы Mass Effect 3 XBOX 360 (*.xbsav)|*.xbsav|Все файлы (*.*)|*.*</value>
   </data>
   <data name="openHeadMorphDialog.Filter" xml:space="preserve">
+    <value>Модель лица из Mass Effect 3 (*.me3headmorph)|*.me3headmorph</value>
+  </data>
+  <data name="saveHeadMorphDialog.Filter" xml:space="preserve">
     <value>Модель лица из Mass Effect 3 (*.me3headmorph)|*.me3headmorph</value>
   </data>
   <data name="faqLinkLabel.Size" type="System.Drawing.Size, System.Drawing">
@@ -612,16 +584,6 @@
   </data>
   <data name="openHeadMorphLegacyDialog.Filter" xml:space="preserve">
     <value>Модель лица из Mass Effect 2 (*.me3headmorph)|*.me2headmorph</value>
-  </data>
-  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AADAgP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAA
-</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Редактор сохранений игры Mass Effect 3 от Gibbed</value>

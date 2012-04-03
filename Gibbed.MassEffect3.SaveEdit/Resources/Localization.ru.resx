@@ -132,9 +132,6 @@
   <data name="Editor_BasicTable_Character_TalentPoints" xml:space="preserve">
     <value>Очки таланта</value>
   </data>
-  <data name="Editor_BasicTable_ItemLabelFormat" xml:space="preserve">
-    <value>{0}:</value>
-  </data>
   <data name="Editor_BasicTable_Reputation_Label" xml:space="preserve">
     <value>Репутация</value>
   </data>
@@ -148,7 +145,7 @@
     <value>Репутация</value>
   </data>
   <data name="Editor_BasicTable_Resources_Credits" xml:space="preserve">
-    <value>Титры</value>
+    <value>Кредиты</value>
   </data>
   <data name="Editor_BasicTable_Resources_Grenades" xml:space="preserve">
     <value>Гранаты</value>
@@ -179,9 +176,6 @@
   <data name="Editor_PlotEditor_NoteLabel" xml:space="preserve">
     <value>Примечания</value>
   </data>
-  <data name="Editor_PlotEditor_ValueLabelFormat" xml:space="preserve">
-    <value>{0}</value>
-  </data>
   <data name="Editor_ThisShouldNeverHappen" xml:space="preserve">
     <value>Этого никогда не произойдет.</value>
   </data>
@@ -207,7 +201,7 @@
 
 {0}</value>
   </data>
-  <data name="SavePIcker_NewCareerLabel" xml:space="preserve">
+  <data name="SavePicker_NewCareerLabel" xml:space="preserve">
     <value>(новое прохождение)</value>
   </data>
   <data name="SavePicker_NewSaveLabel" xml:space="preserve">
@@ -263,10 +257,10 @@
     <value>Неподдерживаемая версия экспортированных настроек лица.</value>
   </data>
   <data name="Editor_NoHeadMorph" xml:space="preserve">
-    <value>Эта сохраненная игра не имеет нестандартних настроек лица.</value>
+    <value>В этом сейве нет не стандартной модели лица.</value>
   </data>
   <data name="Editor_PlotManualLogBoolGet" xml:space="preserve">
-    <value>флаг {0}стал равен {1}</value>
+    <value>флаг {0} стал равен {1}</value>
   </data>
   <data name="Editor_PlotManualLogBoolSet" xml:space="preserve">
     <value>флаг {0} стал равен {1} (было {2})</value>
@@ -291,5 +285,71 @@
 Пожалуйста отправьте это сообщение Rick (ctrl+C скопировать диалог) и сейв, который вы пытались загрузить.
 
 {0}</value>
+  </data>
+  <data name="PlayerClass_Adept" xml:space="preserve">
+    <value>Адепт</value>
+  </data>
+  <data name="PlayerClass_AdeptNonCombat" xml:space="preserve">
+    <value>Адепт (вне боя)</value>
+  </data>
+  <data name="PlayerClass_Engineer" xml:space="preserve">
+    <value>Инженер</value>
+  </data>
+  <data name="PlayerClass_EngineerNonCombat" xml:space="preserve">
+    <value>Инженер (вне боя)</value>
+  </data>
+  <data name="PlayerClass_Infiltrator" xml:space="preserve">
+    <value>Разведчик</value>
+  </data>
+  <data name="PlayerClass_InfiltratorNonCombat" xml:space="preserve">
+    <value>Разведчик (вне боя)</value>
+  </data>
+  <data name="PlayerClass_Sentinel" xml:space="preserve">
+    <value>Страж</value>
+  </data>
+  <data name="PlayerClass_SentinelNonCombat" xml:space="preserve">
+    <value>Страж (вне боя)</value>
+  </data>
+  <data name="PlayerClass_Soldier" xml:space="preserve">
+    <value>Солдат</value>
+  </data>
+  <data name="PlayerClass_SoldierNonCombat" xml:space="preserve">
+    <value>Солдат (вне боя)</value>
+  </data>
+  <data name="PlayerClass_Vanguard" xml:space="preserve">
+    <value>Штурмовик</value>
+  </data>
+  <data name="PlayerClass_VanguardNonCombat" xml:space="preserve">
+    <value>Штурмовик (вне боя)</value>
+  </data>
+  <data name="PlayerGender_Female" xml:space="preserve">
+    <value>Женщина</value>
+  </data>
+  <data name="PlayerGender_Male" xml:space="preserve">
+    <value>Мужчина</value>
+  </data>
+  <data name="PlayerNotoriety_None" xml:space="preserve">
+    <value>Не выбранно</value>
+  </data>
+  <data name="PlayerNotoriety_Ruthless" xml:space="preserve">
+    <value>Беспощадный</value>
+  </data>
+  <data name="PlayerNotoriety_Survivor" xml:space="preserve">
+    <value>Последний герой</value>
+  </data>
+  <data name="PlayerNotoriety_Warhero" xml:space="preserve">
+    <value>Герой войны</value>
+  </data>
+  <data name="PlayerOrigin_Colony" xml:space="preserve">
+    <value>Колонист</value>
+  </data>
+  <data name="PlayerOrigin_Earthborn" xml:space="preserve">
+    <value>Землянин</value>
+  </data>
+  <data name="PlayerOrigin_None" xml:space="preserve">
+    <value>Не выбранно</value>
+  </data>
+  <data name="PlayerOrigin_Spacer" xml:space="preserve">
+    <value>Космонавт</value>
   </data>
 </root>

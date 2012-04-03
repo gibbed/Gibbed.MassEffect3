@@ -247,7 +247,6 @@ namespace Gibbed.MassEffect3.SaveFormats
         #endregion
 
         #region Properties
-        [DisplayName("Known Variables")]
         [LocalizedDisplayName("Helpers", typeof(Localization.PlotTable))]
         public PlotTableWrapper Helpers
         {

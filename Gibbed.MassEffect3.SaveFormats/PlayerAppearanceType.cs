@@ -20,8 +20,10 @@
  *    distribution.
  */
 
+// ReSharper disable RedundantUsingDirective
 using System.ComponentModel;
 using Unreal = Gibbed.MassEffect3.FileFormats.Unreal;
+// ReSharper restore RedundantUsingDirective
 
 namespace Gibbed.MassEffect3.SaveFormats
 {

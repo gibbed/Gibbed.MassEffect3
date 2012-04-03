@@ -30,13 +30,15 @@ namespace Gibbed.MassEffect3.FileFormats
         public readonly BitArray Target;
 
         // for CollectionEditor, so it knows the correct Item type
+        // ReSharper disable UnusedAutoPropertyAccessor.Local
         public bool Item { get; private set; }
+        // ReSharper restore UnusedAutoPropertyAccessor.Local
 
         public BitArrayWrapper(BitArray target)
         {
             if (target == null)
             {
-                throw new ArgumentNullException("target cannot be null", "target");
+                throw new ArgumentNullException("target", "target cannot be null");
             }
 
             this.Target = target;
