@@ -81,9 +81,9 @@ namespace Gibbed.MassEffect3.SaveFormats.Localization {
         /// <summary>
         ///   Looks up a localized string similar to Show As Scanned.
         /// </summary>
-        public static string Planet_ShowAsScanned_DisplayNAme {
+        public static string Planet_ShowAsScanned_DisplayName {
             get {
-                return ResourceManager.GetString("Planet_ShowAsScanned_DisplayNAme", resourceCulture);
+                return ResourceManager.GetString("Planet_ShowAsScanned_DisplayName", resourceCulture);
             }
         }
         

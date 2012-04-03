@@ -61,7 +61,7 @@ namespace Gibbed.MassEffect3.SaveFormats.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Bone To Attach To.
         /// </summary>
         public static string BoneToAttachTo_DisplayName {
             get {
@@ -70,7 +70,7 @@ namespace Gibbed.MassEffect3.SaveFormats.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Marker Icon Type.
         /// </summary>
         public static string MarkerIconType_DisplayName {
             get {
@@ -79,7 +79,7 @@ namespace Gibbed.MassEffect3.SaveFormats.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Marker Label.
         /// </summary>
         public static string MarkerLabel_DisplayName {
             get {
@@ -88,7 +88,7 @@ namespace Gibbed.MassEffect3.SaveFormats.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Marker Offset.
         /// </summary>
         public static string MarkerOffset_DisplayName {
             get {
@@ -97,7 +97,7 @@ namespace Gibbed.MassEffect3.SaveFormats.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Marker Owner Path.
         /// </summary>
         public static string MarkerOwnerPath_DisplayName {
             get {

@@ -70,6 +70,15 @@ namespace Gibbed.MassEffect3.SaveFormats.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hair Mesh.
+        /// </summary>
+        public static string HairMesh_DisplayName {
+            get {
+                return ResourceManager.GetString("HairMesh_DisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to LOD #0 Vertices.
         /// </summary>
         public static string Lod0Vertices_DisplayName {

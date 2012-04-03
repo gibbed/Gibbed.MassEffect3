@@ -177,4 +177,7 @@
   <data name="VectorParameter_Value_DisplayName" xml:space="preserve">
     <value>Value</value>
   </data>
+  <data name="HairMesh_DisplayName" xml:space="preserve">
+    <value>Hair Mesh</value>
+  </data>
 </root>

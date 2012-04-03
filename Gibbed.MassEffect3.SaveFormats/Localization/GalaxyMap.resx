@@ -126,7 +126,7 @@
   <data name="Planet_Probes_DisplayName" xml:space="preserve">
     <value>Probes</value>
   </data>
-  <data name="Planet_ShowAsScanned_DisplayNAme" xml:space="preserve">
+  <data name="Planet_ShowAsScanned_DisplayName" xml:space="preserve">
     <value>Show As Scanned</value>
   </data>
   <data name="Planet_Visited_DisplayName" xml:space="preserve">

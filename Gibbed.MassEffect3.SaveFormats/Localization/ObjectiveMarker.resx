@@ -118,18 +118,18 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="BoneToAttachTo_DisplayName" xml:space="preserve">
-    <value />
+    <value>Bone To Attach To</value>
   </data>
   <data name="MarkerIconType_DisplayName" xml:space="preserve">
-    <value />
+    <value>Marker Icon Type</value>
   </data>
   <data name="MarkerLabel_DisplayName" xml:space="preserve">
-    <value />
+    <value>Marker Label</value>
   </data>
   <data name="MarkerOffset_DisplayName" xml:space="preserve">
-    <value />
+    <value>Marker Offset</value>
   </data>
   <data name="MarkerOwnerPath_DisplayName" xml:space="preserve">
-    <value />
+    <value>Marker Owner Path</value>
   </data>
 </root>
