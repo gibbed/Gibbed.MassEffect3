@@ -13,5 +13,6 @@ Most UI interface icons are courtesy of Fugue Icons available at
 
 ===============================================================================
 
-Russian localization courtesy of AgronomNN, altEF_4, ghostikmen, Haoose, JlieNe, 
-Kane0032, leemur, nekkit333, and sokolzx.
+Russian localization courtesy of adamas_koff, adeqwat, AgronomNN, 
+AleksanderGaMeR, altEF_4, ghostikmen, Haoose, JlieNe, Kane0032, leemur, 
+nekkit333, sokolzx, and Teleproter.
