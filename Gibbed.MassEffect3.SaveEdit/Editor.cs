@@ -125,7 +125,7 @@ namespace Gibbed.MassEffect3.SaveEdit
         {
             this.SuspendLayout();
 
-            this.Icon = Properties.Resources.Guardian;
+            this.Icon = new Icon(new MemoryStream(Properties.Resources.Guardian));
             this._RootWrexPictureBox.Image = Image.FromStream(new MemoryStream(Properties.Resources.Wrex), true);
 
             if (this._SavePath != null)

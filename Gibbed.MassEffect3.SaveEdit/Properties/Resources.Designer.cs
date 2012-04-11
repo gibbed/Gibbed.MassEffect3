@@ -235,17 +235,17 @@ namespace Gibbed.MassEffect3.SaveEdit.Properties {
             }
         }
         
-        internal static System.Drawing.Icon Guardian {
+        internal static byte[] Guardian {
             get {
                 object obj = ResourceManager.GetObject("Guardian", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
+                return ((byte[])(obj));
             }
         }
         
-        internal static System.Drawing.Icon Pink {
+        internal static byte[] Pink {
             get {
                 object obj = ResourceManager.GetObject("Pink", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
+                return ((byte[])(obj));
             }
         }
         
