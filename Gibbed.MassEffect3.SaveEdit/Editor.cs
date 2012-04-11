@@ -33,7 +33,6 @@ using System.Threading;
 using System.Windows.Forms;
 using ColorPicker;
 using Gibbed.IO;
-using Gibbed.MassEffect3.SaveEdit.Resources;
 using Newtonsoft.Json;
 
 namespace Gibbed.MassEffect3.SaveEdit
@@ -45,23 +44,6 @@ namespace Gibbed.MassEffect3.SaveEdit
             this.InitializeComponent();
 
             this._SavePath = null;
-
-            // ReSharper disable DoNotCallOverridableMethodsInConstructor
-            this.DoubleBuffered = true;
-            if (Version.Revision > 0)
-            {
-                this.Text += String.Format(
-                    Localization.Editor_BuildRevision,
-                    Version.Revision,
-                    Version.Date);
-            }
-            // ReSharper restore DoNotCallOverridableMethodsInConstructor
-
-            this.wrexPictureBox.Image = Image.FromStream(new MemoryStream(Images.Wrex), true);
-
-            this.LoadDefaultMaleSave();
-
-            bool hasSaveFolder = false;
             var savePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             if (string.IsNullOrEmpty(savePath) == false)
             {
@@ -72,41 +54,136 @@ namespace Gibbed.MassEffect3.SaveEdit
                 if (Directory.Exists(savePath) == true)
                 {
                     this._SavePath = savePath;
-                    this.openFileDialog.InitialDirectory = savePath;
-                    this.saveFileDialog.InitialDirectory = savePath;
-                    hasSaveFolder = true;
                 }
             }
 
-            if (hasSaveFolder == false)
+            // ReSharper disable DoNotCallOverridableMethodsInConstructor
+            this.DoubleBuffered = true;
+            if (Version.Revision > 0)
             {
-                this.dontUseCareerPickerToolStripMenuItem.Checked = true;
-                this.dontUseCareerPickerToolStripMenuItem.Enabled = false;
-                this.openFromCareerMenuItem.Enabled = false;
-                this.saveToCareerMenuItem.Enabled = false;
+                this.Text += String.Format(
+                    Properties.Localization.Editor_BuildRevision,
+                    Version.Revision,
+                    Version.Date);
             }
+            // ReSharper restore DoNotCallOverridableMethodsInConstructor
+
+            this.LoadDefaultMaleSave();
 
             var presetPath = Path.Combine(GetExecutablePath(), "presets");
             if (Directory.Exists(presetPath) == true)
             {
-                this.openAppearancePresetFileDialog.InitialDirectory = presetPath;
-                this.saveAppearancePresetFileDialog.InitialDirectory = presetPath;
+                this._RootAppearancePresetOpenFileDialog.InitialDirectory = presetPath;
+                this._RootAppearancePresetSaveFileDialog.InitialDirectory = presetPath;
             }
 
+            this.InitializePostComponent();
+        }
+
+        private readonly string _SavePath;
+        private SaveFormats.SFXSaveGameFile _SaveFile;
+
+        private SaveFormats.SFXSaveGameFile SaveFile
+        {
+            get { return this._SaveFile; }
+            set
+            {
+                if (this._SaveFile != value)
+                {
+                    if (this._SaveFile != null)
+                    {
+                        this._SaveFile.Player.PropertyChanged -= this.OnPlayerPropertyChanged;
+                        this._SaveFile.Player.Appearance.PropertyChanged -= this.OnPlayerAppearancePropertyChanged;
+                    }
+
+                    var oldValue = this._SaveFile;
+                    this._SaveFile = value;
+
+                    if (this._SaveFile != null)
+                    {
+                        this._SaveFile.Player.PropertyChanged += this.OnPlayerPropertyChanged;
+                        this._SaveFile.Player.Appearance.PropertyChanged += this.OnPlayerAppearancePropertyChanged;
+
+                        this._RawParentPropertyGrid.SelectedObject = value;
+                        this._RootSaveFileBindingSource.DataSource = value;
+                        this._RootVectorParametersBindingSource.DataSource =
+                            value.Player.Appearance.MorphHead.VectorParameters;
+
+                        this._PlayerRootTabPage.ImageKey =
+                            this._SaveFile.Player.IsFemale == false
+                                ? _PlayerPlayerRootMaleImageKey
+                                : _PlayerPlayerRootFemaleImageKey;
+                    }
+                }
+            }
+        }
+
+        private const string _PlayerPlayerRootMaleImageKey = "Tab_Player_Root_Female";
+        private const string _PlayerPlayerRootFemaleImageKey = "Tab_Player_Root_Female";
+
+        private void InitializePostComponent()
+        {
             this.SuspendLayout();
 
+            this.Icon = Properties.Resources.Guardian;
+            this._RootWrexPictureBox.Image = Image.FromStream(new MemoryStream(Properties.Resources.Wrex), true);
+
+            if (this._SavePath != null)
+            {
+                this._RootSaveGameOpenFileDialog.InitialDirectory = this._SavePath;
+                this._RootSaveGameSaveFileDialog.InitialDirectory = this._SavePath;
+            }
+            else
+            {
+                this._RootDontUseCareerPickerToolStripMenuItem.Checked = true;
+                this._RootDontUseCareerPickerToolStripMenuItem.Enabled = false;
+                this._RootOpenFromCareerMenuItem.Enabled = false;
+                this._RootSaveToCareerMenuItem.Enabled = false;
+            }
+
             // ReSharper disable LocalizableElement
-            this.iconImageList.Images.Add("Unknown", new Bitmap(16, 16));
+            const string playerBasicTabPageImageKey = "Tab_Player_Basic";
+            const string playerAppearanceColorTabPageImageKey = "Tab_Player_Appearance_Color";
+            const string playerAppearanceRootTabPageImageKey = "Tab_Player_Appearance_Root";
+            const string rawTabPageImageKey = "Tab_Raw";
+            const string plotRootTabPageImageKey = "Tab_Plot_Root";
+            const string plotManualTabPageImageKey = "Tab_Plot_Manual";
             // ReSharper restore LocalizableElement
 
-            //this.rootTabControl.SelectedTab = rawRootTabPage;
-            this.rawSplitContainer.Panel2Collapsed = true;
+            this._RootIconImageList.Images.Clear();
+            this._RootIconImageList.Images.Add("Unknown", new Bitmap(16, 16));
+            this._RootIconImageList.Images.Add(_PlayerPlayerRootMaleImageKey, Properties.Resources.Editor_Tab_Player_Root_Male);
+            this._RootIconImageList.Images.Add(_PlayerPlayerRootFemaleImageKey, Properties.Resources.Editor_Tab_Player_Root_Female);
+            this._RootIconImageList.Images.Add(playerBasicTabPageImageKey, Properties.Resources.Editor_Tab_Player_Basic);
+            this._RootIconImageList.Images.Add(playerAppearanceRootTabPageImageKey, Properties.Resources.Editor_Tab_Player_Appearance_Root);
+            this._RootIconImageList.Images.Add(playerAppearanceColorTabPageImageKey, Properties.Resources.Editor_Tab_Player_Appearance_Color);
+            this._RootIconImageList.Images.Add(rawTabPageImageKey, Properties.Resources.Editor_Tab_Raw);
+            this._RootIconImageList.Images.Add(plotRootTabPageImageKey, Properties.Resources.Editor_Tab_Plot_Root);
+            this._RootIconImageList.Images.Add(plotManualTabPageImageKey, Properties.Resources.Editor_Tab_Plot_Manual);
 
-            this.AddTable(Localization.Editor_BasicTable_Character_Label, BasicTable.Character.Build(this));
-            this.AddTable(Localization.Editor_BasicTable_Reputation_Label, BasicTable.Reputation.Build(this));
-            this.AddTable(Localization.Editor_BasicTable_Resources_Label, BasicTable.Resources.Build(this));
+            this._PlayerRootTabPage.ImageKey = _PlayerPlayerRootMaleImageKey;
+            this._PlayerBasicTabPage.ImageKey = playerBasicTabPageImageKey;
+            this._PlayerAppearanceColorTabPage.ImageKey = playerAppearanceColorTabPageImageKey;
+            this._PlayerAppearanceRootTabPage.ImageKey = playerAppearanceRootTabPageImageKey;
+            this._RawTabPage.ImageKey = rawTabPageImageKey;
+            this._PlotRootTabPage.ImageKey = plotRootTabPageImageKey;
+            this._PlotManualTabPage.ImageKey = plotManualTabPageImageKey;
+
+            //this.rootTabControl.SelectedTab = rawRootTabPage;
+            this._RawSplitContainer.Panel2Collapsed = true;
+
+            this.AddTable(Properties.Localization.Editor_BasicTable_Character_Label, BasicTable.Character.Build(this));
+            this.AddTable(Properties.Localization.Editor_BasicTable_Reputation_Label, BasicTable.Reputation.Build(this));
+            this.AddTable(Properties.Localization.Editor_BasicTable_Resources_Label, BasicTable.Resources.Build(this));
 
             this.AddPlotEditors();
+
+            if (this._SaveFile != null)
+            {
+                var saveFile = this._SaveFile;
+                this.SaveFile = null;
+                this.SaveFile = saveFile;
+            }
 
             this.ResumeLayout();
         }
@@ -139,7 +216,7 @@ namespace Gibbed.MassEffect3.SaveEdit
                 {
                     var label = new Label()
                     {
-                        Text = string.Format(Localization.Editor_BasicTable_ItemLabelFormat, item.Name),
+                        Text = string.Format(Properties.Localization.Editor_BasicTable_ItemLabelFormat, item.Name),
                         Dock = DockStyle.Fill,
                         AutoSize = true,
                         TextAlign = ContentAlignment.MiddleRight,
@@ -170,7 +247,7 @@ namespace Gibbed.MassEffect3.SaveEdit
             group.AutoSize = true;
             group.Controls.Add(panel);
 
-            this.playerBasicPanel.Controls.Add(group);
+            this._PlayerBasicPanel.Controls.Add(group);
         }
 
         private readonly List<CheckedListBox> _PlotBools = new List<CheckedListBox>();
@@ -207,8 +284,8 @@ namespace Gibbed.MassEffect3.SaveEdit
                 catch (Exception e)
                 {
                     MessageBox.Show(
-                        string.Format(Localization.Editor_PlotCategoryLoadError, inputPath, e),
-                        Localization.Error,
+                        string.Format(Properties.Localization.Editor_PlotCategoryLoadError, inputPath, e),
+                        Properties.Localization.Error,
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
                 }
@@ -258,7 +335,7 @@ namespace Gibbed.MassEffect3.SaveEdit
                         {
                             var tabPage = new TabPage()
                             {
-                                Text = Localization.Editor_PlotEditor_NoteLabel,
+                                Text = Properties.Localization.Editor_PlotEditor_NoteLabel,
                                 UseVisualStyleBackColor = true,
                             };
                             categoryTabControl.Controls.Add(tabPage);
@@ -278,7 +355,7 @@ namespace Gibbed.MassEffect3.SaveEdit
                         {
                             var tabPage = new TabPage()
                             {
-                                Text = Localization.Editor_PlotEditor_BoolsLabel,
+                                Text = Properties.Localization.Editor_PlotEditor_BoolsLabel,
                                 UseVisualStyleBackColor = true,
                             };
                             categoryTabControl.Controls.Add(tabPage);
@@ -290,7 +367,7 @@ namespace Gibbed.MassEffect3.SaveEdit
                         {
                             var tabPage = new TabPage()
                             {
-                                Text = Localization.Editor_PlotEditor_IntsLabel,
+                                Text = Properties.Localization.Editor_PlotEditor_IntsLabel,
                                 UseVisualStyleBackColor = true,
                             };
                             categoryTabControl.Controls.Add(tabPage);
@@ -302,7 +379,7 @@ namespace Gibbed.MassEffect3.SaveEdit
                         {
                             var tabPage = new TabPage()
                             {
-                                Text = Localization.Editor_PlotEditor_FloatsLabel,
+                                Text = Properties.Localization.Editor_PlotEditor_FloatsLabel,
                                 UseVisualStyleBackColor = true,
                             };
                             categoryTabControl.Controls.Add(tabPage);
@@ -367,7 +444,8 @@ namespace Gibbed.MassEffect3.SaveEdit
 
                             var label = new Label
                             {
-                                Text = string.Format(Localization.Editor_PlotEditor_ValueLabelFormat, plot.Name),
+                                Text =
+                                    string.Format(Properties.Localization.Editor_PlotEditor_ValueLabelFormat, plot.Name),
                                 Dock = DockStyle.Fill,
                                 AutoSize = true,
                                 TextAlign = ContentAlignment.MiddleRight,
@@ -405,7 +483,7 @@ namespace Gibbed.MassEffect3.SaveEdit
                         Text = container.Name,
                         UseVisualStyleBackColor = true,
                     };
-                    this.plotTabControl.TabPages.Add(containerTabPage);
+                    this._PlotRootTabControl.TabPages.Add(containerTabPage);
 
                     var containerTabControl = new TabControl()
                     {
@@ -534,51 +612,13 @@ namespace Gibbed.MassEffect3.SaveEdit
             }
         }
 
-        private readonly string _SavePath;
-        private SaveFormats.SFXSaveGameFile _SaveFile;
-
-        private SaveFormats.SFXSaveGameFile SaveFile
-        {
-            get { return this._SaveFile; }
-            set
-            {
-                if (this._SaveFile != value)
-                {
-                    if (this._SaveFile != null)
-                    {
-                        this._SaveFile.Player.PropertyChanged -= this.OnPlayerPropertyChanged;
-                        this._SaveFile.Player.Appearance.PropertyChanged -= this.OnPlayerAppearancePropertyChanged;
-                    }
-
-                    var oldValue = this._SaveFile;
-                    this._SaveFile = value;
-
-                    if (this._SaveFile != null)
-                    {
-                        this._SaveFile.Player.PropertyChanged += this.OnPlayerPropertyChanged;
-                        this._SaveFile.Player.Appearance.PropertyChanged += this.OnPlayerAppearancePropertyChanged;
-
-                        this.rawParentPropertyGrid.SelectedObject = value;
-                        this.saveFileBindingSource.DataSource = value;
-                        this.vectorParametersBindingSource.DataSource =
-                            value.Player.Appearance.MorphHead.VectorParameters;
-
-                        this.playerRootTabPage.ImageKey =
-                            this._SaveFile.Player.IsFemale == false
-                                ? "Tab_Player_Root_Male"
-                                : "Tab_Player_Root_Female";
-                    }
-                }
-            }
-        }
-
         private void OnPlayerPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             // goofy?
 
             if (e.PropertyName == "IsFemale")
             {
-                this.playerRootTabPage.ImageKey =
+                this._PlayerRootTabPage.ImageKey =
                     (this._SaveFile == null || this._SaveFile.Player.IsFemale == false)
                         ? "Tab_Player_Root_Male"
                         : "Tab_Player_Root_Female";
@@ -589,7 +629,7 @@ namespace Gibbed.MassEffect3.SaveEdit
         {
             if (e.PropertyName == "MorphHead")
             {
-                this.vectorParametersBindingSource.DataSource =
+                this._RootVectorParametersBindingSource.DataSource =
                     this._SaveFile.Player.Appearance.MorphHead.VectorParameters;
             }
         }
@@ -598,8 +638,8 @@ namespace Gibbed.MassEffect3.SaveEdit
         {
             if (stream.ReadValueU32(Endian.Big) == 0x434F4E20) // 'CON '
             {
-                MessageBox.Show(Localization.Editor_CannotLoadXbox360CONFile,
-                                Localization.Error,
+                MessageBox.Show(Properties.Localization.Editor_CannotLoadXbox360CONFile,
+                                Properties.Localization.Error,
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
                 return;
@@ -613,18 +653,19 @@ namespace Gibbed.MassEffect3.SaveEdit
             }
             catch (Exception e)
             {
-                MessageBox.Show(string.Format(CultureInfo.InvariantCulture, Localization.Editor_SaveReadException, e),
-                                Localization.Error,
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
+                MessageBox.Show(
+                    string.Format(CultureInfo.InvariantCulture, Properties.Localization.Editor_SaveReadException, e),
+                    Properties.Localization.Error,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
                 return;
             }
 
             if (saveFile.Version < 59)
             {
                 MessageBox.Show(
-                    Localization.Editor_SaveFileTooOld,
-                    Localization.Error,
+                    Properties.Localization.Editor_SaveFileTooOld,
+                    Properties.Localization.Error,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 return;
@@ -646,7 +687,7 @@ namespace Gibbed.MassEffect3.SaveEdit
 
         private void OnSaveOpenFromGeneric(object sender, EventArgs e)
         {
-            if (this.dontUseCareerPickerToolStripMenuItem.Checked == false)
+            if (this._RootDontUseCareerPickerToolStripMenuItem.Checked == false)
             {
                 this.OnSaveOpenFromCareer(sender, e);
             }
@@ -673,8 +714,8 @@ namespace Gibbed.MassEffect3.SaveEdit
                 if (string.IsNullOrEmpty(picker.SelectedPath) == true)
                 {
                     MessageBox.Show(
-                        Localization.Editor_ThisShouldNeverHappen,
-                        Localization.Error,
+                        Properties.Localization.Editor_ThisShouldNeverHappen,
+                        Properties.Localization.Error,
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
                     return;
@@ -689,15 +730,15 @@ namespace Gibbed.MassEffect3.SaveEdit
 
         private void OnSaveOpenFromFile(object sender, EventArgs e)
         {
-            if (this.openFileDialog.ShowDialog() != DialogResult.OK)
+            if (this._RootSaveGameOpenFileDialog.ShowDialog() != DialogResult.OK)
             {
                 return;
             }
 
-            var dir = Path.GetDirectoryName(this.openFileDialog.FileName);
-            this.openFileDialog.InitialDirectory = dir;
+            var dir = Path.GetDirectoryName(this._RootSaveGameOpenFileDialog.FileName);
+            this._RootSaveGameOpenFileDialog.InitialDirectory = dir;
 
-            using (var input = this.openFileDialog.OpenFile())
+            using (var input = this._RootSaveGameOpenFileDialog.OpenFile())
             {
                 this.LoadSaveFromStream(input);
             }
@@ -705,7 +746,7 @@ namespace Gibbed.MassEffect3.SaveEdit
 
         private void OnSaveSaveToGeneric(object sender, EventArgs e)
         {
-            if (this.dontUseCareerPickerToolStripMenuItem.Checked == false)
+            if (this._RootDontUseCareerPickerToolStripMenuItem.Checked == false)
             {
                 this.OnSaveSaveToCareer(sender, e);
             }
@@ -720,27 +761,27 @@ namespace Gibbed.MassEffect3.SaveEdit
             if (this.SaveFile == null)
             {
                 MessageBox.Show(
-                    Localization.Editor_NoActiveSave,
-                    Localization.Error,
+                    Properties.Localization.Editor_NoActiveSave,
+                    Properties.Localization.Error,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 return;
             }
 
-            this.saveFileDialog.FilterIndex =
+            this._RootSaveGameSaveFileDialog.FilterIndex =
                 this.SaveFile.Endian == Endian.Little ? 1 : 2;
-            if (this.saveFileDialog.ShowDialog() != DialogResult.OK)
+            if (this._RootSaveGameSaveFileDialog.ShowDialog() != DialogResult.OK)
             {
                 return;
             }
 
-            var dir = Path.GetDirectoryName(this.saveFileDialog.FileName);
-            this.saveFileDialog.InitialDirectory = dir;
+            var dir = Path.GetDirectoryName(this._RootSaveGameSaveFileDialog.FileName);
+            this._RootSaveGameSaveFileDialog.InitialDirectory = dir;
 
-            this.SaveFile.Endian = this.saveFileDialog.FilterIndex != 2
+            this.SaveFile.Endian = this._RootSaveGameSaveFileDialog.FilterIndex != 2
                                        ? Endian.Little
                                        : Endian.Big;
-            using (var output = this.saveFileDialog.OpenFile())
+            using (var output = this._RootSaveGameSaveFileDialog.OpenFile())
             {
                 SaveFormats.SFXSaveGameFile.Write(this.SaveFile, output);
             }
@@ -751,8 +792,8 @@ namespace Gibbed.MassEffect3.SaveEdit
             if (this.SaveFile == null)
             {
                 MessageBox.Show(
-                    Localization.Editor_NoActiveSave,
-                    Localization.Error,
+                    Properties.Localization.Editor_NoActiveSave,
+                    Properties.Localization.Error,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 return;
@@ -787,8 +828,8 @@ namespace Gibbed.MassEffect3.SaveEdit
                 else
                 {
                     MessageBox.Show(
-                        Localization.Editor_ThisShouldNeverHappen,
-                        Localization.Error,
+                        Properties.Localization.Editor_ThisShouldNeverHappen,
+                        Properties.Localization.Error,
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
                 }
@@ -811,8 +852,8 @@ namespace Gibbed.MassEffect3.SaveEdit
             {
                 if ((e.NewSelection.Value is FileFormats.Unreal.ISerializable) == true)
                 {
-                    this.rawChildPropertyGrid.SelectedObject = e.NewSelection.Value;
-                    this.rawSplitContainer.Panel2Collapsed = false;
+                    this._RawChildPropertyGrid.SelectedObject = e.NewSelection.Value;
+                    this._RawSplitContainer.Panel2Collapsed = false;
 
                     var newPc = e.NewSelection.Value as INotifyPropertyChanged;
                     if (newPc != null)
@@ -824,44 +865,44 @@ namespace Gibbed.MassEffect3.SaveEdit
                 }
             }
 
-            this.rawChildPropertyGrid.SelectedObject = null;
-            this.rawSplitContainer.Panel2Collapsed = true;
+            this._RawChildPropertyGrid.SelectedObject = null;
+            this._RawSplitContainer.Panel2Collapsed = true;
         }
 
         private void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            this.rawParentPropertyGrid.Refresh();
+            this._RawParentPropertyGrid.Refresh();
         }
 
-        private const string HeadMorphMagic = "GIBBEDMASSEFFECT3HEADMORPH";
+        private const string _HeadMorphMagic = "GIBBEDMASSEFFECT3HEADMORPH";
 
         private void OnImportHeadMorph(object sender, EventArgs e)
         {
             if (this.SaveFile == null)
             {
                 MessageBox.Show(
-                    Localization.Editor_NoActiveSave,
-                    Localization.Error,
+                    Properties.Localization.Editor_NoActiveSave,
+                    Properties.Localization.Error,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 return;
             }
 
-            if (this.openHeadMorphDialog.ShowDialog() != DialogResult.OK)
+            if (this._RootMorphHeadOpenFileDialog.ShowDialog() != DialogResult.OK)
             {
                 return;
             }
 
-            var dir = Path.GetDirectoryName(this.openHeadMorphDialog.FileName);
-            this.openHeadMorphDialog.InitialDirectory = dir;
+            var dir = Path.GetDirectoryName(this._RootMorphHeadOpenFileDialog.FileName);
+            this._RootMorphHeadOpenFileDialog.InitialDirectory = dir;
 
-            using (var input = this.openHeadMorphDialog.OpenFile())
+            using (var input = this._RootMorphHeadOpenFileDialog.OpenFile())
             {
-                if (input.ReadString(HeadMorphMagic.Length, Encoding.ASCII) != HeadMorphMagic)
+                if (input.ReadString(_HeadMorphMagic.Length, Encoding.ASCII) != _HeadMorphMagic)
                 {
                     MessageBox.Show(
-                        Localization.Editor_HeadMorphInvalid,
-                        Localization.Error,
+                        Properties.Localization.Editor_HeadMorphInvalid,
+                        Properties.Localization.Error,
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
                     input.Close();
@@ -871,8 +912,8 @@ namespace Gibbed.MassEffect3.SaveEdit
                 if (input.ReadValueU8() != 0)
                 {
                     MessageBox.Show(
-                        Localization.Editor_HeadMorphVersionUnsupported,
-                        Localization.Error,
+                        Properties.Localization.Editor_HeadMorphVersionUnsupported,
+                        Properties.Localization.Error,
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
                     input.Close();
@@ -885,10 +926,10 @@ namespace Gibbed.MassEffect3.SaveEdit
                 {
                     if (MessageBox.Show(
                         string.Format(
-                            Localization.Editor_HeadMorphVersionMaybeIncompatible,
+                            Properties.Localization.Editor_HeadMorphVersionMaybeIncompatible,
                             version,
                             this.SaveFile.Version),
-                        Localization.Question,
+                        Properties.Localization.Question,
                         MessageBoxButtons.YesNo,
                         MessageBoxIcon.Question) == DialogResult.No)
                     {
@@ -911,8 +952,8 @@ namespace Gibbed.MassEffect3.SaveEdit
             if (this.SaveFile == null)
             {
                 MessageBox.Show(
-                    Localization.Editor_NoActiveSave,
-                    Localization.Error,
+                    Properties.Localization.Editor_NoActiveSave,
+                    Properties.Localization.Error,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 return;
@@ -921,24 +962,24 @@ namespace Gibbed.MassEffect3.SaveEdit
             if (this.SaveFile.Player.Appearance.HasMorphHead == false)
             {
                 MessageBox.Show(
-                    Localization.Editor_NoHeadMorph,
-                    Localization.Error,
+                    Properties.Localization.Editor_NoHeadMorph,
+                    Properties.Localization.Error,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 return;
             }
 
-            if (this.saveHeadMorphDialog.ShowDialog() != DialogResult.OK)
+            if (this._RootMorphHeadSaveFileDialog.ShowDialog() != DialogResult.OK)
             {
                 return;
             }
 
-            var dir = Path.GetDirectoryName(this.saveHeadMorphDialog.FileName);
-            this.saveHeadMorphDialog.InitialDirectory = dir;
+            var dir = Path.GetDirectoryName(this._RootMorphHeadSaveFileDialog.FileName);
+            this._RootMorphHeadSaveFileDialog.InitialDirectory = dir;
 
-            using (var output = this.saveHeadMorphDialog.OpenFile())
+            using (var output = this._RootMorphHeadSaveFileDialog.OpenFile())
             {
-                output.WriteString(HeadMorphMagic, Encoding.ASCII);
+                output.WriteString(_HeadMorphMagic, Encoding.ASCII);
                 output.WriteValueU8(0); // "version" in case I break something in the future
                 output.WriteValueU32(this.SaveFile.Version);
                 var writer = new FileFormats.Unreal.FileWriter(
@@ -947,95 +988,13 @@ namespace Gibbed.MassEffect3.SaveEdit
             }
         }
 
-        private const string HeadMorphMagicLegacy = "GIBBEDMASSEFFECT2HEADMORPH";
-
-        private void OnImportHeadMorphLegacy(object sender, EventArgs e)
-        {
-            if (this.SaveFile == null)
-            {
-                MessageBox.Show(
-                    Localization.Editor_NoActiveSave,
-                    Localization.Error,
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-                return;
-            }
-
-            if (MessageBox.Show(
-                Localization.Editor_HeadMorphLegacy,
-                Localization.Warning,
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Warning) != DialogResult.Yes)
-            {
-                return;
-            }
-
-            if (this.openHeadMorphLegacyDialog.ShowDialog() != DialogResult.OK)
-            {
-                return;
-            }
-
-            var dir = Path.GetDirectoryName(this.openHeadMorphLegacyDialog.FileName);
-            this.openHeadMorphLegacyDialog.InitialDirectory = dir;
-
-            using (var input = this.openHeadMorphLegacyDialog.OpenFile())
-            {
-                if (input.ReadString(HeadMorphMagicLegacy.Length, Encoding.ASCII) != HeadMorphMagicLegacy)
-                {
-                    MessageBox.Show(
-                        Localization.Editor_HeadMorphInvalid,
-                        Localization.Error,
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
-                    input.Close();
-                    return;
-                }
-
-                if (input.ReadValueU8() != 0)
-                {
-                    MessageBox.Show(
-                        Localization.Editor_HeadMorphVersionUnsupported,
-                        Localization.Error,
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
-                    input.Close();
-                    return;
-                }
-
-                uint version = input.ReadValueU32();
-
-                if (version != 29)
-                {
-                    if (MessageBox.Show(
-                        string.Format(
-                            Localization.Editor_HeadMorphVersionMaybeIncompatible,
-                            version,
-                            this.SaveFile.Version),
-                        Localization.Question,
-                        MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Question) == DialogResult.No)
-                    {
-                        input.Close();
-                        return;
-                    }
-                }
-
-                var reader = new FileFormats.Unreal.FileReader(
-                    input, version, Endian.Little);
-                var morphHead = new SaveFormats.MorphHead();
-                morphHead.Serialize(reader);
-                this.SaveFile.Player.Appearance.MorphHead = morphHead;
-                this.SaveFile.Player.Appearance.HasMorphHead = true;
-            }
-        }
-
         private void AppendToPlotManualLog(string format, params object[] args)
         {
-            if (string.IsNullOrEmpty(this.plotManualLogTextBox.Text) == false)
+            if (string.IsNullOrEmpty(this._PlotManualLogTextBox.Text) == false)
             {
-                this.plotManualLogTextBox.AppendText(Environment.NewLine);
+                this._PlotManualLogTextBox.AppendText(Environment.NewLine);
             }
-            this.plotManualLogTextBox.AppendText(
+            this._PlotManualLogTextBox.AppendText(
                 string.Format(
                     Thread.CurrentThread.CurrentCulture,
                     format,
@@ -1047,8 +1006,8 @@ namespace Gibbed.MassEffect3.SaveEdit
             if (this.SaveFile == null)
             {
                 MessageBox.Show(
-                    Localization.Editor_NoActiveSave,
-                    Localization.Error,
+                    Properties.Localization.Editor_NoActiveSave,
+                    Properties.Localization.Error,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 return;
@@ -1056,23 +1015,23 @@ namespace Gibbed.MassEffect3.SaveEdit
 
             int id;
             if (int.TryParse(
-                this.plotManualBoolIdTextBox.Text,
+                this._PlotManualBoolIdTextBox.Text,
                 NumberStyles.None,
                 Thread.CurrentThread.CurrentCulture,
                 out id) == false)
             {
-                MessageBox.Show(Localization.Editor_FailedToParseId,
-                                Localization.Error,
+                MessageBox.Show(Properties.Localization.Editor_FailedToParseId,
+                                Properties.Localization.Error,
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
                 return;
             }
 
             var value = this.SaveFile.Plot.GetBoolVariable(id);
-            this.AppendToPlotManualLog(Localization.Editor_PlotManualLogBoolGet,
+            this.AppendToPlotManualLog(Properties.Localization.Editor_PlotManualLogBoolGet,
                                        id,
                                        value);
-            this.plotManualBoolValueCheckBox.Checked = value;
+            this._PlotManualBoolValueCheckBox.Checked = value;
         }
 
         private void OnPlotManualSetBool(object sender, EventArgs e)
@@ -1080,8 +1039,8 @@ namespace Gibbed.MassEffect3.SaveEdit
             if (this.SaveFile == null)
             {
                 MessageBox.Show(
-                    Localization.Editor_NoActiveSave,
-                    Localization.Error,
+                    Properties.Localization.Editor_NoActiveSave,
+                    Properties.Localization.Error,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 return;
@@ -1089,22 +1048,22 @@ namespace Gibbed.MassEffect3.SaveEdit
 
             int id;
             if (int.TryParse(
-                this.plotManualBoolIdTextBox.Text,
+                this._PlotManualBoolIdTextBox.Text,
                 NumberStyles.None,
                 Thread.CurrentThread.CurrentCulture,
                 out id) == false)
             {
-                MessageBox.Show(Localization.Editor_FailedToParseId,
-                                Localization.Error,
+                MessageBox.Show(Properties.Localization.Editor_FailedToParseId,
+                                Properties.Localization.Error,
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
                 return;
             }
 
-            var newValue = this.plotManualBoolValueCheckBox.Checked;
+            var newValue = this._PlotManualBoolValueCheckBox.Checked;
             var oldValue = this.SaveFile.Plot.GetBoolVariable(id);
             this.SaveFile.Plot.SetBoolVariable(id, newValue);
-            this.AppendToPlotManualLog(Localization.Editor_PlotManualLogBoolSet,
+            this.AppendToPlotManualLog(Properties.Localization.Editor_PlotManualLogBoolSet,
                                        id,
                                        newValue,
                                        oldValue);
@@ -1115,8 +1074,8 @@ namespace Gibbed.MassEffect3.SaveEdit
             if (this.SaveFile == null)
             {
                 MessageBox.Show(
-                    Localization.Editor_NoActiveSave,
-                    Localization.Error,
+                    Properties.Localization.Editor_NoActiveSave,
+                    Properties.Localization.Error,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 return;
@@ -1124,23 +1083,23 @@ namespace Gibbed.MassEffect3.SaveEdit
 
             int id;
             if (int.TryParse(
-                this.plotManualIntIdTextBox.Text,
+                this._PlotManualIntIdTextBox.Text,
                 NumberStyles.None,
                 Thread.CurrentThread.CurrentCulture,
                 out id) == false)
             {
-                MessageBox.Show(Localization.Editor_FailedToParseId,
-                                Localization.Error,
+                MessageBox.Show(Properties.Localization.Editor_FailedToParseId,
+                                Properties.Localization.Error,
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
                 return;
             }
 
             var value = this.SaveFile.Plot.GetIntVariable(id);
-            this.AppendToPlotManualLog(Localization.Editor_PlotManualLogIntGet,
+            this.AppendToPlotManualLog(Properties.Localization.Editor_PlotManualLogIntGet,
                                        id,
                                        value);
-            this.plotManualIntValueTextBox.Text =
+            this._PlotManualIntValueTextBox.Text =
                 value.ToString(Thread.CurrentThread.CurrentCulture);
         }
 
@@ -1149,8 +1108,8 @@ namespace Gibbed.MassEffect3.SaveEdit
             if (this.SaveFile == null)
             {
                 MessageBox.Show(
-                    Localization.Editor_NoActiveSave,
-                    Localization.Error,
+                    Properties.Localization.Editor_NoActiveSave,
+                    Properties.Localization.Error,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 return;
@@ -1158,13 +1117,13 @@ namespace Gibbed.MassEffect3.SaveEdit
 
             int id;
             if (int.TryParse(
-                this.plotManualIntIdTextBox.Text,
+                this._PlotManualIntIdTextBox.Text,
                 NumberStyles.None,
                 Thread.CurrentThread.CurrentCulture,
                 out id) == false)
             {
-                MessageBox.Show(Localization.Editor_FailedToParseId,
-                                Localization.Error,
+                MessageBox.Show(Properties.Localization.Editor_FailedToParseId,
+                                Properties.Localization.Error,
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
                 return;
@@ -1172,13 +1131,13 @@ namespace Gibbed.MassEffect3.SaveEdit
 
             int newValue;
             if (int.TryParse(
-                this.plotManualIntValueTextBox.Text,
+                this._PlotManualIntValueTextBox.Text,
                 NumberStyles.None,
                 Thread.CurrentThread.CurrentCulture,
                 out newValue) == false)
             {
-                MessageBox.Show(Localization.Editor_FailedToParseValue,
-                                Localization.Error,
+                MessageBox.Show(Properties.Localization.Editor_FailedToParseValue,
+                                Properties.Localization.Error,
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
                 return;
@@ -1186,7 +1145,7 @@ namespace Gibbed.MassEffect3.SaveEdit
 
             var oldValue = this.SaveFile.Plot.GetIntVariable(id);
             this.SaveFile.Plot.SetIntVariable(id, newValue);
-            this.AppendToPlotManualLog(Localization.Editor_PlotManualLogIntSet,
+            this.AppendToPlotManualLog(Properties.Localization.Editor_PlotManualLogIntSet,
                                        id,
                                        newValue,
                                        oldValue);
@@ -1197,8 +1156,8 @@ namespace Gibbed.MassEffect3.SaveEdit
             if (this.SaveFile == null)
             {
                 MessageBox.Show(
-                    Localization.Editor_NoActiveSave,
-                    Localization.Error,
+                    Properties.Localization.Editor_NoActiveSave,
+                    Properties.Localization.Error,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 return;
@@ -1206,23 +1165,23 @@ namespace Gibbed.MassEffect3.SaveEdit
 
             int id;
             if (int.TryParse(
-                this.plotManualFloatIdTextBox.Text,
+                this._PlotManualFloatIdTextBox.Text,
                 NumberStyles.None,
                 Thread.CurrentThread.CurrentCulture,
                 out id) == false)
             {
-                MessageBox.Show(Localization.Editor_FailedToParseId,
-                                Localization.Error,
+                MessageBox.Show(Properties.Localization.Editor_FailedToParseId,
+                                Properties.Localization.Error,
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
                 return;
             }
 
             var value = this.SaveFile.Plot.GetFloatVariable(id);
-            this.AppendToPlotManualLog(Localization.Editor_PlotManualLogFloatGet,
+            this.AppendToPlotManualLog(Properties.Localization.Editor_PlotManualLogFloatGet,
                                        id,
                                        value);
-            this.plotManualFloatValueTextBox.Text =
+            this._PlotManualFloatValueTextBox.Text =
                 value.ToString(Thread.CurrentThread.CurrentCulture);
         }
 
@@ -1231,8 +1190,8 @@ namespace Gibbed.MassEffect3.SaveEdit
             if (this.SaveFile == null)
             {
                 MessageBox.Show(
-                    Localization.Editor_NoActiveSave,
-                    Localization.Error,
+                    Properties.Localization.Editor_NoActiveSave,
+                    Properties.Localization.Error,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 return;
@@ -1240,13 +1199,13 @@ namespace Gibbed.MassEffect3.SaveEdit
 
             int id;
             if (int.TryParse(
-                this.plotManualFloatIdTextBox.Text,
+                this._PlotManualFloatIdTextBox.Text,
                 NumberStyles.None,
                 Thread.CurrentThread.CurrentCulture,
                 out id) == false)
             {
-                MessageBox.Show(Localization.Editor_FailedToParseId,
-                                Localization.Error,
+                MessageBox.Show(Properties.Localization.Editor_FailedToParseId,
+                                Properties.Localization.Error,
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
                 return;
@@ -1254,13 +1213,13 @@ namespace Gibbed.MassEffect3.SaveEdit
 
             float newValue;
             if (float.TryParse(
-                this.plotManualIntValueTextBox.Text,
+                this._PlotManualIntValueTextBox.Text,
                 NumberStyles.None,
                 Thread.CurrentThread.CurrentCulture,
                 out newValue) == false)
             {
-                MessageBox.Show(Localization.Editor_FailedToParseValue,
-                                Localization.Error,
+                MessageBox.Show(Properties.Localization.Editor_FailedToParseValue,
+                                Properties.Localization.Error,
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
                 return;
@@ -1268,7 +1227,7 @@ namespace Gibbed.MassEffect3.SaveEdit
 
             var oldValue = this.SaveFile.Plot.GetFloatVariable(id);
             this.SaveFile.Plot.SetFloatVariable(id, newValue);
-            this.AppendToPlotManualLog(Localization.Editor_PlotManualLogFloatSet,
+            this.AppendToPlotManualLog(Properties.Localization.Editor_PlotManualLogFloatSet,
                                        id,
                                        newValue,
                                        oldValue);
@@ -1276,7 +1235,7 @@ namespace Gibbed.MassEffect3.SaveEdit
 
         private void OnPlotManualClearLog(object sender, EventArgs e)
         {
-            this.plotManualLogTextBox.Clear();
+            this._PlotManualLogTextBox.Clear();
         }
 
         private void OnLinkFaq(object sender, LinkLabelLinkClickedEventArgs e)
@@ -1462,8 +1421,8 @@ namespace Gibbed.MassEffect3.SaveEdit
             if (this._SaveFile == null)
             {
                 MessageBox.Show(
-                    Localization.Editor_NoActiveSave,
-                    Localization.Error,
+                    Properties.Localization.Editor_NoActiveSave,
+                    Properties.Localization.Error,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 return;
@@ -1472,23 +1431,23 @@ namespace Gibbed.MassEffect3.SaveEdit
             if (this._SaveFile.Player.Appearance.HasMorphHead == false)
             {
                 MessageBox.Show(
-                    Localization.Editor_NoHeadMorph,
-                    Localization.Error,
+                    Properties.Localization.Editor_NoHeadMorph,
+                    Properties.Localization.Error,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 return;
             }
 
-            if (this.openAppearancePresetFileDialog.ShowDialog() != DialogResult.OK)
+            if (this._RootAppearancePresetOpenFileDialog.ShowDialog() != DialogResult.OK)
             {
                 return;
             }
 
-            var dir = Path.GetDirectoryName(this.openAppearancePresetFileDialog.FileName);
-            this.openAppearancePresetFileDialog.InitialDirectory = dir;
+            var dir = Path.GetDirectoryName(this._RootAppearancePresetOpenFileDialog.FileName);
+            this._RootAppearancePresetOpenFileDialog.InitialDirectory = dir;
 
             string text;
-            using (var input = this.openAppearancePresetFileDialog.OpenFile())
+            using (var input = this._RootAppearancePresetOpenFileDialog.OpenFile())
             {
                 var reader = new StreamReader(input);
                 text = reader.ReadToEnd();
@@ -1503,8 +1462,8 @@ namespace Gibbed.MassEffect3.SaveEdit
             if (this._SaveFile == null)
             {
                 MessageBox.Show(
-                    Localization.Editor_NoActiveSave,
-                    Localization.Error,
+                    Properties.Localization.Editor_NoActiveSave,
+                    Properties.Localization.Error,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 return;
@@ -1513,20 +1472,20 @@ namespace Gibbed.MassEffect3.SaveEdit
             if (this._SaveFile.Player.Appearance.HasMorphHead == false)
             {
                 MessageBox.Show(
-                    Localization.Editor_NoHeadMorph,
-                    Localization.Error,
+                    Properties.Localization.Editor_NoHeadMorph,
+                    Properties.Localization.Error,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 return;
             }
 
-            if (this.saveAppearancePresetFileDialog.ShowDialog() != DialogResult.OK)
+            if (this._RootAppearancePresetSaveFileDialog.ShowDialog() != DialogResult.OK)
             {
                 return;
             }
 
-            var dir = Path.GetDirectoryName(this.saveAppearancePresetFileDialog.FileName);
-            this.saveAppearancePresetFileDialog.InitialDirectory = dir;
+            var dir = Path.GetDirectoryName(this._RootAppearancePresetSaveFileDialog.FileName);
+            this._RootAppearancePresetSaveFileDialog.InitialDirectory = dir;
 
             var headMorph = this.SaveFile.Player.Appearance.MorphHead;
 
@@ -1560,7 +1519,7 @@ namespace Gibbed.MassEffect3.SaveEdit
                                                         }));
             }
 
-            using (var output = File.Create(this.saveAppearancePresetFileDialog.FileName))
+            using (var output = File.Create(this._RootAppearancePresetSaveFileDialog.FileName))
             {
                 var writer = new StreamWriter(output);
                 writer.Write(JsonConvert.SerializeObject(
@@ -1657,7 +1616,7 @@ namespace Gibbed.MassEffect3.SaveEdit
 
         private void OnPlayerAppearanceColorRemove(object sender, EventArgs e)
         {
-            var item = this.playerAppearanceColorsListBox.SelectedItem as SaveFormats.MorphHead.VectorParameter;
+            var item = this._PlayerAppearanceColorListBox.SelectedItem as SaveFormats.MorphHead.VectorParameter;
             if (item != null)
             {
                 this._SaveFile.Player.Appearance.MorphHead.VectorParameters.Remove(item);
@@ -1669,7 +1628,7 @@ namespace Gibbed.MassEffect3.SaveEdit
             var input = new InputBox
             {
                 Owner = this,
-                Text = Localization.Editor_ColorName,
+                Text = Properties.Localization.Editor_ColorName,
                 InputText = "",
             };
 
@@ -1688,7 +1647,7 @@ namespace Gibbed.MassEffect3.SaveEdit
 
         private void OnPlayerAppearanceColorChange(object sender, EventArgs e)
         {
-            var item = this.playerAppearanceColorsListBox.SelectedItem as SaveFormats.MorphHead.VectorParameter;
+            var item = this._PlayerAppearanceColorListBox.SelectedItem as SaveFormats.MorphHead.VectorParameter;
             if (item != null)
             {
                 var bgra = LinearColorToBgra(item.Value);
@@ -1709,11 +1668,11 @@ namespace Gibbed.MassEffect3.SaveEdit
 
         private void OnRootTabIndexChanged(object sender, EventArgs e)
         {
-            if (this.rootTabControl.SelectedTab == this.rawTabPage)
+            if (this._RootTabControl.SelectedTab == this._RawTabPage)
             {
                 // HACK: refresh property grids, just in case
-                this.rawParentPropertyGrid.Refresh();
-                this.rawChildPropertyGrid.Refresh();
+                this._RawParentPropertyGrid.Refresh();
+                this._RawChildPropertyGrid.Refresh();
             }
         }
     }

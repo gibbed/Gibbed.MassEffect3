@@ -318,6 +318,7 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ObjectiveMarker.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Localization\ObjectiveMarker.ru.resx" />
     <EmbeddedResource Include="Localization\Placeable.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Placeable.Designer.cs</LastGenOutput>

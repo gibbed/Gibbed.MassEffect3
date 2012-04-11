@@ -117,11 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="BaseLevelNameDisplayOverrideAsRead_DisplayName" xml:space="preserve">
+    <value>Базовое имя локации: Показать перепрочитанное определение</value>
+  </data>
   <data name="BaseLevelName_DisplayName" xml:space="preserve">
     <value>Базовое имя локации</value>
   </data>
   <data name="Basic_Category" xml:space="preserve">
     <value>1. Основное</value>
+  </data>
+  <data name="ConversationMode_DisplayName" xml:space="preserve">
+    <value>Режим разговора</value>
+  </data>
+  <data name="CurrentLoadingTip_DisplayName" xml:space="preserve">
+    <value>Советы при загрузке</value>
+  </data>
+  <data name="DebugName_DisplayName" xml:space="preserve">
+    <value>Временное имя</value>
   </data>
   <data name="DependentDLC_DisplayName" xml:space="preserve">
     <value>Имеющиеся DLC</value>
@@ -157,19 +169,37 @@
     <value>Позиция</value>
   </data>
   <data name="ME1Plot_DisplayName" xml:space="preserve">
-    <value>Точки ME1</value>
+    <value>Решения ME1</value>
   </data>
   <data name="ObjectiveMarkers_DisplayName" xml:space="preserve">
     <value>Маркеры заданий</value>
   </data>
+  <data name="Pawns_DisplayName" xml:space="preserve">
+    <value>Заложники</value>
+  </data>
+  <data name="Placeables_DisplayName" xml:space="preserve">
+    <value>Переменные</value>
+  </data>
+  <data name="PlayerVariables_DisplayName" xml:space="preserve">
+    <value>Решения игрока</value>
+  </data>
   <data name="Player_DisplayName" xml:space="preserve">
     <value>Игрок</value>
+  </data>
+  <data name="Plot_Category" xml:space="preserve">
+    <value>4. Сюжет</value>
+  </data>
+  <data name="Plot_DisplayName" xml:space="preserve">
+    <value>Решения</value>
   </data>
   <data name="Rotation_DisplayName" xml:space="preserve">
     <value>Поворот</value>
   </data>
+  <data name="SavedObjectiveText_DisplayName" xml:space="preserve">
+    <value>Сохранённый текст заданий</value>
+  </data>
   <data name="SecondsPlayed_DisplayName" xml:space="preserve">
-    <value>Сыграно секунд</value>
+    <value>Секунд в игре</value>
   </data>
   <data name="Squad_Category" xml:space="preserve">
     <value>3. Отряд</value>
@@ -178,7 +208,7 @@
     <value>Поток</value>
   </data>
   <data name="TimeStamp_DisplayName" xml:space="preserve">
-    <value>Штамп времени</value>
+    <value>История прохождения</value>
   </data>
   <data name="Treasures_DisplayName" xml:space="preserve">
     <value>Сокровища</value>
@@ -187,6 +217,6 @@
     <value>5. Вне категорий</value>
   </data>
   <data name="UseModules_DisplayName" xml:space="preserve">
-    <value>Использование модулей</value>
+    <value>Использованные модули</value>
   </data>
 </root>

@@ -123,6 +123,24 @@
   <data name="CurrentRank_DisplayName" xml:space="preserve">
     <value>Ранг умения</value>
   </data>
+  <data name="EvolvedChoice0_DisplayName" xml:space="preserve">
+    <value>Вариант ранга #1</value>
+  </data>
+  <data name="EvolvedChoice1_DisplayName" xml:space="preserve">
+    <value>Вариант ранга #2</value>
+  </data>
+  <data name="EvolvedChoice2_DisplayName" xml:space="preserve">
+    <value>Вариант ранга #3</value>
+  </data>
+  <data name="EvolvedChoice3_DisplayName" xml:space="preserve">
+    <value>Вариант ранга #4</value>
+  </data>
+  <data name="EvolvedChoice4_DisplayName" xml:space="preserve">
+    <value>Вариант ранга #5</value>
+  </data>
+  <data name="EvolvedChoice5_DisplayName" xml:space="preserve">
+    <value>Вариант ранга #6</value>
+  </data>
   <data name="Name_DisplayName" xml:space="preserve">
     <value>Имя</value>
   </data>

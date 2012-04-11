@@ -111,6 +111,7 @@
             // 
             // deleteCareerButton
             // 
+            this.deleteCareerButton.Image = global::Gibbed.MassEffect3.SaveEdit.Properties.Resources.SavePIcker_Career_Delete;
             resources.ApplyResources(this.deleteCareerButton, "deleteCareerButton");
             this.deleteCareerButton.Name = "deleteCareerButton";
             this.deleteCareerButton.Click += new System.EventHandler(this.OnDeleteCareer);
@@ -119,6 +120,7 @@
             // 
             this.refreshButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.refreshButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.refreshButton.Image = global::Gibbed.MassEffect3.SaveEdit.Properties.Resources.SavePicker_Career_Refresh;
             resources.ApplyResources(this.refreshButton, "refreshButton");
             this.refreshButton.Name = "refreshButton";
             this.refreshButton.Click += new System.EventHandler(this.OnRefresh);
@@ -157,6 +159,7 @@
             // 
             // deleteSaveButton
             // 
+            this.deleteSaveButton.Image = global::Gibbed.MassEffect3.SaveEdit.Properties.Resources.SavePicker_Save_Delete;
             resources.ApplyResources(this.deleteSaveButton, "deleteSaveButton");
             this.deleteSaveButton.Name = "deleteSaveButton";
             this.deleteSaveButton.Click += new System.EventHandler(this.OnDeleteSave);
@@ -164,6 +167,7 @@
             // loadFileButton
             // 
             this.loadFileButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.loadFileButton.Image = global::Gibbed.MassEffect3.SaveEdit.Properties.Resources.SavePicker_Save_File_Load;
             resources.ApplyResources(this.loadFileButton, "loadFileButton");
             this.loadFileButton.Name = "loadFileButton";
             this.loadFileButton.Click += new System.EventHandler(this.OnChooseSave);
@@ -171,6 +175,7 @@
             // saveFileButton
             // 
             this.saveFileButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.saveFileButton.Image = global::Gibbed.MassEffect3.SaveEdit.Properties.Resources.SavePicker_Save_File_Save;
             resources.ApplyResources(this.saveFileButton, "saveFileButton");
             this.saveFileButton.Name = "saveFileButton";
             this.saveFileButton.Click += new System.EventHandler(this.OnChooseSave);
@@ -178,6 +183,7 @@
             // cancelButton
             // 
             this.cancelButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.cancelButton.Image = global::Gibbed.MassEffect3.SaveEdit.Properties.Resources.SavePicker_Cancel;
             resources.ApplyResources(this.cancelButton, "cancelButton");
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Click += new System.EventHandler(this.OnCancel);

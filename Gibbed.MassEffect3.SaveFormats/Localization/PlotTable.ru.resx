@@ -117,11 +117,26 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="BoolVariablesWrapper_DisplayName" xml:space="preserve">
+    <value>Логические переменные</value>
+  </data>
+  <data name="BoolVariables_DisplayName" xml:space="preserve">
+    <value>Логические переменные</value>
+  </data>
+  <data name="CodexEntries_DisplayName" xml:space="preserve">
+    <value>Записи кодекса</value>
+  </data>
+  <data name="CodexIDs_DisplayName" xml:space="preserve">
+    <value>ID страниц кодекса</value>
+  </data>
   <data name="FloatVariablePair_Index_DisplayName" xml:space="preserve">
     <value>Индекс</value>
   </data>
   <data name="FloatVariablePair_Value_DisplayName" xml:space="preserve">
     <value>Значение</value>
+  </data>
+  <data name="FloatVariables_DisplayName" xml:space="preserve">
+    <value>Плавающие переменные</value>
   </data>
   <data name="Helpers_DisplayName" xml:space="preserve">
     <value>Известные переменные</value>
@@ -132,10 +147,37 @@
   <data name="IntVariablePair_Value_DisplayName" xml:space="preserve">
     <value>Значение</value>
   </data>
+  <data name="IntVariables_DisplayName" xml:space="preserve">
+    <value>Прочие переменные</value>
+  </data>
+  <data name="PlotCodex_Pages_DisplayName" xml:space="preserve">
+    <value>Страницы</value>
+  </data>
+  <data name="PlotCodex_PlotCodexPage_IsNew_DisplayName" xml:space="preserve">
+    <value>Не прочитано</value>
+  </data>
+  <data name="PlotCodex_PlotCodexPage_Page_DisplayName" xml:space="preserve">
+    <value>Страница</value>
+  </data>
+  <data name="PlotQuest_ActiveGoal_DisplayName" xml:space="preserve">
+    <value>Активная цель</value>
+  </data>
   <data name="PlotQuest_History_DisplayName" xml:space="preserve">
     <value>История</value>
   </data>
+  <data name="PlotQuest_QuestCounter_DisplayName" xml:space="preserve">
+    <value>Порядковый номер квеста</value>
+  </data>
+  <data name="PlotQuest_QuestUpdated_DisplayName" xml:space="preserve">
+    <value>Квест обновлён</value>
+  </data>
   <data name="QuestIDs_DisplayName" xml:space="preserve">
     <value>ID квестов</value>
+  </data>
+  <data name="QuestProgressCounter_DisplayName" xml:space="preserve">
+    <value>Количество выполненных квестов</value>
+  </data>
+  <data name="QuestProgress_DisplayName" xml:space="preserve">
+    <value>Прогресс квестов</value>
   </data>
 </root>

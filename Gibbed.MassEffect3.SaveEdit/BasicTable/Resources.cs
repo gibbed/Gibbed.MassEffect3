@@ -33,7 +33,7 @@ namespace Gibbed.MassEffect3.SaveEdit.BasicTable
             {
                 new TableItem()
                 {
-                    Name = SaveEdit.Resources.Localization.Editor_BasicTable_Resources_Credits,
+                    Name = Properties.Localization.Editor_BasicTable_Resources_Credits,
                     Control = new NumericUpDown()
                     {
                         Minimum = int.MinValue,
@@ -43,14 +43,14 @@ namespace Gibbed.MassEffect3.SaveEdit.BasicTable
                     },
                     Binding =
                         new Binding("Value",
-                                    editor.saveFileBindingSource,
+                                    editor._RootSaveFileBindingSource,
                                     "Player.Credits",
                                     true,
                                     DataSourceUpdateMode.OnPropertyChanged)
                 },
                 new TableItem()
                 {
-                    Name = SaveEdit.Resources.Localization.Editor_BasicTable_Resources_Medigel,
+                    Name = Properties.Localization.Editor_BasicTable_Resources_Medigel,
                     Control = new NumericUpDown()
                     {
                         Minimum = int.MinValue,
@@ -60,14 +60,14 @@ namespace Gibbed.MassEffect3.SaveEdit.BasicTable
                     },
                     Binding =
                         new Binding("Value",
-                                    editor.saveFileBindingSource,
+                                    editor._RootSaveFileBindingSource,
                                     "Player.Medigel",
                                     true,
                                     DataSourceUpdateMode.OnPropertyChanged)
                 },
                 new TableItem()
                 {
-                    Name = SaveEdit.Resources.Localization.Editor_BasicTable_Resources_ExtraMedigel,
+                    Name = Properties.Localization.Editor_BasicTable_Resources_ExtraMedigel,
                     Control = new NumericUpDown()
                     {
                         Minimum = int.MinValue,
@@ -77,14 +77,14 @@ namespace Gibbed.MassEffect3.SaveEdit.BasicTable
                     },
                     Binding =
                         new Binding("Value",
-                                    editor.saveFileBindingSource,
+                                    editor._RootSaveFileBindingSource,
                                     "Plot.Helpers.ExtraMedigel",
                                     true,
                                     DataSourceUpdateMode.OnPropertyChanged)
                 },
                 new TableItem()
                 {
-                    Name = SaveEdit.Resources.Localization.Editor_BasicTable_Resources_Grenades,
+                    Name = Properties.Localization.Editor_BasicTable_Resources_Grenades,
                     Control = new NumericUpDown()
                     {
                         Minimum = int.MinValue,
@@ -94,7 +94,7 @@ namespace Gibbed.MassEffect3.SaveEdit.BasicTable
                     },
                     Binding =
                         new Binding("Value",
-                                    editor.saveFileBindingSource,
+                                    editor._RootSaveFileBindingSource,
                                     "Player.Grenades",
                                     true,
                                     DataSourceUpdateMode.OnPropertyChanged)

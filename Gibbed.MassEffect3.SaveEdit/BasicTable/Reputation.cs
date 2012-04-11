@@ -33,7 +33,7 @@ namespace Gibbed.MassEffect3.SaveEdit.BasicTable
             {
                 new TableItem()
                 {
-                    Name = SaveEdit.Resources.Localization.Editor_BasicTable_Reputation_ParagonPoints,
+                    Name = Properties.Localization.Editor_BasicTable_Reputation_ParagonPoints,
                     Control = new NumericUpDown()
                     {
                         Minimum = int.MinValue,
@@ -43,14 +43,14 @@ namespace Gibbed.MassEffect3.SaveEdit.BasicTable
                     },
                     Binding =
                         new Binding("Value",
-                                    editor.saveFileBindingSource,
+                                    editor._RootSaveFileBindingSource,
                                     "Plot.Helpers.ParagonPoints",
                                     true,
                                     DataSourceUpdateMode.OnPropertyChanged)
                 },
                 new TableItem()
                 {
-                    Name = SaveEdit.Resources.Localization.Editor_BasicTable_Reputation_RenegadePoints,
+                    Name = Properties.Localization.Editor_BasicTable_Reputation_RenegadePoints,
                     Control = new NumericUpDown()
                     {
                         Minimum = int.MinValue,
@@ -60,14 +60,14 @@ namespace Gibbed.MassEffect3.SaveEdit.BasicTable
                     },
                     Binding =
                         new Binding("Value",
-                                    editor.saveFileBindingSource,
+                                    editor._RootSaveFileBindingSource,
                                     "Plot.Helpers.RenegadePoints",
                                     true,
                                     DataSourceUpdateMode.OnPropertyChanged)
                 },
                 new TableItem()
                 {
-                    Name = SaveEdit.Resources.Localization.Editor_BasicTable_Reputation_Reputation,
+                    Name = Properties.Localization.Editor_BasicTable_Reputation_Reputation,
                     Control = new NumericUpDown()
                     {
                         Minimum = int.MinValue,
@@ -77,14 +77,14 @@ namespace Gibbed.MassEffect3.SaveEdit.BasicTable
                     },
                     Binding =
                         new Binding("Value",
-                                    editor.saveFileBindingSource,
+                                    editor._RootSaveFileBindingSource,
                                     "Plot.Helpers.Reputation",
                                     true,
                                     DataSourceUpdateMode.OnPropertyChanged)
                 },
                 new TableItem()
                 {
-                    Name = SaveEdit.Resources.Localization.Editor_BasicTable_Reputation_ReputationPoints,
+                    Name = Properties.Localization.Editor_BasicTable_Reputation_ReputationPoints,
                     Control = new NumericUpDown()
                     {
                         Minimum = int.MinValue,
@@ -94,7 +94,7 @@ namespace Gibbed.MassEffect3.SaveEdit.BasicTable
                     },
                     Binding =
                         new Binding("Value",
-                                    editor.saveFileBindingSource,
+                                    editor._RootSaveFileBindingSource,
                                     "Plot.Helpers.ReputationPoints",
                                     true,
                                     DataSourceUpdateMode.OnPropertyChanged)

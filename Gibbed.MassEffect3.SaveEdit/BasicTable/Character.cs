@@ -33,21 +33,21 @@ namespace Gibbed.MassEffect3.SaveEdit.BasicTable
             {
                 new TableItem()
                 {
-                    Name = SaveEdit.Resources.Localization.Editor_BasicTable_Character_Name,
+                    Name = Properties.Localization.Editor_BasicTable_Character_Name,
                     Control = new TextBox()
                     {
                         Dock = DockStyle.Fill,
                     },
                     Binding =
                         new Binding("Text",
-                                    editor.saveFileBindingSource,
+                                    editor._RootSaveFileBindingSource,
                                     "Player.FirstName",
                                     true,
                                     DataSourceUpdateMode.OnPropertyChanged)
                 },
                 new TableItem()
                 {
-                    Name = SaveEdit.Resources.Localization.Editor_BasicTable_Character_Level,
+                    Name = Properties.Localization.Editor_BasicTable_Character_Level,
                     Control = new NumericUpDown()
                     {
                         Minimum = 1,
@@ -57,14 +57,14 @@ namespace Gibbed.MassEffect3.SaveEdit.BasicTable
                     },
                     Binding =
                         new Binding("Value",
-                                    editor.saveFileBindingSource,
+                                    editor._RootSaveFileBindingSource,
                                     "Player.Level",
                                     true,
                                     DataSourceUpdateMode.OnPropertyChanged)
                 },
                 new TableItem()
                 {
-                    Name = SaveEdit.Resources.Localization.Editor_BasicTable_Character_Class,
+                    Name = Properties.Localization.Editor_BasicTable_Character_Class,
                     Control = new ComboBox()
                     {
                         DropDownStyle = ComboBoxStyle.DropDownList,
@@ -75,14 +75,14 @@ namespace Gibbed.MassEffect3.SaveEdit.BasicTable
                     },
                     Binding =
                         new Binding("SelectedValue",
-                                    editor.saveFileBindingSource,
+                                    editor._RootSaveFileBindingSource,
                                     "Player.ClassName",
                                     true,
                                     DataSourceUpdateMode.OnPropertyChanged)
                 },
                 new TableItem()
                 {
-                    Name = SaveEdit.Resources.Localization.Editor_BasicTable_Character_Gender,
+                    Name = Properties.Localization.Editor_BasicTable_Character_Gender,
                     Control = new ComboBox()
                     {
                         DropDownStyle = ComboBoxStyle.DropDownList,
@@ -93,14 +93,14 @@ namespace Gibbed.MassEffect3.SaveEdit.BasicTable
                     },
                     Binding =
                         new Binding("SelectedValue",
-                                    editor.saveFileBindingSource,
+                                    editor._RootSaveFileBindingSource,
                                     "Player.IsFemale",
                                     true,
                                     DataSourceUpdateMode.OnPropertyChanged)
                 },
                 new TableItem()
                 {
-                    Name = SaveEdit.Resources.Localization.Editor_BasicTable_Character_Origin,
+                    Name = Properties.Localization.Editor_BasicTable_Character_Origin,
                     Control = new ComboBox()
                     {
                         DropDownStyle = ComboBoxStyle.DropDownList,
@@ -111,14 +111,14 @@ namespace Gibbed.MassEffect3.SaveEdit.BasicTable
                     },
                     Binding =
                         new Binding("SelectedValue",
-                                    editor.saveFileBindingSource,
+                                    editor._RootSaveFileBindingSource,
                                     "Player.Origin",
                                     true,
                                     DataSourceUpdateMode.OnPropertyChanged)
                 },
                 new TableItem()
                 {
-                    Name = SaveEdit.Resources.Localization.Editor_BasicTable_Character_Notoriety,
+                    Name = Properties.Localization.Editor_BasicTable_Character_Notoriety,
                     Control = new ComboBox()
                     {
                         DropDownStyle = ComboBoxStyle.DropDownList,
@@ -129,14 +129,14 @@ namespace Gibbed.MassEffect3.SaveEdit.BasicTable
                     },
                     Binding =
                         new Binding("SelectedValue",
-                                    editor.saveFileBindingSource,
+                                    editor._RootSaveFileBindingSource,
                                     "Player.Notoriety",
                                     true,
                                     DataSourceUpdateMode.OnPropertyChanged)
                 },
                 new TableItem()
                 {
-                    Name = SaveEdit.Resources.Localization.Editor_BasicTable_Character_TalentPoints,
+                    Name = Properties.Localization.Editor_BasicTable_Character_TalentPoints,
                     Control = new NumericUpDown()
                     {
                         Minimum = int.MinValue,
@@ -146,7 +146,7 @@ namespace Gibbed.MassEffect3.SaveEdit.BasicTable
                     },
                     Binding =
                         new Binding("Value",
-                                    editor.saveFileBindingSource,
+                                    editor._RootSaveFileBindingSource,
                                     "Player.TalentPoints",
                                     true,
                                     DataSourceUpdateMode.OnPropertyChanged)

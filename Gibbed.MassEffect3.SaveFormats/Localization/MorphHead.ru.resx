@@ -117,8 +117,35 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AccessoryMeshes_DisplayName" xml:space="preserve">
+    <value>Аксессуары</value>
+  </data>
+  <data name="HairMesh_DisplayName" xml:space="preserve">
+    <value>Модель волос</value>
+  </data>
+  <data name="Lod0Vertices_DisplayName" xml:space="preserve">
+    <value>LOD-координаты #0</value>
+  </data>
+  <data name="Lod1Vertices_DisplayName" xml:space="preserve">
+    <value>LOD-координаты #1</value>
+  </data>
+  <data name="Lod2Vertices_DisplayName" xml:space="preserve">
+    <value>LOD-координаты #2</value>
+  </data>
+  <data name="Lod3Vertices_DisplayName" xml:space="preserve">
+    <value>LOD-координаты #3</value>
+  </data>
+  <data name="MorphFeatures_DisplayName" xml:space="preserve">
+    <value>Особенности модели</value>
+  </data>
+  <data name="MorphFeature_Feature_DisplayName" xml:space="preserve">
+    <value>Особенности</value>
+  </data>
   <data name="MorphFeature_Offset_DisplayName" xml:space="preserve">
     <value>Смещение</value>
+  </data>
+  <data name="OffsetBones_DisplayName" xml:space="preserve">
+    <value>Смещение черт лица</value>
   </data>
   <data name="OffsetBone_Name_DisplayName" xml:space="preserve">
     <value>Имя</value>
@@ -126,17 +153,26 @@
   <data name="OffsetBone_Offset_DisplayName" xml:space="preserve">
     <value>Смещение</value>
   </data>
+  <data name="ScalarParameters_DisplayName" xml:space="preserve">
+    <value>Скалярные параметры</value>
+  </data>
   <data name="ScalarParameter_Name_DisplayName" xml:space="preserve">
     <value>Имя</value>
   </data>
   <data name="ScalarParameter_Value_DisplayName" xml:space="preserve">
     <value>Значение</value>
   </data>
+  <data name="TextureParameters_DisplayName" xml:space="preserve">
+    <value>Параметры текстур</value>
+  </data>
   <data name="TextureParameter_Name_DisplayName" xml:space="preserve">
     <value>Имя</value>
   </data>
   <data name="TextureParameter_Value_DisplayName" xml:space="preserve">
     <value>Значение</value>
+  </data>
+  <data name="VectorParameters_DisplayName" xml:space="preserve">
+    <value>Параметры векторов</value>
   </data>
   <data name="VectorParameter_Name_DisplayName" xml:space="preserve">
     <value>Имя</value>

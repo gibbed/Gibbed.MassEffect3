@@ -117,8 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Wrex" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Wrex.gif;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="BoneToAttachTo_DisplayName" xml:space="preserve">
+    <value>Маркер прикреплён к</value>
+  </data>
+  <data name="MarkerIconType_DisplayName" xml:space="preserve">
+    <value>Тип иконки маркера</value>
+  </data>
+  <data name="MarkerLabel_DisplayName" xml:space="preserve">
+    <value>Подсказка к маркеру</value>
+  </data>
+  <data name="MarkerOffset_DisplayName" xml:space="preserve">
+    <value>Смещение маркера</value>
+  </data>
+  <data name="MarkerOwnerPath_DisplayName" xml:space="preserve">
+    <value>Маркер назначен</value>
   </data>
 </root>

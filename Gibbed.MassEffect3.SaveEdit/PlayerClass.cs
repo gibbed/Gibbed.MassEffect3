@@ -39,18 +39,18 @@ namespace Gibbed.MassEffect3.SaveEdit
         {
             var classes = new List<PlayerClass>
             {
-                new PlayerClass("SFXGame.SFXPawn_PlayerAdept", Resources.Localization.PlayerClass_Adept),
-                new PlayerClass("SFXGame.SFXPawn_PlayerEngineer", Resources.Localization.PlayerClass_Engineer),
-                new PlayerClass("SFXGame.SFXPawn_PlayerInfiltrator", Resources.Localization.PlayerClass_Infiltrator),
-                new PlayerClass("SFXGame.SFXPawn_PlayerSentinel", Resources.Localization.PlayerClass_Sentinel),
-                new PlayerClass("SFXGame.SFXPawn_PlayerSoldier", Resources.Localization.PlayerClass_Soldier),
-                new PlayerClass("SFXGame.SFXPawn_PlayerVanguard", Resources.Localization.PlayerClass_Vanguard),
-                new PlayerClass("SFXGame.SFXPawn_PlayerAdeptNonCombat", Resources.Localization.PlayerClass_AdeptNonCombat),
-                new PlayerClass("SFXGame.SFXPawn_PlayerEngineerNonCombat", Resources.Localization.PlayerClass_EngineerNonCombat),
-                new PlayerClass("SFXGame.SFXPawn_PlayerInfiltratorNonCombat", Resources.Localization.PlayerClass_InfiltratorNonCombat),
-                new PlayerClass("SFXGame.SFXPawn_PlayerSentinelNonCombat", Resources.Localization.PlayerClass_SentinelNonCombat),
-                new PlayerClass("SFXGame.SFXPawn_PlayerSoldierNonCombat", Resources.Localization.PlayerClass_SoldierNonCombat),
-                new PlayerClass("SFXGame.SFXPawn_PlayerVanguardNonCombat", Resources.Localization.PlayerClass_VanguardNonCombat),
+                new PlayerClass("SFXGame.SFXPawn_PlayerAdept", Properties.Localization.PlayerClass_Adept),
+                new PlayerClass("SFXGame.SFXPawn_PlayerEngineer", Properties.Localization.PlayerClass_Engineer),
+                new PlayerClass("SFXGame.SFXPawn_PlayerInfiltrator", Properties.Localization.PlayerClass_Infiltrator),
+                new PlayerClass("SFXGame.SFXPawn_PlayerSentinel", Properties.Localization.PlayerClass_Sentinel),
+                new PlayerClass("SFXGame.SFXPawn_PlayerSoldier", Properties.Localization.PlayerClass_Soldier),
+                new PlayerClass("SFXGame.SFXPawn_PlayerVanguard", Properties.Localization.PlayerClass_Vanguard),
+                new PlayerClass("SFXGame.SFXPawn_PlayerAdeptNonCombat", Properties.Localization.PlayerClass_AdeptNonCombat),
+                new PlayerClass("SFXGame.SFXPawn_PlayerEngineerNonCombat", Properties.Localization.PlayerClass_EngineerNonCombat),
+                new PlayerClass("SFXGame.SFXPawn_PlayerInfiltratorNonCombat", Properties.Localization.PlayerClass_InfiltratorNonCombat),
+                new PlayerClass("SFXGame.SFXPawn_PlayerSentinelNonCombat", Properties.Localization.PlayerClass_SentinelNonCombat),
+                new PlayerClass("SFXGame.SFXPawn_PlayerSoldierNonCombat", Properties.Localization.PlayerClass_SoldierNonCombat),
+                new PlayerClass("SFXGame.SFXPawn_PlayerVanguardNonCombat", Properties.Localization.PlayerClass_VanguardNonCombat),
             };
             return classes;
         }

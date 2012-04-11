@@ -325,62 +325,17 @@
   <data name="deleteSaveButton.Text" xml:space="preserve">
     <value>Удалить сохранение</value>
   </data>
-  <data name="loadFileButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIoSURBVDhPrZJPaBNREMYnIZUWtls2S1obqzUJxkKNiooi
-        VUMaTUFIoKlQC5WCXnP0KnjTggcvXkRTrG6TRpqC/0gVu0ojVEqUSuKfHHLIg+SQ8y65LOO8BFy2DT05
-        8GNnZ77vezx4AP+9lmQ3LLsSkHEtQUbOt6Gez/huz0rL0e6VQfXExjiL/Z7RxremjBDB++MbIdZFOyBN
-        5wxFjgqrnkKkOKfHy7cw9nPOwuSfmxgp3tCF7OECkNYa8kR2dymDaqQ4q098v46Rb9O7OP/5Koa+xvHK
-        j2mda4E8ZkjSmRh5P8bCW9fw4pfYLk5/uIy8ktVUK+TI2ikG5DEDHvelguqkdnZ9AgNvLyH/nlwLoX/1
-        HA69CGC1WkXGGNbrdXQl/ehTzmhAHjPgUV8+qAaN0dcXsNls4lA6gM5FH0oLXqxUKq2AWq2GUtKL0jMv
-        HsgcM4A8ZsDDdsDir2UslUrYaDRQUnaYn5M502YgO2IAecyAB70p/8cxzZn1tQLK5bL15DQZ35gIikcD
-        8pgB98WEnB5mrk9+lFZ2nEz/0roVx0I/A/KYAfM9btt8ryrmjurOTbr7K2/7zvSVNq2IuWGda4E81rdw
-        pydqvycUxJxHd25TyDsyblsRc4d0rgHSdn6N8X1R2+1u1fFUZoJ6UJNUj8HhPZ/xHZCmk9lBwwFiFNwQ
-        hrDtLszYXsKsPd+C93zGdwABYj/BPf/KTp1A9BP8bnvBD+Ja7oG/xJhbBLpUKi8AAAAASUVORK5CYII=
-</value>
-  </data>
   <data name="loadFileButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>81, 22</value>
   </data>
   <data name="loadFileButton.Text" xml:space="preserve">
     <value>Загрузить</value>
   </data>
-  <data name="saveFileButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIoSURBVDhPrZJPaBNREMYnIZUWtim7S1obqzUJxkKNiooi
-        VUMaTUFIoKFQC5WCXnP0KnjTggcvXkRTrG6TRpqC/0gVu0ojVDRKJamaQw55kBxy3iWXZZyXgMu2oScH
-        fuzszPd9jwcP4L/XkuyGZVcCMq4lyMj5NtTzGd/tWWk52r0yqJ7YGGex3zNa+NuUMU7w/vhGiHXRDkjT
-        OUORo8KqpxApzunx8k2Mbc9ZmPxzAyPF67qQPVwA0lpDHsvuLmVQjRRn9Ykf1zDyfXoX5z9dxdCXOF75
-        Oa1zLZDHDElKiZF3Yyz8dQovfo7t4vT7y8grWU21Qo6snWJAHjPgUV8qqE5qZ9cnMPDmEvLvybUQ+lfP
-        4dDzAFarVWSMYb1eR1fSjz7ljAbkMQMe9uWDatAYfXUBm80mDqUDKC36UFzwYqVSaQXUajUUk14Un3rx
-        QOaYAeQxAx60AxZ/LWOpVMJGo4GissP8jMyZNgPZEQPIYwbc7035P4xpUtbXCiiXy9aT02R8bSIoHg3I
-        Ywbccybk9DBzffSjuLLjZPoX1604FvoZkMcMmO9x2+Z7VWfuqC5t0t1fett3pq+4acWZG9a5FshjfQu3
-        e6L2u0LBmfPo0haFvCXjlhVn7pDONUDazq8xvi9qu9WtOp7ITFAPaqLqMTi85zO+A9J0MjtoOECMghvC
-        ELbdgRnbC5i151vwns/4DiBA7Ce451/ZqROIfoLfbS/4QVzLPfAX2SxbCls31tIAAAAASUVORK5CYII=
-</value>
-  </data>
   <data name="saveFileButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>85, 22</value>
   </data>
   <data name="saveFileButton.Text" xml:space="preserve">
     <value>Сохранить</value>
-  </data>
-  <data name="cancelButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIKSURBVDhPrVLPSxthEB1DBIVFjD/SUPAkBEHqQQ85BhQU
-        D6LJQQwp+A949FrorRV66KWX1mp7SGpNJSBRpIV+lHqQYiKLEq35cciWNM0ht2xOyzhvWZcEgqcOPHZ2
-        5r33zex+RP87kkSPPxNt7BMlBacOkqih9+B5e0RLB/396jwUMuqxWLMQjVq3kYj1T/Lz6WkDPXC6miSk
-        kR4czNbicfPv+job8XgHUPuztmamNS0LbofJtoy219enrlZXzd+RCCOul5c7gNrNygpfzc+bid5eBY1r
-        siP7/ZQR9cVFW3wfv2ZnGWiPi4UF/joxYUDjGrwl+nQZDjdVKMSp8XGb32q1uFarcblc5kKhwKVSid/5
-        fPzB7+dMMNiExjV4I19bhcPWt5kZPpma4t3hYc7lcqzrOufzeS4Wi7wj4o8OvoyNWdC4Bq8dg6NgkFMj
-        I7wvxHZxpVKxa/dIBwIWNK7BKxlHyViZoSHOdBFXq1Wu1+t2D0hoWhMa1+AlLs7oaOWH7Nd+8oGQAYgb
-        jYaN7/K+6/Ua0LgGW/JLtnp61MnAgHkoU2DnQyGeOUAOMZ7ggAtNx114JpfjhceTBeFYTHSs0oZjRwwO
-        uF1vY1Qam+L+XkZUsqfy+SwbkqOGHjjdxF4pPhJMylxzc0TPY0Spp/KlAeSooSecJ4KAABo3PJJpAr8A
-        uz0EHAQuNHQHFitq0xQk6CkAAAAASUVORK5CYII=
-</value>
   </data>
   <data name="cancelButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>69, 22</value>

@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AssaultRifle_DisplayName" xml:space="preserve">
+    <value>Штурмовая винтовка</value>
+  </data>
+  <data name="HeavyWeapon_DisplayName" xml:space="preserve">
+    <value>Тяжёлое оружие</value>
+  </data>
   <data name="Pistol_DisplayName" xml:space="preserve">
     <value>Пистолет</value>
   </data>
@@ -125,5 +131,8 @@
   </data>
   <data name="SniperRifle_DisplayName" xml:space="preserve">
     <value>Снайперская винтовка</value>
+  </data>
+  <data name="SubmachineGun_DisplayName" xml:space="preserve">
+    <value>Пистолет-пулемёт</value>
   </data>
 </root>

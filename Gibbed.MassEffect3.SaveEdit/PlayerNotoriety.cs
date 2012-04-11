@@ -39,10 +39,10 @@ namespace Gibbed.MassEffect3.SaveEdit
         {
             var notorieties = new List<PlayerNotoriety>
             {
-                new PlayerNotoriety(SaveFormats.NotorietyType.None, Resources.Localization.PlayerNotoriety_None),
-                new PlayerNotoriety(SaveFormats.NotorietyType.Ruthless, Resources.Localization.PlayerNotoriety_Ruthless),
-                new PlayerNotoriety(SaveFormats.NotorietyType.Survivor, Resources.Localization.PlayerNotoriety_Survivor),
-                new PlayerNotoriety(SaveFormats.NotorietyType.Warhero, Resources.Localization.PlayerNotoriety_Warhero),
+                new PlayerNotoriety(SaveFormats.NotorietyType.None, Properties.Localization.PlayerNotoriety_None),
+                new PlayerNotoriety(SaveFormats.NotorietyType.Ruthless, Properties.Localization.PlayerNotoriety_Ruthless),
+                new PlayerNotoriety(SaveFormats.NotorietyType.Survivor, Properties.Localization.PlayerNotoriety_Survivor),
+                new PlayerNotoriety(SaveFormats.NotorietyType.Warhero, Properties.Localization.PlayerNotoriety_Warhero),
             };
             return notorieties;
         }

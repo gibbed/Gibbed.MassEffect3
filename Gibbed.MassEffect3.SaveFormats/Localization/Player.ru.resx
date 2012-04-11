@@ -120,6 +120,9 @@
   <data name="Appearance_DisplayName" xml:space="preserve">
     <value>Внешний вид</value>
   </data>
+  <data name="ClassFriendlyName_DisplayName" xml:space="preserve">
+    <value>Понятное имя класса</value>
+  </data>
   <data name="ClassName_DisplayName" xml:space="preserve">
     <value>Класс</value>
   </data>
@@ -176,6 +179,15 @@
   </data>
   <data name="LoadoutWeapons_DisplayName" xml:space="preserve">
     <value>Выбранное оружие</value>
+  </data>
+  <data name="MappedPower1_DisplayName" xml:space="preserve">
+    <value>Сопоставленное умение #1</value>
+  </data>
+  <data name="MappedPower2_DisplayName" xml:space="preserve">
+    <value>Сопоставленное умение #2</value>
+  </data>
+  <data name="MappedPower3_DisplayName" xml:space="preserve">
+    <value>Сопоставленное умение #3</value>
   </data>
   <data name="Medigel_DisplayName" xml:space="preserve">
     <value>Медигель</value>

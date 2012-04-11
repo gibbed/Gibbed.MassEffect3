@@ -27,7 +27,6 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using Gibbed.MassEffect3.SaveEdit.Resources;
 
 namespace Gibbed.MassEffect3.SaveEdit
 {
@@ -72,7 +71,7 @@ namespace Gibbed.MassEffect3.SaveEdit
             this.careerListView.Items.Clear();
             this.careerListView.Items.Add(new ListViewItem()
             {
-                Text = Localization.SavePicker_NewCareerLabel,
+                Text = Properties.Localization.SavePicker_NewCareerLabel,
                 // ReSharper disable LocalizableElement
                 ImageKey = "New",
                 // ReSharper restore LocalizableElement
@@ -81,7 +80,7 @@ namespace Gibbed.MassEffect3.SaveEdit
             this.saveListView.Items.Clear();
             this.saveListView.Items.Add(new ListViewItem()
             {
-                Text = Localization.SavePicker_NewSaveLabel,
+                Text = Properties.Localization.SavePicker_NewSaveLabel,
                 // ReSharper disable LocalizableElement
                 ImageKey = "New",
                 // ReSharper restore LocalizableElement
@@ -337,7 +336,7 @@ namespace Gibbed.MassEffect3.SaveEdit
                         // ReSharper disable LocalizableElement
                         Name = "New Career",
                         // ReSharper restore LocalizableElement
-                        Text = Localization.SavePicker_NewCareerLabel,
+                        Text = Properties.Localization.SavePicker_NewCareerLabel,
                         // ReSharper disable LocalizableElement
                         ImageKey = "New",
                         // ReSharper restore LocalizableElement
@@ -351,7 +350,7 @@ namespace Gibbed.MassEffect3.SaveEdit
                         // ReSharper disable LocalizableElement
                         Name = "New Career",
                         // ReSharper restore LocalizableElement
-                        Text = Localization.SavePicker_NewCareerLabel,
+                        Text = Properties.Localization.SavePicker_NewCareerLabel,
                         // ReSharper disable LocalizableElement
                         ImageKey = "New",
                         // ReSharper restore LocalizableElement
@@ -384,7 +383,7 @@ namespace Gibbed.MassEffect3.SaveEdit
                     // ReSharper disable LocalizableElement
                     Name = "New Save",
                     // ReSharper restore LocalizableElement
-                    Text = Localization.SavePicker_NewSaveLabel,
+                    Text = Properties.Localization.SavePicker_NewSaveLabel,
                     // ReSharper disable LocalizableElement
                     ImageKey = "New",
                     // ReSharper restore LocalizableElement
@@ -761,8 +760,8 @@ namespace Gibbed.MassEffect3.SaveEdit
                 exists == true)
             {
                 if (MessageBox.Show(
-                    Localization.SavePicker_SaveOverwriteConfirmation,
-                    Localization.Question,
+                    Properties.Localization.SavePicker_SaveOverwriteConfirmation,
+                    Properties.Localization.Question,
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question) == DialogResult.No)
                 {
@@ -791,8 +790,8 @@ namespace Gibbed.MassEffect3.SaveEdit
             }
 
             if (MessageBox.Show(
-                Localization.SavePicker_DeleteCareerConfirmation,
-                Localization.Warning,
+                Properties.Localization.SavePicker_DeleteCareerConfirmation,
+                Properties.Localization.Warning,
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning) == DialogResult.No)
             {
@@ -818,8 +817,8 @@ namespace Gibbed.MassEffect3.SaveEdit
                 catch (IOException ex)
                 {
                     MessageBox.Show(
-                        string.Format(Localization.SavePicker_DeleteCareerIOException, ex.Message),
-                        Localization.Error,
+                        string.Format(Properties.Localization.SavePicker_DeleteCareerIOException, ex.Message),
+                        Properties.Localization.Error,
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
                 }
@@ -838,8 +837,8 @@ namespace Gibbed.MassEffect3.SaveEdit
             }
 
             if (MessageBox.Show(
-                Localization.SavePicker_DeleteSaveConfirmation,
-                Localization.Warning,
+                Properties.Localization.SavePicker_DeleteSaveConfirmation,
+                Properties.Localization.Warning,
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning) == DialogResult.No)
             {
@@ -859,8 +858,8 @@ namespace Gibbed.MassEffect3.SaveEdit
             catch (IOException ex)
             {
                 MessageBox.Show(
-                    string.Format(Localization.SavePicker_DeleteSaveIOException, ex.Message),
-                    Localization.Error,
+                    string.Format(Properties.Localization.SavePicker_DeleteSaveIOException, ex.Message),
+                    Properties.Localization.Error,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }

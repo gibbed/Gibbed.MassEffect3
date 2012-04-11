@@ -126,6 +126,9 @@
   <data name="LoadoutWeapons_DisplayName" xml:space="preserve">
     <value>Выбранное оружие</value>
   </data>
+  <data name="MappedPower_DisplayName" xml:space="preserve">
+    <value>Сопоставленное умение</value>
+  </data>
   <data name="Powers_DisplayName" xml:space="preserve">
     <value>Умения</value>
   </data>

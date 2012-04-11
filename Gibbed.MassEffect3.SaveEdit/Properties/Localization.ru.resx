@@ -352,4 +352,7 @@
   <data name="PlayerOrigin_Spacer" xml:space="preserve">
     <value>Космонавт</value>
   </data>
+  <data name="Editor_BuildRevision" xml:space="preserve">
+    <value>(Версия сборки {0} @ {1})</value>
+  </data>
 </root>
