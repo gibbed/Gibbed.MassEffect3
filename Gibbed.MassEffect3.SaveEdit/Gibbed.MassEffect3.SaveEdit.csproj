@@ -103,6 +103,7 @@
       <DependentUpon>SavePicker.cs</DependentUpon>
     </Compile>
     <Compile Include="Version.cs" />
+	<Compile Include="WriteDump.cs" />
     <EmbeddedResource Include="Editor.resx">
       <DependentUpon>Editor.cs</DependentUpon>
       <SubType>Designer</SubType>

@@ -673,6 +673,20 @@ namespace Gibbed.MassEffect3.SaveEdit
 
             this.SaveFile = saveFile;
             this.UpdatePlotEditors();
+
+            var dump = new WriteDump();
+            dump.ProcessBooleans(this.SaveFile.Plot.BoolVariables);
+            dump.WriteIt("PlotBooleans_dump.txt");
+            dump.ProcessInts(this.SaveFile.Plot.IntVariables);
+            dump.WriteIt("PlotInts_dump.txt");
+            dump.ProcessFloats(this.SaveFile.Plot.FloatVariables);
+            dump.WriteIt("PlotFloats_dump.txt");
+            dump.ProcessIntList(this.SaveFile.Plot.QuestIDs);
+            dump.WriteIt("PlotQuestIDs_dump.txt");
+            dump.ProcessGAWAssets(this.SaveFile.Player.GAWAssets);
+            dump.WriteIt("PlotGAWAssets_dump.txt");
+            //dump.ProcessIntList(this.SaveFile.Plot.CodexIDs);
+            //dump.WriteIt("PlotCodexIDs_dump.txt");
         }
 
         private void OnSaveNewMale(object sender, EventArgs e)
